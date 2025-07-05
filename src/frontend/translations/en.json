@@ -1,0 +1,158 @@
+{
+  "auth": {
+    "continueWithGoogle": "Continue with Google",
+    "signOut": "Sign Out",
+    "googleOnlyTitle": "Sign in to EZ Amiram",
+    "googleOnlySubtitle": "Use your Google account to continue."
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "home": {
+    "title": "Home",
+    "currentGrade": "Current Grade",
+    "outOf": "out of",
+    "quickLearn": "Quick Learn",
+    "quickLearnDescription": "Start a quick learning session based on your available time",
+    "fullSimulation": "Full Simulation",
+    "fullSimulationDescription": "Take a full practice test to prepare for your exam",
+    "recentProgress": "Recent Progress",
+    "learningStreak": "day streak",
+    "topics": {
+      "grammar": "Grammar",
+      "vocabulary": "Vocabulary",
+      "reading": "Reading",
+      "listening": "Listening",
+      "writing": "Writing"
+    }
+  },
+  "quickLearn": {
+    "title": "Quick Learn",
+    "selectTime": "How much time do you have?",
+    "timeOptions": {
+      "5min": "5 minutes",
+      "15min": "15 minutes",
+      "30min": "30 minutes",
+      "1hour": "1 hour"
+    },
+    "startSession": "Start Session",
+    "currentTask": "Current Task",
+    "taskDescription": "Complete the following exercise to improve your English skills.",
+    "progress": "Session Progress"
+  },
+  "simulation": {
+    "title": "Full Simulation",
+    "questionNumber": "Question {{current}} of {{total}}",
+    "previous": "Previous",
+    "next": "Next",
+    "submit": "Submit Test",
+    "completionMessage": "You've completed the simulation test. Keep practicing to improve your score!",
+    "backToHome": "Back to Home",
+    "questions": {
+      "q1": {
+        "text": "Which of the following is correct?",
+        "options": {
+          "a": "I have been to London last year",
+          "b": "I went to London last year",
+          "c": "I had went to London last year",
+          "d": "I have went to London last year"
+        }
+      }
+    }
+  },
+  "notifications": {
+    "title": "Notifications",
+    "empty": "No notifications yet"
+  },
+  "profile": {
+    "title": "Profile",
+    "learningStreak": "day streak"
+  },
+  "nav": {
+    "home": "Home",
+    "quick_learn": "Quick Learn",
+    "subjects": "Subjects",
+    "simulation": "Simulation",
+    "tips": "Tips"
+  },
+  "pages": {
+    "home": {
+      "heroTitle": "Master English with AI",
+      "heroSubtitle": "Personalized learning experience tailored just for you",
+      "currentGrade": "Current Grade",
+      "outOf": "out of",
+      "quickLearn": "Quick Learn",
+      "quickLearnDescription": "Start a quick learning session",
+      "fullSimulation": "Full Simulation",
+      "fullSimulationDescription": "Take a full practice test",
+      "recentProgress": "Recent Progress",
+      "topics": {
+        "restatement": "Restatement",
+        "restatementDescription": "Practice rephrasing sentences",
+        "sentenceCompletion": "Sentence Completion",
+        "sentenceCompletionDescription": "Complete sentences with the right words",
+        "readingComprehension": "Reading Comprehension",
+        "readingComprehensionDescription": "Understand and analyze texts"
+      }
+    },
+    "profile": {
+      "learningStreak": "Day Streak"
+    },
+    "tips": {
+      "title": "Learning Tips",
+      "subtitle": "Improve your English learning journey with these helpful tips"
+    },
+    "subjects": {
+      "title": "Learning Subjects",
+      "subtitle": "Explore different areas of English learning"
+    }
+  },
+  "tips": {
+    "daily_practice": {
+      "title": "Practice Daily",
+      "description": "Even 15 minutes of daily practice is better than longer, irregular sessions"
+    },
+    "immersion": {
+      "title": "Immerse Yourself",
+      "description": "Watch English movies, listen to podcasts, and read English content regularly"
+    },
+    "speak_aloud": {
+      "title": "Speak Out Loud",
+      "description": "Practice speaking English aloud, even when studying alone"
+    },
+    "write_regularly": {
+      "title": "Write Regularly",
+      "description": "Keep a journal in English or practice writing short stories"
+    },
+    "use_resources": {
+      "title": "Use Various Resources",
+      "description": "Combine different learning methods: apps, books, videos, and conversation practice"
+    }
+  },
+  "subjects": {
+    "grammar": {
+      "title": "Grammar",
+      "description": "Master English grammar rules and structures"
+    },
+    "vocabulary": {
+      "title": "Vocabulary",
+      "description": "Build your English vocabulary effectively"
+    },
+    "pronunciation": {
+      "title": "Pronunciation",
+      "description": "Improve your English pronunciation and accent"
+    },
+    "listening": {
+      "title": "Listening",
+      "description": "Enhance your English listening comprehension"
+    },
+    "speaking": {
+      "title": "Speaking",
+      "description": "Practice speaking English fluently"
+    },
+    "writing": {
+      "title": "Writing",
+      "description": "Develop your English writing skills"
+    }
+  }
+} 

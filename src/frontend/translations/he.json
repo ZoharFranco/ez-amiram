@@ -1,0 +1,137 @@
+{
+  "landing": {
+    "hero": {
+      "subtext": "סמוך על שרוך הבטחה מוצלחת",
+      "title": "רוצה להגיע מוכן לאמירם ? "
+    }
+  },
+  "site": {
+    "title": "EZ Amiram",
+    "description": "למד אנגלית עם EZ Amiram"
+  },
+  "auth": {
+    "continueWithGoogle": "התחל ללמוד עכשיו",
+    "signOut": "התנתקות"
+  },
+  "common": {
+    "completed_short": "התקדמות",
+    "home": "בית",
+    "notifications": "התראות",
+    "profile": "פרופיל",
+    "settings": "הגדרות",
+    "editProfile": "ערוך פרופיל",
+    "language": "שפה",
+    "loading": "טוען..."
+  },
+  "nav": {
+    "home": "בית",
+    "subjects": "נושאים",
+    "tips": "טיפים"
+  },
+"pages": {
+  "home": {
+    "heroSubtitle": "ללמוד בצורה פשוטה ואפקטיבית",
+    "heroTitle": "אמירם בשבילך",
+    "title": "בית",
+    "currentGrade": "ציון צפוי",
+    "outOf": "מתוך",
+    "quickLearn": "למידה מהירה",
+    "quickLearnDescription": "התחל שיעור מהיר בהתאם לזמן הפנוי שלך",
+    "fullSimulation": "סימולציה מלאה",
+    "fullSimulationDescription": "בצע מבחן מלא כהכנה לבחינה",
+    "recentProgress": "התקדמות אחרונה",
+    "learningStreak": "ימים רצופים",
+    "topics": {
+      "restatement": "ניסוח מחדש",
+      "sentenceCompletion": "השלמת מילים",
+      "readingComprehension": "הבנת קריאה"
+    }
+  },
+  "quickLearn": {
+    "title": "למידה מהירה",
+    "selectTime": "כמה זמן יש לך?",
+    "timeOptions": {
+      "5min": "5 דקות",
+      "15min": "15 דקות",
+      "30min": "30 דקות",
+      "1hour": "שעה אחת"
+    },
+    "startSession": "התחל שיעור",
+    "currentTask": "משימה נוכחית",
+    "taskDescription": "השלם את התרגיל הבא כדי לשפר את כישורי האנגלית שלך",
+    "progress": "התקדמות השיעור"
+  },
+  "simulation": {
+    "title": "סימולציה מלאה",
+    "questionNumber": "שאלה {{current}} מתוך {{total}}",
+    "previous": "הקודם",
+    "next": "הבא",
+    "submit": "הגש מבחן",
+    "completionMessage": "סיימת את מבחן הסימולציה. המשך להתאמן כדי לשפר את הציון שלך!",
+    "backToHome": "חזור לדף הבית",
+    "questions": {
+      "q1": {
+        "text": "איזה מהמשפטים הבאים נכון?",
+        "options": {
+          "a": "I have been to London last year",
+          "b": "I went to London last year",
+          "c": "I had went to London last year",
+          "d": "I have went to London last year"
+        }
+      }
+    }
+  },
+  "subjects":{
+    "restatement": {
+      "title": "ניסוח מחדש",
+      "description":"הבנה של דקדוק ומבנה משפטים"
+    },
+    "sentenceCompletion": {
+      "title": "השלמת מילים",
+      "description":"הבנה של מילים ומשפטים על ידי הרחבת אוצר מילים"
+    },
+    "readingComprehension": {
+      "title":  "הבנת הנקרא",
+      "description":"היכולת שלך לקרוא טקסט ולענות על שאלות"
+    }
+  },
+  "tips": {
+    "title": "טיפים",
+    "subtitle": "שיפור כישורי האנגלית שלך באמצעות טיפים מומלצים",
+    "expand_category" : "מה הטיפים?",
+    "collapse_category": "סגור טיפים",
+    "categories": {
+      "dailyPractice": "תרגול יומי",
+      "dailyPracticeDesc": "הפוך את התרגול להרגל יומי ותראה תוצאות מדהימות!",
+      "listening": "האזנה והבנה",
+      "listeningDesc": "שפר את ההבנה שלך על ידי האזנה לאנגלית מכל מקום וזמן.",
+      "speaking": "דיבור",
+      "speakingDesc": "דבר באנגלית בביטחון! כל שיחה מקרבת אותך להצלחה."
+    },
+    "dailyPractice": {
+      "title": "תרגול יומי",
+      "description": "אפילו 15 דקות של תרגול יומי טובות יותר משיעורים ארוכים ולא קבועים."
+    },
+    "hear": {
+      "title": "האזן לאנגלית",
+      "description": "האזן לפודקאסטים, שירים או חדשות באנגלית כדי לשפר את ההבנה שלך."
+    },
+    "tryToSpeak": {
+      "title": "נסה לדבר",
+      "description": "נסה לדבר באנגלית עם חברים, בני משפחה או אפילו עם עצמך כדי לשפר את הביטחון והשטף שלך."
+    },
+    "marked_as_read": "סומן כנקרא",
+    "click_to_mark": "לחץ כדי לסמן כנקרא",
+    "your_progress": "ההתקדמות שלך",
+    "all_completed": "סיימת את כל הטיפים! כל הכבוד!",
+    "progress_message": "המשך לסמן טיפים כנקראו כדי להתקדם.",
+    "marked_as_inwork": "בעבודה",
+    "expanded": "הנושא פתוח",
+    "click_to_expand": "לחץ להרחבה",
+    "completed": "הושלמו",
+    "inwork": "בעבודה",
+    "category_done": "כל הכבוד! השלמת את כל הטיפים בקטגוריה זו.",
+    "category_motivation": "נסה להשלים את כל הטיפים בקטגוריה הזו!"
+  }
+}
+}
