@@ -1,6 +1,7 @@
 'use client';
 
 import ClientLayout from '@/frontend/components/ClientLayout';
+import PageTitle from '@/frontend/components/PageTitle';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useState } from 'react';
 import ProgressBar from '../shared/progressBar'; // Assuming ProgressBar path is correct and it's the full component
@@ -46,7 +47,9 @@ export default function SubjectsPage() {
 
     return (
         <ClientLayout>
-            <div className="container mx-auto px-4 py-16">
+            <div className="container mx-auto px-4 py-8">
+                <PageTitle title={t('pages.subjects.title')} subtitle={t('pages.subjects.subtitle')} />
+
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 mb-22">
                     {subjects.map((subject, index) => {

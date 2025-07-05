@@ -4,9 +4,11 @@ import PageTitle from '@/frontend/components/PageTitle';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { ArrowLeftIcon, BoltIcon, CheckCircleIcon, SparklesIcon } from '@heroicons/react/24/outline';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
-export default function QuickLearn() {
+
+
+function QuickLearn() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const { t, currentLanguage } = useLanguage();
@@ -159,3 +161,13 @@ export default function QuickLearn() {
         </div>
     );
 } 
+
+
+export default function QuickLearnPage() {
+    return (
+        // You could have a loading skeleton as the `fallback` too
+        <Suspense>
+            <QuickLearn />
+        </Suspense>
+    )
+}

@@ -1,16 +1,17 @@
 import { UsersRepository } from "@/backend/dal/repositories/users-repository";
 import { auth } from "@/backend/services/external/firebase/firebase";
 import { User } from "firebase/auth";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 export function useAuth() {
     const [user, setUser] = useState<User | null>(null);
     const [isAdmin, setIsAdmin] = useState(false);
     const [loading, setLoading] = useState(true);
-    const usersRepository = new UsersRepository();
-    
 
+
+    const usersRepository = useMemo(() => new UsersRepository(), []);
     useEffect(() => {
+
         const unsubscribe = auth.onAuthStateChanged(async (user) => {
             setUser(user);
             if (user) {
@@ -28,7 +29,7 @@ export function useAuth() {
         });
 
         return () => unsubscribe();
-    }, []);
+    }, [usersRepository]);
 
     return { user, isAdmin, loading };
 } 

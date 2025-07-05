@@ -2,6 +2,7 @@
 
 import AuthDialog from '@/frontend/components/AuthDialog';
 import Navigation from '@/frontend/components/Navigation';
+import PageTitle from '@/frontend/components/PageTitle';
 import TimeSelectionDialog from '@/frontend/components/TimeSelectionDialog';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useAuth } from '@/frontend/contexts/auth-context';
@@ -74,39 +75,9 @@ export default function Home() {
   return (
     <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-[rgb(var(--color-background))]">
       <div className="px-8 py-12 space-y-12 max-w-6xl mx-auto">
-        {/* User Section */}
-        <div className="flex justify-end">
-          {user ? (
-            <div className="flex items-center gap-4">
-              <span className="text-subtitle">
-                {user.email}
-              </span>
-              <button
-                onClick={() => signOut()}
-                className="btn btn-outline"
-              >
-                {t('auth.signOut')}
-              </button>
-            </div>
-          ) : (
-            <button
-              onClick={() => setIsAuthDialogOpen(true)}
-              className="btn btn-primary"
-            >
-              {t('auth.signIn')}
-            </button>
-          )}
-        </div>
 
-        {/* Hero Section */}
-        <div className="text-center space-y-6 mb-16">
-          <h1 className="text-display max-w-4xl mx-auto">
-            {t('pages.home.heroTitle')}
-          </h1>
-          <p className="text-subtitle max-w-2xl mx-auto text-[rgb(var(--color-text-light))]">
-            {t('pages.home.heroSubtitle')}
-          </p>
-        </div>
+
+        <PageTitle title={t('pages.home.title')} subtitle={t('pages.home.subtitle')} />
 
         {/* Current Grade Card */}
         {user && (
@@ -235,6 +206,26 @@ export default function Home() {
               ))}
             </div>
           </div>
+        )}
+      </div>
+
+      <div className="flex justify-center mb-12">
+        {user ? (
+          <div className="flex items-center gap-4">
+            <button
+              onClick={() => signOut()}
+              className="btn btn-outline"
+            >
+              {t('auth.signOut')}
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => setIsAuthDialogOpen(true)}
+            className="btn btn-primary"
+          >
+            {t('auth.signIn')}
+          </button>
         )}
       </div>
 

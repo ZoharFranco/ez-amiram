@@ -60,7 +60,6 @@ export default function ExpandCategory({
           completed={completed}
           total={total}
           inwork={inWork}
-          t={t}
         />
 
         <div className="mb-6 text-base font-semibold text-[rgb(var(--color-primary-dark))] mt-4">

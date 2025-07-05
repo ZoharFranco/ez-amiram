@@ -67,7 +67,7 @@ export default function TipsPage() {
     if (Object.keys(initialStates).length > 0) {
       setTipStates((prev) => ({ ...initialStates, ...prev }));
     }
-  }, [allTips]);
+  }, [allTips, tipStates]);
 
   const handleTipClick = (tipId: string) => {
     setTipStates((prev) => {

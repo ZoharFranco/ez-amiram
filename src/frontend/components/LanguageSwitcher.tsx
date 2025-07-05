@@ -12,7 +12,7 @@ const languages = [
 ] as const;
 
 export default function LanguageSwitcher() {
-    const { language, setLanguage } = useLanguage();
+    const { currentLanguage, setLanguage } = useLanguage();
 
     return (
         <Menu as="div" className="relative inline-block text-left">
@@ -38,7 +38,7 @@ export default function LanguageSwitcher() {
                                         onClick={() => setLanguage(lang.code)}
                                         className={`
                                             ${active ? 'bg-gray-100' : ''}
-                                            ${language === lang.code ? 'font-semibold text-indigo-600' : 'text-gray-700'}
+                                            ${currentLanguage === lang.code ? 'font-semibold text-indigo-600' : 'text-gray-700'}
                                             group flex w-full items-center px-2 py-2 text-sm
                                         `}
                                     >
