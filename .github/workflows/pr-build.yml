@@ -1,0 +1,24 @@
+name: PR Build Check
+
+on:
+  pull_request:
+    branches:
+      - main  # Change this to your default branch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22'
+
+    - name: Install dependencies
+      run: npm install --force
+
+    - name: Run build
+      run: npm run build
