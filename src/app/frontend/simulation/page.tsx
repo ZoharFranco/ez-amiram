@@ -7,12 +7,11 @@ import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { Button } from '@headlessui/react';
 import { motion } from 'framer-motion';
 import { TestTube2Icon } from 'lucide-react';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
 
-const SimulationStart = dynamic(() => import('./start/page'), { ssr: false });
+
 
 type Question = {
     id: number;
@@ -78,7 +77,7 @@ export default function Simulation() {
     const { t, currentLanguage } = useLanguage();
     const isRTL = currentLanguage === 'he' || currentLanguage === 'ar';
     const [selectedScore, setSelectedScore] = useState<ScoreKey>('total');
-    const [viewedSimulation, setViewedSimulation] = useState<SimulationHistory | null>(null);
+
 
     const chartData = {
         labels: mockHistory.map((sim) => sim.date),
@@ -167,7 +166,6 @@ export default function Simulation() {
                                     <span>Writing: {sim.writing}%</span>
                                 </div>
                                 <button
-                                    onClick={() => setViewedSimulation(sim)}
                                     className="mt-2 bg-gray-100 hover:bg-blue-50 text-blue-700 rounded px-3 py-1 text-xs font-medium"
                                 >
                                     View Details
@@ -175,15 +173,6 @@ export default function Simulation() {
                             </div>
                         ))}
                     </div>
-                    {/* SimulationStart Component for viewing details only */}
-                    {viewedSimulation && (
-                        <SimulationStart
-                            mode="finished"
-                            questions={viewedSimulation.questions}
-                            userAnswers={viewedSimulation.userAnswers}
-                            score={viewedSimulation.total}
-                        />
-                    )}
                 </main>
             </div>
         </ClientLayout>

@@ -1,22 +1,13 @@
 'use client';
 
 import '@/frontend/components/ChartSetup';
-
 import { useState } from 'react';
-
 
 type Question = {
     id: number;
     text: string;
     options: string[];
     correctAnswer: number;
-};
-
-type SimulationStartProps = {
-    mode: 'todo' | 'finished';
-    questions?: Question[];
-    userAnswers?: number[];
-    score?: number;
 };
 
 const mockQuestions: Question[] = [
@@ -34,20 +25,20 @@ const mockQuestions: Question[] = [
     },
 ];
 
-export default function SimulationStart({ mode, questions = mockQuestions, userAnswers = [], score }: SimulationStartProps) {
+export default function SimulationStartPage() {
     const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-    const [selectedAnswers, setSelectedAnswers] = useState<number[]>(userAnswers);
-    const [isSubmitted, setIsSubmitted] = useState<boolean>(mode === 'finished');
+    const [selectedAnswers, setSelectedAnswers] = useState<number[]>([]);
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
     const handleAnswerSelect = (answerIndex: number): void => {
-        if (mode === 'finished') return;
+        if (isSubmitted) return;
         const newAnswers = [...selectedAnswers];
         newAnswers[currentQuestion] = answerIndex;
         setSelectedAnswers(newAnswers);
     };
 
     const handleNext = (): void => {
-        if (currentQuestion < questions.length - 1) {
+        if (currentQuestion < mockQuestions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
         }
     };
@@ -63,13 +54,13 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
     };
 
     const calculateScore = (): number => {
-        const correctAnswers = questions.reduce((acc, question, index) => {
+        const correctAnswers = mockQuestions.reduce((acc, question, index) => {
             return acc + (question.correctAnswer === selectedAnswers[index] ? 1 : 0);
         }, 0);
-        return Math.round((correctAnswers / questions.length) * 100);
+        return Math.round((correctAnswers / mockQuestions.length) * 100);
     };
 
-    const percent: number = Math.round(((currentQuestion + 1) / questions.length) * 100);
+    const percent: number = Math.round(((currentQuestion + 1) / mockQuestions.length) * 100);
 
     return (
         <div className="w-full max-w-2xl mx-auto">
@@ -79,7 +70,7 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
                     <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col gap-2">
                         <div className="flex items-center justify-between mb-2">
                             <span className="text-sm text-gray-500 font-medium tracking-wide">
-                                Question {currentQuestion + 1} / {questions.length}
+                                Question {currentQuestion + 1} / {mockQuestions.length}
                             </span>
                             <span className="text-xs text-blue-600 font-semibold">{percent}%</span>
                         </div>
@@ -94,10 +85,10 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
                     {/* Question Card */}
                     <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col gap-6">
                         <h2 className="text-xl font-bold text-gray-900 mb-2">
-                            {questions[currentQuestion].text}
+                            {mockQuestions[currentQuestion].text}
                         </h2>
                         <div className="flex flex-col gap-4">
-                            {questions[currentQuestion].options.map((option, index) => {
+                            {mockQuestions[currentQuestion].options.map((option, index) => {
                                 const isSelected: boolean = selectedAnswers[currentQuestion] === index;
                                 return (
                                     <button
@@ -126,10 +117,10 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
                         >
                             Previous
                         </button>
-                        {currentQuestion === questions.length - 1 ? (
+                        {currentQuestion === mockQuestions.length - 1 ? (
                             <button
                                 onClick={handleSubmit}
-                                disabled={selectedAnswers.length !== questions.length}
+                                disabled={selectedAnswers.length !== mockQuestions.length}
                                 className="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-700 hover:to-blue-600 transition-colors font-semibold shadow-lg"
                             >
                                 Submit
@@ -155,7 +146,7 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
                             </svg>
                         </div>
                         <h2 className="text-4xl font-extrabold text-white mb-2 drop-shadow-lg">
-                            {typeof score === 'number' ? score : calculateScore()}%
+                                {calculateScore()}%
                         </h2>
                         <p className="text-lg text-white/90 mb-6 font-medium">
                             Simulation Complete!
