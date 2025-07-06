@@ -40,13 +40,15 @@
     "quickLearnDescription": "שיעור מהיר בהתאם לזמן שלך",
     "fullSimulation": "סימולציה מלאה",
     "fullSimulationDescription": "סימולציה מלאה של מבחן   ",
-    "recentProgress": "התקדמות אחרונה",
+    "recentProgress": "התקדמות נושאי בחינה",
     "learningStreak": "ימים רצופים",
     "topics": {
       "restatement": "ניסוח מחדש",
       "sentenceCompletion": "השלמת מילים",
       "readingComprehension": "הבנת קריאה"
-    }
+    },
+    "vocabularyProgress": "התקדמות אוצר מילים",
+    "basicsSection": "יסודות"
   },
   "quickLearn": {
     "title": "למידה מהירה",
@@ -61,6 +63,11 @@
     "currentTask": "משימה נוכחית",
     "taskDescription": "השלם את התרגיל הבא כדי לשפר את כישורי האנגלית שלך",
     "progress": "התקדמות השיעור"
+  },
+  "vocabulary": {
+    "title": "אוצר מילים",
+    "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם"
+
   },
   "simulation": {
     "startNew": "התחל עכשיו",

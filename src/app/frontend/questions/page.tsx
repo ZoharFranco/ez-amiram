@@ -48,7 +48,7 @@ export default function QuestionsPage() {
     return (
         <ClientLayout>
             <div className="container mx-auto px-4 py-8">
-                <PageTitle title={t('pages.subjects.title')} subtitle={t('pages.subjects.subtitle')} />
+                <PageTitle title={t('pages.subjects.title')} subtitle={t('pages.subjects.subtitle')} color='teal' />
 
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 mb-22">

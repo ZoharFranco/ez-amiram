@@ -96,7 +96,7 @@ export default function Simulation() {
     return (
         <ClientLayout>
             <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gray-50">
-                <PageTitle title={t('pages.simulation.title')} />
+                <PageTitle title={t('pages.simulation.title')} color='blue' />
                 <main className="px-8 max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}

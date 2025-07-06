@@ -1,6 +1,8 @@
 'use client';
 
 import ClientLayout from '@/frontend/components/ClientLayout';
+import PageTitle from '@/frontend/components/PageTitle';
+import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useState } from 'react';
 
 type SubItem = {
@@ -25,6 +27,7 @@ const allSubItems: SubItem[] = [
 type ViewBy = 'category' | 'level';
 
 export default function VocabularyPage() {
+  const { t } = useLanguage();
   const [viewBy, setViewBy] = useState<ViewBy>('category');
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
 
@@ -80,8 +83,8 @@ export default function VocabularyPage() {
   // Main grouping view
   return (
     <ClientLayout>
-      <div className="min-h-screen px-4 py-2 max-w-md mx-auto">
-        <h1 className="text-center text-6xl font-bold text-blue-800 mb-6">רשימת מילים</h1>
+      <div className="min-h-screen px-4 py-2 max-w-md mx-auto mb-22">
+        <PageTitle title={t('pages.vocabulary.title')} subtitle={t('pages.vocabulary.subtitle')} color='indigo' />
 
         <div className="flex justify-center gap-4 mb-6">
           <button
