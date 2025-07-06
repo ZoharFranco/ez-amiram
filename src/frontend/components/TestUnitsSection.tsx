@@ -10,8 +10,6 @@ interface Topic {
 
 interface TestUnitsSectionProps {
   topics: Topic[];
-  isRTL: boolean;
-  t: (key: string) => string;
 }
 
 export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
