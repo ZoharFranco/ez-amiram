@@ -1,19 +1,9 @@
 'use client';
 
 import '@/frontend/components/ChartSetup';
-import {
-    CategoryScale,
-    Chart as ChartJS,
-    Legend,
-    LinearScale,
-    LineElement,
-    PointElement,
-    Title,
-    Tooltip,
-} from 'chart.js';
+
 import { useState } from 'react';
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
 
 type Question = {
     id: number;
@@ -45,41 +35,41 @@ const mockQuestions: Question[] = [
 ];
 
 export default function SimulationStart({ mode, questions = mockQuestions, userAnswers = [], score }: SimulationStartProps) {
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    const [currentQuestion, setCurrentQuestion] = useState<number>(0);
     const [selectedAnswers, setSelectedAnswers] = useState<number[]>(userAnswers);
-    const [isSubmitted, setIsSubmitted] = useState(mode === 'finished');
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(mode === 'finished');
 
-    const handleAnswerSelect = (answerIndex: number) => {
+    const handleAnswerSelect = (answerIndex: number): void => {
         if (mode === 'finished') return;
         const newAnswers = [...selectedAnswers];
         newAnswers[currentQuestion] = answerIndex;
         setSelectedAnswers(newAnswers);
     };
 
-    const handleNext = () => {
+    const handleNext = (): void => {
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
         }
     };
 
-    const handlePrevious = () => {
+    const handlePrevious = (): void => {
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
         }
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (): void => {
         setIsSubmitted(true);
     };
 
-    const calculateScore = () => {
+    const calculateScore = (): number => {
         const correctAnswers = questions.reduce((acc, question, index) => {
             return acc + (question.correctAnswer === selectedAnswers[index] ? 1 : 0);
         }, 0);
         return Math.round((correctAnswers / questions.length) * 100);
     };
 
-    const percent = Math.round(((currentQuestion + 1) / questions.length) * 100);
+    const percent: number = Math.round(((currentQuestion + 1) / questions.length) * 100);
 
     return (
         <div className="w-full max-w-2xl mx-auto">
@@ -108,7 +98,7 @@ export default function SimulationStart({ mode, questions = mockQuestions, userA
                         </h2>
                         <div className="flex flex-col gap-4">
                             {questions[currentQuestion].options.map((option, index) => {
-                                const isSelected = selectedAnswers[currentQuestion] === index;
+                                const isSelected: boolean = selectedAnswers[currentQuestion] === index;
                                 return (
                                     <button
                                         key={index}

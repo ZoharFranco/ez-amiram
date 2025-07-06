@@ -160,13 +160,11 @@ function QuickLearn() {
             </main>
         </div>
     );
-} 
-
-
+}
 export default function QuickLearnPage() {
     return (
         // You could have a loading skeleton as the `fallback` too
-        <Suspense>
+        <Suspense fallback={<div>Loading...</div>}>
             <QuickLearn />
         </Suspense>
     )

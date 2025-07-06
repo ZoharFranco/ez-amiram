@@ -1,4 +1,5 @@
 import { useRouter } from "next/navigation";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface Topic {
   key: string;
@@ -13,10 +14,11 @@ interface TestUnitsSectionProps {
   t: (key: string) => string;
 }
 
-export default function TestUnitsSection({ topics, isRTL, t }: TestUnitsSectionProps) {
+export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
   const router = useRouter();
+  const { t } = useLanguage();
 
-  const handleTopicClick = (topicKey?: string) => {
+  const handleTopicClick = () => {
     router.push(`/frontend/questions`);
   };
 
@@ -28,11 +30,11 @@ export default function TestUnitsSection({ topics, isRTL, t }: TestUnitsSectionP
         </h2>
       </div>
       <div className="space-y-8">
-        {topics.map((topic, index) => (
+        {topics.map((topic) => (
           <div
             key={topic.key}
             className="space-y-4 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200"
-            onClick={() => handleTopicClick(topic.key)}
+            onClick={() => handleTopicClick()}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">

@@ -84,7 +84,7 @@ export default function Home() {
 
           {user && (
             <>
-              <TestUnitsSection topics={topics} isRTL={isRTL} t={t} />
+              <TestUnitsSection topics={topics} />
               <BasicsSection />
             </>
           )}
