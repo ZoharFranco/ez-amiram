@@ -7,7 +7,7 @@ interface CurrentGradeCardProps {
   animateProgress: boolean;
 }
 
-const size = 320;
+const size = 260;
 const strokeWidth = 12;
 const radius = (size - strokeWidth) / 2;
 const circumference = 2 * Math.PI * radius;
@@ -18,8 +18,8 @@ export default function CurrentGradeCard({ predictedGrade, learningStreak, anima
   return (
     <div className="card p-12 gradient-animate">
       <div className="relative z-10">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-title text-white">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl text-white">
             {t('pages.home.currentGrade')}
           </h2>
           <div className="badge badge-accent">
@@ -28,7 +28,7 @@ export default function CurrentGradeCard({ predictedGrade, learningStreak, anima
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">
-          <div className="circular-progress mb-8">
+          <div className="circular-progress mb-4">
             <div className="relative">
               <svg width={size} height={size}>
                 <circle

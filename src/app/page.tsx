@@ -67,17 +67,21 @@ export default function Home() {
         <div className="px-8 mb-10 max-w-6xl mx-auto">
           <PageTitle title={t('pages.home.title')} subtitle={t('pages.home.subtitle')} />
           {user && (
-            <CurrentGradeCard
+            <><CurrentGradeCard
               predictedGrade={predictedGrade}
               learningStreak={learningStreak}
               animateProgress={animateProgress}
             />
-          )}
-          <ActionButtons
+              <ActionButtons
             onQuickLearn={() => setIsTimeDialogOpen(true)}
             onSimulation={handleSimulationClick}
             t={t}
-          />
+              />
+            </>
+
+          )}
+
+
           {user && (
             <>
               <TestUnitsSection topics={topics} isRTL={isRTL} t={t} />

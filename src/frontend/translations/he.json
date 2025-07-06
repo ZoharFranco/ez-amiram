@@ -32,6 +32,8 @@
   },
 "pages": {
   "home": {
+    "questionsPractice": "תרגול נושאי הבחינה",
+    "vocabularyPractice": "תרגול אוצר מילים",
     "subtitle": "ללמוד בצורה פשוטה ואפקטיבית",
     "title": "אמירם בשבילך",
     "currentGrade": "ציון צפוי",

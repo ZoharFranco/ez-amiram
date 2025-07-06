@@ -1,4 +1,4 @@
-import { ChartBarIcon } from '@heroicons/react/24/outline';
+import { useRouter } from "next/navigation";
 
 interface Topic {
   key: string;
@@ -14,39 +14,54 @@ interface TestUnitsSectionProps {
 }
 
 export default function TestUnitsSection({ topics, isRTL, t }: TestUnitsSectionProps) {
+  const router = useRouter();
+
+  const handleTopicClick = (topicKey?: string) => {
+    router.push(`/frontend/questions`);
+  };
+
   return (
-    <section className="card p-10 mt-8">
-      <div className="flex items-center justify-between mb-10">
-        <h2 className="text-4xl">
+    <section className="card p-10 mt-8 text-center">
+      <div className="text-center mb-10">
+        <h2 className="text-2xl">
           {t('pages.home.recentProgress')}
         </h2>
-        <div className="badge badge-secondary">
-          <ChartBarIcon className="w-6 h-6" />
-        </div>
       </div>
       <div className="space-y-8">
         {topics.map((topic, index) => (
-          <div key={topic.key} className="space-y-4">
+          <div
+            key={topic.key}
+            className="space-y-4 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200"
+            onClick={() => handleTopicClick(topic.key)}
+          >
             <div className="flex items-center justify-between">
-              <span className="text-subtitle text-[rgb(var(--color-text))]">
-                {topic.title}
-              </span>
-              <span className="badge badge-primary text-lg">
-                {topic.progress}%
-              </span>
-            </div>
-            <div className="progress-bar h-3">
-              <div
-                className={`progress-bar-fill ${isRTL ? 'rotate-180' : ''}`}
-                style={{
-                  width: `${topic.progress}%`,
-                  backgroundImage: `linear-gradient(to right, rgb(var(--color-primary)), rgb(var(--color-${index % 2 ? 'secondary' : 'accent'})))`
-                }}
-              />
+              <div className="flex items-center space-x-3">
+                <span className="text-subtitle text-[rgb(var(--color-text))]">
+                  {topic.title}
+                </span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <span className="badge badge-primary text-lg">
+                  {topic.progress}%
+                </span>
+
+              </div>
             </div>
           </div>
+
         ))}
       </div>
+
+      <button
+        className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8 text center"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleTopicClick();
+        }}
+      >
+        {t('pages.home.questionsPractice')}
+      </button>
+
     </section>
   );
-} 
+}
