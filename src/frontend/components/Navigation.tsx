@@ -1,15 +1,20 @@
 'use client';
 
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { BookOpenIcon, HomeIcon, LightBulbIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { IconType } from 'react-icons';
+
+import { HomeIcon } from '@heroicons/react/24/outline';
+import { BookAIcon } from 'lucide-react';
+import Image from "next/image";
+import { PiGameControllerLight, PiGraduationCapDuotone, PiLightbulbLight } from 'react-icons/pi';
 import LanguageSwitcher from './LanguageSwitcher';
 
 type NavItem = {
     href: string;
     label: string;
-    icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>>;
+    icon: React.ForwardRefExoticComponent<React.SVGProps<SVGSVGElement>> | IconType;
 };
 
 export default function Navigation() {
@@ -20,8 +25,10 @@ export default function Navigation() {
 
     const navItems: NavItem[] = [
         { href: '/', label: t('nav.home'), icon: HomeIcon },
-        { href: '/frontend/subjects', label: t('nav.subjects'), icon: BookOpenIcon },
-        { href: '/frontend/tips', label: t('nav.tips'), icon: LightBulbIcon }
+        { href: '/frontend/questions', label: t('nav.questions'), icon: PiGraduationCapDuotone },
+        { href: '/frontend/simulation', label: t('nav.simulation'), icon: PiGameControllerLight },
+        { href: '/frontend/vocabulary', label: t('nav.vocabulary'), icon: BookAIcon },
+        { href: '/frontend/tips', label: t('nav.tips'), icon: PiLightbulbLight }
     ];
 
     return (
@@ -51,6 +58,25 @@ export default function Navigation() {
             </nav>
 
             {/* Mobile Navigation */}
+
+
+            <nav className="md:hidden fixed top-0 left-0 right-0 bg-emerald-300/60 backdrop-blur-md border-b-2 border-emerald-400 shadow-emerald-100 shadow-sm z-10">
+                <div className="max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto px-4">
+                    <div className="flex h-16 items-center justify-between">
+                        <div className="flex space-x-8">
+                            <Image
+                                src="/favicon.ico"
+                                alt={t('professor.altText')}
+                                className="object-cover rounded-2xl"
+                                priority
+                                width={64}
+                                height={64}
+                            />
+                        </div>
+                        <LanguageSwitcher />
+                    </div>
+                </div>
+            </nav>
             <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 pb-safe z-10" dir={dir}>
                 <div className="max-w-lg mx-auto px-4">
                     <div className="flex justify-around py-2">
@@ -67,9 +93,6 @@ export default function Navigation() {
                                 <span className="text-xs mt-1 font-medium">{label}</span>
                             </Link>
                         ))}
-                        <div className="flex flex-col items-center p-2">
-                            <LanguageSwitcher />
-                        </div>
                     </div>
                 </div>
             </nav>

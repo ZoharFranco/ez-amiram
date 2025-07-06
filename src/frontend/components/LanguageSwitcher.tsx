@@ -29,7 +29,10 @@ export default function LanguageSwitcher() {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
             >
-                <MenuItems className="absolute bottom-full right-0 mb-2 w-48 origin-bottom-right rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none md:bottom-auto md:top-full md:mt-2 md:origin-top-right">
+                <MenuItems className={`absolute top-full mt-2 w-48 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ${currentLanguage === 'he' || currentLanguage === 'ar'
+                        ? 'left-0 origin-top-left'
+                        : 'right-0 origin-top-right'
+                    }`}>
                     <div className="py-1">
                         {languages.map((lang) => (
                             <MenuItem key={lang.code}>
@@ -53,4 +56,4 @@ export default function LanguageSwitcher() {
             </Transition>
         </Menu>
     );
-} 
+}

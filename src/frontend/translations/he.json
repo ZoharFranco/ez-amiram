@@ -25,7 +25,9 @@
   },
   "nav": {
     "home": "בית",
-    "subjects": "נושאים",
+    "simulation": "סימולציות",
+    "questions": "שאלות",
+    "vocabulary": "אוצר מילים",
     "tips": "טיפים"
   },
 "pages": {
@@ -35,9 +37,9 @@
     "currentGrade": "ציון צפוי",
     "outOf": "מתוך",
     "quickLearn": "למידה מהירה",
-    "quickLearnDescription": "התחל שיעור מהיר בהתאם לזמן הפנוי שלך",
+    "quickLearnDescription": "שיעור מהיר בהתאם לזמן שלך",
     "fullSimulation": "סימולציה מלאה",
-    "fullSimulationDescription": "בצע מבחן מלא כהכנה לבחינה",
+    "fullSimulationDescription": "סימולציה מלאה של מבחן   ",
     "recentProgress": "התקדמות אחרונה",
     "learningStreak": "ימים רצופים",
     "topics": {
@@ -61,6 +63,9 @@
     "progress": "התקדמות השיעור"
   },
   "simulation": {
+    "startNew": "התחל עכשיו",
+    "simulationGraph": "גרף התקדמות",
+    "pastSimulations": "סימולציות עבר",
     "title": "סימולציה מלאה",
     "questionNumber": "שאלה {{current}} מתוך {{total}}",
     "previous": "הקודם",
@@ -68,6 +73,12 @@
     "submit": "הגש מבחן",
     "completionMessage": "סיימת את מבחן הסימולציה. המשך להתאמן כדי לשפר את הציון שלך!",
     "backToHome": "חזור לדף הבית",
+    "graph":{
+      "total":"כללי",
+      "listening":"שמיעה",
+      "reading":"קריאה",
+      "writing":"כתיבה"
+    },
     "questions": {
       "q1": {
         "text": "איזה מהמשפטים הבאים נכון?",

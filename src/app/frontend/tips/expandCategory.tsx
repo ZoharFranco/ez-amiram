@@ -1,7 +1,7 @@
 // components/ExpandCategory.tsx
 
 import { ChevronDown, ChevronUp } from 'lucide-react';
-import ProgressBar from '../shared/progressBar';
+import ProgressBar from '../../../frontend/components/shared/progressBar';
 import TipCard from './tipCard';
 import { Category, TipState } from './types';
 

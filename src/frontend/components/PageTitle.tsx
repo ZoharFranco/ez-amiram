@@ -8,7 +8,7 @@ interface PageTitleProps {
 export default function PageTitle({ title, subtitle }: PageTitleProps) {
     return (
 
-        < div className="text-center space-y-6 mb-16" >
+        < div className="text-center space-y-2 mb-16" >
             <h1 className="text-display max-w-4xl mx-auto">
                 {title}
             </h1>
