@@ -25,26 +25,32 @@
   },
   "nav": {
     "home": "בית",
-    "subjects": "נושאים",
+    "simulation": "סימולציות",
+    "questions": "שאלות",
+    "vocabulary": "אוצר מילים",
     "tips": "טיפים"
   },
 "pages": {
   "home": {
+    "questionsPractice": "תרגול נושאי הבחינה",
+    "vocabularyPractice": "תרגול אוצר מילים",
     "subtitle": "ללמוד בצורה פשוטה ואפקטיבית",
     "title": "אמירם בשבילך",
     "currentGrade": "ציון צפוי",
     "outOf": "מתוך",
     "quickLearn": "למידה מהירה",
-    "quickLearnDescription": "התחל שיעור מהיר בהתאם לזמן הפנוי שלך",
+    "quickLearnDescription": "שיעור מהיר בהתאם לזמן שלך",
     "fullSimulation": "סימולציה מלאה",
-    "fullSimulationDescription": "בצע מבחן מלא כהכנה לבחינה",
-    "recentProgress": "התקדמות אחרונה",
+    "fullSimulationDescription": "סימולציה מלאה של מבחן   ",
+    "recentProgress": "התקדמות נושאי בחינה",
     "learningStreak": "ימים רצופים",
     "topics": {
       "restatement": "ניסוח מחדש",
       "sentenceCompletion": "השלמת מילים",
       "readingComprehension": "הבנת קריאה"
-    }
+    },
+    "vocabularyProgress": "התקדמות אוצר מילים",
+    "basicsSection": "יסודות"
   },
   "quickLearn": {
     "title": "למידה מהירה",
@@ -60,7 +66,15 @@
     "taskDescription": "השלם את התרגיל הבא כדי לשפר את כישורי האנגלית שלך",
     "progress": "התקדמות השיעור"
   },
+  "vocabulary": {
+    "title": "אוצר מילים",
+    "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם"
+
+  },
   "simulation": {
+    "startNew": "התחל עכשיו",
+    "simulationGraph": "גרף התקדמות",
+    "pastSimulations": "סימולציות עבר",
     "title": "סימולציה מלאה",
     "questionNumber": "שאלה {{current}} מתוך {{total}}",
     "previous": "הקודם",
@@ -68,6 +82,12 @@
     "submit": "הגש מבחן",
     "completionMessage": "סיימת את מבחן הסימולציה. המשך להתאמן כדי לשפר את הציון שלך!",
     "backToHome": "חזור לדף הבית",
+    "graph":{
+      "total":"כללי",
+      "listening":"שמיעה",
+      "reading":"קריאה",
+      "writing":"כתיבה"
+    },
     "questions": {
       "q1": {
         "text": "איזה מהמשפטים הבאים נכון?",

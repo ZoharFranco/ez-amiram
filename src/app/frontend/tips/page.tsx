@@ -85,7 +85,7 @@ export default function TipsPage() {
   return (
     <ClientLayout>
       <div className="container mx-auto px-4 py-8">
-        <PageTitle title={t('pages.tips.title')} subtitle={t('pages.tips.subtitle')} />
+        <PageTitle title={t('pages.tips.title')} subtitle={t('pages.tips.subtitle')} color="orange" />
 
         <div className="flex flex-col gap-10 mt-8">
           {categories.map((category, idx) => (

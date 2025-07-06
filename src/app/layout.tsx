@@ -40,6 +40,9 @@ export default function RootLayout({
   }) {
   return (
     <html>
+      <title>
+      לימודי אנגלית למבחן אמירם
+      </title>
       <body className={rubik.className}>
         <AuthProvider>
           <LanguageProvider>
