@@ -18,9 +18,9 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
-  const { t, dir } = useLanguage();
+  const { t } = useLanguage();
   const { user } = useAuth();
-  const isRTL = dir === 'rtl';
+
   const [isTimeDialogOpen, setIsTimeDialogOpen] = useState(false);
   const [animateProgress, setAnimateProgress] = useState(false);
 
