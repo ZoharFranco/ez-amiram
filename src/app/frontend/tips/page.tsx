@@ -1,17 +1,14 @@
 'use client';
 
 import ClientLayout from '@/frontend/components/ClientLayout';
-
 import PageTitle from '@/frontend/components/PageTitle';
+import { Category } from '@/frontend/components/ui/pages/tips/types';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useEffect, useState } from 'react';
-import ExpandCategory from './expandCategory';
-import { Category } from './types';
 
 export default function TipsPage() {
   const { t } = useLanguage();
   const [tipStates, setTipStates] = useState<Record<string, 'unread' | 'inwork' | 'read'>>({});
-  const [expandedCategory, setExpandedCategory] = useState<number | null>(0); // first category open by default
 
   const categories: Category[] = [
     {
@@ -69,59 +66,68 @@ export default function TipsPage() {
     }
   }, [allTips, tipStates]);
 
-  const handleTipClick = (tipId: string) => {
+  const toggleTipState = (tipId: string) => {
     setTipStates((prev) => {
       const current = prev[tipId] || 'unread';
-      const next =
-        current === 'unread' ? 'inwork' : current === 'inwork' ? 'read' : 'unread';
+      const next = current === 'unread' ? 'inwork' : current === 'inwork' ? 'read' : 'unread';
       return { ...prev, [tipId]: next };
     });
   };
 
   const readCount = Object.values(tipStates).filter((s) => s === 'read').length;
-  const score = Math.round((readCount / allTips.length) * 100);
-  const isAllRead = readCount === allTips.length;
+  const progress = Math.round((readCount / allTips.length) * 100);
 
   return (
     <ClientLayout>
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-10">
         <PageTitle title={t('pages.tips.title')} subtitle={t('pages.tips.subtitle')} color="orange" />
 
-        <div className="flex flex-col gap-10 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
           {categories.map((category, idx) => (
-            <ExpandCategory
-              key={idx}
-              category={category}
-              isExpanded={expandedCategory === idx}
-              toggle={() => setExpandedCategory((prev) => (prev === idx ? null : idx))}
-              tipStates={tipStates}
-              onTipClick={handleTipClick}
-              t={t}
-            />
+            <div key={idx} className="p-6 rounded-2xl bg-gradient-to-br from-white via-gray-50 to-gray-100 border border-gray-200 shadow-sm hover:shadow-md">
+              <div className="flex items-center gap-4 mb-4">
+                <span className="text-3xl">{category.icon}</span>
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-800">{category.title}</h3>
+                  <p className="text-sm text-gray-500">{category.description}</p>
+                </div>
+              </div>
+              <ul className="space-y-3 mt-4">
+                {category.tips.map((tip) => (
+                  <li
+                    key={tip.id}
+                    onClick={() => toggleTipState(tip.id)}
+                    className="p-4 bg-white rounded-xl border hover:bg-orange-50 transition cursor-pointer flex items-center gap-3"
+                  >
+                    <span className="text-xl">{tip.icon}</span>
+                    <div className="flex-1">
+                      <h4 className="font-medium text-gray-800">{tip.title}</h4>
+                      <p className="text-sm text-gray-500">{tip.description}</p>
+                    </div>
+                    <div className={`text-xs px-3 py-1 rounded-full font-bold capitalize shadow-sm ${tipStates[tip.id] === 'read'
+                      ? 'bg-green-100 text-green-700 border border-green-400'
+                      : tipStates[tip.id] === 'inwork'
+                        ? 'bg-yellow-100 text-yellow-700 border border-yellow-400'
+                        : 'bg-gray-100 text-gray-500 border border-gray-300'
+                      }`}>
+                      {tipStates[tip.id] || 'unread'}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
         </div>
 
-        <div className="mt-12 card p-8 bg-gradient-to-br from-[rgb(var(--color-primary))] to-[rgb(var(--color-primary-dark))] text-white">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 className="text-2xl font-bold mb-2">{t('pages.tips.your_progress')}</h2>
-              <p className="text-white/90">
-                {isAllRead ? t('pages.tips.all_completed') : t('pages.tips.progress_message')}
-              </p>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-24 h-24 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border-4 border-white/20">
-                <span className="text-3xl font-bold">{score}%</span>
-              </div>
-              {isAllRead && <div className="animate-bounce text-4xl">🎉</div>}
-            </div>
-          </div>
-          <div className="mt-6 w-full bg-white/10 rounded-full h-2">
+        <div className="mt-14 text-center">
+          <h2 className="text-lg font-semibold text-gray-700 mb-2">{t('pages.tips.your_progress')}</h2>
+          <div className="w-full bg-gray-200 rounded-full h-3">
             <div
-              className="h-full rounded-full bg-white transition-all duration-500"
-              style={{ width: `${score}%` }}
+              className="bg-orange-400 h-full rounded-full transition-all duration-500"
+              style={{ width: `${progress}%` }}
             />
           </div>
+          <div className="mt-2 text-sm text-gray-600">{progress}% {t('pages.tips.completed')}</div>
         </div>
       </div>
     </ClientLayout>

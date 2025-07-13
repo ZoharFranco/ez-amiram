@@ -12,7 +12,7 @@ export default function AuthButton() {
     return (
     <div className="flex justify-center mb-12">
     {user ? (
-      <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 mt-6">
         <button
           onClick={() => signOut()}
           className="btn btn-outline"

@@ -3,6 +3,7 @@
 import '@/frontend/components/ChartSetup';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
+import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { Button } from '@headlessui/react';
 import { motion } from 'framer-motion';
@@ -74,8 +75,7 @@ const scoreTypes: { key: ScoreKey; label: string }[] = [
 
 export default function Simulation() {
     const router = useRouter();
-    const { t, currentLanguage } = useLanguage();
-    const isRTL = currentLanguage === 'he' || currentLanguage === 'ar';
+    const { t } = useLanguage();
     const [selectedScore, setSelectedScore] = useState<ScoreKey>('total');
 
 
@@ -94,41 +94,38 @@ export default function Simulation() {
 
     return (
         <ClientLayout>
-            <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-gray-50">
-                <PageTitle title={t('pages.simulation.title')} color='blue' />
+            <div className="container mx-auto px-4 py-10">
+                <PageTitle title={t('pages.simulations.title')} subtitle={t('pages.simulations.subtitle')} color='blue' />
                 <main className="px-8 max-w-5xl mx-auto">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
-                        className={`flex flex-col items-center mb-10`}
+                        className="flex flex-col items-center mb-10"
                     >
-
                         <div className="relative group flex items-center justify-center">
-                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-500 rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
                             <Button
-                                onClick={() => router.push('/frontend/simulation/start')}
-                                className={`relative px-8 py-4 text-lg font-semibold bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-2`}
+                                onClick={() => router.push('/frontend/simulations/start')}
+                                className="relative w-56 h-20 flex items-center justify-center rounded-full text-xl font-bold bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mb-2 p-0"
+                                style={{ minWidth: '14rem', minHeight: '5rem' }}
                             >
-                                <div className="flex items-center">
-                                    {t('pages.simulation.startNew')}
-                                    <TestTube2Icon className={`mr-3 h-4 w-4`} />
-                                </div>
+                                <span>{t('pages.simulations.startNew')}</span>
+                                <TestTube2Icon className="h-8 w-8 mr-3 ml-3" />
                             </Button>
                         </div>
                     </motion.div>
                     {/* Past Simulations Chart */}
                     <div className="mb-8">
-                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">{t('pages.simulation.simulationGraph')}</h2>
+                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">{t('pages.simulations.simulationGraph')}</h2>
                         <div className="flex gap-2 mb-4">
                             {scoreTypes.map(type => (
-                                <button
+                                <SelectionButton
                                     key={type.key}
                                     onClick={() => setSelectedScore(type.key)}
-                                    className={`px-4 py-2 rounded-lg border text-sm transition-colors ${selectedScore === type.key ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:bg-blue-50'}`}
-                                >
-                                    {t(`pages.simulation.graph.${type.label}`)}
-                                </button>
+                                    text={t(`pages.simulations.graph.${type.label}`)}
+                                    selected={selectedScore === type.key}
+                                />
                             ))}
                         </div>
                         <div className="h-64 flex items-center justify-center text-gray-400 border border-dashed border-gray-200 rounded-lg bg-white">
@@ -153,7 +150,7 @@ export default function Simulation() {
                     </div>
                     {/* Simulation Cards */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">{t('pages.simulation.pastSimulations')}</h2>
+                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">{t('pages.simulations.pastSimulations')}</h2>
                         {mockHistory.map(sim => (
                             <div key={sim.id} className="bg-white rounded-lg shadow-sm p-4 flex flex-col gap-2">
                                 <div className="flex justify-between items-center">
@@ -174,7 +171,7 @@ export default function Simulation() {
                         ))}
                     </div>
                 </main>
-            </div>
+                </div>
         </ClientLayout>
     );
 } 

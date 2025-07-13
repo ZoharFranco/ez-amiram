@@ -1,5 +1,5 @@
-import VocabularyProgress from '@/frontend/components/VocabularyProgress';
-import { useLanguage } from '../contexts/LanguageContext';
+import VocabularyProgress from '@/frontend/components/ui/pages/vocabulary/VocabularyProgress';
+import { useLanguage } from '../../../../contexts/LanguageContext';
 
 export default function BasicsSection() {
     const { t } = useLanguage();

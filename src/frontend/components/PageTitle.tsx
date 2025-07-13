@@ -43,28 +43,34 @@ export default function PageTitle({ title, subtitle, color = 'green', useImage =
     };
 
     return (
-        <div className="text-center space-y-2 mb-16">
-            {useImage && (<div className="flex flex-col items-center text-center mt-4">
-                <div className="relative group mb-4">
-                    <div className={`absolute -inset-1 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-xl group-hover:blur-2xl transition-all duration-500`} />
-                    <div className="relative">
-                        <div className={`absolute inset-0 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-lg`} />
-                        <Image
-                            src="/professor.png"
-                            alt="AI Professor"
-                            width={140}
-                            height={140}
-                            className="rounded-full relative border-4 border-white/10 shadow-2xl transform group-hover:scale-105 transition-all duration-500"
-                        />
+        <div className="text-start space-y-2 space-x-4 mr-4 ml-4 mb-8 items-start">
+            {useImage && (
+                <div className="flex flex-row items-end text-start mt-4">
+                    <div className="relative group mb-4 flex-shrink-0 w-32 h-32">
+                        <div className={`absolute -inset-2 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500`} />
+                        <div className="relative w-32 h-32">
+                            <div className={`absolute inset-0 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-xl`} />
+                            <Image
+                                src="/professor.png"
+                                alt="AI Professor"
+                                width={128}
+                                height={128}
+                                className="rounded-full relative border-4 border-white/10 shadow-2xl transform transition-all duration-500 w-32 h-32"
+                            />
+                        </div>
+                    </div>
+                    <div className="flex flex-col items-start text-start mr-10 justify-center h-32">
+                        <h1 className={`text-start text-3xl font-bold text-${getColorClasses(color)} leading-tight`}>
+                            {title}
+                        </h1>
+                        {subtitle && (
+                            <p className="text-lg text-[rgb(var(--color-text-light))]">
+                                {subtitle}
+                            </p>
+                        )}
                     </div>
                 </div>
-            </div>)}
-            <h1 className={`text-display max-w-4xl mx-auto bg-gradient-to-r ${getColorClasses(color)} bg-clip-text text-transparent`}>
-                {title}
-            </h1>
-            <p className="text-subtitle max-w-2xl mx-auto text-[rgb(var(--color-text-light))]">
-                {subtitle}
-            </p>
+            )}
         </div>
     );
 }

@@ -1,6 +1,6 @@
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useRouter } from 'next/navigation';
-import ProgressBar from './shared/progressBar';
+import ProgressBar from '../../../shared/progressBar';
 
 // Mocked vocabulary data (should be replaced with real data source)
 const allSubItems = [
@@ -30,7 +30,7 @@ export default function VocabularyProgress() {
     <div className="flex flex-col items-center justify-center">
       <ProgressBar percent={percent} completed={completed} total={total} />
           <button
-              className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8"
+              className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8 text-lg"
               onClick={handleVocabularyClick}
           >
               {t('pages.home.vocabularyPractice')}

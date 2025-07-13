@@ -25,7 +25,7 @@
   },
   "nav": {
     "home": "בית",
-    "simulation": "סימולציות",
+    "simulations": "סימולציות",
     "questions": "שאלות",
     "vocabulary": "אוצר מילים",
     "tips": "טיפים"
@@ -35,15 +35,15 @@
     "questionsPractice": "תרגול נושאי הבחינה",
     "vocabularyPractice": "תרגול אוצר מילים",
     "subtitle": "ללמוד בצורה פשוטה ואפקטיבית",
-    "title": "אמירם בשבילך",
+    "title": "אמירם",
     "currentGrade": "ציון צפוי",
     "outOf": "מתוך",
-    "quickLearn": "למידה מהירה",
-    "quickLearnDescription": "שיעור מהיר בהתאם לזמן שלך",
-    "fullSimulation": "סימולציה מלאה",
-    "fullSimulationDescription": "סימולציה מלאה של מבחן   ",
+    "quickLearn": "התחלו למידה מהירה",
+    "quickLearnDescription": "שיעור לפי לזמן שלך",
+    "fullSimulation": "פתרו סימולציה מלאה",
+    "fullSimulationDescription": "סימולציה מלאה של מבחן",
     "recentProgress": "התקדמות נושאי בחינה",
-    "learningStreak": "ימים רצופים",
+    "learningStreak": "ימים",
     "topics": {
       "restatement": "ניסוח מחדש",
       "sentenceCompletion": "השלמת מילים",
@@ -68,14 +68,19 @@
   },
   "vocabulary": {
     "title": "אוצר מילים",
-    "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם"
+    "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם",
+    "selection": {
+      "category": "קטגוריה",
+      "level": "רמה"
+    }
 
   },
-  "simulation": {
+  "simulations": {
     "startNew": "התחל עכשיו",
     "simulationGraph": "גרף התקדמות",
     "pastSimulations": "סימולציות עבר",
-    "title": "סימולציה מלאה",
+    "title": "סימולציות",
+    "subtitle": "דימוי של מבחן מלא, לתרגל את הדבר המיתי",
     "questionNumber": "שאלה {{current}} מתוך {{total}}",
     "previous": "הקודם",
     "next": "הבא",
@@ -101,8 +106,8 @@
     }
   },
   "subjects":{
-    "title": "חלוקה לנושאים",
-    "subtitle": "אנחנו משפרים אותך בנושא שאתה צריך להשתפר בו פה תוכל לראות מה מצבך בכל נושא",
+    "title": "שאלות",
+    "subtitle": "שאלות בנושאים השונים של את המבחן",
     "restatement": {
       "title": "ניסוח מחדש",
       "description":"הבנה של דקדוק ומבנה משפטים"

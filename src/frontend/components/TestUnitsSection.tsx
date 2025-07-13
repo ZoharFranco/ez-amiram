@@ -22,38 +22,35 @@ export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
 
   return (
     <section className="card p-10 mt-8 text-center">
-      <div className="text-center mb-10">
+      <div className="text-center mb-6">
         <h2 className="text-2xl">
           {t('pages.home.recentProgress')}
         </h2>
       </div>
-      <div className="space-y-8">
+      <div className="space-y-2">
         {topics.map((topic) => (
           <div
             key={topic.key}
-            className="space-y-4 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200"
-            onClick={() => handleTopicClick()}
+            className="space-y-2 cursor-pointer hover:bg-gray-50 p-4 rounded-lg transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <span className="text-subtitle text-[rgb(var(--color-text))]">
+                <span className="text-lg text-[rgb(var(--color-text))]">
                   {topic.title}
                 </span>
               </div>
               <div className="flex items-center space-x-3">
-                <span className="badge badge-primary text-lg">
+                <span className="badge badge-primary text-sm">
                   {topic.progress}%
                 </span>
-
               </div>
             </div>
           </div>
-
         ))}
       </div>
 
       <button
-        className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8 text center"
+        className="btn btn-primary btn-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8 text center text-lg"
         onClick={(e) => {
           e.stopPropagation();
           handleTopicClick();
@@ -61,7 +58,6 @@ export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
       >
         {t('pages.home.questionsPractice')}
       </button>
-
     </section>
   );
 }

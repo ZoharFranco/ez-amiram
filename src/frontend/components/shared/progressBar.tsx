@@ -22,8 +22,8 @@ export default function ProgressBar({
   progressBarClassName = '',
   trackClassName = '',
   textColorClass = 'text-gray-700',
-  size = 160, // Default size: 80px for better visibility of inner text
-  strokeWidth = 8, // Default stroke width: 8px for good visual weight
+  size = 120, // Default size: 80px for better visibility of inner text
+  strokeWidth = 6, // Default stroke width: 8px for good visual weight
 }: ProgressBarProps) {
   const { t } = useLanguage();
 

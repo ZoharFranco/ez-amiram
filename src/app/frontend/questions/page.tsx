@@ -3,10 +3,10 @@
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
+import { ArrowLeftIcon } from 'lucide-react';
 import { useState } from 'react';
-import ProgressBar from '../../../frontend/components/shared/progressBar'; // Assuming ProgressBar path is correct and it's the full component
+import ProgressBar from '../../../frontend/components/shared/progressBar';
 
-// Mock Data and Types (for demonstration)
 interface SubjectCategory {
     title: string;
     description: string;
@@ -16,12 +16,11 @@ interface SubjectCategory {
 
 export default function QuestionsPage() {
     const { t } = useLanguage();
-    
-    // Mock state to simulate completed topics for progress bar demonstration
+
     const [mockCompletedTopics] = useState<Record<number, number>>({
-        0: 2, // Subject 0 has 2 topics completed
-        1: 0, // Subject 1 has 0 topics completed
-        2: 3, // Subject 2 has 3 topics completed
+        0: 2,
+        1: 0,
+        2: 3,
     });
 
     const subjects: SubjectCategory[] = [
@@ -29,31 +28,33 @@ export default function QuestionsPage() {
             title: t('pages.subjects.restatement.title'),
             description: t('pages.subjects.restatement.description'),
             icon: '📖',
-            topics: ['Tenses', 'Articles', 'Prepositions', 'Conditionals']
+            topics: ['Tenses', 'Articles', 'Prepositions', 'Conditionals'],
         },
         {
             title: t('pages.subjects.sentenceCompletion.title'),
             description: t('pages.subjects.sentenceCompletion.description'),
             icon: '📝',
-            topics: ['Common Words', 'Idioms', 'Phrasal Verbs', 'Synonyms']
+            topics: ['Common Words', 'Idioms', 'Phrasal Verbs', 'Synonyms'],
         },
         {
             title: t('pages.subjects.readingComprehension.title'),
             description: t('pages.subjects.readingComprehension.description'),
             icon: '🗣️',
-            topics: ['Vowel Sounds', 'Consonants', 'Word Stress', 'Intonation']
-        }
+            topics: ['Vowel Sounds', 'Consonants', 'Word Stress', 'Intonation'],
+        },
     ];
 
     return (
         <ClientLayout>
-            <div className="container mx-auto px-4 py-8">
-                <PageTitle title={t('pages.subjects.title')} subtitle={t('pages.subjects.subtitle')} color='teal' />
+            <div className="container mx-auto px-4 py-10">
+                <PageTitle
+                    title={t('pages.subjects.title')}
+                    subtitle={t('pages.subjects.subtitle')}
+                    color="teal"
+                />
 
-
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12 mb-22">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
                     {subjects.map((subject, index) => {
-                        // Removed isExpanded logic as cards are no longer expandable
                         const totalTopics = subject.topics.length;
                         const completedTopics = mockCompletedTopics[index] || 0;
                         const progressPercent = Math.round((completedTopics / totalTopics) * 100);
@@ -61,40 +62,46 @@ export default function QuestionsPage() {
                         return (
                             <div
                                 key={index}
-                                className={`
-                                    relative p-8 rounded-3xl shadow-xl transition-all duration-300
-                                    bg-white/80 border border-gray-100 text-gray-800
-                                    hover:shadow-2xl hover:border-[rgb(var(--color-primary-light))]
-                                `}
-                                // Removed onClick handler
+                                className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 m-3 transition-transform duration-200 hover:shadow-md hover:scale-[1.02] flex flex-col items-center text-center"
                             >
-                                {/* Title and Description */}
-                                <h3 className="text-3xl font-extrabold mb-6 leading-tight text-gray-900 text-center">
-                                    {subject.title}
-                                    <span className="text-6xl text-[rgb(var(--color-primary))] transition-transform duration-300 ml-4 mr-4 mb-4">
-                                        {subject.icon}
-                                    </span>
-                                </h3>
-                                 {/* Progress Bar */}
-                                 <div className="mb-4 mt-4 flex items-center justify-center"> {/* Centered with flex */}
-                                    <ProgressBar
-                                        percent={progressPercent}
-                                        completed={completedTopics}
-                                        total={totalTopics}
-                                        inwork={0}
-                                        // Simplified styles for static display
-                                        trackClassName="bg-gray-200"
-                                        progressBarClassName="bg-[rgb(var(--color-primary))]"
-                                        textColorClass="text-gray-700"
-                                    />
+                                <div className="flex items-start justify-start gap-4 w-full mb-5">
+                                    {/* Icon */}
+                                    <div className="text-4xl">{subject.icon}</div>
+                                    <div className="flex flex-col items-start text-start">
+                                        {/* Title */}
+                                        <h3 className="text-xl font-semibold text-gray-800">
+                                            {subject.title}
+                                        </h3>
+                                        {/* Description */}
+                                        <p className="text-sm text-gray-500">{subject.description}</p>
+                                    </div>
                                 </div>
-                                <p className="text-lg leading-relaxed mb-6 text-gray-600 text-center">
-                                    {subject.description}
-                                </p>
-
-                                
-
-                                {/* Removed Expanded Content (Topics) and Expand/Collapse Hint */}
+                                {/* Progress Bar */}
+                                <ProgressBar
+                                    percent={progressPercent}
+                                    completed={completedTopics}
+                                    total={totalTopics}
+                                    inwork={0}
+                                    trackClassName="bg-gray-100 h-2 rounded-full"
+                                    progressBarClassName="bg-teal-500 h-2 rounded-full"
+                                    textColorClass="text-gray-600 text-sm mt-2"
+                                />
+                                <div className="w-full flex justify-end items-start mt-3 bg-">
+                                    <button
+                                        className="flex items-center gap-1 px-1 py-1 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 text-white text-xs font-medium shadow transition-all duration-200"
+                                        style={{ minWidth: 'unset', minHeight: 'unset' }}
+                                        onClick={() => {
+                                            window.location.href = `/frontend/questions/study?subject=${encodeURIComponent(subject.title)}`;
+                                        }}
+                                    >
+                                        <span className="font-semibold tracking-wide px-2 text-lg">
+                                            המשך
+                                        </span>
+                                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 transition-colors duration-200">
+                                            <ArrowLeftIcon className="w-4 h-4 text-white" />
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         );
                     })}
