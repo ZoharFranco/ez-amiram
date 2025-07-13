@@ -2,9 +2,9 @@
 
 
 import ActionButtons from '@/frontend/components/ActionButtons';
-import BasicsSection from '@/frontend/components/BasicsSection';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import CurrentGradeCard from '@/frontend/components/CurrentGradeCard';
+import BasicsSection from '@/frontend/components/ui/pages/home/BasicsSection';
 
 import PageTitle from '@/frontend/components/PageTitle';
 import TestUnitsSection from '@/frontend/components/TestUnitsSection';
@@ -18,14 +18,14 @@ import { useEffect, useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
-  const { t, dir } = useLanguage();
+  const { t } = useLanguage();
   const { user } = useAuth();
-  const isRTL = dir === 'rtl';
+
   const [isTimeDialogOpen, setIsTimeDialogOpen] = useState(false);
   const [animateProgress, setAnimateProgress] = useState(false);
 
   // Data for subcomponents
-  const predictedGrade = 85;
+  const predictedGrade = 115;
   const learningStreak = 7;
   const topics = [
     {
@@ -58,14 +58,16 @@ export default function Home() {
   };
 
   const handleSimulationClick = () => {
-    router.push('/frontend/simulation/start');
+    router.push('/frontend/simulations/start');
   };
 
   return (
     <ClientLayout>
-      <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-[rgb(var(--color-background))] mb-28">
+
+      <div className="container mx-auto px-4 py-10">
+        <PageTitle title={t('pages.home.title')} subtitle={t('pages.home.subtitle')} />
+
         <div className="px-8 mb-10 max-w-6xl mx-auto">
-          <PageTitle title={t('pages.home.title')} subtitle={t('pages.home.subtitle')} />
           {user && (
             <><CurrentGradeCard
               predictedGrade={predictedGrade}
@@ -73,9 +75,9 @@ export default function Home() {
               animateProgress={animateProgress}
             />
               <ActionButtons
-            onQuickLearn={() => setIsTimeDialogOpen(true)}
-            onSimulation={handleSimulationClick}
-            t={t}
+                onQuickLearn={() => setIsTimeDialogOpen(true)}
+                onSimulation={handleSimulationClick}
+                t={t}
               />
             </>
 
@@ -88,14 +90,15 @@ export default function Home() {
               <BasicsSection />
             </>
           )}
+          <AuthButton />
+          <TimeSelectionDialog
+            isOpen={isTimeDialogOpen}
+            onClose={() => setIsTimeDialogOpen(false)}
+            onSelectTime={handleTimeSelection}
+          />
         </div>
-        <AuthButton />
-        <TimeSelectionDialog
-          isOpen={isTimeDialogOpen}
-          onClose={() => setIsTimeDialogOpen(false)}
-          onSelectTime={handleTimeSelection}
-        />
       </div>
+
     </ClientLayout>
   );
 }

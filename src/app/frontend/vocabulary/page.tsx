@@ -2,6 +2,7 @@
 
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
+import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useState } from 'react';
 
@@ -64,9 +65,8 @@ export default function VocabularyPage() {
             {items.map((item, i) => (
               <div
                 key={i}
-                className={`p-3 rounded-lg border flex justify-between items-center ${
-                  item.completed ? 'bg-green-100 border-green-400' : 'bg-white border-gray-300'
-                }`}
+                className={`p-3 rounded-lg border flex justify-between items-center ${item.completed ? 'bg-green-100 border-green-400' : 'bg-white border-gray-300'
+                  }`}
               >
                 <span className="font-medium text-gray-800">{item.text}</span>
                 <span className="text-sm font-semibold text-gray-700">
@@ -83,35 +83,30 @@ export default function VocabularyPage() {
   // Main grouping view
   return (
     <ClientLayout>
-      <div className="min-h-screen px-4 py-2 max-w-md mx-auto mb-22">
+      <div className="container mx-auto px-4 py-10">
         <PageTitle title={t('pages.vocabulary.title')} subtitle={t('pages.vocabulary.subtitle')} color='indigo' />
-
-        <div className="flex justify-center gap-4 mb-6">
-          <button
+        <div className="mb-30">
+          <div className="flex justify-center gap-4 m-4">
+            <SelectionButton
             onClick={() => {
               setViewBy('category');
               setSelectedGroup(null);
             }}
-            className={`px-4 py-2 rounded-full font-medium transition ${
-              viewBy === 'category' ? 'bg-blue-600 text-white' : 'bg-white border text-blue-600'
-            }`}
-          >
-            לפי קטגוריה
-          </button>
-          <button
+              text={t("pages.vocabulary.selection.category")}
+              selected={viewBy === 'category'}
+            />
+
+            <SelectionButton
             onClick={() => {
               setViewBy('level');
               setSelectedGroup(null);
             }}
-            className={`px-4 py-2 rounded-full font-medium transition ${
-              viewBy === 'level' ? 'bg-blue-600 text-white' : 'bg-white border text-blue-600'
-            }`}
-          >
-            לפי רמה
-          </button>
+              text={t("pages.vocabulary.selection.level")}
+              selected={viewBy === 'level'}
+            />
         </div>
 
-        <div className="space-y-4">
+          <div className="space-y-4 m-6">
           {Object.entries(groupedSubItems).map(([groupName, items]) => {
             const progress = getProgress(items);
             return (
@@ -136,6 +131,7 @@ export default function VocabularyPage() {
             );
           })}
         </div>
+      </div>
       </div>
     </ClientLayout>
   );

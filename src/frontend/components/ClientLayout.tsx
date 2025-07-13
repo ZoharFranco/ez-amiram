@@ -14,7 +14,7 @@ export default function ClientLayout({ children }: ClientLayoutProps) {
         <>
             <title>לימודי אנגלית לאמירים - ezamiram</title>
             <Navigation />
-            <main className='mt-10 mb-14'>
+            <main className='mt-10 mb-24'>
                 {children}
             </main>
         </>
