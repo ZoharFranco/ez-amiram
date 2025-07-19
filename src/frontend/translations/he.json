@@ -66,9 +66,16 @@
     "taskDescription": "השלם את התרגיל הבא כדי לשפר את כישורי האנגלית שלך",
     "progress": "התקדמות השיעור"
   },
-  "vocabulary": {
+  "vocabulary": { 
     "title": "אוצר מילים",
     "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם",
+    "back": "אחורה",
+    "quiz": {
+      "start": "התחל מבחן"
+    },
+    "status": {
+
+    },
     "selection": {
       "category": "קטגוריה",
       "level": "רמה"
