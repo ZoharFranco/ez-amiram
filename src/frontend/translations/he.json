@@ -67,6 +67,10 @@
     "progress": "התקדמות השיעור"
   },
   "vocabulary": { 
+    "level":"רמה",
+    "definition": "משמעות",
+    "example": "דוגמה",
+    "category":"קטגוריה",
     "title": "אוצר מילים",
     "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם",
     "back": "אחורה",
@@ -74,6 +78,9 @@
       "start": "התחל מבחן"
     },
     "status": {
+      "learning": "כרגע בלמידה",
+      "toLearn": "צריך ללמוד",
+      "learned": "נלמד"
 
     },
     "selection": {

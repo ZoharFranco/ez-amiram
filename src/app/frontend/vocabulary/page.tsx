@@ -1,111 +1,17 @@
 'use client';
 
+import { VocabularyWord, vocabularyWords, WordStatus } from '@/config/content/vocabulary/vocabulary';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
 import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useState } from 'react';
 
-// --- Types ---
-type WordStatus = 'learned' | 'learning' | 'toLearn';
 
-type SubItem = {
-  text: string;
-  category: string;
-  level: string;
-  status: WordStatus;
-  definition: string;
-  translation: string;
-  example: string;
-};
-
-const allSubItems: SubItem[] = [
-  {
-    text: 'אבל',
-    category: 'קישור',
-    level: 'Level A',
-    status: 'learned',
-    definition: 'מילת קישור המציינת ניגוד',
-    translation: 'but',
-    example: 'רציתי לבוא, אבל לא היה לי זמן.',
-  },
-  {
-    text: 'וגם',
-    category: 'קישור',
-    level: 'Level A',
-    status: 'toLearn',
-    definition: 'מילת קישור המוסיפה מידע',
-    translation: 'and also',
-    example: 'הוא קנה לחם וגם חלב.',
-  },
-  {
-    text: 'כי',
-    category: 'קישור',
-    level: 'Level A',
-    status: 'learned',
-    definition: 'מילת קישור המציינת סיבה',
-    translation: 'because',
-    example: 'אני עייף כי עבדתי קשה.',
-  },
-  {
-    text: 'שם1',
-    category: 'שם',
-    level: 'Level A',
-    status: 'learned',
-    definition: 'דוגמה לשם עצם',
-    translation: 'noun1',
-    example: 'זהו שם1.',
-  },
-  {
-    text: 'שם2',
-    category: 'שם',
-    level: 'Level A',
-    status: 'learning',
-    definition: 'דוגמה נוספת לשם עצם',
-    translation: 'noun2',
-    example: 'מצאתי שם2 ברחוב.',
-  },
-  {
-    text: 'תואר1',
-    category: 'תואר',
-    level: 'Level B',
-    status: 'toLearn',
-    definition: 'דוגמה לתואר',
-    translation: 'adjective1',
-    example: 'הילד תואר1.',
-  },
-  {
-    text: 'פועל1',
-    category: 'פועל',
-    level: 'Level B',
-    status: 'learned',
-    definition: 'דוגמה לפועל',
-    translation: 'verb1',
-    example: 'הוא פועל1 כל יום.',
-  },
-  {
-    text: 'צורה1',
-    category: 'צורה',
-    level: 'Level C',
-    status: 'learning',
-    definition: 'דוגמה לצורה',
-    translation: 'form1',
-    example: 'הצורה היא צורה1.',
-  },
-  {
-    text: 'תחילית א',
-    category: 'תחילית',
-    level: 'Level C',
-    status: 'learned',
-    definition: 'דוגמה לתחילית',
-    translation: 'prefix A',
-    example: 'המילה מתחילה בתחילית א.',
-  },
-];
 
 // --- Small Components ---
 
-function getStatusColor(status: WordStatus) {
+function getStatusColor(status: WordStatus | undefined) {
   switch (status) {
     case 'learned':
       return 'bg-emerald-100 border-emerald-400 text-emerald-800';
@@ -118,7 +24,7 @@ function getStatusColor(status: WordStatus) {
 }
 
 type WordCardProps = {
-  item: SubItem;
+  item: VocabularyWord;
   onClick: () => void;
 };
 
@@ -130,18 +36,19 @@ function WordCard({ item, onClick }: WordCardProps) {
       onClick={onClick}
       tabIndex={0}
       role="button"
-      aria-label={item.translation}
+      aria-label={item.word}
     >
-      <span className="font-medium text-emerald-700 text-lg">{item.translation}</span>
       <span className="text-xs font-semibold">
         {item.status === 'learned' ? '✓' : item.status === 'learning' ? '⏳' : '•'}
       </span>
+      <span className="font-medium text-emerald-700 text-lg">{item.word}</span>
+
     </div>
   );
 }
 
 type WordDetailModalProps = {
-  item: SubItem;
+  item: VocabularyWord;
   onClose: () => void;
   onStatusChange: (status: WordStatus) => void;
   t: (key: string) => string;
@@ -160,29 +67,12 @@ function WordDetailModal({ item, onClose, onStatusChange, t }: WordDetailModalPr
           ×
         </button>
         {/* English word as main title */}
-        <h2 className="text-4xl font-extrabold text-emerald-700 text-center mb-2 tracking-wide drop-shadow">
-          {item.translation}
+        <h2 className="text-4xl font-extrabold text-emerald-700 text-center mb-8 tracking-wide drop-shadow">
+          {item.word}
         </h2>
         {/* Hebrew word as subtitle */}
         <div className="text-2xl text-gray-700 text-center mb-4 font-semibold">
-          {item.text}
-        </div>
-        {/* Status badge */}
-        <div className="flex justify-center mb-4">
-          <span
-            className={`px-4 py-1 rounded-full text-sm font-bold border shadow-sm ${item.status === 'learned'
-                ? 'bg-emerald-100 text-emerald-700 border-emerald-400'
-                : item.status === 'learning'
-                  ? 'bg-blue-100 text-blue-700 border-blue-400'
-                  : 'bg-gray-100 text-gray-700 border-gray-300'
-              }`}
-          >
-            {item.status === 'learned'
-              ? t('pages.vocabulary.status.learned') || 'Learned'
-              : item.status === 'learning'
-                ? t('pages.vocabulary.status.learning') || 'Learning'
-                : t('pages.vocabulary.status.toLearn') || 'To Learn'}
-          </span>
+          {item.hebrewTranslation}
         </div>
         {/* Details grid */}
         <div className="grid grid-cols-1 gap-4 mb-6">
@@ -192,7 +82,7 @@ function WordDetailModal({ item, onClose, onStatusChange, t }: WordDetailModalPr
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold text-gray-700">{t('pages.vocabulary.example') || 'Example'}:</span>
-            <span className="italic text-gray-500">"{item.example}"</span>
+            <span className="italic text-gray-500">`{item.example}`</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="font-semibold text-gray-700">{t('pages.vocabulary.category') || 'Category'}:</span>
@@ -233,41 +123,30 @@ function WordDetailModal({ item, onClose, onStatusChange, t }: WordDetailModalPr
             {t('pages.vocabulary.status.toLearn') || 'To Learn'}
           </button>
         </div>
-        {/* Fun emoji and encouragement */}
-        <div className="text-center mt-4">
-          {item.status === 'learned' ? (
-            <div className="text-3xl mb-1">🎉</div>
-          ) : item.status === 'learning' ? (
-            <div className="text-3xl mb-1">💪</div>
-          ) : (
-            <div className="text-3xl mb-1">🚀</div>
-          )}
-          <div className="text-emerald-600 font-semibold">
-            {item.status === 'learned'
-              ? t('pages.vocabulary.encouragement.learned') || 'Great job! Keep going!'
-              : item.status === 'learning'
-                ? t('pages.vocabulary.encouragement.learning') || 'You are making progress!'
-                : t('pages.vocabulary.encouragement.toLearn') || 'Ready to learn this word?'}
-          </div>
-        </div>
+
       </div>
     </div>
   );
 }
 
 type GroupListProps = {
-  groupedSubItems: Record<string, SubItem[]>;
+  groupedVocabularyWord: Record<string, VocabularyWord[]>;
   onSelectGroup: (group: string) => void;
-  getProgress: (items: SubItem[]) => number;
+  getProgress: (items: VocabularyWord[]) => number;
   viewBy: ViewBy;
   t: (key: string) => string;
 };
 
-function GroupList({ groupedSubItems, onSelectGroup, getProgress, viewBy, t }: GroupListProps) {
+function GroupList({ groupedVocabularyWord, onSelectGroup, getProgress, viewBy, t }: GroupListProps) {
   return (
     <div className="space-y-4 m-6">
-      {Object.entries(groupedSubItems).map(([groupName, items]) => {
+      {Object.entries(groupedVocabularyWord).map(([groupName, items]) => {
         const progress = getProgress(items);
+        // Determine the label for the group type
+        const groupLabel =
+          viewBy === 'category'
+            ? t('pages.vocabulary.category') || 'Category'
+            : t('pages.vocabulary.level') || 'Level';
         return (
           <div
             key={groupName}
@@ -275,10 +154,20 @@ function GroupList({ groupedSubItems, onSelectGroup, getProgress, viewBy, t }: G
             onClick={() => onSelectGroup(groupName)}
           >
             <div className="flex justify-between items-center mb-2">
-              <h2 className="text-xl font-semibold">{groupName}</h2>
-              <span className="text-sm text-gray-600">
-                {items.filter((i) => i.status === 'learned').length} / {items.length}
-              </span>
+              <h2 className="text-xl font-semibold flex items-center gap-2">
+                <span className="text-gray-500 text-base">{groupLabel}:</span>
+                <span>{groupName}</span>
+              </h2>
+              <div className="flex flex-col items-end min-w-[80px]">
+                <span className="text-xs text-gray-500 mb-1">
+                  <span className="mr-3 text-lg font-bold text-emerald-600">{Math.ceil(progress)}%</span>
+                  <span className="text-lg font-semibold text-emerald-700 ml-1">
+                    {items.filter((i) => i.status === 'learned').length}
+                  </span>
+                  <span className="text-lg text-gray-400">/</span>
+                  <span className="text-lg font-semibold">{items.length}</span>
+                </span>
+              </div>
             </div>
             <div className="w-full h-2 bg-gray-200 rounded-full">
               <div
@@ -294,19 +183,21 @@ function GroupList({ groupedSubItems, onSelectGroup, getProgress, viewBy, t }: G
 }
 
 type WordListProps = {
-  items: SubItem[];
-  onWordClick: (item: SubItem) => void;
+  items: VocabularyWord[];
+  onWordClick: (item: VocabularyWord) => void;
   t: (key: string) => string;
 };
 
 // Helper to sort words by status: learned > learning > toLearn
-function sortWordsByStatus(items: SubItem[]): SubItem[] {
-  const statusOrder: Record<WordStatus, number> = {
-    learned: 0,
-    learning: 1,
-    toLearn: 2,
-  };
-  return [...items].sort((a, b) => statusOrder[a.status] - statusOrder[b.status]);
+function sortWordsByStatus(items: VocabularyWord[]): VocabularyWord[] {
+  // Fix: Use an array for status order and indexOf for comparison
+  const statusOrder = ['learned', 'learning', 'toLearn'];
+  return [...items].sort((a, b) => {
+    const aIdx = statusOrder.indexOf(a.status);
+    const bIdx = statusOrder.indexOf(b.status);
+    // If status is not found, put it at the end
+    return (aIdx === -1 ? statusOrder.length : aIdx) - (bIdx === -1 ? statusOrder.length : bIdx);
+  });
 }
 
 // Helper to chunk array into rows of 2
@@ -380,7 +271,7 @@ function getRandomOptions<T>(
 }
 
 type QuizGameProps = {
-  items: SubItem[];
+  items: VocabularyWord[];
   onClose: () => void;
   t: (key: string) => string;
 };
@@ -399,51 +290,51 @@ function getRandomQuestionType(): QuizState['questionType'] {
 }
 
 function getOptionsForQuestion(
-  items: SubItem[],
-  currentItem: SubItem,
+  items: VocabularyWord[],
+  currentItem: VocabularyWord,
   questionType: QuizState['questionType']
 ): string[] {
   // Always 4 options
   switch (questionType) {
     case 'hebrew-to-english':
-      return getRandomOptions(items, currentItem, 4, (item) => item.translation);
+      return getRandomOptions(items, currentItem, 4, (item) => item.hebrewTranslation);
     case 'english-to-hebrew':
     case 'definition-to-hebrew':
     case 'example-to-hebrew':
     default:
-      return getRandomOptions(items, currentItem, 4, (item) => item.text);
+      return getRandomOptions(items, currentItem, 4, (item) => item.word);
   }
 }
 
 function getQuestionPrompt(
   t: (key: string) => string,
   questionType: QuizState['questionType'],
-  currentItem: SubItem
+  currentItem: VocabularyWord
 ): { prompt: string; main: string; sub?: string } {
   switch (questionType) {
     case 'hebrew-to-english':
       return {
         prompt: t('pages.vocabulary.quiz.prompt.hebrewToEnglish') || 'What is the English translation of:',
-        main: currentItem.text,
+        main: currentItem.word,
         sub: currentItem.definition,
       };
     case 'english-to-hebrew':
       return {
         prompt: t('pages.vocabulary.quiz.prompt.englishToHebrew') || 'What is the Hebrew word for:',
-        main: currentItem.translation,
+        main: currentItem.hebrewTranslation,
         sub: currentItem.definition,
       };
     case 'definition-to-hebrew':
       return {
         prompt: t('pages.vocabulary.quiz.prompt.definitionToHebrew') || 'Which Hebrew word matches this definition?',
         main: currentItem.definition,
-        sub: currentItem.translation,
+        sub: currentItem.hebrewTranslation,
       };
     case 'example-to-hebrew':
       return {
         prompt: t('pages.vocabulary.quiz.prompt.exampleToHebrew') || 'Which Hebrew word fits this example?',
         main: currentItem.example,
-        sub: currentItem.translation,
+        sub: currentItem.hebrewTranslation,
       };
     default:
       return {
@@ -491,15 +382,15 @@ function QuizGame({ items, onClose, t }: QuizGameProps) {
     }));
   }
 
-  function isCorrectAnswer(option: string, item: SubItem, type: QuizState['questionType']) {
+  function isCorrectAnswer(option: string, item: VocabularyWord, type: QuizState['questionType']) {
     switch (type) {
       case 'hebrew-to-english':
-        return option === item.translation;
+        return option === item.hebrewTranslation;
       case 'english-to-hebrew':
       case 'definition-to-hebrew':
       case 'example-to-hebrew':
       default:
-        return option === item.text;
+        return option === item.word;
     }
   }
 
@@ -630,7 +521,7 @@ function QuizGame({ items, onClose, t }: QuizGameProps) {
         </div>
         {/* Options */}
         <div className="mb-4 space-y-2">
-          {state.options.map((option, idx) => {
+          {state.options.map((option) => {
             let optionStyle =
               'w-full px-4 py-2 rounded border text-lg text-left transition cursor-pointer';
             const isCorrect = isCorrectAnswer(option, currentItem, state.questionType);
@@ -678,12 +569,12 @@ function QuizGame({ items, onClose, t }: QuizGameProps) {
                     {(() => {
                       switch (state.questionType) {
                         case 'hebrew-to-english':
-                          return currentItem.translation;
+                          return currentItem.hebrewTranslation;
                         case 'english-to-hebrew':
                         case 'definition-to-hebrew':
                         case 'example-to-hebrew':
                         default:
-                          return currentItem.text;
+                          return currentItem.word;
                       }
                     })()}
                   </span>
@@ -718,12 +609,12 @@ export default function VocabularyPage() {
   // Set 'level' as the default view
   const [viewBy, setViewBy] = useState<ViewBy>('level');
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
-  const [modalWord, setModalWord] = useState<SubItem | null>(null);
-  const [words, setWords] = useState<SubItem[]>(allSubItems);
+  const [modalWord, setModalWord] = useState<VocabularyWord | null>(null);
+  const [words, setWords] = useState<VocabularyWord[]>(vocabularyWords);
   const [quizOpen, setQuizOpen] = useState(false);
 
   // Group sub-items by category or level
-  const groupedSubItems = words.reduce<Record<string, SubItem[]>>((groups, item) => {
+  const groupedVocabularyWords = words.reduce<Record<string, VocabularyWord[]>>((groups, item) => {
     const key = viewBy === 'category' ? item.category : item.level;
     if (!groups[key]) groups[key] = [];
     groups[key].push(item);
@@ -731,27 +622,27 @@ export default function VocabularyPage() {
   }, {});
 
   // Calculate progress for a group (learned / total)
-  function getProgress(items: SubItem[]) {
+  function getProgress(items: VocabularyWord[]) {
     const total = items.length;
     const learned = items.filter((i) => i.status === 'learned').length;
     return total > 0 ? (learned / total) * 100 : 0;
   }
 
   // Handler for changing word status
-  function handleStatusChange(word: SubItem, status: WordStatus) {
+  function handleStatusChange(word: VocabularyWord, status: WordStatus) {
     setWords((prev) =>
       prev.map((w) =>
-        w.text === word.text && w.category === word.category && w.level === word.level
+        w.word === word.word && w.category === word.category && w.level === word.level
           ? { ...w, status }
           : w
       )
     );
-    setModalWord((prev) => prev && prev.text === word.text ? { ...prev, status } : prev);
+    setModalWord((prev) => prev && prev.word === word.word ? { ...prev, status } : prev);
   }
 
   // Detail view for selected group
   if (selectedGroup) {
-    const items = groupedSubItems[selectedGroup] ?? [];
+    const items = groupedVocabularyWords[selectedGroup] ?? [];
     return (
       <ClientLayout>
         <div className="min-h-screen px-4 py-6 max-w-md mx-auto">
@@ -826,7 +717,7 @@ export default function VocabularyPage() {
             />
           </div>
           <GroupList
-            groupedSubItems={groupedSubItems}
+            groupedVocabularyWord={groupedVocabularyWords}
             onSelectGroup={setSelectedGroup}
             getProgress={getProgress}
             viewBy={viewBy}

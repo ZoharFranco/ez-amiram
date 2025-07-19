@@ -1,5 +1,13381 @@
 
-export const list = [
+// --- Types ---
+export type WordStatus = 'learned' | 'learning' | 'toLearn';
+
+export type VocabularyWord = {
+    word: string;
+    definition: string;
+    example: string;
+    hebrewTranslation: string;
+    category: string;
+    level: number;
+    status?: WordStatus;
+}
+
+
+export const vocabularyWords: VocabularyWord[] = [
+
+    {
+        "word": "abbreviate",
+        "definition": "to make something shorter, especially a word or phrase.",
+        "example": "You can abbreviate 'doctor' as 'Dr.'",
+        "hebrewTranslation": "לקצר",
+        "category": "Language",
+        "level": 6
+    },
+    {
+        "word": "abdomen",
+        "definition": "the part of the body between the chest and the hips that contains the stomach and intestines.",
+        "example": "He had pain in his abdomen after eating.",
+        "hebrewTranslation": "בטן",
+        "category": "Biology",
+        "level": 4
+    },
+    {
+        "word": "ability",
+        "definition": "the skill or power to do something.",
+        "example": "She has the ability to solve complex problems.",
+        "hebrewTranslation": "יכולת",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "abnormal",
+        "definition": "different from what is usual or average, especially in a way that is worrying.",
+        "example": "The doctor noticed an abnormal heartbeat.",
+        "hebrewTranslation": "לא נורמלי",
+        "category": "Medical",
+        "level": 5
+    },
+    {
+        "word": "abolish",
+        "definition": "to officially end a law, system, or institution.",
+        "example": "The country decided to abolish the old tax law.",
+        "hebrewTranslation": "לבטל",
+        "category": "Government",
+        "level": 6
+    },
+    {
+        "word": "above",
+        "definition": "in or to a higher position than something else.",
+        "example": "The picture hangs above the fireplace.",
+        "hebrewTranslation": "מעל",
+        "category": "Prepositions",
+        "level": 1
+    },
+    {
+        "word": "absolute",
+        "definition": "complete, total, and not limited in any way.",
+        "example": "He has absolute control over the project.",
+        "hebrewTranslation": "מוחלט, מושלם",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "absolutely",
+        "definition": "completely or totally; used to emphasize a statement.",
+        "example": "She is absolutely right.",
+        "hebrewTranslation": "באופן מוחלט",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "absorb",
+        "definition": "to take in a liquid, gas, or other substance from the surface or space around.",
+        "example": "The sponge can absorb a lot of water.",
+        "hebrewTranslation": "לקלוט, לספוג, להתעמק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "absorbent",
+        "definition": "able to soak up liquid easily.",
+        "example": "This towel is very absorbent.",
+        "hebrewTranslation": "בעל כושר ספיגה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "accessible",
+        "definition": "able to be reached, entered, or used.",
+        "example": "The museum is fully accessible to wheelchair users.",
+        "hebrewTranslation": "נגיש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "accidental",
+        "definition": "happening by chance; not planned.",
+        "example": "It was an accidental discovery.",
+        "hebrewTranslation": "מקרי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "acceptable",
+        "definition": "good enough to be allowed or approved of.",
+        "example": "This behavior is not acceptable in school.",
+        "hebrewTranslation": "מקובל",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "accompaniment",
+        "definition": "a musical part that supports or partners a solo instrument, voice, or group.",
+        "example": "He sang with a piano accompaniment.",
+        "hebrewTranslation": "ליווי",
+        "category": "Music",
+        "level": 7
+    },
+    {
+        "word": "account",
+        "definition": "a report or description of an event or experience.",
+        "example": "She gave a detailed account of what happened.",
+        "hebrewTranslation": "חשבון",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "adherence",
+        "definition": "the fact of behaving according to a particular rule or belief.",
+        "example": "Strict adherence to the rules is expected.",
+        "hebrewTranslation": "היצמדות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "admit into",
+        "definition": "to allow someone or something to enter a place.",
+        "example": "Only members are admitted into the club.",
+        "hebrewTranslation": "להכניס",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "admittance",
+        "definition": "the process or fact of entering or being allowed to enter a place.",
+        "example": "Admittance to the museum is free on Sundays.",
+        "hebrewTranslation": "הכנסה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "agglomeration",
+        "definition": "a large group of many different things collected or brought together.",
+        "example": "The city is an agglomeration of various cultures and traditions.",
+        "hebrewTranslation": "ערימה",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "aim",
+        "definition": "a purpose or intention; a desired outcome.",
+        "example": "Her main aim in life is to help others.",
+        "hebrewTranslation": "תכלית",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "allowable",
+        "definition": "permitted by law or rules.",
+        "example": "What is the allowable amount of luggage?",
+        "hebrewTranslation": "חוקי",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "ambiguity",
+        "definition": "the quality of being open to more than one interpretation; inexactness.",
+        "example": "His statement was full of ambiguity.",
+        "hebrewTranslation": "דו משמעות",
+        "category": "Language",
+        "level": 6
+    },
+    {
+        "word": "anguish",
+        "definition": "severe mental or physical pain or suffering.",
+        "example": "He was in anguish after losing his best friend.",
+        "hebrewTranslation": "לסבול",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "annex",
+        "definition": "to add an area to a country or city.",
+        "example": "The government decided to annex the small territory.",
+        "hebrewTranslation": "לצרף",
+        "category": "Politics",
+        "level": 6
+    },
+    {
+        "word": "appeal",
+        "definition": "to make a serious and urgent request.",
+        "example": "The organization is appealing for food and clothing for the victims.",
+        "hebrewTranslation": "לבקש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "approval",
+        "definition": "the feeling or belief that something is good or satisfactory.",
+        "example": "They received official approval for the project.",
+        "hebrewTranslation": "אישור",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "argument",
+        "definition": "a reason or set of reasons given to persuade others that an idea is right or wrong.",
+        "example": "They had a strong argument over politics.",
+        "hebrewTranslation": "טענה",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "arouse",
+        "definition": "to cause a particular feeling or attitude in someone.",
+        "example": "The strange noise aroused his suspicion.",
+        "hebrewTranslation": "לעורר",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "ascertain",
+        "definition": "to find out something for certain.",
+        "example": "The police are trying to ascertain the cause of the fire.",
+        "hebrewTranslation": "לוודא",
+        "category": "Investigation",
+        "level": 7
+    },
+    {
+        "word": "assertion",
+        "definition": "a confident and forceful statement of fact or belief.",
+        "example": "Her assertion that she was innocent was convincing.",
+        "hebrewTranslation": "טענה",
+        "category": "Communication",
+        "level": 6
+    },
+    {
+        "word": "assertively",
+        "definition": "in a confident and determined way.",
+        "example": "She assertively presented her ideas to the board.",
+        "hebrewTranslation": "בביטחון",
+        "category": "Communication",
+        "level": 7
+    },
+    {
+        "word": "audacious",
+        "definition": "showing a willingness to take surprisingly bold risks.",
+        "example": "It was an audacious plan to climb the mountain in a storm.",
+        "hebrewTranslation": "נועז",
+        "category": "Character",
+        "level": 8
+    },
+    {
+        "word": "audience",
+        "definition": "the people gathered to see or listen to a play, concert, or public meeting.",
+        "example": "The audience clapped loudly at the end of the show.",
+        "hebrewTranslation": "קהל",
+        "category": "Events",
+        "level": 3
+    },
+    {
+        "word": "authoritative",
+        "definition": "able to be trusted as being accurate or true; reliable.",
+        "example": "The book is an authoritative guide on the subject.",
+        "hebrewTranslation": "מהימן",
+        "category": "Information",
+        "level": 7
+    },
+    {
+        "word": "avaricious",
+        "definition": "having or showing an extreme greed for wealth or material gain.",
+        "example": "The avaricious businessman was never satisfied.",
+        "hebrewTranslation": "חמדן",
+        "category": "Character",
+        "level": 8
+    },
+    {
+        "word": "awe",
+        "definition": "a feeling of great respect and admiration, often mixed with fear.",
+        "example": "The view of the mountains filled him with awe.",
+        "hebrewTranslation": "לעורר יראת כבוד",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "axis",
+        "definition": "an imaginary line around which a spinning object turns.",
+        "example": "The Earth rotates on its axis once every 24 hours.",
+        "hebrewTranslation": "ציר",
+        "category": "Science",
+        "level": 5
+    },
+    {
+        "word": "bait",
+        "definition": "food used to attract and catch fish or other animals.",
+        "example": "He put a worm on the hook as bait.",
+        "hebrewTranslation": "פיתיון",
+        "category": "Fishing",
+        "level": 4
+    },
+    {
+        "word": "belief",
+        "definition": "an acceptance that something exists or is true, especially one without proof.",
+        "example": "His belief in her ability never wavered.",
+        "hebrewTranslation": "אמונה",
+        "category": "Philosophy",
+        "level": 3
+    },
+    {
+        "word": "bestow",
+        "definition": "to give something as an honor or gift.",
+        "example": "The queen bestowed a knighthood on him.",
+        "hebrewTranslation": "להעניק",
+        "category": "Formal",
+        "level": 6
+    },
+    {
+        "word": "blindness",
+        "definition": "the state or condition of not being able to see.",
+        "example": "Blindness can result from eye injuries.",
+        "hebrewTranslation": "עיוורון",
+        "category": "Medical",
+        "level": 5
+    },
+    {
+        "word": "bother",
+        "definition": "to annoy someone, or to cause them trouble.",
+        "example": "I'm sorry to bother you, but could you help me?",
+        "hebrewTranslation": "להפריע",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "brake",
+        "definition": "a device for slowing or stopping a moving vehicle.",
+        "example": "He slammed on the brakes to avoid an accident.",
+        "hebrewTranslation": "לעצור",
+        "category": "Vehicles",
+        "level": 3
+    },
+    {
+        "word": "bridle",
+        "definition": "to show one's anger or resentment.",
+        "example": "She bridled at the suggestion that she was not telling the truth.",
+        "hebrewTranslation": "לרסן",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "bright",
+        "definition": "giving out or reflecting a lot of light; shining.",
+        "example": "The room was filled with bright sunshine.",
+        "hebrewTranslation": "בהיר",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "brighten",
+        "definition": "to make or become lighter or brighter.",
+        "example": "The sky began to brighten in the east.",
+        "hebrewTranslation": "להבהיר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "brightness",
+        "definition": "the quality of being full of light.",
+        "example": "The brightness of the screen hurt my eyes.",
+        "hebrewTranslation": "בהירות",
+        "category": "Physics",
+        "level": 4
+    },
+    {
+        "word": "broaden",
+        "definition": "to make something wider.",
+        "example": "Traveling is a great way to broaden your mind.",
+        "hebrewTranslation": "להרחיב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "brutish",
+        "definition": "cruel, violent, and not showing intelligence or feeling.",
+        "example": "He had a brutish and unpleasant manner.",
+        "hebrewTranslation": "בהמי",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "candid",
+        "definition": "truthful and straightforward; frank.",
+        "example": "Let me be candid; I don't think your plan will work.",
+        "hebrewTranslation": "כן",
+        "category": "Communication",
+        "level": 5
+    },
+    {
+        "word": "candidly",
+        "definition": "in an honest and direct way.",
+        "example": "He spoke candidly about his past mistakes.",
+        "hebrewTranslation": "בכנות",
+        "category": "Communication",
+        "level": 7
+    },
+    {
+        "word": "certify",
+        "definition": "to officially recognize someone or something as meeting certain standards.",
+        "example": "The document must be certified by a lawyer.",
+        "hebrewTranslation": "לאשר",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "characteristic",
+        "definition": "a typical quality or feature of someone or something.",
+        "example": "Patience is one of her main characteristics.",
+        "hebrewTranslation": "מובהק",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "complaisance",
+        "definition": "the quality of being willing to please others.",
+        "example": "His complaisance meant he never argued with anyone.",
+        "hebrewTranslation": "נכונות לרצות אחרים",
+        "category": "Character",
+        "level": 8
+    },
+    {
+        "word": "composition",
+        "definition": "the way in which something is made up of different parts.",
+        "example": "He wrote a beautiful musical composition.",
+        "hebrewTranslation": "חיבור",
+        "category": "Arts",
+        "level": 6
+    },
+    {
+        "word": "compulsory",
+        "definition": "required by law or a rule; obligatory.",
+        "example": "Education is compulsory for children between the ages of 5 and 16.",
+        "hebrewTranslation": "של חובה",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "confidential",
+        "definition": "intended to be kept secret.",
+        "example": "The information in this file is highly confidential.",
+        "hebrewTranslation": "חסוי",
+        "category": "Security",
+        "level": 7
+    },
+    {
+        "word": "conquer",
+        "definition": "to take control of a place or people by military force.",
+        "example": "The army set out to conquer the neighboring territory.",
+        "hebrewTranslation": "לכבוש",
+        "category": "Military",
+        "level": 5
+    },
+    {
+        "word": "conquest",
+        "definition": "the act of taking control of a country, city, etc., by force.",
+        "example": "The Norman conquest of England took place in 1066.",
+        "hebrewTranslation": "כיבוש",
+        "category": "History",
+        "level": 6
+    },
+    {
+        "word": "consideration",
+        "definition": "careful thought, typically over a period of time.",
+        "example": "After careful consideration, she accepted the job offer.",
+        "hebrewTranslation": "עיון",
+        "category": "Thinking",
+        "level": 5
+    },
+    {
+        "word": "consolation",
+        "definition": "comfort received by a person after a loss or disappointment.",
+        "example": "Her kind words were a great consolation to him.",
+        "hebrewTranslation": "נחמה",
+        "category": "Emotions",
+        "level": 7
+    },
+    {
+        "word": "constitution",
+        "definition": "the set of basic laws and principles that a country is governed by.",
+        "example": "The country's constitution protects the rights of its citizens.",
+        "hebrewTranslation": "חוקה",
+        "category": "Government",
+        "level": 6
+    },
+    {
+        "word": "contradiction",
+        "definition": "a situation in which two things are the opposite of each other.",
+        "example": "There is a clear contradiction between his words and his actions.",
+        "hebrewTranslation": "ניגוד",
+        "category": "Logic",
+        "level": 6
+    },
+    {
+        "word": "contribution",
+        "definition": "a gift or payment that is made to a person or an organization.",
+        "example": "She made a valuable contribution to the team's success.",
+        "hebrewTranslation": "תרומה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "conversion",
+        "definition": "the process of changing from one form or system to another.",
+        "example": "The conversion of the old warehouse into apartments was a success.",
+        "hebrewTranslation": "החלפה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "critique",
+        "definition": "a detailed analysis and assessment of something, especially a literary or artistic work.",
+        "example": "She wrote a critique of the new play.",
+        "hebrewTranslation": "לבקר",
+        "category": "Arts",
+        "level": 6
+    },
+    {
+        "word": "crossroads",
+        "definition": "a point at which a crucial decision must be made.",
+        "example": "He was at a crossroads in his career.",
+        "hebrewTranslation": "צומת",
+        "category": "Metaphor",
+        "level": 4
+    },
+    {
+        "word": "absorption",
+        "definition": "the process by which one thing absorbs or is absorbed by another.",
+        "example": "The plant's roots are responsible for water absorption.",
+        "hebrewTranslation": "ספיגה",
+        "category": "Science",
+        "level": 6
+    },
+    {
+        "word": "abundant",
+        "definition": "existing or available in large quantities; plentiful.",
+        "example": "There is abundant evidence to support his theory.",
+        "hebrewTranslation": "בשפע",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "abuse",
+        "definition": "to use something for a bad purpose; misuse.",
+        "example": "He began to abuse alcohol after he lost his job.",
+        "hebrewTranslation": "לנצל/להשתמש לרעה",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "accelerate",
+        "definition": "to begin to move more quickly.",
+        "example": "The car accelerated to overtake the truck.",
+        "hebrewTranslation": "להאיץ",
+        "category": "Physics",
+        "level": 4
+    },
+    {
+        "word": "accept",
+        "definition": "to consent to receive or undertake (something offered).",
+        "example": "She was happy to accept the job offer.",
+        "hebrewTranslation": "לקבל, להסכים",
+        "category": "Social",
+        "level": 2
+    },
+    {
+        "word": "acceptance",
+        "definition": "the action of consenting to receive or undertake something offered.",
+        "example": "Her acceptance into the university was a dream come true.",
+        "hebrewTranslation": "קבלה",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "access",
+        "definition": "the means or opportunity to approach or enter a place.",
+        "example": "You need a password to get access to the system.",
+        "hebrewTranslation": "גישה, כניסה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "accessibility",
+        "definition": "the quality of being able to be reached or entered.",
+        "example": "The new building has excellent accessibility for disabled people.",
+        "hebrewTranslation": "נגישות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "accessory",
+        "definition": "a thing which can be added to something else in order to make it more useful, versatile, or attractive.",
+        "example": "She bought a new accessory for her phone.",
+        "hebrewTranslation": "אביזר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "accompany",
+        "definition": "to go somewhere with (someone) as a companion or escort.",
+        "example": "Children under 12 must accompany an adult.",
+        "hebrewTranslation": "להתלוות, ללוות",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "accomplish",
+        "definition": "to achieve or complete successfully.",
+        "example": "It's amazing what you can accomplish when you work together.",
+        "hebrewTranslation": "לבצע, להשיג",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "accomplished",
+        "definition": "highly trained or skilled in a particular activity.",
+        "example": "She is an accomplished musician.",
+        "hebrewTranslation": "מוכשר, בעל הישגים",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "accomplishment",
+        "definition": "something that has been achieved successfully.",
+        "example": "Finishing the marathon was a great accomplishment.",
+        "hebrewTranslation": "הישג, השלמה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "according to",
+        "definition": "as stated by or in.",
+        "example": "According to the forecast, it will rain tomorrow.",
+        "hebrewTranslation": "על פי",
+        "category": "Language",
+        "level": 3
+    },
+    {
+        "word": "accordingly",
+        "definition": "in a way that is appropriate to the particular circumstances.",
+        "example": "We have a new manager, and we must act accordingly.",
+        "hebrewTranslation": "בהתאם לכך",
+        "category": "Language",
+        "level": 5
+    },
+    {
+        "word": "account for",
+        "definition": "to provide or serve as a reason or explanation for something.",
+        "example": "The bad weather accounts for the delay.",
+        "hebrewTranslation": "להסביר",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "accountable",
+        "definition": "required or expected to justify actions or decisions; responsible.",
+        "example": "Politicians are accountable to the people who elect them.",
+        "hebrewTranslation": "אחראי",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "accumulate",
+        "definition": "to gather together or acquire an increasing number or quantity of.",
+        "example": "Dust and dirt soon accumulate if you don't clean.",
+        "hebrewTranslation": "להצטבר, לצבור",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "accumulation",
+        "definition": "the acquisition or gradual gathering of something.",
+        "example": "The accumulation of wealth did not make him happy.",
+        "hebrewTranslation": "הצטברות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "accumulative",
+        "definition": "gradually increasing in amount or quantity.",
+        "example": "The accumulative effect of all the small changes was significant.",
+        "hebrewTranslation": "מצטבר",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "accurate",
+        "definition": "correct in all details; exact.",
+        "example": "We need to get an accurate measurement.",
+        "hebrewTranslation": "מדוייק, דייקן",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "accurately",
+        "definition": "in a way that is correct in all details; exactly.",
+        "example": "She accurately predicted the outcome.",
+        "hebrewTranslation": "בדייקנות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "achievable",
+        "definition": "able to be brought about or reached successfully.",
+        "example": "Set yourself small, achievable goals.",
+        "hebrewTranslation": "ניתן להשגה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "achieve",
+        "definition": "to successfully bring about or reach by effort, skill, or courage.",
+        "example": "He worked hard to achieve his dreams.",
+        "hebrewTranslation": "להשיג, להשלים",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "achievement",
+        "definition": "a thing done successfully, typically by effort, courage, or skill.",
+        "example": "Winning the Nobel Prize was her greatest achievement.",
+        "hebrewTranslation": "הישג",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "acquire",
+        "definition": "to buy or obtain (an asset or object) for oneself.",
+        "example": "The company will acquire several smaller firms.",
+        "hebrewTranslation": "לרכוש, להשיג",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "actual",
+        "definition": "existing in fact; real.",
+        "example": "The actual cost was higher than we expected.",
+        "hebrewTranslation": "עובדתי, אמיתי, ממשי",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "acute",
+        "definition": "(of a bad, difficult, or unwelcome situation) present or experienced to a severe or intense degree.",
+        "example": "There is an acute shortage of water.",
+        "hebrewTranslation": "רציני, חמור, אנוש, קריטי",
+        "category": "Medical",
+        "level": 5
+    },
+    {
+        "word": "adapt",
+        "definition": "to make (something) suitable for a new use or purpose; modify.",
+        "example": "We have to adapt to the new system.",
+        "hebrewTranslation": "להתאים, לעבד, לסגל",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "adaptable",
+        "definition": "able to adjust to new conditions.",
+        "example": "He's a very adaptable worker.",
+        "hebrewTranslation": "שאפשר להתאימו",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "adaptation",
+        "definition": "the action or process of adapting or being adapted.",
+        "example": "The adaptation of the book into a film was very successful.",
+        "hebrewTranslation": "הסתגלות, התאמה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "address",
+        "definition": "the particulars of the place where someone lives or an organization is situated.",
+        "example": "What is your current address?",
+        "hebrewTranslation": "כתובת",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "adhere to",
+        "definition": "to stick fast to (a surface or substance).",
+        "example": "You must adhere to the rules.",
+        "hebrewTranslation": "לדבוק ב...",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "adjust",
+        "definition": "to alter or move (something) slightly in order to achieve the desired fit, appearance, or result.",
+        "example": "You can adjust the height of the chair.",
+        "hebrewTranslation": "לכוון, להסתגל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "administer",
+        "definition": "to manage and be responsible for the running of (a business, organization, etc.).",
+        "example": "The government will administer the new program.",
+        "hebrewTranslation": "לנהל",
+        "category": "Business",
+        "level": 5
+    },
+    {
+        "word": "administration",
+        "definition": "the process or activity of running a business, organization, etc.",
+        "example": "She works in the university administration.",
+        "hebrewTranslation": "ניהול, מנהל",
+        "category": "Business",
+        "level": 5
+    },
+    {
+        "word": "administrative",
+        "definition": "relating to the running of a business, organization, etc.",
+        "example": "He has an administrative role in the company.",
+        "hebrewTranslation": "ניהולי",
+        "category": "Business",
+        "level": 6
+    },
+    {
+        "word": "administrator",
+        "definition": "a person responsible for running a business, organization, etc.",
+        "example": "He is the new administrator of the hospital.",
+        "hebrewTranslation": "מנהל",
+        "category": "Business",
+        "level": 5
+    },
+    {
+        "word": "admit",
+        "definition": "to confess to be true or to be the case.",
+        "example": "He admitted his mistake.",
+        "hebrewTranslation": "להודות",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "admittedly",
+        "definition": "used to introduce a concession or recognition that something is true.",
+        "example": "Admittedly, I could have tried harder.",
+        "hebrewTranslation": "מוסכם, לכל הדעות",
+        "category": "Language",
+        "level": 5
+    },
+    {
+        "word": "adolescence",
+        "definition": "the period following the onset of puberty during which a young person develops from a child into an adult.",
+        "example": "Adolescence can be a difficult time for many teenagers.",
+        "hebrewTranslation": "נעורים, גיל ההתבגרות",
+        "category": "Psychology",
+        "level": 6
+    },
+    {
+        "word": "adopt",
+        "definition": "to legally take (another's child) and bring it up as one's own.",
+        "example": "They decided to adopt a child.",
+        "hebrewTranslation": "לאמץ",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "advance",
+        "definition": "to move forward in a purposeful way.",
+        "example": "The army advanced on the city.",
+        "hebrewTranslation": "התקדמות, להתקדם, מקדמה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "advantage",
+        "definition": "a condition or circumstance that puts one in a favorable or superior position.",
+        "example": "Her experience gave her an advantage over the other candidates.",
+        "hebrewTranslation": "יתרון",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "advantageous",
+        "definition": "involving or creating favorable circumstances that increase the chances of success or effectiveness.",
+        "example": "A flexible schedule is advantageous for students.",
+        "hebrewTranslation": "מועיל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "adversary",
+        "definition": "one's opponent in a contest, conflict, or dispute.",
+        "example": "He was a formidable adversary in the chess match.",
+        "hebrewTranslation": "יריב",
+        "category": "Competition",
+        "level": 6
+    },
+    {
+        "word": "advertise",
+        "definition": "to describe or draw attention to (a product, service, or event) in a public medium.",
+        "example": "They will advertise their new product on television.",
+        "hebrewTranslation": "לפרסם",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "advertisement",
+        "definition": "a notice or announcement in a public medium promoting a product, service, or event.",
+        "example": "I saw an advertisement for a new car.",
+        "hebrewTranslation": "פרסומת, פרסום",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "advice",
+        "definition": "guidance or recommendations offered with regard to prudent future action.",
+        "example": "Can I give you a piece of advice?",
+        "hebrewTranslation": "עצה",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "advocate",
+        "definition": "to publicly recommend or support.",
+        "example": "He advocates for stricter environmental laws.",
+        "hebrewTranslation": "לסנגר, לדגול ב...",
+        "category": "Social",
+        "level": 5
+    },
+    {
+        "word": "affect",
+        "definition": "to have an effect on; make a difference to.",
+        "example": "The weather will affect our plans.",
+        "hebrewTranslation": "להשפיע",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "affection",
+        "definition": "a gentle feeling of fondness or liking.",
+        "example": "She has a deep affection for her grandparents.",
+        "hebrewTranslation": "חיבה",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "afflict",
+        "definition": "to cause pain or suffering to; affect or trouble.",
+        "example": "The country was afflicted by a severe drought.",
+        "hebrewTranslation": "לייסר",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "afford",
+        "definition": "to have enough money to pay for.",
+        "example": "I can't afford to buy a new car right now.",
+        "hebrewTranslation": "להרשות לעצמך",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "against",
+        "definition": "in opposition to.",
+        "example": "It's against the law to park here.",
+        "hebrewTranslation": "נגד",
+        "category": "Prepositions",
+        "level": 1
+    },
+    {
+        "word": "age",
+        "definition": "the length of time that a person has lived or a thing has existed.",
+        "example": "What is the age of this building?",
+        "hebrewTranslation": "גיל",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "agenda",
+        "definition": "a list of items to be discussed at a formal meeting.",
+        "example": "What's on the agenda for today's meeting?",
+        "hebrewTranslation": "סדר יום",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "aggression",
+        "definition": "hostile or violent behavior or attitudes toward another; readiness to attack or confront.",
+        "example": "His aggression was a problem for his teammates.",
+        "hebrewTranslation": "תוקפנות",
+        "category": "Psychology",
+        "level": 5
+    },
+    {
+        "word": "aggressive",
+        "definition": "ready or likely to attack or confront; characterized by or resulting from aggression.",
+        "example": "He is a very aggressive driver.",
+        "hebrewTranslation": "תוקפני, אגרסיבי",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "agree",
+        "definition": "to have the same opinion about something; concur.",
+        "example": "I agree with you completely.",
+        "hebrewTranslation": "להסכים",
+        "category": "Communication",
+        "level": 2
+    },
+    {
+        "word": "agriculture",
+        "definition": "the science or practice of farming, including cultivation of the soil for the growing of crops and the rearing of animals.",
+        "example": "Agriculture is an important part of the country's economy.",
+        "hebrewTranslation": "חקלאות",
+        "category": "Industry",
+        "level": 5
+    },
+    {
+        "word": "air",
+        "definition": "the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
+        "example": "The fresh mountain air was invigorating.",
+        "hebrewTranslation": "אוויר",
+        "category": "Nature",
+        "level": 1
+    },
+    {
+        "word": "airplane",
+        "definition": "a powered flying vehicle with fixed wings and a weight greater than that of the air it displaces.",
+        "example": "We traveled by airplane to Paris.",
+        "hebrewTranslation": "מטוס",
+        "category": "Transportation",
+        "level": 2
+    },
+    {
+        "word": "airport",
+        "definition": "a complex of runways and buildings for the takeoff, landing, and maintenance of civil aircraft.",
+        "example": "We need to be at the airport two hours before our flight.",
+        "hebrewTranslation": "שדה תעופה",
+        "category": "Transportation",
+        "level": 2
+    },
+    {
+        "word": "alert",
+        "definition": "quick to notice any unusual and possibly dangerous or difficult circumstances; watchful.",
+        "example": "The security guard was very alert.",
+        "hebrewTranslation": "ער, מוכן",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "alertness",
+        "definition": "the quality of being alert.",
+        "example": "His alertness saved him from the accident.",
+        "hebrewTranslation": "עירנות, דריכות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "alien",
+        "definition": "a hypothetical or fictional being from another world.",
+        "example": "The movie was about an alien invasion.",
+        "hebrewTranslation": "חוצן",
+        "category": "Fiction",
+        "level": 3
+    },
+    {
+        "word": "allegedly",
+        "definition": "used to convey that something is claimed to be the case or have taken place, although there is no proof.",
+        "example": "He was allegedly involved in the robbery.",
+        "hebrewTranslation": "לכאורה",
+        "category": "Legal",
+        "level": 7
+    },
+    {
+        "word": "allow",
+        "definition": "to let (someone) have or do something.",
+        "example": "Are you allowed to stay up late?",
+        "hebrewTranslation": "להרשות",
+        "category": "Social",
+        "level": 2
+    },
+    {
+        "word": "allow for",
+        "definition": "to take into consideration when making plans or calculations.",
+        "example": "We need to allow for unexpected delays.",
+        "hebrewTranslation": "להביא בחשבון",
+        "category": "Planning",
+        "level": 3
+    },
+    {
+        "word": "allowance",
+        "definition": "the amount of something that is permitted, especially within a set of regulations.",
+        "example": "My parents give me a weekly allowance.",
+        "hebrewTranslation": "דמי כיס, קצבה",
+        "category": "Finance",
+        "level": 3
+    },
+    {
+        "word": "ally",
+        "definition": "a state formally cooperating with another for a military or other purpose.",
+        "example": "The two countries were allies in the war.",
+        "hebrewTranslation": "בעל ברית",
+        "category": "Politics",
+        "level": 3
+    },
+    {
+        "word": "also",
+        "definition": "in addition; too.",
+        "example": "She is a talented singer and also a great actress.",
+        "hebrewTranslation": "גם",
+        "category": "Language",
+        "level": 1
+    },
+    {
+        "word": "alternate",
+        "definition": "to occur in turn repeatedly.",
+        "example": "The pattern alternates between red and blue stripes.",
+        "hebrewTranslation": "לסירוגין, חלופי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "although",
+        "definition": "in spite of the fact that; though.",
+        "example": "Although it was cold, we went for a walk.",
+        "hebrewTranslation": "אף על פי כן",
+        "category": "Language",
+        "level": 3
+    },
+    {
+        "word": "ambiguous",
+        "definition": "open to more than one interpretation; having a double meaning.",
+        "example": "His reply was ambiguous.",
+        "hebrewTranslation": "עמום, דו משמעי",
+        "category": "Language",
+        "level": 7
+    },
+    {
+        "word": "ambition",
+        "definition": "a strong desire to do or to achieve something, typically requiring determination and hard work.",
+        "example": "Her ambition is to become a successful writer.",
+        "hebrewTranslation": "שאפתנות, שאיפה",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "ambitious",
+        "definition": "having or showing a strong desire and determination to succeed.",
+        "example": "He is a very ambitious young man.",
+        "hebrewTranslation": "שאפתן, בעל שאיפות",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "ambivalence",
+        "definition": "the state of having mixed feelings or contradictory ideas about something or someone.",
+        "example": "She felt a certain ambivalence towards her new job.",
+        "hebrewTranslation": "רגשות סותרים",
+        "category": "Emotion",
+        "level": 8
+    },
+    {
+        "word": "ambivalent",
+        "definition": "having mixed feelings or contradictory ideas about something or someone.",
+        "example": "He was ambivalent about the proposal.",
+        "hebrewTranslation": "בעל משמעויות סותרות",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "amiss",
+        "definition": "not quite right; inappropriate or out of place.",
+        "example": "Something felt amiss, but I couldn't figure out what.",
+        "hebrewTranslation": "לא כשורה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "ammunition",
+        "definition": "a supply or quantity of bullets and shells.",
+        "example": "The soldiers ran out of ammunition.",
+        "hebrewTranslation": "תחמושת",
+        "category": "Military",
+        "level": 6
+    },
+    {
+        "word": "among",
+        "definition": "situated more or less centrally in relation to (several other things).",
+        "example": "There was a small cottage among the trees.",
+        "hebrewTranslation": "בקרב, בין כמה דברים",
+        "category": "Prepositions",
+        "level": 2
+    },
+    {
+        "word": "amount",
+        "definition": "a quantity of something, especially the total of a thing or things in number, size, value, or extent.",
+        "example": "What is the total amount you paid?",
+        "hebrewTranslation": "סכום, להסתכם",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "ancestor",
+        "definition": "a person, typically one more remote than a grandparent, from whom one is descended.",
+        "example": "My ancestors came from Italy.",
+        "hebrewTranslation": "אב קדמון",
+        "category": "Family",
+        "level": 5
+    },
+    {
+        "word": "ancient",
+        "definition": "belonging to the very distant past and no longer in existence.",
+        "example": "We visited the ancient ruins in Rome.",
+        "hebrewTranslation": "עתיק",
+        "category": "History",
+        "level": 4
+    },
+    {
+        "word": "annoy",
+        "definition": "to irritate (someone); make (someone) a little angry.",
+        "example": "His constant tapping was starting to annoy her.",
+        "hebrewTranslation": "להרגיז",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "anxiety",
+        "definition": "a feeling of worry, nervousness, or unease, typically about an imminent event or something with an uncertain outcome.",
+        "example": "She suffers from anxiety before exams.",
+        "hebrewTranslation": "חרדה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "anxious",
+        "definition": "experiencing worry, unease, or nervousness, typically about an imminent event or something with an uncertain outcome.",
+        "example": "I'm anxious about the results.",
+        "hebrewTranslation": "חרד, מודאג, משתוקק",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "apartment",
+        "definition": "a suite of rooms forming one residence, typically in a building containing a number of these.",
+        "example": "They live in a small apartment in the city.",
+        "hebrewTranslation": "דירה",
+        "category": "Housing",
+        "level": 2
+    },
+    {
+        "word": "appear",
+        "definition": "to come into sight; become visible or noticeable, typically without apparent cause.",
+        "example": "A figure suddenly appeared in the doorway.",
+        "hebrewTranslation": "להיראות, להופיע",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "applaud",
+        "definition": "to show approval or praise by clapping.",
+        "example": "The audience applauded enthusiastically.",
+        "hebrewTranslation": "להריע, למחוא כף",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "apply",
+        "definition": "to make a formal application or request.",
+        "example": "I'm going to apply for that job.",
+        "hebrewTranslation": "להגיש בקשה",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "apposite",
+        "definition": "apt in the circumstances or in relation to something.",
+        "example": "His comments were very apposite to the discussion.",
+        "hebrewTranslation": "מתאים מאד, הולם",
+        "category": "Language",
+        "level": 7
+    },
+    {
+        "word": "appreciate",
+        "definition": "to recognize the full worth of.",
+        "example": "I really appreciate all your help.",
+        "hebrewTranslation": "להעריך",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "approach",
+        "definition": "to come near or nearer to (someone or something) in distance or time.",
+        "example": "As we approached the house, we could see a light on.",
+        "hebrewTranslation": "להתקדם, לגשת",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "appropriate",
+        "definition": "suitable or proper in the circumstances.",
+        "example": "This is not an appropriate time to discuss the matter.",
+        "hebrewTranslation": "נאות, מתאים",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "appropriately",
+        "definition": "in a manner that is suitable or proper in the circumstances.",
+        "example": "She was dressed appropriately for the occasion.",
+        "hebrewTranslation": "באופן הולם, בצורה נאותה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "approve",
+        "definition": "to officially agree to or accept as satisfactory.",
+        "example": "The committee approved the plan.",
+        "hebrewTranslation": "להסכים, לאשר",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "argue",
+        "definition": "to give reasons or cite evidence in support of an idea, action, or theory, typically with the aim of persuading others to share one's view.",
+        "example": "He argued that the new law was unfair.",
+        "hebrewTranslation": "להתווכח, לטעון",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "argumentative",
+        "definition": "given to arguing.",
+        "example": "He's an argumentative person, always looking for a debate.",
+        "hebrewTranslation": "וכחן",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "arise",
+        "definition": "to emerge; become apparent.",
+        "example": "A new problem has arisen.",
+        "hebrewTranslation": "לקום, לנבוע",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "arm",
+        "definition": "each of the two upper limbs of the human body from the shoulder to the hand.",
+        "example": "He broke his arm playing football.",
+        "hebrewTranslation": "זרוע",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "aroma",
+        "definition": "a distinctive, typically pleasant smell.",
+        "example": "The aroma of freshly baked bread filled the room.",
+        "hebrewTranslation": "ניחוח",
+        "category": "Senses",
+        "level": 4
+    },
+    {
+        "word": "arrange",
+        "definition": "to put (things) in a neat, attractive, or required order.",
+        "example": "Can you arrange these books on the shelf?",
+        "hebrewTranslation": "לסדר",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "arrangement",
+        "definition": "the action, process, or result of arranging or being arranged.",
+        "example": "The arrangement of the furniture was very pleasing.",
+        "hebrewTranslation": "סידור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "arrive",
+        "definition": "to reach a place at the end of a journey or a stage in a journey.",
+        "example": "What time does the train arrive?",
+        "hebrewTranslation": "להגיע",
+        "category": "Travel",
+        "level": 2
+    },
+    {
+        "word": "arrogant",
+        "definition": "having or revealing an exaggerated sense of one's own importance or abilities.",
+        "example": "He is a very arrogant and self-important man.",
+        "hebrewTranslation": "יהיר, שחצן",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "art",
+        "definition": "the expression or application of human creative skill and imagination.",
+        "example": "She is studying art at college.",
+        "hebrewTranslation": "אומנות",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "ascribe",
+        "definition": "to attribute something to (a cause).",
+        "example": "He ascribed his success to hard work.",
+        "hebrewTranslation": "לייחס, לשייך",
+        "category": "Thinking",
+        "level": 7
+    },
+    {
+        "word": "assault",
+        "definition": "to make a physical attack on.",
+        "example": "He was charged with assault.",
+        "hebrewTranslation": "לתקוף, תקיפה, התקפה",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "assembly",
+        "definition": "a group of people gathered together in one place for a common purpose.",
+        "example": "The school holds an assembly every morning.",
+        "hebrewTranslation": "הרכבה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "assert",
+        "definition": "to state a fact or belief confidently and forcefully.",
+        "example": "She asserted her innocence.",
+        "hebrewTranslation": "לעמוד על, להכריז, לתבוע",
+        "category": "Communication",
+        "level": 5
+    },
+    {
+        "word": "assertive",
+        "definition": "having or showing a confident and forceful personality.",
+        "example": "You need to be more assertive to get what you want.",
+        "hebrewTranslation": "החלטי",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "asset",
+        "definition": "a useful or valuable thing, person, or quality.",
+        "example": "Her knowledge of languages is a great asset.",
+        "hebrewTranslation": "נכס",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "assign",
+        "definition": "to allocate (a job or duty).",
+        "example": "The teacher assigned homework to the students.",
+        "hebrewTranslation": "למנות",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "assimilate",
+        "definition": "to take in (information, ideas, or culture) and understand fully.",
+        "example": "It's difficult to assimilate so much information at once.",
+        "hebrewTranslation": "לספוג, להיטמע",
+        "category": "Thinking",
+        "level": 7
+    },
+    {
+        "word": "associated",
+        "definition": "(of a person or thing) connected with something else.",
+        "example": "There are many risks associated with this plan.",
+        "hebrewTranslation": "מקושר, מתלווה ל...",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "assume",
+        "definition": "to suppose to be the case, without proof.",
+        "example": "I assume you know what you're doing.",
+        "hebrewTranslation": "להניח, לקבל על עצמו",
+        "category": "Thinking",
+        "level": 3
+    },
+    {
+        "word": "assumption",
+        "definition": "a thing that is accepted as true or as certain to happen, without proof.",
+        "example": "Your assumption is incorrect.",
+        "hebrewTranslation": "הנחה",
+        "category": "Thinking",
+        "level": 5
+    },
+    {
+        "word": "astonish",
+        "definition": "to surprise or impress (someone) greatly.",
+        "example": "The news will astonish everyone.",
+        "hebrewTranslation": "מדהים, להדהים",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "at least",
+        "definition": "not less than; at the minimum.",
+        "example": "You should brush your teeth at least twice a day.",
+        "hebrewTranslation": "לפחות",
+        "category": "Language",
+        "level": 2
+    },
+    {
+        "word": "attach",
+        "definition": "to join or fasten (something) to something else.",
+        "example": "Please attach a recent photograph to your application form.",
+        "hebrewTranslation": "לחבר, להיות קשור ל...",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "attack",
+        "definition": "to take aggressive action against (a place or enemy forces) with weapons or armed force.",
+        "example": "The army launched an attack at dawn.",
+        "hebrewTranslation": "לתקוף",
+        "category": "Military",
+        "level": 3
+    },
+    {
+        "word": "attain",
+        "definition": "to succeed in achieving (something that one has worked for).",
+        "example": "He attained his goal of becoming a doctor.",
+        "hebrewTranslation": "להשיג",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "attempt",
+        "definition": "to make an effort to achieve or complete (something difficult).",
+        "example": "She will attempt to break the world record.",
+        "hebrewTranslation": "לנסות, ניסיון",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "attend",
+        "definition": "to be present at (an event, meeting, or function).",
+        "example": "Are you going to attend the conference?",
+        "hebrewTranslation": "להיות נוכח",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "attendance",
+        "definition": "the action or state of going regularly to or being present at a place or event.",
+        "example": "Attendance at the meeting is compulsory.",
+        "hebrewTranslation": "נוכחות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "attention",
+        "definition": "notice taken of someone or something; the regarding of someone or something as interesting or important.",
+        "example": "Please pay attention to the teacher.",
+        "hebrewTranslation": "תשומת לב",
+        "category": "Thinking",
+        "level": 2
+    },
+    {
+        "word": "attitude",
+        "definition": "a settled way of thinking or feeling about someone or something.",
+        "example": "She has a very positive attitude.",
+        "hebrewTranslation": "גישה",
+        "category": "Character",
+        "level": 3
+    },
+    {
+        "word": "attorney",
+        "definition": "a lawyer.",
+        "example": "You should consult an attorney before signing the contract.",
+        "hebrewTranslation": "עורך דין",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "attract",
+        "definition": "to cause to come to a place or participate in a venture by offering something of interest, advantage, or pleasure.",
+        "example": "The beautiful flowers attract bees.",
+        "hebrewTranslation": "למשוך",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "attraction",
+        "definition": "the action or power of evoking interest, pleasure, or liking for someone or something.",
+        "example": "The main attraction of the city is its beautiful architecture.",
+        "hebrewTranslation": "משיכה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "attractive",
+        "definition": "pleasing or appealing to the senses.",
+        "example": "She is a very attractive woman.",
+        "hebrewTranslation": "מושך",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "attribute",
+        "definition": "to regard something as being caused by (someone or something).",
+        "example": "He attributed his success to his hard work.",
+        "hebrewTranslation": "לייחס",
+        "category": "Thinking",
+        "level": 4
+    },
+    {
+        "word": "aunt",
+        "definition": "the sister of one's father or mother or the wife of one's uncle.",
+        "example": "My aunt lives in London.",
+        "hebrewTranslation": "דודה",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "authentic",
+        "definition": "of undisputed origin; genuine.",
+        "example": "This is an authentic painting by Picasso.",
+        "hebrewTranslation": "אמיתי, מקורי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "authenticity",
+        "definition": "the quality of being authentic.",
+        "example": "The authenticity of the document is in doubt.",
+        "hebrewTranslation": "אותנטיות, אמיתיות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "author",
+        "definition": "a writer of a book, article, or report.",
+        "example": "Who is your favorite author?",
+        "hebrewTranslation": "סופר, יוצר",
+        "category": "Literature",
+        "level": 3
+    },
+    {
+        "word": "authority",
+        "definition": "the power or right to give orders, make decisions, and enforce obedience.",
+        "example": "Only the manager has the authority to approve this.",
+        "hebrewTranslation": "סמכות, רשות מנהלית",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "autumn",
+        "definition": "the season after summer and before winter, in the northern hemisphere from September to November.",
+        "example": "The leaves turn brown in autumn.",
+        "hebrewTranslation": "סתיו",
+        "category": "Nature",
+        "level": 2
+    },
+    {
+        "word": "available",
+        "definition": "able to be used or obtained; at someone's disposal.",
+        "example": "Are there any tickets available for tonight's show?",
+        "hebrewTranslation": "פנוי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "avarice",
+        "definition": "extreme greed for wealth or material gain.",
+        "example": "His avarice led him to a life of crime.",
+        "hebrewTranslation": "תאוות בצע",
+        "category": "Character",
+        "level": 7
+    },
+    {
+        "word": "avoid",
+        "definition": "to keep away from or stop oneself from doing (something).",
+        "example": "You should avoid eating fatty foods.",
+        "hebrewTranslation": "להימנע מ...",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "aware",
+        "definition": "having knowledge or perception of a situation or fact.",
+        "example": "Are you aware of the risks?",
+        "hebrewTranslation": "מודע",
+        "category": "Thinking",
+        "level": 3
+    },
+    {
+        "word": "awareness",
+        "definition": "knowledge or perception of a situation or fact.",
+        "example": "There is a growing awareness of environmental issues.",
+        "hebrewTranslation": "מודעות",
+        "category": "Thinking",
+        "level": 5
+    },
+    {
+        "word": "awe inspiring",
+        "definition": "arousing awe through being impressive, formidable, or magnificent.",
+        "example": "The view from the top of the mountain was awe-inspiring.",
+        "hebrewTranslation": "מעורר יראת כבוד",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "azure",
+        "definition": "bright blue in color, like a cloudless sky.",
+        "example": "The azure sea stretched out before them.",
+        "hebrewTranslation": "תכלת",
+        "category": "Colors",
+        "level": 4
+    },
+    {
+        "word": "background",
+        "definition": "the part of a picture, scene, or design that forms a setting for the main figures or objects.",
+        "example": "The mountains in the background are beautiful.",
+        "hebrewTranslation": "רקע",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "balance",
+        "definition": "an even distribution of weight enabling someone or something to remain upright and steady.",
+        "example": "She lost her balance and fell.",
+        "hebrewTranslation": "מאזניים, איזון, שיווי משקל, לאזן",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "bamboozle",
+        "definition": "to fool or cheat (someone).",
+        "example": "He bamboozled her into giving him all her money.",
+        "hebrewTranslation": "לבלבל, לרמות",
+        "category": "Actions",
+        "level": 8
+    },
+    {
+        "word": "ban",
+        "definition": "to officially or legally prohibit.",
+        "example": "The government decided to ban smoking in public places.",
+        "hebrewTranslation": "להחרים, לאסור, חרם, איסור",
+        "category": "Legal",
+        "level": 2
+    },
+    {
+        "word": "band",
+        "definition": "a small group of musicians who play popular music together.",
+        "example": "My favorite band is playing a concert tonight.",
+        "hebrewTranslation": "להקה",
+        "category": "Music",
+        "level": 2
+    },
+    {
+        "word": "barefoot",
+        "definition": "wearing nothing on the feet.",
+        "example": "We walked barefoot on the beach.",
+        "hebrewTranslation": "יחף",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "barely",
+        "definition": "only just; almost not.",
+        "example": "I could barely hear what she was saying.",
+        "hebrewTranslation": "בקושי",
+        "category": "Adverbs",
+        "level": 3
+    },
+    {
+        "word": "barrack",
+        "definition": "to shout comments or jeers at (a speaker or performer).",
+        "example": "The crowd began to barrack the players.",
+        "hebrewTranslation": "לצעוק ולצחוק בגסות",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "barracks",
+        "definition": "a building or group of buildings used to house soldiers.",
+        "example": "The soldiers returned to their barracks after the training exercise.",
+        "hebrewTranslation": "מגורי חיילים",
+        "category": "Military",
+        "level": 6
+    },
+    {
+        "word": "barrier",
+        "definition": "a fence or other obstacle that prevents movement or access.",
+        "example": "The police put up a barrier to control the crowd.",
+        "hebrewTranslation": "מחסום",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "base",
+        "definition": "the lowest part or edge of something, especially the part on which it rests or is supported.",
+        "example": "The base of the statue is made of marble.",
+        "hebrewTranslation": "בסיס",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "base on",
+        "definition": "to use (something) as the foundation or starting point for something.",
+        "example": "The movie is based on a true story.",
+        "hebrewTranslation": "לבסס על",
+        "category": "Language",
+        "level": 3
+    },
+    {
+        "word": "basin",
+        "definition": "a bowl for washing, typically attached to a wall and having faucets.",
+        "example": "She washed her hands in the basin.",
+        "hebrewTranslation": "גיגית, אגם מים, קערה",
+        "category": "Household",
+        "level": 4
+    },
+    {
+        "word": "bathroom",
+        "definition": "a room containing a toilet and sink and typically also a bathtub or shower.",
+        "example": "Can I use your bathroom?",
+        "hebrewTranslation": "חדר אמבטיה",
+        "category": "Housing",
+        "level": 1
+    },
+    {
+        "word": "be aware of",
+        "definition": "to have knowledge or perception of (a situation, fact, or person).",
+        "example": "You should be aware of the potential dangers.",
+        "hebrewTranslation": "להיות מודע",
+        "category": "Thinking",
+        "level": 3
+    },
+    {
+        "word": "bedroom",
+        "definition": "a room for sleeping in.",
+        "example": "My bedroom is on the second floor.",
+        "hebrewTranslation": "חדר שינה",
+        "category": "Housing",
+        "level": 1
+    },
+    {
+        "word": "beforehand",
+        "definition": "in advance.",
+        "example": "If you're coming, please let me know beforehand.",
+        "hebrewTranslation": "מראש",
+        "category": "Time",
+        "level": 4
+    },
+    {
+        "word": "begin",
+        "definition": "to start; perform or undergo the first part of (an action or activity).",
+        "example": "Let's begin the meeting.",
+        "hebrewTranslation": "להתחיל",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "behavior",
+        "definition": "the way in which one acts or conducts oneself, especially toward others.",
+        "example": "His behavior was unacceptable.",
+        "hebrewTranslation": "התנהגות",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "bend",
+        "definition": "to shape or force (something straight) into a curve or angle.",
+        "example": "Can you bend this wire?",
+        "hebrewTranslation": "לעקם",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "beneath",
+        "definition": "at a lower level or layer than.",
+        "example": "The treasure was buried beneath the sand.",
+        "hebrewTranslation": "מתחת",
+        "category": "Prepositions",
+        "level": 4
+    },
+    {
+        "word": "benefit",
+        "definition": "an advantage or profit gained from something.",
+        "example": "There are many benefits to exercise.",
+        "hebrewTranslation": "תועלת",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "besides",
+        "definition": "in addition to; apart from.",
+        "example": "Besides German, he also speaks French.",
+        "hebrewTranslation": "חוץ מזה, בנוסף על",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "betray",
+        "definition": "to be unfaithful to (a person, cause, or trust).",
+        "example": "He betrayed his country by selling secrets to the enemy.",
+        "hebrewTranslation": "לבגוד",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "betrayal",
+        "definition": "the action of betraying one's country, a group, or a person; treachery.",
+        "example": "She felt a deep sense of betrayal.",
+        "hebrewTranslation": "בגידה",
+        "category": "Social",
+        "level": 7
+    },
+    {
+        "word": "between",
+        "definition": "at, into, or across the space separating (two objects or regions).",
+        "example": "The house is between the two trees.",
+        "hebrewTranslation": "בין",
+        "category": "Prepositions",
+        "level": 2
+    },
+    {
+        "word": "bitter",
+        "definition": "having a sharp, pungent taste or smell; not sweet.",
+        "example": "This coffee is too bitter for me.",
+        "hebrewTranslation": "מר, מכאיב, צורב",
+        "category": "Senses",
+        "level": 4
+    },
+    {
+        "word": "bizarre",
+        "definition": "very strange or unusual, especially so as to cause interest or amusement.",
+        "example": "He told a bizarre story about his trip.",
+        "hebrewTranslation": "מוזר",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "blaspheme",
+        "definition": "to speak irreverently about God or sacred things.",
+        "example": "It is considered a sin to blaspheme.",
+        "hebrewTranslation": "לחלל (דבר קדוש)",
+        "category": "Religion",
+        "level": 8
+    },
+    {
+        "word": "blasphemy",
+        "definition": "the act or offense of speaking sacrilegiously about God or sacred things; profane talk.",
+        "example": "He was accused of blasphemy.",
+        "hebrewTranslation": "חילול השם",
+        "category": "Religion",
+        "level": 7
+    },
+    {
+        "word": "bleed",
+        "definition": "to lose blood from the body as a result of injury or illness.",
+        "example": "His nose started to bleed.",
+        "hebrewTranslation": "לדמם",
+        "category": "Medical",
+        "level": 3
+    },
+    {
+        "word": "bloom",
+        "definition": "to produce flowers; be in flower.",
+        "example": "The roses will bloom in the spring.",
+        "hebrewTranslation": "לפרוח, ללבלב",
+        "category": "Nature",
+        "level": 4
+    },
+    {
+        "word": "borrow",
+        "definition": "to take and use (something belonging to someone else) with the intention of returning it.",
+        "example": "Can I borrow your pen?",
+        "hebrewTranslation": "לשאול חפץ, ללוות כסף",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "bothersome",
+        "definition": "causing annoyance; troublesome.",
+        "example": "The constant noise was very bothersome.",
+        "hebrewTranslation": "מטריד, מרגיז",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "bottle",
+        "definition": "a glass or plastic container with a narrow neck, used for holding drinks or other liquids.",
+        "example": "He drank a bottle of water.",
+        "hebrewTranslation": "בקבוק",
+        "category": "Household",
+        "level": 2
+    },
+    {
+        "word": "bottomless",
+        "definition": "having no bottom.",
+        "example": "The well seemed to be bottomless.",
+        "hebrewTranslation": "ללא תחתית",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "branch",
+        "definition": "a part of a tree which grows out from the trunk or from a bough.",
+        "example": "A bird was sitting on the branch of the tree.",
+        "hebrewTranslation": "ענף",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "brave",
+        "definition": "ready to face and endure danger or pain; showing courage.",
+        "example": "She was very brave to stand up to the bully.",
+        "hebrewTranslation": "אמיץ",
+        "category": "Character",
+        "level": 3
+    },
+    {
+        "word": "bread",
+        "definition": "food made of flour, water, and yeast or another leavening agent, mixed together and baked.",
+        "example": "Would you like a slice of bread?",
+        "hebrewTranslation": "לחם",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "breadth",
+        "definition": "the distance or measurement from side to side of something; width.",
+        "example": "We measured the breadth of the river.",
+        "hebrewTranslation": "רוחב",
+        "category": "Measurement",
+        "level": 6
+    },
+    {
+        "word": "break",
+        "definition": "to separate into pieces as a result of a blow, shock, or strain.",
+        "example": "Be careful not to break the glass.",
+        "hebrewTranslation": "לשבור",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "breakdown",
+        "definition": "a mechanical failure.",
+        "example": "We had a breakdown on the highway.",
+        "hebrewTranslation": "התמוטטות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "breakfast",
+        "definition": "a meal eaten in the morning, the first of the day.",
+        "example": "What did you have for breakfast?",
+        "hebrewTranslation": "ארוחת בוקר",
+        "category": "Food",
+        "level": 3
+    },
+    {
+        "word": "break-through",
+        "definition": "a sudden, dramatic, and important discovery or development.",
+        "example": "Scientists have made a major break-through in cancer research.",
+        "hebrewTranslation": "פריצת דרך",
+        "category": "Science",
+        "level": 7
+    },
+    {
+        "word": "breath",
+        "definition": "the air taken into or expelled from the lungs.",
+        "example": "Take a deep breath.",
+        "hebrewTranslation": "נשימה",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "bride",
+        "definition": "a woman on her wedding day or just before and after the event.",
+        "example": "The bride looked beautiful in her white dress.",
+        "hebrewTranslation": "כלה",
+        "category": "Family",
+        "level": 3
+    },
+    {
+        "word": "bring",
+        "definition": "to take or go with (someone or something) to a place.",
+        "example": "Can you bring me a glass of water?",
+        "hebrewTranslation": "להביא",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "broad",
+        "definition": "having an ample distance from side to side; wide.",
+        "example": "He has broad shoulders.",
+        "hebrewTranslation": "רחב, עצום, מלא, החלק הרחב",
+        "category": "Description",
+        "level": 3
+    },
+    {
+        "word": "broadcast",
+        "definition": "to transmit (a program or some information) by radio or television.",
+        "example": "The concert will be broadcast live.",
+        "hebrewTranslation": "לשדר",
+        "category": "Media",
+        "level": 5
+    },
+    {
+        "word": "brother",
+        "definition": "a man or boy with one or more parents in common with another person.",
+        "example": "I have two brothers.",
+        "hebrewTranslation": "אח",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "brutality",
+        "definition": "savage physical violence; great cruelty.",
+        "example": "The police were accused of brutality.",
+        "hebrewTranslation": "אכזריות",
+        "category": "Social",
+        "level": 7
+    },
+    {
+        "word": "brute",
+        "definition": "a savagely violent person or animal.",
+        "example": "He was a brute of a man.",
+        "hebrewTranslation": "בהמה, פראי",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "brutishly",
+        "definition": "in a savage and violent way.",
+        "example": "He behaved brutishly towards her.",
+        "hebrewTranslation": "בבהמיות, באכזריות",
+        "category": "Behavior",
+        "level": 8
+    },
+    {
+        "word": "budget",
+        "definition": "an estimate of income and expenditure for a set period of time.",
+        "example": "We need to stay within our budget.",
+        "hebrewTranslation": "תקציב",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "buffoon",
+        "definition": "a ridiculous but amusing person; a clown.",
+        "example": "He played the role of the buffoon in the play.",
+        "hebrewTranslation": "ליצן",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "build",
+        "definition": "to construct (something, typically a building, road, or machine) by putting parts or materials together.",
+        "example": "They are going to build a new bridge.",
+        "hebrewTranslation": "לבנות",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "building",
+        "definition": "a structure with a roof and walls, such as a house or factory.",
+        "example": "That's a very tall building.",
+        "hebrewTranslation": "בניין",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "birch",
+        "definition": "a slender, fast-growing tree that has thin, peeling bark.",
+        "example": "The path was lined with birch trees.",
+        "hebrewTranslation": "עץ ליבנה",
+        "category": "Nature",
+        "level": 5
+    },
+    {
+        "word": "burden",
+        "definition": "a load, typically a heavy one.",
+        "example": "He carried a heavy burden on his back.",
+        "hebrewTranslation": "עול",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "burn",
+        "definition": "to be on fire.",
+        "example": "The wood was burning brightly.",
+        "hebrewTranslation": "לשרוף",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "bus stop",
+        "definition": "a designated place where a public transport bus stops for passengers to board or alight.",
+        "example": "I'll meet you at the bus stop.",
+        "hebrewTranslation": "תחנת אוטובוס",
+        "category": "Transportation",
+        "level": 2
+    },
+    {
+        "word": "bush",
+        "definition": "a shrub or clump of shrubs with stems of moderate length.",
+        "example": "There was a rose bush in the garden.",
+        "hebrewTranslation": "שיח",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "business",
+        "definition": "a person's regular occupation, profession, or trade.",
+        "example": "He runs his own business.",
+        "hebrewTranslation": "עסקים",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "busy",
+        "definition": "having a great deal to do.",
+        "example": "I'm too busy to talk right now.",
+        "hebrewTranslation": "עסוק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "butter",
+        "definition": "a pale yellow edible fatty substance made by churning cream and used as a spread or in cooking.",
+        "example": "Would you like some butter on your toast?",
+        "hebrewTranslation": "חמאה",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "button",
+        "definition": "a small disk or knob sewn on to a garment, either to fasten it by being pushed through a buttonhole, or for decoration.",
+        "example": "You've lost a button from your shirt.",
+        "hebrewTranslation": "כפתור",
+        "category": "Clothing",
+        "level": 2
+    },
+    {
+        "word": "buttress",
+        "definition": "to provide (a building or structure) with projecting supports built against its walls.",
+        "example": "The argument was buttressed by solid evidence.",
+        "hebrewTranslation": "משען, תימוכין, לחזק, לתמוך",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "buy",
+        "definition": "to obtain in exchange for payment.",
+        "example": "I need to buy some new shoes.",
+        "hebrewTranslation": "לקנות",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "by all means",
+        "definition": "used to give permission.",
+        "example": "Can I borrow your pen? By all means.",
+        "hebrewTranslation": "בהחלט",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "by no means",
+        "definition": "not at all; certainly not.",
+        "example": "It is by no means certain that we will win.",
+        "hebrewTranslation": "בשום אופן לא",
+        "category": "Language",
+        "level": 5
+    },
+    {
+        "word": "bypass",
+        "definition": "to go past or around.",
+        "example": "We took the bypass to avoid the city center.",
+        "hebrewTranslation": "לעקוף, מעקף",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "calculate",
+        "definition": "to determine (the amount or number of something) mathematically.",
+        "example": "Can you calculate the total cost?",
+        "hebrewTranslation": "לחשב, לתכנן",
+        "category": "Math",
+        "level": 4
+    },
+    {
+        "word": "calm",
+        "definition": "not showing or feeling nervousness, anger, or other emotions.",
+        "example": "She remained calm throughout the crisis.",
+        "hebrewTranslation": "רוגע, להרגע",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "camouflage",
+        "definition": "the disguising of military personnel, equipment, and installations by painting or covering them to blend in with their surroundings.",
+        "example": "The lizard's camouflage made it difficult to see.",
+        "hebrewTranslation": "הסוואה",
+        "category": "Nature",
+        "level": 6
+    },
+    {
+        "word": "candle",
+        "definition": "a cylinder or block of wax or tallow with a central wick which is lit to produce light as it burns.",
+        "example": "She lit a candle.",
+        "hebrewTranslation": "נר",
+        "category": "Household",
+        "level": 3
+    },
+    {
+        "word": "capable",
+        "definition": "having the ability, fitness, or quality necessary to do or achieve a specified thing.",
+        "example": "She is a very capable student.",
+        "hebrewTranslation": "מסוגל, מוכשר",
+        "category": "Character",
+        "level": 4
+    },
+    {
+        "word": "capital",
+        "definition": "the most important city or town of a country or region, usually its seat of government and administrative center.",
+        "example": "Paris is the capital of France.",
+        "hebrewTranslation": "עיר בירה",
+        "category": "Geography",
+        "level": 4
+    },
+    {
+        "word": "carcass",
+        "definition": "the dead body of an animal.",
+        "example": "Vultures were feeding on the carcass of a dead deer.",
+        "hebrewTranslation": "פגר",
+        "category": "Nature",
+        "level": 7
+    },
+    {
+        "word": "care",
+        "definition": "the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something.",
+        "example": "She takes great care of her garden.",
+        "hebrewTranslation": "אכפתיות, דאגה, לדאוג",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "carpet",
+        "definition": "a floor covering made from thick woven fabric.",
+        "example": "We have a new carpet in the living room.",
+        "hebrewTranslation": "שטיח",
+        "category": "Household",
+        "level": 3
+    },
+    {
+        "word": "casual",
+        "definition": "relaxed and unconcerned.",
+        "example": "It was just a casual conversation.",
+        "hebrewTranslation": "לבוש לא רשמי, מקרי",
+        "category": "Description",
+        "level": 3
+    },
+    {
+        "word": "catastrophe",
+        "definition": "an event causing great and often sudden damage or suffering; a disaster.",
+        "example": "The earthquake was a terrible catastrophe.",
+        "hebrewTranslation": "אסון",
+        "category": "Events",
+        "level": 8
+    },
+    {
+        "word": "catastrophic",
+        "definition": "involving or causing sudden great damage or suffering.",
+        "example": "The results of the war were catastrophic.",
+        "hebrewTranslation": "הרה אסון",
+        "category": "Description",
+        "level": 9
+    },
+    {
+        "word": "caused by",
+        "definition": "be the reason for something that happens.",
+        "example": "The accident was caused by human error.",
+        "hebrewTranslation": "נגרם על ידי",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "cease",
+        "definition": "to bring or come to an end.",
+        "example": "The rain will cease soon.",
+        "hebrewTranslation": "לחדול, להפסיק",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "ceaseless",
+        "definition": "constant and unending.",
+        "example": "The ceaseless noise of the traffic kept him awake.",
+        "hebrewTranslation": "ללא הפסק",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "cede",
+        "definition": "to give up (power or territory).",
+        "example": "The country was forced to cede some of its territory.",
+        "hebrewTranslation": "לוותר על",
+        "category": "Politics",
+        "level": 6
+    },
+    {
+        "word": "century",
+        "definition": "a period of one hundred years.",
+        "example": "We are living in the 21st century.",
+        "hebrewTranslation": "מאה",
+        "category": "Time",
+        "level": 3
+    },
+    {
+        "word": "ceremony",
+        "definition": "a formal religious or public occasion, typically one celebrating a particular event or anniversary.",
+        "example": "The wedding ceremony was beautiful.",
+        "hebrewTranslation": "טקס",
+        "category": "Events",
+        "level": 4
+    },
+    {
+        "word": "certain",
+        "definition": "known for sure; established beyond doubt.",
+        "example": "I'm certain that I'm right.",
+        "hebrewTranslation": "בטוח, ודאי, מסויים",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "certainly",
+        "definition": "without doubt; surely.",
+        "example": "I will certainly be there.",
+        "hebrewTranslation": "ללא ספק, בודאות",
+        "category": "Adverbs",
+        "level": 3
+    },
+    {
+        "word": "certainty",
+        "definition": "firm conviction that something is the case.",
+        "example": "I can't say with any certainty what will happen.",
+        "hebrewTranslation": "ודאות, דבר בטוח",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "chain",
+        "definition": "a series of connected links or rings, usually of metal.",
+        "example": "He wore a silver chain around his neck.",
+        "hebrewTranslation": "שרשרת",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "challenge",
+        "definition": "a call to take part in a contest or competition, especially a duel.",
+        "example": "She accepted his challenge to a game of chess.",
+        "hebrewTranslation": "אתגר",
+        "category": "Competition",
+        "level": 4
+    },
+    {
+        "word": "change",
+        "definition": "to make or become different.",
+        "example": "The city has changed a lot in recent years.",
+        "hebrewTranslation": "שינוי, לשנות, להחליף",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "chaos",
+        "definition": "complete disorder and confusion.",
+        "example": "There was chaos in the streets after the earthquake.",
+        "hebrewTranslation": "תוהו ובוהו",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "chaotic",
+        "definition": "in a state of complete confusion and disorder.",
+        "example": "The situation was chaotic.",
+        "hebrewTranslation": "פרוע, של תוהו ובוהו",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "character",
+        "definition": "the mental and moral qualities distinctive to an individual.",
+        "example": "She has a very strong character.",
+        "hebrewTranslation": "אופי, אישיות, דמות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "charity",
+        "definition": "an organization set up to provide help and raise money for those in need.",
+        "example": "She donates to charity every year.",
+        "hebrewTranslation": "צדקה",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "chauffeur",
+        "definition": "a person employed to drive a private or hired car.",
+        "example": "The rich man had his own chauffeur.",
+        "hebrewTranslation": "נהג",
+        "category": "Work",
+        "level": 7
+    },
+    {
+        "word": "cheap",
+        "definition": "low in price; worth more than its cost.",
+        "example": "This is a very cheap watch.",
+        "hebrewTranslation": "זול",
+        "category": "Finance",
+        "level": 1
+    },
+    {
+        "word": "cheese",
+        "definition": "a food made from the pressed curds of milk.",
+        "example": "I like cheese sandwiches.",
+        "hebrewTranslation": "גבינה",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "cherish",
+        "definition": "to protect and care for (someone) lovingly.",
+        "example": "She cherished the memories of her childhood.",
+        "hebrewTranslation": "לטפח, להוקיר",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "chicken",
+        "definition": "a domestic fowl kept for its eggs or meat.",
+        "example": "We had roast chicken for dinner.",
+        "hebrewTranslation": "עוף",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "chiefly",
+        "definition": "mainly; above all.",
+        "example": "The problem is chiefly one of resources.",
+        "hebrewTranslation": "בעיקר",
+        "category": "Adverbs",
+        "level": 5
+    },
+    {
+        "word": "child",
+        "definition": "a young human being below the age of puberty or below the legal age of majority.",
+        "example": "She is just a child.",
+        "hebrewTranslation": "ילד/ה",
+        "category": "Family",
+        "level": 1
+    },
+    {
+        "word": "choose",
+        "definition": "to pick out or select (someone or something) as being the best or most appropriate of two or more alternatives.",
+        "example": "You have to choose between these two options.",
+        "hebrewTranslation": "לבחור",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "cite",
+        "definition": "to quote (a passage, book, or author) as evidence for or justification of an argument or statement.",
+        "example": "He cited several sources in his essay.",
+        "hebrewTranslation": "לצטט",
+        "category": "Language",
+        "level": 5
+    },
+    {
+        "word": "civilization",
+        "definition": "the stage of human social and cultural development and organization that is considered most advanced.",
+        "example": "Ancient Egypt was a great civilization.",
+        "hebrewTranslation": "תרבות",
+        "category": "History",
+        "level": 7
+    },
+    {
+        "word": "civilize",
+        "definition": "to bring (a place or people) to a stage of social, cultural, and moral development considered to be more advanced.",
+        "example": "Missionaries tried to civilize the native population.",
+        "hebrewTranslation": "לתרבת",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "claim",
+        "definition": "to state or assert that something is the case, typically without providing evidence or proof.",
+        "example": "He claimed that he was innocent.",
+        "hebrewTranslation": "לטעון, לתבוע, טענה, תביעה",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "clarification",
+        "definition": "the action of making a statement or situation less confused and more comprehensible.",
+        "example": "I need some clarification on this point.",
+        "hebrewTranslation": "הבהרה, טיהור",
+        "category": "Communication",
+        "level": 7
+    },
+    {
+        "word": "clarify",
+        "definition": "to make (a statement or situation) less confused and more comprehensible.",
+        "example": "Can you clarify what you mean?",
+        "hebrewTranslation": "להבהיר, לטהר",
+        "category": "Communication",
+        "level": 6
+    },
+    {
+        "word": "classify",
+        "definition": "to arrange (a group of people or things) in classes or categories according to shared qualities or characteristics.",
+        "example": "The books are classified by subject.",
+        "hebrewTranslation": "לסווג",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "clean",
+        "definition": "free from dirt, marks, or stains.",
+        "example": "The room was very clean.",
+        "hebrewTranslation": "נקי",
+        "category": "Description",
+        "level": 1
+    },
+    {
+        "word": "clear",
+        "definition": "easy to perceive, understand, or interpret.",
+        "example": "The instructions are very clear.",
+        "hebrewTranslation": "בהיר, צלול",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "clever",
+        "definition": "quick to understand, learn, and devise or apply ideas; intelligent.",
+        "example": "She is a very clever student.",
+        "hebrewTranslation": "פיקח",
+        "category": "Character",
+        "level": 3
+    },
+    {
+        "word": "climate",
+        "definition": "the weather conditions prevailing in an area in general or over a long period.",
+        "example": "The climate in this region is very dry.",
+        "hebrewTranslation": "אקלים",
+        "category": "Nature",
+        "level": 4
+    },
+    {
+        "word": "clock",
+        "definition": "a mechanical or electrical device for measuring time.",
+        "example": "The clock on the wall says it's ten o'clock.",
+        "hebrewTranslation": "שעון",
+        "category": "Household",
+        "level": 1
+    },
+    {
+        "word": "cloud",
+        "definition": "a visible mass of condensed water vapor floating in the atmosphere, typically high above the ground.",
+        "example": "There wasn't a cloud in the sky.",
+        "hebrewTranslation": "ענן",
+        "category": "Nature",
+        "level": 1
+    },
+    {
+        "word": "coin",
+        "definition": "a flat, typically round piece of metal with an official stamp, used as money.",
+        "example": "I found a coin on the street.",
+        "hebrewTranslation": "מטבע",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "collaborate",
+        "definition": "to work jointly on an activity, especially to produce or create something.",
+        "example": "The two companies will collaborate on a new project.",
+        "hebrewTranslation": "לשתף פעולה",
+        "category": "Work",
+        "level": 7
+    },
+    {
+        "word": "collaboration",
+        "definition": "the action of working with someone to produce or create something.",
+        "example": "The project was a successful collaboration between two artists.",
+        "hebrewTranslation": "שיתוף פעולה",
+        "category": "Work",
+        "level": 7
+    },
+    {
+        "word": "collapse",
+        "definition": "(of a structure) to fall down or in; give way.",
+        "example": "The building collapsed during the earthquake.",
+        "hebrewTranslation": "להתמוטט, התמוטטות, לקפל",
+        "category": "Events",
+        "level": 5
+    },
+    {
+        "word": "collect",
+        "definition": "to bring or gather together (a number of things).",
+        "example": "She collects stamps.",
+        "hebrewTranslation": "לאסוף",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "come",
+        "definition": "to move or travel toward or into a place thought of as near or familiar to the speaker.",
+        "example": "Can you come to my party?",
+        "hebrewTranslation": "לבוא",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "commence",
+        "definition": "to begin; start.",
+        "example": "The meeting will commence at 10 am.",
+        "hebrewTranslation": "להתחיל",
+        "category": "Formal",
+        "level": 5
+    },
+    {
+        "word": "commensurate",
+        "definition": "corresponding in size or degree; in proportion.",
+        "example": "Salary will be commensurate with experience.",
+        "hebrewTranslation": "תואם",
+        "category": "Formal",
+        "level": 7
+    },
+    {
+        "word": "commerce",
+        "definition": "the activity of buying and selling, especially on a large scale.",
+        "example": "The city is a center of commerce.",
+        "hebrewTranslation": "מסחר",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "commercial",
+        "definition": "concerned with or engaged in commerce.",
+        "example": "This is a commercial district with many shops and businesses.",
+        "hebrewTranslation": "מסחרי",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "commiserate",
+        "definition": "to express or feel sympathy or pity; sympathize.",
+        "example": "I commiserated with him on his loss.",
+        "hebrewTranslation": "להשתתף בצער",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "common",
+        "definition": "occurring, found, or done often; prevalent.",
+        "example": "It's a common mistake.",
+        "hebrewTranslation": "נפוץ",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "communicate",
+        "definition": "to share or exchange information, news, or ideas.",
+        "example": "We need to communicate better with each other.",
+        "hebrewTranslation": "לתקשר",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "communication",
+        "definition": "the imparting or exchanging of information or news.",
+        "example": "Good communication is essential in a team.",
+        "hebrewTranslation": "תקשורת",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "communicative",
+        "definition": "willing to talk to people and give them information.",
+        "example": "He wasn't very communicative and kept to himself.",
+        "hebrewTranslation": "מוכן לתקשר",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "commute",
+        "definition": "to travel some distance between one's home and place of work on a regular basis.",
+        "example": "She commutes to the city every day for work.",
+        "hebrewTranslation": "נסיעה משותפת מפרברים לעבודה בעיר",
+        "category": "Transportation",
+        "level": 3
+    },
+    {
+        "word": "company",
+        "definition": "a commercial business.",
+        "example": "He works for a large software company.",
+        "hebrewTranslation": "חברה",
+        "category": "Business",
+        "level": 2
+    },
+    {
+        "word": "comparable",
+        "definition": "able to be likened to another; similar.",
+        "example": "The two cars are comparable in price.",
+        "hebrewTranslation": "ניתן להשוואה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "comparative",
+        "definition": "pertaining to the comparison of two or more things.",
+        "example": "He did a comparative study of the two novels.",
+        "hebrewTranslation": "יחסי, השוואתי",
+        "category": "Analysis",
+        "level": 6
+    },
+    {
+        "word": "compare",
+        "definition": "to estimate, measure, or note the similarity or dissimilarity between.",
+        "example": "Let's compare the two options.",
+        "hebrewTranslation": "להשוות",
+        "category": "Thinking",
+        "level": 3
+    },
+    {
+        "word": "comparison",
+        "definition": "a consideration or estimate of the similarities or dissimilarities between two things or people.",
+        "example": "The comparison showed that the first option was better.",
+        "hebrewTranslation": "השוואה",
+        "category": "Thinking",
+        "level": 5
+    },
+    {
+        "word": "compatible",
+        "definition": "(of two things) able to exist or occur together without conflict.",
+        "example": "This software is not compatible with your operating system.",
+        "hebrewTranslation": "מתאים, הולם, תואם",
+        "category": "Technology",
+        "level": 5
+    },
+    {
+        "word": "compete",
+        "definition": "to strive to gain or win something by defeating or establishing superiority over others.",
+        "example": "The two teams will compete for the championship.",
+        "hebrewTranslation": "להתחרות",
+        "category": "Competition",
+        "level": 4
+    },
+    {
+        "word": "competition",
+        "definition": "the activity or condition of competing.",
+        "example": "There is a lot of competition for this job.",
+        "hebrewTranslation": "תחרות",
+        "category": "Competition",
+        "level": 5
+    },
+    {
+        "word": "competitive",
+        "definition": "relating to or characterized by competition.",
+        "example": "She is a very competitive person.",
+        "hebrewTranslation": "תחרותי",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "complain",
+        "definition": "to express dissatisfaction or annoyance about something.",
+        "example": "He complained about the bad service.",
+        "hebrewTranslation": "להתלונן",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "completely",
+        "definition": "totally; to the fullest extent or degree.",
+        "example": "I completely forgot about the meeting.",
+        "hebrewTranslation": "לחלוטין",
+        "category": "Adverbs",
+        "level": 2
+    },
+    {
+        "word": "complex",
+        "definition": "consisting of many different and connected parts.",
+        "example": "It's a very complex issue.",
+        "hebrewTranslation": "מורכב",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "complexity",
+        "definition": "the state or quality of being intricate or complicated.",
+        "example": "I was amazed by the complexity of the design.",
+        "hebrewTranslation": "מורכבות, סיבוך",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "component",
+        "definition": "a part or element of a larger whole.",
+        "example": "The computer is made of many different components.",
+        "hebrewTranslation": "חלק, מרכיב, רכיב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "compose",
+        "definition": "to write or create (a work of art, especially music or poetry).",
+        "example": "He composed this symphony when he was very young.",
+        "hebrewTranslation": "להרכיב, להלחין",
+        "category": "Arts",
+        "level": 4
+    },
+    {
+        "word": "composite",
+        "definition": "made up of various parts or elements.",
+        "example": "The statue is made of a composite material.",
+        "hebrewTranslation": "מורכב",
+        "category": "Materials",
+        "level": 6
+    },
+    {
+        "word": "compulsion",
+        "definition": "the action or state of forcing or being forced to do something; constraint.",
+        "example": "He felt a compulsion to check the door was locked.",
+        "hebrewTranslation": "כפייה",
+        "category": "Psychology",
+        "level": 7
+    },
+    {
+        "word": "compulsive",
+        "definition": "resulting from or relating to an irresistible urge.",
+        "example": "He is a compulsive liar.",
+        "hebrewTranslation": "כפייתי",
+        "category": "Psychology",
+        "level": 6
+    },
+    {
+        "word": "conceive",
+        "definition": "to form or devise (a plan or idea) in the mind.",
+        "example": "She conceived the idea for her novel during her trip.",
+        "hebrewTranslation": "לחשוב על..., להרות",
+        "category": "Thinking",
+        "level": 6
+    },
+    {
+        "word": "concentrate",
+        "definition": "to focus all one's attention on a particular object or activity.",
+        "example": "I can't concentrate with all this noise.",
+        "hebrewTranslation": "להתרכז",
+        "category": "Thinking",
+        "level": 4
+    },
+    {
+        "word": "concern",
+        "definition": "to relate to; be about.",
+        "example": "The report concerns the company's financial performance.",
+        "hebrewTranslation": "דאגה, עניין, לדאוג, להתעניין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "conclude",
+        "definition": "to arrive at a judgment or opinion by reasoning.",
+        "example": "The jury concluded that he was guilty.",
+        "hebrewTranslation": "לסיים, להסיק",
+        "category": "Thinking",
+        "level": 4
+    },
+    {
+        "word": "conclusion",
+        "definition": "the end or finish of an event or process.",
+        "example": "In conclusion, I would like to thank you all.",
+        "hebrewTranslation": "סיום, מסקנה",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "conclusive",
+        "definition": "(of evidence or argument) serving to prove a case; decisive or convincing.",
+        "example": "The evidence was conclusive.",
+        "hebrewTranslation": "מכריע",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "concurred with",
+        "definition": "to happen at the same time; coincide.",
+        "example": "The two events concurred, causing confusion.",
+        "hebrewTranslation": "להתרחש בו זמנית, להתאים",
+        "category": "Events",
+        "level": 6
+    },
+    {
+        "word": "condemn",
+        "definition": "to express complete disapproval of, typically in public; censure.",
+        "example": "The government condemned the attack.",
+        "hebrewTranslation": "להרשיע, לגנות",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "conduct",
+        "definition": "to organize and carry out.",
+        "example": "The scientists will conduct an experiment.",
+        "hebrewTranslation": "לנהל, להוביל",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "confess",
+        "definition": "to admit or acknowledge something reluctantly, typically because one feels slightly ashamed or embarrassed.",
+        "example": "He confessed to stealing the money.",
+        "hebrewTranslation": "להודות, להתוודות",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "confidence",
+        "definition": "the feeling or belief that one can rely on someone or something; firm trust.",
+        "example": "I have great confidence in her abilities.",
+        "hebrewTranslation": "אמון",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "confident",
+        "definition": "feeling or showing confidence in oneself; self-assured.",
+        "example": "She is a confident and articulate speaker.",
+        "hebrewTranslation": "בטוח",
+        "category": "Character",
+        "level": 3
+    },
+    {
+        "word": "confine",
+        "definition": "to keep or restrict someone or something within certain limits of (space, scope, quantity, or time).",
+        "example": "Please confine your comments to the topic.",
+        "hebrewTranslation": "להגביל",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "confines",
+        "definition": "the borders or boundaries of a place.",
+        "example": "He never ventured beyond the confines of his village.",
+        "hebrewTranslation": "גבולות",
+        "category": "Geography",
+        "level": 5
+    },
+    {
+        "word": "conflict",
+        "definition": "a serious disagreement or argument, typically a protracted one.",
+        "example": "The two countries are in conflict.",
+        "hebrewTranslation": "ניגוד, סכסוך, לסתור",
+        "category": "Social",
+        "level": 4
+    },
+    {
+        "word": "confront",
+        "definition": "to face up to and deal with (a problem or difficult situation).",
+        "example": "You need to confront your fears.",
+        "hebrewTranslation": "לעמת",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "confrontation",
+        "definition": "a hostile or argumentative meeting or situation between opposing parties.",
+        "example": "There was a violent confrontation between the two groups.",
+        "hebrewTranslation": "עימות",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "conscience",
+        "definition": "a person's moral sense of right and wrong, viewed as acting as a guide to one's behavior.",
+        "example": "He had a guilty conscience.",
+        "hebrewTranslation": "מצפון",
+        "category": "Psychology",
+        "level": 6
+    },
+    {
+        "word": "conscientious",
+        "definition": "wishing to do one's work or duty well and thoroughly.",
+        "example": "She is a very conscientious student.",
+        "hebrewTranslation": "מודרך על יד מצפונו",
+        "category": "Character",
+        "level": 7
+    },
+    {
+        "word": "conscious",
+        "definition": "aware of and responding to one's surroundings; awake.",
+        "example": "The patient was conscious after the operation.",
+        "hebrewTranslation": "בעל הכרה",
+        "category": "Medical",
+        "level": 4
+    },
+    {
+        "word": "consciously",
+        "definition": "in a way that is aware of and responding to one's surroundings; with awareness.",
+        "example": "He consciously made the decision to leave.",
+        "hebrewTranslation": "במודע",
+        "category": "Thinking",
+        "level": 6
+    },
+    {
+        "word": "consciousness",
+        "definition": "the state of being awake and aware of one's surroundings.",
+        "example": "He lost consciousness after the accident.",
+        "hebrewTranslation": "הכרה, מודעות",
+        "category": "Medical",
+        "level": 7
+    },
+    {
+        "word": "consequence",
+        "definition": "a result or effect of an action or condition.",
+        "example": "The consequence of his actions was severe.",
+        "hebrewTranslation": "תוצאה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "consequent",
+        "definition": "following as a result or effect.",
+        "example": "The consequent damage was extensive.",
+        "hebrewTranslation": "בא כתוצאה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "consequential",
+        "definition": "following as a result or effect; important; significant.",
+        "example": "The decision was highly consequential for the company's future.",
+        "hebrewTranslation": "חשוב, מכריע",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "consequently",
+        "definition": "as a result.",
+        "example": "He was late and consequently missed the train.",
+        "hebrewTranslation": "כתוצאה מכך",
+        "category": "Language",
+        "level": 7
+    },
+    {
+        "word": "consider",
+        "definition": "to think carefully about (something), typically before making a decision.",
+        "example": "You should consider all the options.",
+        "hebrewTranslation": "לשקול, לחשוב על",
+        "category": "Thinking",
+        "level": 3
+    },
+    {
+        "word": "considerable",
+        "definition": "notably large in size, amount, or extent.",
+        "example": "The project required a considerable amount of time and effort.",
+        "hebrewTranslation": "ניכר, חשוב",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "considerate",
+        "definition": "careful not to cause inconvenience or hurt to others.",
+        "example": "It was very considerate of you to bring me a gift.",
+        "hebrewTranslation": "מתחשב",
+        "category": "Character",
+        "level": 5
+    },
+    {
+        "word": "consist",
+        "definition": "to be composed or made up of.",
+        "example": "The team consists of five members.",
+        "hebrewTranslation": "מורכב מ...",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "consistency",
+        "definition": "the quality of achieving a level of performance which does not vary greatly in quality over time.",
+        "example": "Consistency is key to success.",
+        "hebrewTranslation": "עקביות, סמיכות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "consistent",
+        "definition": "acting or done in the same way over time, especially so as to be fair or accurate.",
+        "example": "She is a very consistent player.",
+        "hebrewTranslation": "עקבי",
+        "category": "Character",
+        "level": 4
+    },
+    {
+        "word": "conspicuous",
+        "definition": "standing out so as to be clearly visible.",
+        "example": "He was conspicuous by his absence.",
+        "hebrewTranslation": "בולט",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "constant",
+        "definition": "occurring continuously over a period of time.",
+        "example": "The constant noise drove me crazy.",
+        "hebrewTranslation": "קבוע, תמידי",
+        "category": "Description",
+        "level": 3
+    },
+    {
+        "word": "consternation",
+        "definition": "a feeling of anxiety or dismay, typically at something unexpected.",
+        "example": "The announcement was met with consternation.",
+        "hebrewTranslation": "תדהמה, פחד",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "constituent",
+        "definition": "being a part of a whole.",
+        "example": "The constituent parts of the machine were easy to assemble.",
+        "hebrewTranslation": "מכונן, מרכיב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "constitute",
+        "definition": "to be (a part) of a whole.",
+        "example": "Women constitute 50% of the population.",
+        "hebrewTranslation": "לכונן, להרכיב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "consult",
+        "definition": "to seek information or advice from (someone with expertise in a particular area).",
+        "example": "You should consult a doctor.",
+        "hebrewTranslation": "להתייעץ",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "consume",
+        "definition": "to eat, drink, or ingest (food or drink).",
+        "example": "He consumed a large amount of food.",
+        "hebrewTranslation": "לשתות, לאכול, לצרוך, לכלות",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "consumer",
+        "definition": "a person who purchases goods and services for personal use.",
+        "example": "The new law protects consumer rights.",
+        "hebrewTranslation": "צרכן",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "contemporary",
+        "definition": "living or occurring at the same time.",
+        "example": "He was a contemporary of Shakespeare.",
+        "hebrewTranslation": "עכשווי, בן זמננו",
+        "category": "Time",
+        "level": 5
+    },
+    {
+        "word": "content",
+        "definition": "in a state of peaceful happiness.",
+        "example": "She was content with her life.",
+        "hebrewTranslation": "תוכן, להיות שבע רצון, שביעות רצון",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "contention",
+        "definition": "heated disagreement.",
+        "example": "The main point of contention was the budget.",
+        "hebrewTranslation": "מחלוקת",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "contentious",
+        "definition": "causing or likely to cause an argument; controversial.",
+        "example": "It is a contentious issue.",
+        "hebrewTranslation": "מעורר מחלוקת",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "continent",
+        "definition": "any of the world's main continuous expanses of land (Europe, Asia, Africa, North and South America, Australia, Antarctica).",
+        "example": "Africa is a large continent.",
+        "hebrewTranslation": "יבשת",
+        "category": "Geography",
+        "level": 4
+    },
+    {
+        "word": "continue",
+        "definition": "to persist in an activity or process.",
+        "example": "Please continue with your work.",
+        "hebrewTranslation": "להמשיך",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "contract",
+        "definition": "a written or spoken agreement, especially one concerning employment, sales, or tenancy, that is intended to be enforceable by law.",
+        "example": "You should read the contract carefully before signing.",
+        "hebrewTranslation": "חוזה, להתחייב בחוזה, לכווץ, לקצר",
+        "category": "Legal",
+        "level": 4
+    },
+    {
+        "word": "contradict",
+        "definition": "to deny the truth of (a statement) by asserting the opposite.",
+        "example": "His actions contradict his words.",
+        "hebrewTranslation": "לסתור",
+        "category": "Communication",
+        "level": 6
+    },
+    {
+        "word": "contrary",
+        "definition": "opposite in nature, direction, or meaning.",
+        "example": "Contrary to popular belief, the earth is not flat.",
+        "hebrewTranslation": "מנוגד, הפוך, ההיפך",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "contrast",
+        "definition": "the state of being strikingly different from something else in juxtaposition or close association.",
+        "example": "The contrast between the two pictures is obvious.",
+        "hebrewTranslation": "ניגוד, להנגיד, להשוות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "contribute",
+        "definition": "to give (something, especially money) in order to help achieve or provide something.",
+        "example": "She contributed to the charity.",
+        "hebrewTranslation": "לתרום",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "contributory",
+        "definition": "playing a part in bringing something about.",
+        "example": "Poor diet is a contributory factor in many illnesses.",
+        "hebrewTranslation": "תורם, מסייע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "convalesce",
+        "definition": "to recover one's health and strength over a period of time after an illness or medical treatment.",
+        "example": "She is convalescing at home after her operation.",
+        "hebrewTranslation": "להחלים",
+        "category": "Medical",
+        "level": 7
+    },
+    {
+        "word": "convalescence",
+        "definition": "time spent recovering from an illness or medical treatment; recuperation.",
+        "example": "He needs a long period of convalescence.",
+        "hebrewTranslation": "החלמה",
+        "category": "Medical",
+        "level": 7
+    },
+    {
+        "word": "conversation",
+        "definition": "a talk, especially an informal one, between two or more people.",
+        "example": "We had a long conversation about our plans.",
+        "hebrewTranslation": "שיחה",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "converse",
+        "definition": "to engage in conversation.",
+        "example": "They conversed in a low voice.",
+        "hebrewTranslation": "לשוחח",
+        "category": "Communication",
+        "level": 5
+    },
+    {
+        "word": "convict",
+        "definition": "to declare (someone) to be guilty of a criminal offense by the verdict of a jury or the decision of a judge in a court of law.",
+        "example": "He was convicted of robbery.",
+        "hebrewTranslation": "אסיר בכלא, להרשיע",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "conviction",
+        "definition": "a formal declaration that someone is guilty of a criminal offense, made by the verdict of a jury or the decision of a judge in a court of law.",
+        "example": "He has a previous conviction for theft.",
+        "hebrewTranslation": "הרשעה, שכנוע עצמי",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "convince",
+        "definition": "to cause (someone) to believe firmly in the truth of something.",
+        "example": "I'm convinced that she is telling the truth.",
+        "hebrewTranslation": "לשכנע",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "cooperate",
+        "definition": "to act jointly; work toward the same end.",
+        "example": "The two countries agreed to cooperate on the project.",
+        "hebrewTranslation": "לשתף פעולה",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "coordination",
+        "definition": "the organization of the different elements of a complex body or activity so as to enable them to work together effectively.",
+        "example": "Good coordination is essential for this task.",
+        "hebrewTranslation": "תיאום, קואורדינציה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "copy",
+        "definition": "to make a similar or identical version of; reproduce.",
+        "example": "Can you make a copy of this document for me?",
+        "hebrewTranslation": "להעתיק, עותק",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "corner",
+        "definition": "a place or angle where two or more sides or edges meet.",
+        "example": "The table is in the corner of the room.",
+        "hebrewTranslation": "פינה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "corollary",
+        "definition": "a proposition that follows from (and is often appended to) one already proved.",
+        "example": "A necessary corollary of this argument is that we need to act now.",
+        "hebrewTranslation": "תוספת, תולדה",
+        "category": "Logic",
+        "level": 6
+    },
+    {
+        "word": "correspond",
+        "definition": "to have a close similarity; match or agree almost exactly.",
+        "example": "The two accounts of the event do not correspond.",
+        "hebrewTranslation": "להיות תואם, להתכתב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "correspondence",
+        "definition": "a close similarity, connection, or equivalence.",
+        "example": "There is a close correspondence between the two sets of data.",
+        "hebrewTranslation": "התאמה, התכתבות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "corresponding",
+        "definition": "analogous or equivalent in character, form, or function; comparable.",
+        "example": "Sales are up this year, with a corresponding increase in profits.",
+        "hebrewTranslation": "תואם",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "corruption",
+        "definition": "dishonest or fraudulent conduct by those in power, typically involving bribery.",
+        "example": "The country is plagued by corruption.",
+        "hebrewTranslation": "שחיתות",
+        "category": "Social",
+        "level": 5
+    },
+    {
+        "word": "cost",
+        "definition": "(of an object or an action) require the payment of (a specified sum of money) before it can be acquired or done.",
+        "example": "How much does this book cost?",
+        "hebrewTranslation": "לעלות, עלות",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "cough",
+        "definition": "to expel air from the lungs with a sudden sharp sound.",
+        "example": "He started to cough.",
+        "hebrewTranslation": "להשתעל",
+        "category": "Medical",
+        "level": 2
+    },
+    {
+        "word": "country",
+        "definition": "a nation with its own government, occupying a particular territory.",
+        "example": "France is a beautiful country.",
+        "hebrewTranslation": "מדינה",
+        "category": "Geography",
+        "level": 2
+    },
+    {
+        "word": "course",
+        "definition": "a direction or route taken or intended.",
+        "example": "The ship is on a course for the island.",
+        "hebrewTranslation": "מסלול, דרך",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "creature",
+        "definition": "an animal, as distinct from a human being.",
+        "example": "The forest is full of strange creatures.",
+        "hebrewTranslation": "יצור",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "creed",
+        "definition": "a set of beliefs or aims which guide someone's actions.",
+        "example": "People of all races and creeds are welcome.",
+        "hebrewTranslation": "עיקרי אמונה",
+        "category": "Religion",
+        "level": 6
+    },
+    {
+        "word": "creep",
+        "definition": "to move slowly and carefully in order to avoid being heard or noticed.",
+        "example": "She crept up the stairs.",
+        "hebrewTranslation": "להתגנב, לזחול",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "crisis",
+        "definition": "a time of intense difficulty, trouble, or danger.",
+        "example": "The country is facing an economic crisis.",
+        "hebrewTranslation": "משבר",
+        "category": "Events",
+        "level": 5
+    },
+    {
+        "word": "critic",
+        "definition": "a person who expresses an unfavorable opinion of something.",
+        "example": "He is a harsh critic of the government.",
+        "hebrewTranslation": "מבקר",
+        "category": "Work",
+        "level": 5
+    },
+    {
+        "word": "critical",
+        "definition": "expressing adverse or disapproving comments or judgments.",
+        "example": "She is very critical of her own work.",
+        "hebrewTranslation": "מכריע, ביקורתי",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "criticism",
+        "definition": "the expression of disapproval of someone or something based on perceived faults or mistakes.",
+        "example": "She received a lot of criticism for her decision.",
+        "hebrewTranslation": "ביקורת",
+        "category": "Communication",
+        "level": 7
+    },
+    {
+        "word": "criticize",
+        "definition": "to indicate the faults of (someone or something) in a disapproving way.",
+        "example": "He was criticized for his poor performance.",
+        "hebrewTranslation": "לבקר (להעביר ביקורת)",
+        "category": "Communication",
+        "level": 7
+    },
+    {
+        "word": "crop",
+        "definition": "a cultivated plant that is grown as food, especially a grain, fruit, or vegetable.",
+        "example": "The main crop is rice.",
+        "hebrewTranslation": "יבול",
+        "category": "Agriculture",
+        "level": 3
+    },
+    {
+        "word": "crowd",
+        "definition": "a large number of people gathered together in a public place.",
+        "example": "A large crowd had gathered in the square.",
+        "hebrewTranslation": "קהל, המון, להתקהל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "crowded",
+        "definition": "(of a space) full of people, leaving little or no room for movement; packed.",
+        "example": "The train was very crowded.",
+        "hebrewTranslation": "צפוף",
+        "category": "Description",
+        "level": 3
+    },
+    {
+        "word": "cruise",
+        "definition": "a voyage on a ship or boat taken for pleasure or as a holiday and calling at several places.",
+        "example": "They went on a cruise in the Caribbean.",
+        "hebrewTranslation": "הפלגה, שיט",
+        "category": "Travel",
+        "level": 4
+    },
+    {
+        "word": "cucumber",
+        "definition": "a long, green-skinned fruit with watery flesh, usually eaten raw in salads.",
+        "example": "I'll have a cucumber sandwich.",
+        "hebrewTranslation": "מלפפון",
+        "category": "Food",
+        "level": 4
+    },
+    {
+        "word": "culminate",
+        "definition": "to reach a climax or point of highest development.",
+        "example": "The project culminated in a grand exhibition.",
+        "hebrewTranslation": "להגיע לשיא",
+        "category": "Events",
+        "level": 8
+    },
+    {
+        "word": "culture",
+        "definition": "the arts and other manifestations of human intellectual achievement regarded collectively.",
+        "example": "The city has a rich and diverse culture.",
+        "hebrewTranslation": "תרבות",
+        "category": "Social",
+        "level": 5
+    },
+    {
+        "word": "cumulative",
+        "definition": "increasing or increased in quantity, degree, or force by successive additions.",
+        "example": "The cumulative effect of the changes was significant.",
+        "hebrewTranslation": "מצטבר",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "cup",
+        "definition": "a small bowl-shaped container for drinking from, typically having a handle.",
+        "example": "Would you like a cup of tea?",
+        "hebrewTranslation": "כוס, ספל",
+        "category": "Household",
+        "level": 1
+    },
+    {
+        "word": "cupboard",
+        "definition": "a recess or piece of furniture with a door and usually shelves, used for storage.",
+        "example": "The plates are in the cupboard.",
+        "hebrewTranslation": "ארון כלים",
+        "category": "Household",
+        "level": 3
+    },
+    {
+        "word": "cure",
+        "definition": "to relieve (a person or animal) of the symptoms of a disease or condition.",
+        "example": "There is no cure for the common cold.",
+        "hebrewTranslation": "תרופה",
+        "category": "Medical",
+        "level": 3
+    },
+    {
+        "word": "curl",
+        "definition": "to form or cause to form into a curved or spiral shape.",
+        "example": "The smoke curled up from the chimney.",
+        "hebrewTranslation": "להסתלסל, להתכווץ",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "current",
+        "definition": "belonging to the present time; happening or being used or done now.",
+        "example": "What is the current situation?",
+        "hebrewTranslation": "נוכחי, עכשווי, שוטף, זרם",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "currently",
+        "definition": "at the present time.",
+        "example": "The factory is currently closed.",
+        "hebrewTranslation": "כעת",
+        "category": "Time",
+        "level": 4
+    },
+    {
+        "word": "curriculum",
+        "definition": "the subjects comprising a course of study in a school or college.",
+        "example": "The school has a broad curriculum.",
+        "hebrewTranslation": "תוכנית לימודים",
+        "category": "Education",
+        "level": 6
+    },
+    {
+        "word": "cut",
+        "definition": "to make an opening, incision, or wound in (something) with a sharp-edged tool or object.",
+        "example": "He cut his finger on a piece of glass.",
+        "hebrewTranslation": "לחתוך",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "cycle",
+        "definition": "a series of events that are regularly repeated in the same order.",
+        "example": "The life cycle of a butterfly.",
+        "hebrewTranslation": "מחזור",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "daily",
+        "definition": "done, produced, or occurring every day or every weekday.",
+        "example": "He goes for a daily walk in the park.",
+        "hebrewTranslation": "יומי",
+        "category": "Time",
+        "level": 2
+    },
+    {
+        "word": "damage",
+        "definition": "physical harm caused to something in such a way as to impair its value, usefulness, or normal function.",
+        "example": "The storm caused a lot of damage to the houses.",
+        "hebrewTranslation": "נזק, להזיק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "data",
+        "definition": "facts and statistics collected together for reference or analysis.",
+        "example": "We need more data to make a decision.",
+        "hebrewTranslation": "נתונים",
+        "category": "Science",
+        "level": 3
+    },
+    {
+        "word": "date",
+        "definition": "the day of the month or year as specified by a number.",
+        "example": "What's the date today?",
+        "hebrewTranslation": "תאריך, פגישה",
+        "category": "Time",
+        "level": 2
+    },
+    {
+        "word": "daughter",
+        "definition": "a girl or woman in relation to her parents.",
+        "example": "She is their only daughter.",
+        "hebrewTranslation": "בת",
+        "category": "Family",
+        "level": 3
+    },
+    {
+        "word": "dawdle",
+        "definition": "to waste time; be slow.",
+        "example": "Stop dawdling, we're going to be late!",
+        "hebrewTranslation": "להתבטל",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "dawn",
+        "definition": "the first appearance of light in the sky before sunrise.",
+        "example": "They started their journey at dawn.",
+        "hebrewTranslation": "שחר, זריחה",
+        "category": "Time",
+        "level": 3
+    },
+    {
+        "word": "de facto",
+        "definition": "in fact, or in effect, whether by right or not.",
+        "example": "He is the de facto leader of the country.",
+        "hebrewTranslation": "הלכה למעשה",
+        "category": "Legal",
+        "level": 7
+    },
+    {
+        "word": "decade",
+        "definition": "a period of ten years.",
+        "example": "The company has grown a lot over the last decade.",
+        "hebrewTranslation": "עשור",
+        "category": "Time",
+        "level": 3
+    },
+    {
+        "word": "deceit",
+        "definition": "the action or practice of deceiving someone by concealing or misrepresenting the truth.",
+        "example": "He was accused of deceit.",
+        "hebrewTranslation": "רמאות, הונאה",
+        "category": "Social",
+        "level": 6
+    },
+    {
+        "word": "declaration",
+        "definition": "a formal or explicit statement or announcement.",
+        "example": "He made a declaration of his love for her.",
+        "hebrewTranslation": "הצהרה",
+        "category": "Communication",
+        "level": 5
+    },
+    {
+        "word": "declare",
+        "definition": "to say something in a solemn and emphatic manner.",
+        "example": "The country declared its independence.",
+        "hebrewTranslation": "להצהיר",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "decline",
+        "definition": "to (typically of something regarded as good) become smaller, fewer, or less; decrease.",
+        "example": "The number of students has declined.",
+        "hebrewTranslation": "לסרב, לרדת",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "deduce",
+        "definition": "to arrive at (a fact or a conclusion) by reasoning; draw as a logical conclusion.",
+        "example": "From the evidence, we can deduce that he is guilty.",
+        "hebrewTranslation": "להסיק",
+        "category": "Thinking",
+        "level": 6
+    },
+    {
+        "word": "deed",
+        "definition": "an action that is performed intentionally or consciously.",
+        "example": "He did a good deed by helping the old lady.",
+        "hebrewTranslation": "מעשה",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "deep",
+        "definition": "extending far down from the top or surface.",
+        "example": "The ocean is very deep.",
+        "hebrewTranslation": "עמוק",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "deer",
+        "definition": "a hoofed grazing or browsing animal, with branched bony antlers that are shed annually and typically borne only by the male.",
+        "example": "We saw a deer in the forest.",
+        "hebrewTranslation": "צבי",
+        "category": "Nature",
+        "level": 2
+    },
+    {
+        "word": "defamation",
+        "definition": "the action of damaging the good reputation of someone; slander or libel.",
+        "example": "He sued the newspaper for defamation.",
+        "hebrewTranslation": "השמצה, הכפשה",
+        "category": "Legal",
+        "level": 7
+    },
+    {
+        "word": "defeat",
+        "definition": "to win a victory over (someone) in a battle or other contest; overcome or beat.",
+        "example": "Our team defeated the champions.",
+        "hebrewTranslation": "להביס, תבוסה",
+        "category": "Competition",
+        "level": 4
+    },
+    {
+        "word": "defect",
+        "definition": "a shortcoming, imperfection, or lack.",
+        "example": "There is a defect in the product.",
+        "hebrewTranslation": "פגם, לערוק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "defection",
+        "definition": "the desertion of one's country or cause in favor of an opposing one.",
+        "example": "His defection to the other side was a shock.",
+        "hebrewTranslation": "עריקה",
+        "category": "Politics",
+        "level": 7
+    },
+    {
+        "word": "defective",
+        "definition": "imperfect or faulty.",
+        "example": "The product was defective and had to be returned.",
+        "hebrewTranslation": "פגום",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "defend",
+        "definition": "to resist an attack made on (someone or something); protect from harm or danger.",
+        "example": "The soldiers defended the city.",
+        "hebrewTranslation": "להגן",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "defense",
+        "definition": "the action of defending from or resisting attack.",
+        "example": "The city's defense was strong.",
+        "hebrewTranslation": "הגנה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "defiance",
+        "definition": "open resistance; bold disobedience.",
+        "example": "She acted in defiance of her parents' wishes.",
+        "hebrewTranslation": "מרי",
+        "category": "Behavior",
+        "level": 6
+    },
+    {
+        "word": "defiant",
+        "definition": "showing defiance.",
+        "example": "He was in a defiant mood.",
+        "hebrewTranslation": "סרבן",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "deficiency",
+        "definition": "a lack or shortage.",
+        "example": "A deficiency of vitamin C can cause illness.",
+        "hebrewTranslation": "מחסור, גירעון",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "deficient",
+        "definition": "not having enough of a specified quality or ingredient.",
+        "example": "Their diet is deficient in iron.",
+        "hebrewTranslation": "חסר",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "definite",
+        "definition": "clearly stated or decided; not vague or doubtful.",
+        "example": "We need a definite answer by tomorrow.",
+        "hebrewTranslation": "מוחלט, ברור",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "definitive",
+        "definition": "(of a conclusion or agreement) done or reached decisively and with authority.",
+        "example": "The definitive biography of the artist.",
+        "hebrewTranslation": "סופי ומוחלט",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "defy",
+        "definition": "to openly resist or refuse to obey.",
+        "example": "She defied her parents and went to the party.",
+        "hebrewTranslation": "לסרב בתוקף",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "deliberate",
+        "definition": "done consciously and intentionally.",
+        "example": "It was a deliberate act of cruelty.",
+        "hebrewTranslation": "במכוון, לשקול",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "deliberately",
+        "definition": "consciously and intentionally; on purpose.",
+        "example": "He deliberately broke the window.",
+        "hebrewTranslation": "בכוונה תחילה",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "deliver",
+        "definition": "to bring and hand over (a letter, parcel, or goods) to the proper recipient or address.",
+        "example": "The postman delivered a package for you.",
+        "hebrewTranslation": "למסור",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "demand",
+        "definition": "an insistent and peremptory request, made as if by right.",
+        "example": "The workers' demand for higher wages was met.",
+        "hebrewTranslation": "לדרוש, דרישה",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "demented",
+        "definition": "behaving irrationally due to anger, distress, or excitement.",
+        "example": "He was driven demented by the constant noise.",
+        "hebrewTranslation": "משוגע",
+        "category": "Medical",
+        "level": 7
+    },
+    {
+        "word": "demonstrate",
+        "definition": "to clearly show the existence or truth of (something) by giving proof or evidence.",
+        "example": "He demonstrated how to use the new software.",
+        "hebrewTranslation": "להפגין, להדגים",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "demonstration",
+        "definition": "an act of showing that something exists or is true by giving proof or evidence.",
+        "example": "There was a demonstration against the new law.",
+        "hebrewTranslation": "הוכחה, הפגנה",
+        "category": "Events",
+        "level": 5
+    },
+    {
+        "word": "dense",
+        "definition": "closely compacted in substance.",
+        "example": "The forest was dense and dark.",
+        "hebrewTranslation": "צפוף",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "dentist",
+        "definition": "a person qualified to treat the diseases and conditions that affect the teeth and gums.",
+        "example": "I need to go to the dentist.",
+        "hebrewTranslation": "רופא שיניים",
+        "category": "Work",
+        "level": 4
+    },
+    {
+        "word": "deny",
+        "definition": "to state that one refuses to admit the truth or existence of.",
+        "example": "He denied any involvement in the crime.",
+        "hebrewTranslation": "להכחיש",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "depart",
+        "definition": "to leave, especially in order to start a journey.",
+        "example": "The train will depart from platform 5.",
+        "hebrewTranslation": "לפרוש, לצאת",
+        "category": "Travel",
+        "level": 4
+    },
+    {
+        "word": "department",
+        "definition": "a division of a large organization such as a government, university, or business, dealing with a specific area of activity.",
+        "example": "She works in the sales department.",
+        "hebrewTranslation": "מחלקה",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "depict",
+        "definition": "to represent by a drawing, painting, or other art form.",
+        "example": "The painting depicts a scene from the Bible.",
+        "hebrewTranslation": "לצייר, לתאר",
+        "category": "Arts",
+        "level": 5
+    },
+    {
+        "word": "depressed",
+        "definition": "(of a person) in a state of general unhappiness or despondency.",
+        "example": "She felt depressed after losing her job.",
+        "hebrewTranslation": "מדוכא",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "derive",
+        "definition": "to obtain something from (a specified source).",
+        "example": "The word 'derive' is derived from Latin.",
+        "hebrewTranslation": "להסיק, להפיק",
+        "category": "Language",
+        "level": 6
+    },
+    {
+        "word": "desert",
+        "definition": "a waterless, desolate area of land with little or no vegetation, typically one covered with sand.",
+        "example": "The Sahara is a vast desert.",
+        "hebrewTranslation": "מדבר, לנטוש",
+        "category": "Geography",
+        "level": 4
+    },
+    {
+        "word": "desirable",
+        "definition": "wished for as being an attractive, useful, or necessary course of action.",
+        "example": "A good education is highly desirable.",
+        "hebrewTranslation": "רצוי, נחשק",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "desire",
+        "definition": "a strong feeling of wanting to have something or wishing for something to happen.",
+        "example": "He had a strong desire to travel the world.",
+        "hebrewTranslation": "להשתוקק, תשוקה",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "desk",
+        "definition": "a piece of furniture with a flat table-style work surface used in a school, office, or at home.",
+        "example": "He sat at his desk and started to work.",
+        "hebrewTranslation": "שולחן עבודה",
+        "category": "Household",
+        "level": 1
+    },
+    {
+        "word": "despite",
+        "definition": "without being affected by; in spite of.",
+        "example": "Despite the rain, we enjoyed the walk.",
+        "hebrewTranslation": "למרות",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "destination",
+        "definition": "the place to which someone or something is going or being sent.",
+        "example": "Our destination is Paris.",
+        "hebrewTranslation": "יעד",
+        "category": "Travel",
+        "level": 5
+    },
+    {
+        "word": "destroy",
+        "definition": "to end the existence of (something) by damaging or attacking it.",
+        "example": "The fire destroyed the entire building.",
+        "hebrewTranslation": "להרוס",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "destruction",
+        "definition": "the action or process of causing so much damage to something that it no longer exists or cannot be repaired.",
+        "example": "The war caused widespread destruction.",
+        "hebrewTranslation": "הרס",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "detain",
+        "definition": "to keep (someone) from proceeding; hold back.",
+        "example": "The police detained him for questioning.",
+        "hebrewTranslation": "לעכב",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "detect",
+        "definition": "to discover or identify the presence or existence of.",
+        "example": "The machine can detect even small amounts of radiation.",
+        "hebrewTranslation": "לגלות, לאתר",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "detective",
+        "definition": "a person, especially a police officer, whose occupation is to investigate and solve crimes.",
+        "example": "The detective solved the mystery.",
+        "hebrewTranslation": "בלש",
+        "category": "Work",
+        "level": 4
+    },
+    {
+        "word": "deter",
+        "definition": "to discourage (someone) from doing something by instilling doubt or fear of the consequences.",
+        "example": "The high price will deter many customers.",
+        "hebrewTranslation": "להרתיע, למנוע",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "deteriorate",
+        "definition": "to become progressively worse.",
+        "example": "His health began to deteriorate.",
+        "hebrewTranslation": "להדרדר, להחמיר",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "deterioration",
+        "definition": "the process of becoming progressively worse.",
+        "example": "There has been a deterioration in the political situation.",
+        "hebrewTranslation": "הדרדרות",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "determination",
+        "definition": "the quality of being determined; firmness of purpose.",
+        "example": "She has a lot of determination to succeed.",
+        "hebrewTranslation": "קביעה, נחישות",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "deterrent",
+        "definition": "a thing that discourages or is intended to discourage someone from doing something.",
+        "example": "The threat of punishment is a deterrent.",
+        "hebrewTranslation": "מעכב, מונע",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "devastate",
+        "definition": "to destroy or ruin (something).",
+        "example": "The city was devastated by the earthquake.",
+        "hebrewTranslation": "לזרוע חורבן",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "develop",
+        "definition": "to grow or cause to grow and become more mature, advanced, or elaborate.",
+        "example": "The company is developing a new product.",
+        "hebrewTranslation": "לפתח, להתפתח",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "device",
+        "definition": "a thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment.",
+        "example": "This is a very useful device.",
+        "hebrewTranslation": "כלי, מכשיר",
+        "category": "Technology",
+        "level": 3
+    },
+    {
+        "word": "devise",
+        "definition": "to plan or invent (a complex procedure, system, or mechanism) by careful thought.",
+        "example": "He devised a new way to store energy.",
+        "hebrewTranslation": "להגות תוכנית",
+        "category": "Thinking",
+        "level": 6
+    },
+    {
+        "word": "devote",
+        "definition": "to give all or a large part of one's time or resources to (a person, activity, or cause).",
+        "example": "She devoted her life to helping the poor.",
+        "hebrewTranslation": "להקדיש, להתמסר",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "differ",
+        "definition": "to be unlike or dissimilar.",
+        "example": "Our opinions differ on this matter.",
+        "hebrewTranslation": "להיות שונה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "diffuse",
+        "definition": "to spread or cause to spread over a wide area or among a large number of people.",
+        "example": "The heat from the fire diffused throughout the room.",
+        "hebrewTranslation": "להתפשט, להפיץ",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "diffusion",
+        "definition": "the spreading of something more widely.",
+        "example": "The diffusion of knowledge has been accelerated by the internet.",
+        "hebrewTranslation": "תערובת",
+        "category": "Science",
+        "level": 7
+    },
+    {
+        "word": "dig",
+        "definition": "to break up and move earth with a tool or machine, or with hands, paws, snout, etc.",
+        "example": "The dog was digging a hole in the garden.",
+        "hebrewTranslation": "לחפור",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "dilemma",
+        "definition": "a situation in which a difficult choice has to be made between two or more alternatives, especially equally undesirable ones.",
+        "example": "She faced the dilemma of choosing between her career and her family.",
+        "hebrewTranslation": "דילמה",
+        "category": "Thinking",
+        "level": 7
+    },
+    {
+        "word": "dimension",
+        "definition": "a measurable extent of a particular kind, such as length, breadth, depth, or height.",
+        "example": "What are the dimensions of the room?",
+        "hebrewTranslation": "מידה, מימד",
+        "category": "Measurement",
+        "level": 5
+    },
+    {
+        "word": "diminish",
+        "definition": "to make or become less.",
+        "example": "The pain will gradually diminish.",
+        "hebrewTranslation": "להפחית",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "dinner",
+        "definition": "the main meal of the day, taken either around midday or in the evening.",
+        "example": "What's for dinner tonight?",
+        "hebrewTranslation": "ארוחת ערב",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "dirty",
+        "definition": "covered or marked with an unclean substance.",
+        "example": "His clothes were dirty.",
+        "hebrewTranslation": "מלוכלך",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "disabled",
+        "definition": "(of a person) having a physical or mental condition that limits their movements, senses, or activities.",
+        "example": "He is disabled and uses a wheelchair.",
+        "hebrewTranslation": "בעל מוגבלות, נכה",
+        "category": "Medical",
+        "level": 4
+    },
+    {
+        "word": "disadvantage",
+        "definition": "an unfavorable circumstance or condition that reduces the chances of success or effectiveness.",
+        "example": "The main disadvantage of the plan is its cost.",
+        "hebrewTranslation": "חיסרון",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "disappointment",
+        "definition": "sadness or displeasure caused by the nonfulfillment of one's hopes or expectations.",
+        "example": "Her disappointment was obvious.",
+        "hebrewTranslation": "אכזבה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "disaster",
+        "definition": "a sudden event, such as an accident or a natural catastrophe, that causes great damage or loss of life.",
+        "example": "The earthquake was a terrible disaster.",
+        "hebrewTranslation": "אסון",
+        "category": "Events",
+        "level": 5
+    },
+    {
+        "word": "disastrous",
+        "definition": "causing great damage.",
+        "example": "The consequences of the decision were disastrous.",
+        "hebrewTranslation": "נוראי",
+        "category": "Description",
+        "level": 7
+    },
+    {
+        "word": "discipline",
+        "definition": "the practice of training people to obey rules or a code of behavior, using punishment to correct disobedience.",
+        "example": "The school has a strict discipline policy.",
+        "hebrewTranslation": "משמעת",
+        "category": "Social",
+        "level": 5
+    },
+    {
+        "word": "discover",
+        "definition": "to find unexpectedly or during a search.",
+        "example": "They discovered a new species of frog.",
+        "hebrewTranslation": "לגלות",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "discovery",
+        "definition": "the action or process of discovering or being discovered.",
+        "example": "The discovery of penicillin was a major breakthrough.",
+        "hebrewTranslation": "תגלית",
+        "category": "Science",
+        "level": 4
+    },
+    {
+        "word": "discriminate",
+        "definition": "to make an unjust or prejudicial distinction in the treatment of different categories of people or things, especially on the grounds of race, sex, or age.",
+        "example": "It is illegal to discriminate against people because of their race.",
+        "hebrewTranslation": "להבחין, להפלות",
+        "category": "Social",
+        "level": 7
+    },
+    {
+        "word": "discuss",
+        "definition": "to talk about (something) with another person or group of people.",
+        "example": "We need to discuss our plans for the weekend.",
+        "hebrewTranslation": "לדון",
+        "category": "Communication",
+        "level": 3
+    },
+    {
+        "word": "discussion",
+        "definition": "the action or process of talking about something in order to reach a decision or to exchange ideas.",
+        "example": "We had a long discussion about the problem.",
+        "hebrewTranslation": "דיון",
+        "category": "Communication",
+        "level": 4
+    },
+    {
+        "word": "disease",
+        "definition": "a disorder of structure or function in a human, animal, or plant, especially one that produces specific signs or symptoms or that affects a specific location and is not simply a direct result of physical injury.",
+        "example": "He suffers from a rare disease.",
+        "hebrewTranslation": "מחלה",
+        "category": "Medical",
+        "level": 5
+    },
+    {
+        "word": "disinfect",
+        "definition": "to clean (something) with a disinfectant in order to destroy bacteria.",
+        "example": "You should disinfect the wound.",
+        "hebrewTranslation": "לחטא",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "displace",
+        "definition": "to take over the place, position, or role of (someone or something).",
+        "example": "The new technology will displace many workers.",
+        "hebrewTranslation": "לעקור ממקומו",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "display",
+        "definition": "to put (something) in a prominent place in order that it may readily be seen.",
+        "example": "The museum will display the new collection.",
+        "hebrewTranslation": "הצגה (לראווה)",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "dispose",
+        "definition": "to get rid of by throwing away or giving or selling to someone else.",
+        "example": "Please dispose of your trash properly.",
+        "hebrewTranslation": "לזרוק, להיפטר מ...",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "disqualify",
+        "definition": "to pronounce (someone) ineligible for an office, activity, or competition because of an offense or infringement.",
+        "example": "He was disqualified from the race for cheating.",
+        "hebrewTranslation": "לפסול",
+        "category": "Competition",
+        "level": 8
+    },
+    {
+        "word": "disregard",
+        "definition": "to pay no attention to; ignore.",
+        "example": "He disregarded the warning and got into trouble.",
+        "hebrewTranslation": "להתעלם",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "distance",
+        "definition": "an amount of space between two things or people.",
+        "example": "What is the distance between the two cities?",
+        "hebrewTranslation": "מרחק",
+        "category": "Measurement",
+        "level": 3
+    },
+    {
+        "word": "distinct",
+        "definition": "recognizably different in nature from something else of a similar type.",
+        "example": "There are two distinct types of this plant.",
+        "hebrewTranslation": "מיוחד, נפרד",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "distinction",
+        "definition": "a difference or contrast between similar things or people.",
+        "example": "There is a clear distinction between the two concepts.",
+        "hebrewTranslation": "ייחוד, אבחנה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "distinguish",
+        "definition": "to recognize or treat (someone or something) as different.",
+        "example": "It's important to distinguish between fact and opinion.",
+        "hebrewTranslation": "להבחין, להפריד",
+        "category": "Thinking",
+        "level": 6
+    },
+    {
+        "word": "distort",
+        "definition": "to pull or twist out of shape.",
+        "example": "The mirror distorted his reflection.",
+        "hebrewTranslation": "לעוות, לסלף",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "distract",
+        "definition": "to prevent (someone) from giving full attention to something.",
+        "example": "The noise from the street distracted me from my work.",
+        "hebrewTranslation": "להסיח דעת",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "distribute",
+        "definition": "to give shares of (something); deal out.",
+        "example": "They will distribute food to the needy.",
+        "hebrewTranslation": "לחלק",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "divergence",
+        "definition": "the process or state of diverging.",
+        "example": "There is a divergence of opinion on this issue.",
+        "hebrewTranslation": "התפצלות, סטייה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "diverse",
+        "definition": "showing a great deal of variety; very different.",
+        "example": "The city has a diverse population.",
+        "hebrewTranslation": "מגוון",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "diversify",
+        "definition": "to make or become more diverse or varied.",
+        "example": "The company is trying to diversify its business.",
+        "hebrewTranslation": "לגוון",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "do",
+        "definition": "to perform (an action, the precise nature of which is often unspecified).",
+        "example": "What are you doing?",
+        "hebrewTranslation": "לעשות",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "docile",
+        "definition": "ready to accept control or instruction; submissive.",
+        "example": "The dog was docile and obedient.",
+        "hebrewTranslation": "קל לשליטה, צייתן",
+        "category": "Character",
+        "level": 6
+    },
+    {
+        "word": "docility",
+        "definition": "the quality of being ready to accept control or instruction; submissiveness.",
+        "example": "The docility of the sheep made them easy to manage.",
+        "hebrewTranslation": "כניעות, צייתנות",
+        "category": "Character",
+        "level": 8
+    },
+    {
+        "word": "dominate",
+        "definition": "to have a commanding influence on; exercise control over.",
+        "example": "The team dominated the game from the start.",
+        "hebrewTranslation": "לשלוט",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "donation",
+        "definition": "something that is given to a charity, especially a sum of money.",
+        "example": "He made a generous donation to the hospital.",
+        "hebrewTranslation": "מתנה, תרומה",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "donkey",
+        "definition": "a domesticated hoofed mammal of the horse family with long ears and a braying call.",
+        "example": "The farmer used a donkey to carry his goods.",
+        "hebrewTranslation": "חמור",
+        "category": "Nature",
+        "level": 2
+    },
+    {
+        "word": "doom",
+        "definition": "death, destruction, or some other terrible fate.",
+        "example": "The castle was doomed to fall.",
+        "hebrewTranslation": "לדון, אסון",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "dote",
+        "definition": "to be extremely and uncritically fond of.",
+        "example": "She dotes on her grandchildren.",
+        "hebrewTranslation": "לחבב יתר על המידה",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "doubt",
+        "definition": "a feeling of uncertainty or lack of conviction.",
+        "example": "I have no doubt that you will succeed.",
+        "hebrewTranslation": "להטיל ספק, ספק",
+        "category": "Thinking",
+        "level": 4
+    },
+    {
+        "word": "doubtful",
+        "definition": "feeling uncertain about something.",
+        "example": "I'm doubtful about our chances of winning.",
+        "hebrewTranslation": "מפוקפק",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "dozen",
+        "definition": "a group or set of twelve.",
+        "example": "I bought a dozen eggs.",
+        "hebrewTranslation": "תריסר",
+        "category": "Measurement",
+        "level": 2
+    },
+    {
+        "word": "drab",
+        "definition": "lacking brightness or interest; drearily dull.",
+        "example": "The room was painted in a drab color.",
+        "hebrewTranslation": "משעמם",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "drawing",
+        "definition": "a picture or diagram made with a pencil, pen, or crayon rather than paint.",
+        "example": "She made a beautiful drawing of a flower.",
+        "hebrewTranslation": "ציור",
+        "category": "Arts",
+        "level": 2
+    },
+    {
+        "word": "dread",
+        "definition": "to anticipate with great apprehension or fear.",
+        "example": "I dread going to the dentist.",
+        "hebrewTranslation": "לפחד, אימה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "drift",
+        "definition": "to be carried slowly by a current of air or water.",
+        "example": "The boat drifted out to sea.",
+        "hebrewTranslation": "להיסחף, סחף",
+        "category": "Movement",
+        "level": 3
+    },
+    {
+        "word": "drink",
+        "definition": "to take (a liquid) into the mouth and swallow.",
+        "example": "He drank a glass of water.",
+        "hebrewTranslation": "לשתות",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "drop",
+        "definition": "to let or make (something) fall vertically.",
+        "example": "Be careful not to drop the glass.",
+        "hebrewTranslation": "להפיל, טיפה",
+        "category": "Actions",
+        "level": 1
+    },
+    {
+        "word": "drug",
+        "definition": "a medicine or other substance which has a physiological effect when ingested or otherwise introduced into the body.",
+        "example": "The doctor prescribed a new drug for her.",
+        "hebrewTranslation": "סם",
+        "category": "Medical",
+        "level": 4
+    },
+    {
+        "word": "dry",
+        "definition": "free from moisture or liquid; not wet or moist.",
+        "example": "The clothes are dry now.",
+        "hebrewTranslation": "יבש",
+        "category": "Description",
+        "level": 1
+    },
+    {
+        "word": "dubious",
+        "definition": "hesitating or doubting.",
+        "example": "I was dubious about his promises.",
+        "hebrewTranslation": "מפוקפק",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "due",
+        "definition": "expected at or planned for at a certain time.",
+        "example": "The baby is due in May.",
+        "hebrewTranslation": "חל, צפוי",
+        "category": "Time",
+        "level": 3
+    },
+    {
+        "word": "due to",
+        "definition": "because of; owing to.",
+        "example": "The game was canceled due to rain.",
+        "hebrewTranslation": "בשל, בגלל",
+        "category": "Language",
+        "level": 4
+    },
+    {
+        "word": "duplicate",
+        "definition": "to make an exact copy of.",
+        "example": "Please duplicate this key for me.",
+        "hebrewTranslation": "לשכפל",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "duty",
+        "definition": "a moral or legal obligation; a responsibility.",
+        "example": "It is my duty to report the crime.",
+        "hebrewTranslation": "חובה",
+        "category": "Social",
+        "level": 2
+    },
+    {
+        "word": "dwindle",
+        "definition": "to diminish gradually in size, amount, or strength.",
+        "example": "Our supplies began to dwindle.",
+        "hebrewTranslation": "להתמעט",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "dynamic",
+        "definition": "(of a process or system) characterized by constant change, activity, or progress.",
+        "example": "He is a dynamic and energetic leader.",
+        "hebrewTranslation": "רב עוצמה, פעיל",
+        "category": "Character",
+        "level": 7
+    },
+    {
+        "word": "eager",
+        "definition": "strongly wanting to do or have something.",
+        "example": "She was eager to start her new job.",
+        "hebrewTranslation": "להוט",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "early",
+        "definition": "happening or done before the usual or expected time.",
+        "example": "I got up early this morning.",
+        "hebrewTranslation": "מוקדם",
+        "category": "Time",
+        "level": 1
+    },
+    {
+        "word": "ease",
+        "definition": "absence of difficulty or effort.",
+        "example": "She passed the exam with ease.",
+        "hebrewTranslation": "להקל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "east",
+        "definition": "the direction toward the point of the horizon where the sun rises at the equinoxes, on the right-hand side of a person facing north, or the point on the horizon itself.",
+        "example": "The sun rises in the east.",
+        "hebrewTranslation": "מזרח",
+        "category": "Geography",
+        "level": 1
+    },
+    {
+        "word": "eavesdrop",
+        "definition": "to secretly listen to a conversation.",
+        "example": "It's rude to eavesdrop on other people's conversations.",
+        "hebrewTranslation": "לצותת",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "eclectic",
+        "definition": "deriving ideas, style, or taste from a broad and diverse range of sources.",
+        "example": "Her music taste is very eclectic.",
+        "hebrewTranslation": "אוסף 'מפה ומשם'",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "eclipse",
+        "definition": "an obscuring of the light from one celestial body by the passage of another between it and the observer or between it and its source of illumination.",
+        "example": "We watched the solar eclipse.",
+        "hebrewTranslation": "ליקוי",
+        "category": "Science",
+        "level": 5
+    },
+    {
+        "word": "editor",
+        "definition": "a person who is in charge of and determines the final content of a text, particularly a newspaper or magazine.",
+        "example": "She is the editor of a fashion magazine.",
+        "hebrewTranslation": "עורך",
+        "category": "Work",
+        "level": 3
+    },
+    {
+        "word": "effect",
+        "definition": "a change which is a result or consequence of an action or other cause.",
+        "example": "The medicine had a positive effect.",
+        "hebrewTranslation": "השפעה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "efficiency",
+        "definition": "the state or quality of being efficient.",
+        "example": "The new system has improved our efficiency.",
+        "hebrewTranslation": "יעילות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "efficient",
+        "definition": "(especially of a system or machine) achieving maximum productivity with minimum wasted effort or expense.",
+        "example": "The new machine is very efficient.",
+        "hebrewTranslation": "יעיל",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "effort",
+        "definition": "a vigorous or determined attempt.",
+        "example": "It took a lot of effort to lift the box.",
+        "hebrewTranslation": "מאמץ",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "elaborate",
+        "definition": "involving many carefully arranged parts or details; detailed and complicated in design and planning.",
+        "example": "She had an elaborate plan to escape.",
+        "hebrewTranslation": "מתוכנן, לפרט",
+        "category": "Description",
+        "level": 5
+    },
+    {
+        "word": "elderly",
+        "definition": "(of a person) old or aging.",
+        "example": "He is an elderly man.",
+        "hebrewTranslation": "זקן, מבוגר",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "elevator",
+        "definition": "a platform or compartment housed in a shaft for raising and lowering people or things to different floors or levels.",
+        "example": "We took the elevator to the top floor.",
+        "hebrewTranslation": "מעלית",
+        "category": "Technology",
+        "level": 2
+    },
+    {
+        "word": "eliminate",
+        "definition": "to completely remove or get rid of (something).",
+        "example": "We need to eliminate the possibility of error.",
+        "hebrewTranslation": "לפסול",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "elsewhere",
+        "definition": "in, at, or to some other place or other places.",
+        "example": "Let's go somewhere else.",
+        "hebrewTranslation": "במקום אחר",
+        "category": "Language",
+        "level": 3
+    },
+    {
+        "word": "embarrass",
+        "definition": "to cause (someone) to feel awkward, self-conscious, or ashamed.",
+        "example": "He embarrassed me in front of my friends.",
+        "hebrewTranslation": "להביך",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "embarrassing",
+        "definition": "causing embarrassment.",
+        "example": "It was an embarrassing situation.",
+        "hebrewTranslation": "מביך",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "embassy",
+        "definition": "the official residence or offices of an ambassador.",
+        "example": "He works at the American embassy.",
+        "hebrewTranslation": "שגרירות",
+        "category": "Politics",
+        "level": 5
+    },
+    {
+        "word": "embrace",
+        "definition": "to hold (someone) closely in one's arms, especially as a sign of affection.",
+        "example": "She embraced her son warmly.",
+        "hebrewTranslation": "לחבק, לקבל",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "emerge",
+        "definition": "to move out of or away from something and come into view.",
+        "example": "The sun emerged from behind the clouds.",
+        "hebrewTranslation": "להופיע בהדרגה",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "emergence",
+        "definition": "the process of coming into view or becoming prominent.",
+        "example": "The emergence of new technologies has changed our lives.",
+        "hebrewTranslation": "הופעה הדרגתית",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "emigrate",
+        "definition": "to leave one's own country in order to settle permanently in another.",
+        "example": "They decided to emigrate to Australia.",
+        "hebrewTranslation": "להגר",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "emigration",
+        "definition": "the act of leaving one's own country to settle permanently in another; moving abroad.",
+        "example": "There has been a rise in emigration in recent years.",
+        "hebrewTranslation": "הגירה",
+        "category": "Social",
+        "level": 7
+    },
+    {
+        "word": "eminence",
+        "definition": "fame or recognized superiority, especially within a particular sphere or profession.",
+        "example": "He is a man of great eminence in the field of science.",
+        "hebrewTranslation": "חשיבות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "eminent",
+        "definition": "(of a person) famous and respected within a particular sphere or profession.",
+        "example": "He is an eminent scientist.",
+        "hebrewTranslation": "דגול",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "emotion",
+        "definition": "a strong feeling deriving from one's circumstances, mood, or relationships with others.",
+        "example": "Love is a powerful emotion.",
+        "hebrewTranslation": "רגש",
+        "category": "Psychology",
+        "level": 3
+    },
+    {
+        "word": "emphasize",
+        "definition": "to give special importance or prominence to (something) in speaking or writing.",
+        "example": "I want to emphasize the importance of this point.",
+        "hebrewTranslation": "להדגיש",
+        "category": "Communication",
+        "level": 5
+    },
+    {
+        "word": "employ",
+        "definition": "to give work to (someone) and pay them for it.",
+        "example": "The company employs 500 people.",
+        "hebrewTranslation": "להעסיק",
+        "category": "Work",
+        "level": 3
+    },
+    {
+        "word": "empty",
+        "definition": "containing nothing; not filled or occupied.",
+        "example": "The box is empty.",
+        "hebrewTranslation": "ריק",
+        "category": "Description",
+        "level": 2
+    },
+    {
+        "word": "enable",
+        "definition": "to give (someone or something) the authority or means to do something.",
+        "example": "The new software will enable us to work more efficiently.",
+        "hebrewTranslation": "לאפשר",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "encompass",
+        "definition": "to surround and have or hold within.",
+        "example": "The project will encompass a wide range of activities.",
+        "hebrewTranslation": "לכלול, להקיף",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "encounter",
+        "definition": "to unexpectedly experience or be faced with (something difficult or hostile).",
+        "example": "We encountered some problems along the way.",
+        "hebrewTranslation": "מפגש",
+        "category": "Events",
+        "level": 4
+    },
+    {
+        "word": "encourage",
+        "definition": "to give support, confidence, or hope to (someone).",
+        "example": "My parents always encouraged me to follow my dreams.",
+        "hebrewTranslation": "לעודד",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "endeavor",
+        "definition": "to try hard to do or achieve something.",
+        "example": "We must endeavor to do our best.",
+        "hebrewTranslation": "להתאמץ, מאמץ",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "enfeeble",
+        "definition": "to make weak or feeble.",
+        "example": "The illness enfeebled him.",
+        "hebrewTranslation": "להחליש",
+        "category": "Actions",
+        "level": 7
+    },
+    {
+        "word": "engage",
+        "definition": "to occupy, attract, or involve (someone's interest or attention).",
+        "example": "The book engaged my interest from the first page.",
+        "hebrewTranslation": "להעסיק",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "engagement",
+        "definition": "an arrangement to do something or go somewhere at a fixed time.",
+        "example": "I have a previous engagement.",
+        "hebrewTranslation": "התחייבות, אירוסין",
+        "category": "Events",
+        "level": 5
+    },
+    {
+        "word": "engineer",
+        "definition": "a person who designs, builds, or maintains engines, machines, or public works.",
+        "example": "He is a civil engineer.",
+        "hebrewTranslation": "מהנדס",
+        "category": "Work",
+        "level": 3
+    },
+    {
+        "word": "enhance",
+        "definition": "to intensify, increase, or further improve the quality, value, or extent of.",
+        "example": "The new software will enhance the user experience.",
+        "hebrewTranslation": "להגביר, להעצים",
+        "category": "Actions",
+        "level": 5
+    },
+    {
+        "word": "enjoy",
+        "definition": "to take delight or pleasure in (an activity or occasion).",
+        "example": "I enjoy playing tennis.",
+        "hebrewTranslation": "להנות",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "enlist",
+        "definition": "to enroll or be enrolled in the armed services.",
+        "example": "He enlisted in the army.",
+        "hebrewTranslation": "לגייס",
+        "category": "Military",
+        "level": 5
+    },
+    {
+        "word": "enormous",
+        "definition": "very large in size, quantity, or extent.",
+        "example": "He has an enormous amount of work to do.",
+        "hebrewTranslation": "ענק, עצום",
+        "category": "Description",
+        "level": 4
+    },
+    {
+        "word": "ensure",
+        "definition": "to make certain that (something) shall occur or be the case.",
+        "example": "Please ensure that you have all the necessary documents.",
+        "hebrewTranslation": "להבטיח",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "enter",
+        "definition": "to come or go into (a place).",
+        "example": "Please enter the room.",
+        "hebrewTranslation": "להיכנס",
+        "category": "Actions",
+        "level": 2
+    },
+    {
+        "word": "enthusiasm",
+        "definition": "intense and eager enjoyment, interest, or approval.",
+        "example": "She has a great enthusiasm for her work.",
+        "hebrewTranslation": "התלהבות",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "entire",
+        "definition": "with no part left out; whole.",
+        "example": "He ate the entire cake.",
+        "hebrewTranslation": "שלם, כולל",
+        "category": "Description",
+        "level": 3
+    },
+    {
+        "word": "entwine",
+        "definition": "to wind or twist together; interweave.",
+        "example": "The vines entwined around the tree.",
+        "hebrewTranslation": "לשלב, לקלוע",
+        "category": "Actions",
+        "level": 6
+    },
+    {
+        "word": "epilogue",
+        "definition": "a section or speech at the end of a book or play that serves as a comment on or a conclusion to what has happened.",
+        "example": "The book has a moving epilogue.",
+        "hebrewTranslation": "אחרית דבר",
+        "category": "Literature",
+        "level": 7
+    },
+    {
+        "word": "equality",
+        "definition": "the state of being equal, especially in status, rights, and opportunities.",
+        "example": "They are fighting for equality.",
+        "hebrewTranslation": "שוויון",
+        "category": "Social",
+        "level": 3
+    },
+    {
+        "word": "equipment",
+        "definition": "the necessary items for a particular purpose.",
+        "example": "The company provides all the necessary equipment.",
+        "hebrewTranslation": "ציוד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "equivalent",
+        "definition": "equal in value, amount, function, meaning, etc.",
+        "example": "The two words are equivalent in meaning.",
+        "hebrewTranslation": "שווה ערך",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "equivocal",
+        "definition": "open to more than one interpretation; ambiguous.",
+        "example": "His answer was equivocal.",
+        "hebrewTranslation": "שאינו חד משמעי",
+        "category": "Language",
+        "level": 8
+    },
+    {
+        "word": "era",
+        "definition": "a long and distinct period of history with a particular feature or characteristic.",
+        "example": "The Victorian era was a time of great change.",
+        "hebrewTranslation": "עידן",
+        "category": "Time",
+        "level": 2
+    },
+    {
+        "word": "erroneous",
+        "definition": "wrong; incorrect.",
+        "example": "The report was based on erroneous information.",
+        "hebrewTranslation": "שגוי",
+        "category": "Description",
+        "level": 6
+    },
+    {
+        "word": "erudition",
+        "definition": "the quality of having or showing great knowledge or learning; scholarship.",
+        "example": "He was a man of great erudition.",
+        "hebrewTranslation": "השכלה עצומה",
+        "category": "Character",
+        "level": 9
+    },
+    {
+        "word": "erupt",
+        "definition": "(of a volcano) become active and eject lava, ash, and gases.",
+        "example": "The volcano could erupt at any time.",
+        "hebrewTranslation": "להתפרץ",
+        "category": "Nature",
+        "level": 5
+    },
+    {
+        "word": "escaped",
+        "definition": "to break free from confinement or control.",
+        "example": "The prisoner escaped from jail.",
+        "hebrewTranslation": "לברוח",
+        "category": "Actions",
+        "level": 3
+    },
+    {
+        "word": "essence",
+        "definition": "the intrinsic nature or indispensable quality of something, especially something abstract, that determines its character.",
+        "example": "The essence of his argument is that we need to act now.",
+        "hebrewTranslation": "מהות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "establish",
+        "definition": "to set up (an organization, system, or set of rules) on a firm or permanent basis.",
+        "example": "The company was established in 1950.",
+        "hebrewTranslation": "לייסד",
+        "category": "Actions",
+        "level": 4
+    },
+    {
+        "word": "establishment",
+        "definition": "the action of establishing something or being established.",
+        "example": "The establishment of the new school was a great success.",
+        "hebrewTranslation": "מוסד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "eulogize",
+        "definition": "to praise highly in speech or writing.",
+        "example": "He was eulogized at his funeral.",
+        "hebrewTranslation": "לפאר ולשבח",
+        "category": "Communication",
+        "level": 8
+    },
+    {
+        "word": "even",
+        "definition": "flat and smooth.",
+        "example": "The road was even and easy to drive on.",
+        "hebrewTranslation": "חלק, זוגי, אפילו",
+        "category": "Description",
+        "level": 1
+    },
+    {
+        "word": "even though",
+        "definition": "despite the fact that.",
+        "example": "Even though it was raining, we went for a walk.",
+        "hebrewTranslation": "למרות, אף על פי כן",
+        "category": "Language",
+        "level": 3
+    },
+    {
+        "word": "evenly",
+        "definition": "in a regular or steady way.",
+        "example": "The work was divided evenly among the team members.",
+        "hebrewTranslation": "באופן שווה",
+        "category": "Adverbs",
+        "level": 4
+    },
+    {
+        "word": "eventually",
+        "definition": "In the end, especially after a long delay or series of problems.",
+        "example": "After many attempts, she eventually succeeded.",
+        "hebrewTranslation": "בסופו של דבר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "ever",
+        "definition": "At any time.",
+        "example": "Have you ever been to Paris?",
+        "hebrewTranslation": "אי פעם",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "every",
+        "definition": "Used to refer to all the individual members of a set without exception.",
+        "example": "Every student received a book.",
+        "hebrewTranslation": "כל",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "everyone",
+        "definition": "Every person.",
+        "example": "Everyone clapped at the end of the performance.",
+        "hebrewTranslation": "כולם",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "everything",
+        "definition": "All things.",
+        "example": "He packed everything he needed for the trip.",
+        "hebrewTranslation": "הכל",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "everywhere",
+        "definition": "In or to all places.",
+        "example": "I looked everywhere for my keys.",
+        "hebrewTranslation": "בכל מקום",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "evident",
+        "definition": "Plain or obvious; clearly seen or understood.",
+        "example": "It was evident from her smile that she was happy.",
+        "hebrewTranslation": "ניכר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "evil",
+        "definition": "Profoundly immoral and wicked.",
+        "example": "The fairy tale featured a struggle between good and evil.",
+        "hebrewTranslation": "רשע",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exact",
+        "definition": "Not approximated in any way; precise.",
+        "example": "Please tell me the exact time you will arrive.",
+        "hebrewTranslation": "מדויק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exactly",
+        "definition": "Used to emphasize the precision of a statement.",
+        "example": "That is exactly what I was thinking.",
+        "hebrewTranslation": "בדיוק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exaggerate",
+        "definition": "Represent (something) as being larger, greater, better, or worse than it really is.",
+        "example": "He tends to exaggerate the difficulty of the task.",
+        "hebrewTranslation": "להגזים",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "exaggerated",
+        "definition": "Regarded or represented as larger, better, or worse than in reality.",
+        "example": "The stories of his wealth were greatly exaggerated.",
+        "hebrewTranslation": "מוגזם",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "an exaggeration",
+        "definition": "A statement that represents something as better or worse than it really is.",
+        "example": "To say it was the worst day ever is an exaggeration.",
+        "hebrewTranslation": "הגזמה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "examination",
+        "definition": "A detailed inspection or study.",
+        "example": "The doctor gave him a thorough examination.",
+        "hebrewTranslation": "בדיקה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "examine",
+        "definition": "Inspect (someone or something) in detail to determine their nature or condition.",
+        "example": "The detective will examine the evidence carefully.",
+        "hebrewTranslation": "לבדוק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exceed",
+        "definition": "Be greater in number or size than (a quantity, number, or other measurable thing).",
+        "example": "The cost must not exceed the budget.",
+        "hebrewTranslation": "לחרוג",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exceedingly",
+        "definition": "Extremely; to a very great degree.",
+        "example": "He was exceedingly polite.",
+        "hebrewTranslation": "ביותר",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "excel",
+        "definition": "Be exceptionally good at or proficient in an activity or subject.",
+        "example": "She hopes to excel in her chosen field.",
+        "hebrewTranslation": "להצטיין",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "excellence",
+        "definition": "The quality of being outstanding or extremely good.",
+        "example": "The school is known for its academic excellence.",
+        "hebrewTranslation": "מצוינות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "excellent",
+        "definition": "Extremely good; outstanding.",
+        "example": "She did an excellent job on the project.",
+        "hebrewTranslation": "מצוין",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "except",
+        "definition": "Not including; other than.",
+        "example": "Everyone was there except for Tom.",
+        "hebrewTranslation": "חוץ מ",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exception",
+        "definition": "A person or thing that is excluded from a general statement or does not follow a rule.",
+        "example": "There are exceptions to every rule.",
+        "hebrewTranslation": "יוצא מן הכלל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exceptional",
+        "definition": "Unusual; not typical.",
+        "example": "He has exceptional talent as a musician.",
+        "hebrewTranslation": "יוצא דופן",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "excess",
+        "definition": "An amount of something that is more than necessary, permitted, or desirable.",
+        "example": "An excess of enthusiasm can be a problem.",
+        "hebrewTranslation": "עודף",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "excessive",
+        "definition": "More than is necessary, normal, or desirable; immoderate.",
+        "example": "He was drinking excessive amounts of coffee.",
+        "hebrewTranslation": "מופרז",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "exchange",
+        "definition": "An act of giving one thing and receiving another (especially of the same type or value) in return.",
+        "example": "They made an exchange of gifts at the party.",
+        "hebrewTranslation": "החלפה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "excite",
+        "definition": "Cause (someone) to feel very enthusiastic and eager.",
+        "example": "The news of the trip will excite the children.",
+        "hebrewTranslation": "לרגש",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "excited",
+        "definition": "Very enthusiastic and eager.",
+        "example": "The children were excited about the upcoming holiday.",
+        "hebrewTranslation": "נרגש",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "excitement",
+        "definition": "A feeling of great enthusiasm and eagerness.",
+        "example": "Her voice was full of excitement.",
+        "hebrewTranslation": "התרגשות",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "exciting",
+        "definition": "Causing great enthusiasm and eagerness.",
+        "example": "It was an exciting football match.",
+        "hebrewTranslation": "מרגש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "exclude",
+        "definition": "Deny (someone) access to or bar (someone) from a place, group, or privilege.",
+        "example": "The club decided to exclude him from membership.",
+        "hebrewTranslation": "להדיר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "exclusion",
+        "definition": "The process or state of excluding or being excluded.",
+        "example": "Her exclusion from the team was unfair.",
+        "hebrewTranslation": "הדרה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "exclusive",
+        "definition": "Excluding or not admitting other things.",
+        "example": "The hotel has exclusive access to the beach.",
+        "hebrewTranslation": "בלעדי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exclusively",
+        "definition": "To the exclusion of others; only.",
+        "example": "This offer is available exclusively to our members.",
+        "hebrewTranslation": "באופן בלעדי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "excuse",
+        "definition": "A reason or explanation put forward to defend or justify a fault or offense.",
+        "example": "He had a good excuse for being late.",
+        "hebrewTranslation": "תירוץ",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "execute",
+        "definition": "Carry out or put into effect (a plan, order, or course of action).",
+        "example": "The general gave the order to execute the plan.",
+        "hebrewTranslation": "לבצע",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "execution",
+        "definition": "The carrying out or putting into effect of a plan, order, or course of action.",
+        "example": "The execution of the project was flawless.",
+        "hebrewTranslation": "ביצוע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "executive",
+        "definition": "A person with senior managerial responsibility in a business organization.",
+        "example": "She is a top executive at a major corporation.",
+        "hebrewTranslation": "מנהל בכיר",
+        "category": "Business",
+        "level": 6
+    },
+    {
+        "word": "exemplify",
+        "definition": "Be a typical example of.",
+        "example": "The city's architecture exemplifies the colonial period.",
+        "hebrewTranslation": "להדגים",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "exempt",
+        "definition": "Free from an obligation or liability imposed on others.",
+        "example": "Charities are exempt from paying taxes.",
+        "hebrewTranslation": "פטור",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "exemption",
+        "definition": "The action of freeing or state of being free from an obligation or liability imposed on others.",
+        "example": "He was granted an exemption from military service.",
+        "hebrewTranslation": "פטור",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "exercise",
+        "definition": "Activity requiring physical effort, carried out to sustain or improve health and fitness.",
+        "example": "Regular exercise is important for good health.",
+        "hebrewTranslation": "פעילות גופנית",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "exert",
+        "definition": "Apply or bring to bear (a force, influence, or quality).",
+        "example": "He had to exert all his strength to move the rock.",
+        "hebrewTranslation": "להפעיל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "exhale",
+        "definition": "Breathe out.",
+        "example": "Take a deep breath in, and then exhale slowly.",
+        "hebrewTranslation": "לנשוף",
+        "category": "Biology",
+        "level": 4
+    },
+    {
+        "word": "exhaust",
+        "definition": "Make (someone) feel very tired.",
+        "example": "The long hike will exhaust you.",
+        "hebrewTranslation": "להתיש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "exhausted",
+        "definition": "Extremely tired.",
+        "example": "After the marathon, he was completely exhausted.",
+        "hebrewTranslation": "מותש",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exhausting",
+        "definition": "Making one feel very tired; very tiring.",
+        "example": "It was an exhausting day at work.",
+        "hebrewTranslation": "מתיש",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exhaustion",
+        "definition": "A state of extreme physical or mental fatigue.",
+        "example": "She was suffering from exhaustion.",
+        "hebrewTranslation": "תשישות",
+        "category": "Health",
+        "level": 6
+    },
+    {
+        "word": "exhaustive",
+        "definition": "Including or considering all elements or aspects; fully comprehensive.",
+        "example": "The police conducted an exhaustive investigation.",
+        "hebrewTranslation": "ממצה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "exhibit",
+        "definition": "Publicly display (a work of art or item of interest) in an art gallery or museum or at a trade fair.",
+        "example": "The museum will exhibit the artist's early works.",
+        "hebrewTranslation": "להציג",
+        "category": "Art",
+        "level": 4
+    },
+    {
+        "word": "exhibition",
+        "definition": "A public display of works of art or other items of interest, held in an art gallery or museum or at a trade fair.",
+        "example": "We went to see the new art exhibition.",
+        "hebrewTranslation": "תערוכה",
+        "category": "Art",
+        "level": 5
+    },
+    {
+        "word": "exile",
+        "definition": "The state of being barred from one's native country, typically for political or punitive reasons.",
+        "example": "He spent many years in exile.",
+        "hebrewTranslation": "גלות",
+        "category": "Politics",
+        "level": 6
+    },
+    {
+        "word": "exist",
+        "definition": "Have objective reality or being.",
+        "example": "Do you believe that ghosts exist?",
+        "hebrewTranslation": "להתקיים",
+        "category": "Philosophy",
+        "level": 3
+    },
+    {
+        "word": "existence",
+        "definition": "The fact or state of living or having objective reality.",
+        "example": "The organization depends on donations for its existence.",
+        "hebrewTranslation": "קיום",
+        "category": "Philosophy",
+        "level": 4
+    },
+    {
+        "word": "exit",
+        "definition": "A way out of a building, room, or passenger vehicle.",
+        "example": "Please use the nearest exit in case of an emergency.",
+        "hebrewTranslation": "יציאה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "exotic",
+        "definition": "Originating in or characteristic of a distant foreign country.",
+        "example": "She loves to travel to exotic locations.",
+        "hebrewTranslation": "אקזוטי",
+        "category": "Travel",
+        "level": 5
+    },
+    {
+        "word": "expand",
+        "definition": "Become or make larger or more extensive.",
+        "example": "The company plans to expand its operations overseas.",
+        "hebrewTranslation": "להרחיב",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "expanse",
+        "definition": "A wide continuous area of something.",
+        "example": "The great expanse of the desert stretched before them.",
+        "hebrewTranslation": "מרחב",
+        "category": "Geography",
+        "level": 5
+    },
+    {
+        "word": "expect",
+        "definition": "Regard (something) as likely to happen.",
+        "example": "I expect to be back by noon.",
+        "hebrewTranslation": "לצפות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "expectation",
+        "definition": "A strong belief that something will happen or be the case in the future.",
+        "example": "The team failed to live up to expectations.",
+        "hebrewTranslation": "ציפייה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "expel",
+        "definition": "Officially make (someone) leave a school or other organization.",
+        "example": "He was expelled from school for bad behavior.",
+        "hebrewTranslation": "לגרש",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "expendable",
+        "definition": "Of little significance when compared to an overall purpose, and therefore able to be abandoned.",
+        "example": "In the general's view, the foot soldiers were expendable.",
+        "hebrewTranslation": "מתכלה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "expenditure",
+        "definition": "The action of spending funds.",
+        "example": "The government's expenditure on defense is very high.",
+        "hebrewTranslation": "הוצאה",
+        "category": "Finance",
+        "level": 7
+    },
+    {
+        "word": "expense",
+        "definition": "The cost required for something; the money spent on something.",
+        "example": "The company covered all his travel expenses.",
+        "hebrewTranslation": "הוצאה",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "experiment",
+        "definition": "A scientific procedure undertaken to make a discovery, test a hypothesis, or demonstrate a known fact.",
+        "example": "The students conducted an experiment in the lab.",
+        "hebrewTranslation": "ניסוי",
+        "category": "Science",
+        "level": 4
+    },
+    {
+        "word": "experimental",
+        "definition": "Relating to, based on, or having the nature of an experiment.",
+        "example": "The new drug is still in the experimental stage.",
+        "hebrewTranslation": "ניסיוני",
+        "category": "Science",
+        "level": 6
+    },
+    {
+        "word": "expert",
+        "definition": "A person who has a comprehensive and authoritative knowledge of or skill in a particular area.",
+        "example": "She is an expert in marine biology.",
+        "hebrewTranslation": "מומחה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "expertise",
+        "definition": "Expert skill or knowledge in a particular field.",
+        "example": "His expertise in computers is well known.",
+        "hebrewTranslation": "מומחיות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "explain",
+        "definition": "Make (an idea, situation, or problem) clear to someone by describing it in more detail or revealing relevant facts or ideas.",
+        "example": "Can you explain the rules of the game to me?",
+        "hebrewTranslation": "להסביר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "explanation",
+        "definition": "A statement or account that makes something clear.",
+        "example": "He gave a clear explanation of the process.",
+        "hebrewTranslation": "הסבר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "explicit",
+        "definition": "Stated clearly and in detail, leaving no room for confusion or doubt.",
+        "example": "She gave me explicit instructions on how to get there.",
+        "hebrewTranslation": "מפורש",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "explode",
+        "definition": "Burst or shatter violently and noisily as a result of rapid combustion or decomposition.",
+        "example": "The bomb could explode at any moment.",
+        "hebrewTranslation": "להתפוצץ",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "exploit",
+        "definition": "Make full use of and derive benefit from (a resource).",
+        "example": "The company is trying to exploit the new technology.",
+        "hebrewTranslation": "לנצל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "exploitation",
+        "definition": "The action or fact of treating someone unfairly in order to benefit from their work.",
+        "example": "The exploitation of workers is a serious issue.",
+        "hebrewTranslation": "ניצול",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "exploration",
+        "definition": "The action of exploring an unfamiliar area.",
+        "example": "Space exploration is a fascinating field.",
+        "hebrewTranslation": "חקירה",
+        "category": "Science",
+        "level": 6
+    },
+    {
+        "word": "explore",
+        "definition": "Travel in or through (an unfamiliar country or area) in order to learn about or familiarize oneself with it.",
+        "example": "They set out to explore the new continent.",
+        "hebrewTranslation": "לחקור",
+        "category": "Travel",
+        "level": 4
+    },
+    {
+        "word": "explosion",
+        "definition": "A violent and destructive shattering or blowing apart of something, as is caused by a bomb.",
+        "example": "The explosion could be heard for miles.",
+        "hebrewTranslation": "פיצוץ",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "explosive",
+        "definition": "Able or likely to shatter violently or burst apart, as when a bomb explodes.",
+        "example": "The device contained explosive material.",
+        "hebrewTranslation": "נפיץ",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "export",
+        "definition": "Send (goods or services) to another country for sale.",
+        "example": "The country exports a lot of coffee.",
+        "hebrewTranslation": "לייצא",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "expose",
+        "definition": "Make (something) visible by uncovering it.",
+        "example": "The investigation exposed a web of corruption.",
+        "hebrewTranslation": "לחשוף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "exposure",
+        "definition": "The state of having no protection from something harmful.",
+        "example": "Prolonged exposure to the sun can be dangerous.",
+        "hebrewTranslation": "חשיפה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "express",
+        "definition": "Convey (a thought or feeling) in words or by gestures and conduct.",
+        "example": "He found it difficult to express his feelings.",
+        "hebrewTranslation": "להביע",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "expression",
+        "definition": "The process of making known one's thoughts or feelings.",
+        "example": "Freedom of expression is a basic human right.",
+        "hebrewTranslation": "ביטוי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "expressive",
+        "definition": "Effectively conveying thought or feeling.",
+        "example": "She has a very expressive face.",
+        "hebrewTranslation": "מביע",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "extend",
+        "definition": "Cause to cover a larger area; make longer or wider.",
+        "example": "We plan to extend the house.",
+        "hebrewTranslation": "להאריך",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "extension",
+        "definition": "A part that is added to something to enlarge or prolong it.",
+        "example": "They are building an extension to the school.",
+        "hebrewTranslation": "הרחבה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "extensive",
+        "definition": "Covering or affecting a large area.",
+        "example": "The storm caused extensive damage.",
+        "hebrewTranslation": "נרחב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "extent",
+        "definition": "The area covered by something.",
+        "example": "It is difficult to assess the full extent of the damage.",
+        "hebrewTranslation": "היקף",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "exterior",
+        "definition": "The outer surface or structure of something.",
+        "example": "The exterior of the building needs painting.",
+        "hebrewTranslation": "חיצוני",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "external",
+        "definition": "Belonging to or forming the outer surface or structure of something.",
+        "example": "The medicine is for external use only.",
+        "hebrewTranslation": "חיצוני",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "extinct",
+        "definition": "(of a species, family, or other larger group) having no living members.",
+        "example": "Dinosaurs have been extinct for millions of years.",
+        "hebrewTranslation": "נכחד",
+        "category": "Biology",
+        "level": 6
+    },
+    {
+        "word": "extinction",
+        "definition": "The state or process of a species, family, or other group of animals or plants becoming extinct.",
+        "example": "Many species are in danger of extinction.",
+        "hebrewTranslation": "הכחדה",
+        "category": "Biology",
+        "level": 7
+    },
+    {
+        "word": "extinguish",
+        "definition": "Cause (a fire or light) to cease to burn or shine.",
+        "example": "The firefighters worked to extinguish the blaze.",
+        "hebrewTranslation": "לכבות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "extra",
+        "definition": "Added to an existing or usual amount or number.",
+        "example": "Do you want extra cheese on your pizza?",
+        "hebrewTranslation": "תוספת",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "extract",
+        "definition": "Remove or take out, especially by effort or force.",
+        "example": "The dentist had to extract the tooth.",
+        "hebrewTranslation": "לחלץ",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "extraordinary",
+        "definition": "Very unusual or remarkable.",
+        "example": "He had an extraordinary talent for music.",
+        "hebrewTranslation": "יוצא מן הכלל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "extreme",
+        "definition": "Reaching a high or the highest degree; very great.",
+        "example": "He lives in a region with an extreme climate.",
+        "hebrewTranslation": "קיצוני",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "extremely",
+        "definition": "To a very great degree; very.",
+        "example": "It was an extremely difficult task.",
+        "hebrewTranslation": "באופן קיצוני",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "eye",
+        "definition": "Each of a pair of globular organs in the head through which people and vertebrate animals see.",
+        "example": "She has beautiful blue eyes.",
+        "hebrewTranslation": "עין",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "fabric",
+        "definition": "Cloth or other material produced by weaving or knitting fibers.",
+        "example": "The dress was made of a soft, silky fabric.",
+        "hebrewTranslation": "בד",
+        "category": "Fashion",
+        "level": 3
+    },
+    {
+        "word": "fabricate",
+        "definition": "Invent or concoct (something), typically with deceitful intent.",
+        "example": "He was accused of fabricating evidence.",
+        "hebrewTranslation": "לפברק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "face",
+        "definition": "The front part of a person's head from the forehead to the chin.",
+        "example": "He had a happy expression on his face.",
+        "hebrewTranslation": "פנים",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "facilitate",
+        "definition": "Make (an action or process) easy or easier.",
+        "example": "The new software will facilitate the sharing of information.",
+        "hebrewTranslation": "להקל",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "facility",
+        "definition": "A place, amenity, or piece of equipment provided for a particular purpose.",
+        "example": "The hotel has excellent sports facilities.",
+        "hebrewTranslation": "מתקן",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fact",
+        "definition": "A thing that is known or proved to be true.",
+        "example": "It is a fact that the earth revolves around the sun.",
+        "hebrewTranslation": "עובדה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "factor in",
+        "definition": "To include something when you are doing a calculation, or when you are trying to understand something.",
+        "example": "You must factor in the cost of labor when calculating the total price.",
+        "hebrewTranslation": "להביא בחשבון",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fail",
+        "definition": "Be unsuccessful in achieving one's goal.",
+        "example": "He was afraid he would fail the exam.",
+        "hebrewTranslation": "להיכשל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "failure",
+        "definition": "Lack of success.",
+        "example": "The project ended in failure.",
+        "hebrewTranslation": "כישלון",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "faint",
+        "definition": "Lose consciousness for a short time because of a temporarily insufficient supply of oxygen to the brain.",
+        "example": "She fainted from the heat.",
+        "hebrewTranslation": "להתעלף",
+        "category": "Health",
+        "level": 4
+    },
+    {
+        "word": "fair",
+        "definition": "Treating people equally without favoritism or discrimination.",
+        "example": "The referee made a fair decision.",
+        "hebrewTranslation": "הוגן",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fairly",
+        "definition": "With justice; to a moderately high degree.",
+        "example": "The work was fairly easy to complete.",
+        "hebrewTranslation": "למדי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "faith",
+        "definition": "Complete trust or confidence in someone or something.",
+        "example": "She has a strong faith in her abilities.",
+        "hebrewTranslation": "אמונה",
+        "category": "Religion",
+        "level": 3
+    },
+    {
+        "word": "faithful",
+        "definition": "Remaining loyal and steadfast.",
+        "example": "He was a faithful friend through thick and thin.",
+        "hebrewTranslation": "נאמן",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fall",
+        "definition": "Move downward, typically rapidly and freely without control, from a higher to a lower level.",
+        "example": "The leaves fall from the trees in autumn.",
+        "hebrewTranslation": "ליפול",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "false",
+        "definition": "Not according with truth or fact; incorrect.",
+        "example": "He gave a false name to the police.",
+        "hebrewTranslation": "שקרי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "familiar",
+        "definition": "Well known from long or close association.",
+        "example": "His face seemed familiar to me.",
+        "hebrewTranslation": "מוכר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "familiarity",
+        "definition": "Close acquaintance with or knowledge of something.",
+        "example": "Her familiarity with the subject was impressive.",
+        "hebrewTranslation": "היכרות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "family",
+        "definition": "A group consisting of parents and children living together in a household.",
+        "example": "He loves spending time with his family.",
+        "hebrewTranslation": "משפחה",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "famine",
+        "definition": "Extreme scarcity of food.",
+        "example": "The famine caused widespread suffering.",
+        "hebrewTranslation": "רעב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "famous",
+        "definition": "Known about by many people.",
+        "example": "She is a famous actress.",
+        "hebrewTranslation": "מפורסם",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fan",
+        "definition": "An apparatus with rotating blades that creates a current of air for cooling or ventilation.",
+        "example": "It was hot, so I turned on the fan.",
+        "hebrewTranslation": "מאוורר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fancy",
+        "definition": "Feel a desire or liking for.",
+        "example": "Do you fancy going out for a meal?",
+        "hebrewTranslation": "לחשוק ב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fantastic",
+        "definition": "Extraordinarily good or attractive.",
+        "example": "We had a fantastic time on vacation.",
+        "hebrewTranslation": "פנטסטי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "far from",
+        "definition": "Not at all; a long way from being.",
+        "example": "The situation is far from resolved.",
+        "hebrewTranslation": "רחוק מ",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fare",
+        "definition": "The money a passenger on public transportation has to pay.",
+        "example": "What is the bus fare to the city center?",
+        "hebrewTranslation": "דמי נסיעה",
+        "category": "Travel",
+        "level": 4
+    },
+    {
+        "word": "farm",
+        "definition": "An area of land and its buildings used for growing crops and rearing animals.",
+        "example": "My grandparents live on a farm.",
+        "hebrewTranslation": "חווה",
+        "category": "Agriculture",
+        "level": 2
+    },
+    {
+        "word": "farmer",
+        "definition": "A person who owns or manages a farm.",
+        "example": "The farmer was working in the fields.",
+        "hebrewTranslation": "חקלאי",
+        "category": "Agriculture",
+        "level": 2
+    },
+    {
+        "word": "farther",
+        "definition": "At, to, or by a greater distance.",
+        "example": "We need to walk a little farther to reach the lake.",
+        "hebrewTranslation": "רחוק יותר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fascinate",
+        "definition": "Draw irresistibly the attention and interest of (someone).",
+        "example": "Ancient history has always fascinated me.",
+        "hebrewTranslation": "לרתק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "fascinating",
+        "definition": "Extremely interesting.",
+        "example": "It was a fascinating documentary about wildlife.",
+        "hebrewTranslation": "מרתק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fashion",
+        "definition": "A popular or the latest style of clothing, hair, decoration, or behavior.",
+        "example": "She is very interested in fashion.",
+        "hebrewTranslation": "אופנה",
+        "category": "Fashion",
+        "level": 3
+    },
+    {
+        "word": "fashionable",
+        "definition": "Conforming to the current fashion.",
+        "example": "She always wears fashionable clothes.",
+        "hebrewTranslation": "אופנתי",
+        "category": "Fashion",
+        "level": 4
+    },
+    {
+        "word": "fast",
+        "definition": "Moving or capable of moving at high speed.",
+        "example": "A cheetah is a very fast runner.",
+        "hebrewTranslation": "מהיר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fasten",
+        "definition": "Close or join securely.",
+        "example": "Please fasten your seatbelt.",
+        "hebrewTranslation": "להדק",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fat",
+        "definition": "A natural oily or greasy substance occurring in animal bodies, especially when deposited as a layer under the skin or around certain organs.",
+        "example": "This cheese has a high fat content.",
+        "hebrewTranslation": "שומן",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "fatal",
+        "definition": "Causing death.",
+        "example": "He made a fatal mistake.",
+        "hebrewTranslation": "קטלני",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "fate",
+        "definition": "The development of events beyond a person's control, regarded as determined by a supernatural power.",
+        "example": "It was fate that brought them together.",
+        "hebrewTranslation": "גורל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "father",
+        "definition": "A man in relation to his natural child or children.",
+        "example": "My father taught me how to ride a bike.",
+        "hebrewTranslation": "אבא",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "fault",
+        "definition": "An unattractive or unsatisfactory feature, especially in a piece of work or in a person's character.",
+        "example": "It's not my fault that we are late.",
+        "hebrewTranslation": "אשמה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "favor",
+        "definition": "An act of kindness beyond what is due or usual.",
+        "example": "Could you do me a favor and watch my bag?",
+        "hebrewTranslation": "טובה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "favorable",
+        "definition": "Expressing approval.",
+        "example": "The new policy received a favorable response.",
+        "hebrewTranslation": "אוהד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "favorite",
+        "definition": "Preferred to all others of the same kind.",
+        "example": "What is your favorite color?",
+        "hebrewTranslation": "מועדף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fear",
+        "definition": "An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.",
+        "example": "He has a fear of heights.",
+        "hebrewTranslation": "פחד",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "fearful",
+        "definition": "Feeling afraid; showing fear or anxiety.",
+        "example": "The child was fearful of the dark.",
+        "hebrewTranslation": "מפוחד",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "feasible",
+        "definition": "Possible to do easily or conveniently.",
+        "example": "It is not feasible to finish the project by tomorrow.",
+        "hebrewTranslation": "אפשרי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "feast",
+        "definition": "A large meal, typically one in celebration of something.",
+        "example": "They prepared a feast for the wedding.",
+        "hebrewTranslation": "משתה",
+        "category": "Food",
+        "level": 4
+    },
+    {
+        "word": "feather",
+        "definition": "Any of the flat appendages growing from a bird's skin and forming its plumage, consisting of a partly hollow horny shaft fringed with vanes of barbs.",
+        "example": "The pillow was filled with soft feathers.",
+        "hebrewTranslation": "נוצה",
+        "category": "Biology",
+        "level": 4
+    },
+    {
+        "word": "feature",
+        "definition": "A distinctive attribute or aspect of something.",
+        "example": "An interesting feature of the city is its old architecture.",
+        "hebrewTranslation": "מאפיין",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "federal",
+        "definition": "Having or relating to a system of government in which several states form a unity but remain independent in internal affairs.",
+        "example": "The FBI is a federal agency.",
+        "hebrewTranslation": "פדרלי",
+        "category": "Politics",
+        "level": 5
+    },
+    {
+        "word": "fee",
+        "definition": "A payment made to a professional person or to a professional or public body in exchange for advice or services.",
+        "example": "The lawyer charged a high fee.",
+        "hebrewTranslation": "עמלה",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "feed",
+        "definition": "Give food to.",
+        "example": "It's time to feed the cat.",
+        "hebrewTranslation": "להאכיל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "feel",
+        "definition": "Experience an emotion or sensation.",
+        "example": "I feel happy today.",
+        "hebrewTranslation": "להרגיש",
+        "category": "Emotion",
+        "level": 1
+    },
+    {
+        "word": "feeling",
+        "definition": "An emotional state or reaction.",
+        "example": "I have a strange feeling about this.",
+        "hebrewTranslation": "הרגשה",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "female",
+        "definition": "Of or denoting the sex that can bear offspring or produce eggs, distinguished biologically by the production of gametes (ova) which can be fertilized by male gametes.",
+        "example": "The lioness is the female of the species.",
+        "hebrewTranslation": "נקבה",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "feminine",
+        "definition": "Having qualities or an appearance traditionally associated with women, especially delicacy and prettiness.",
+        "example": "She has a very feminine style.",
+        "hebrewTranslation": "נשי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "fence",
+        "definition": "A barrier, railing, or other upright structure, typically of wood or wire, enclosing an area of ground to mark a boundary, control access, or prevent escape.",
+        "example": "There is a wooden fence around the garden.",
+        "hebrewTranslation": "גדר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fertile",
+        "definition": "(of soil or land) producing or capable of producing abundant vegetation or crops.",
+        "example": "The valley has fertile soil.",
+        "hebrewTranslation": "פורה",
+        "category": "Agriculture",
+        "level": 6
+    },
+    {
+        "word": "fertility",
+        "definition": "The quality of being fertile; productiveness.",
+        "example": "The fertility of the land decreased over the years.",
+        "hebrewTranslation": "פוריות",
+        "category": "Biology",
+        "level": 7
+    },
+    {
+        "word": "fertilize",
+        "definition": "Cause (an egg, female animal, or plant) to develop a new individual by introducing male reproductive material.",
+        "example": "The farmer will fertilize the fields.",
+        "hebrewTranslation": "לדשן",
+        "category": "Agriculture",
+        "level": 7
+    },
+    {
+        "word": "fertilizer",
+        "definition": "A chemical or natural substance added to soil or land to increase its fertility.",
+        "example": "He used organic fertilizer in his garden.",
+        "hebrewTranslation": "דשן",
+        "category": "Agriculture",
+        "level": 5
+    },
+    {
+        "word": "festival",
+        "definition": "A day or period of celebration, typically a religious commemoration.",
+        "example": "The city holds an annual music festival.",
+        "hebrewTranslation": "פסטיבל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fetch",
+        "definition": "Go for and then bring back (someone or something) for someone.",
+        "example": "The dog loves to fetch the ball.",
+        "hebrewTranslation": "להביא",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fever",
+        "definition": "An abnormally high body temperature, usually accompanied by shivering, headache, and in severe instances, delirium.",
+        "example": "He has a high fever and needs to see a doctor.",
+        "hebrewTranslation": "חום",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "few",
+        "definition": "A small number of.",
+        "example": "Only a few people came to the meeting.",
+        "hebrewTranslation": "מעטים",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "fiber",
+        "definition": "A thread or filament from which a vegetable tissue, mineral substance, or textile is formed.",
+        "example": "Eating fruits and vegetables provides dietary fiber.",
+        "hebrewTranslation": "סיב",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "field",
+        "definition": "An area of open land, especially one planted with crops or pasture, typically bounded by hedges or fences.",
+        "example": "The cows were grazing in the field.",
+        "hebrewTranslation": "שדה",
+        "category": "Agriculture",
+        "level": 2
+    },
+    {
+        "word": "fierce",
+        "definition": "Having or displaying an intense or ferocious aggressiveness.",
+        "example": "A fierce dog guarded the house.",
+        "hebrewTranslation": "עז",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fight",
+        "definition": "Take part in a violent struggle involving the exchange of physical blows or the use of weapons.",
+        "example": "The soldiers had to fight for their country.",
+        "hebrewTranslation": "להילחם",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "figure out",
+        "definition": "Find the solution to a problem or question.",
+        "example": "I can't figure out how to solve this puzzle.",
+        "hebrewTranslation": "להבין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fill",
+        "definition": "Cause (a space or container) to become full or almost full.",
+        "example": "Please fill the glass with water.",
+        "hebrewTranslation": "למלא",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "film",
+        "definition": "A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.",
+        "example": "We watched a great film last night.",
+        "hebrewTranslation": "סרט",
+        "category": "Entertainment",
+        "level": 2
+    },
+    {
+        "word": "final",
+        "definition": "Coming at the end of a series.",
+        "example": "This is the final chapter of the book.",
+        "hebrewTranslation": "סופי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "finally",
+        "definition": "After a long time, typically when there has been difficulty or delay.",
+        "example": "After hours of searching, he finally found his keys.",
+        "hebrewTranslation": "סוף סוף",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "finance",
+        "definition": "The management of large amounts of money, especially by governments or large companies.",
+        "example": "He works in the finance department.",
+        "hebrewTranslation": "כספים",
+        "category": "Finance",
+        "level": 6
+    },
+    {
+        "word": "financial",
+        "definition": "Relating to finance.",
+        "example": "She sought financial advice from an expert.",
+        "hebrewTranslation": "פיננסי",
+        "category": "Finance",
+        "level": 6
+    },
+    {
+        "word": "find",
+        "definition": "Discover or perceive by chance or unexpectedly.",
+        "example": "I can't find my keys.",
+        "hebrewTranslation": "למצוא",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "finding",
+        "definition": "The action of finding someone or something.",
+        "example": "The findings of the report were very interesting.",
+        "hebrewTranslation": "ממצא",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fine",
+        "definition": "Of high quality.",
+        "example": "This is a fine piece of jewelry.",
+        "hebrewTranslation": "משובח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "finger",
+        "definition": "Each of the four slender joints attached to either hand (or five, if the thumb is included).",
+        "example": "She pointed her finger at the map.",
+        "hebrewTranslation": "אצבע",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "finish",
+        "definition": "Bring (a task or activity) to an end; complete.",
+        "example": "I need to finish my homework.",
+        "hebrewTranslation": "לסיים",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fire",
+        "definition": "Combustion or burning, in which substances combine chemically with oxygen from the air and typically give out bright light, heat, and smoke.",
+        "example": "The campers sat around the fire.",
+        "hebrewTranslation": "אש",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "firm",
+        "definition": "Having a solid, almost unyielding surface or structure.",
+        "example": "The mattress is too firm for me.",
+        "hebrewTranslation": "מוצק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "firmly",
+        "definition": "With little possibility of movement; securely.",
+        "example": "He held her hand firmly.",
+        "hebrewTranslation": "בחוזקה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "first",
+        "definition": "Coming before all others in time or order; earliest; 1st.",
+        "example": "He was the first person to arrive.",
+        "hebrewTranslation": "ראשון",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fish",
+        "definition": "A limbless cold-blooded vertebrate animal with gills and fins and living wholly in water.",
+        "example": "We caught a big fish in the lake.",
+        "hebrewTranslation": "דג",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "fit",
+        "definition": "Be of the right shape and size for.",
+        "example": "These shoes don't fit me.",
+        "hebrewTranslation": "להתאים",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fix",
+        "definition": "Mend or repair.",
+        "example": "Can you fix my broken watch?",
+        "hebrewTranslation": "לתקן",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "flag",
+        "definition": "A piece of cloth or similar material, typically oblong or square, attachable by one edge to a pole or rope and used as the symbol or emblem of a country or institution or as a signal.",
+        "example": "The flag was waving in the wind.",
+        "hebrewTranslation": "דגל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "flame",
+        "definition": "A hot glowing body of ignited gas that is generated by something on fire.",
+        "example": "The candle flame flickered in the dark.",
+        "hebrewTranslation": "להבה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "flash",
+        "definition": "A sudden brief burst of bright light.",
+        "example": "A flash of lightning lit up the sky.",
+        "hebrewTranslation": "הבזק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "flat",
+        "definition": "Having a level surface; without raised areas or indentations.",
+        "example": "The countryside is very flat in this region.",
+        "hebrewTranslation": "שטוח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "flavor",
+        "definition": "The distinctive taste of a food or drink.",
+        "example": "This soup has a wonderful flavor.",
+        "hebrewTranslation": "טעם",
+        "category": "Food",
+        "level": 3
+    },
+    {
+        "word": "flaw",
+        "definition": "A mark, blemish, or other imperfection which mars a substance or object.",
+        "example": "The diamond had a small flaw.",
+        "hebrewTranslation": "פגם",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "flawless",
+        "definition": "Without any blemishes or imperfections; perfect.",
+        "example": "She gave a flawless performance.",
+        "hebrewTranslation": "ללא פגם",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "flee",
+        "definition": "Run away from a place or situation of danger.",
+        "example": "They had to flee the country during the war.",
+        "hebrewTranslation": "לברוח",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "flexible",
+        "definition": "Capable of bending easily without breaking.",
+        "example": "The plastic is very flexible.",
+        "hebrewTranslation": "גמיש",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "flexibility",
+        "definition": "The quality of bending easily without breaking.",
+        "example": "Yoga can improve your flexibility.",
+        "hebrewTranslation": "גמישות",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "flight",
+        "definition": "The action or process of flying through the air.",
+        "example": "Our flight to New York was delayed.",
+        "hebrewTranslation": "טיסה",
+        "category": "Travel",
+        "level": 4
+    },
+    {
+        "word": "float",
+        "definition": "Rest or move on or near the surface of a liquid without sinking.",
+        "example": "A cork will float on water.",
+        "hebrewTranslation": "לצוף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "flock",
+        "definition": "A number of birds of one kind feeding, resting, or traveling together.",
+        "example": "A flock of sheep was grazing on the hill.",
+        "hebrewTranslation": "עדר",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "flood",
+        "definition": "An overflowing of a large amount of water beyond its normal confines, especially over what is normally dry land.",
+        "example": "The heavy rain caused a flood in the town.",
+        "hebrewTranslation": "שיטפון",
+        "category": "Nature",
+        "level": 4
+    },
+    {
+        "word": "floor",
+        "definition": "The lower surface of a room, on which one may walk.",
+        "example": "The kids were sitting on the floor.",
+        "hebrewTranslation": "רצפה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "flour",
+        "definition": "A powder obtained by grinding grain, typically wheat, and used to make bread, cakes, and pastry.",
+        "example": "You need flour to bake a cake.",
+        "hebrewTranslation": "קמח",
+        "category": "Food",
+        "level": 4
+    },
+    {
+        "word": "flourish",
+        "definition": "(of a person, animal, or other living organism) grow or develop in a healthy or vigorous way, especially as the result of a particularly favorable environment.",
+        "example": "The plants flourish in the sunny weather.",
+        "hebrewTranslation": "לשגשג",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "flow",
+        "definition": "(of a liquid, gas, or electricity) move along or out steadily and continuously in a current or stream.",
+        "example": "The river flows to the sea.",
+        "hebrewTranslation": "לזרום",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "flower",
+        "definition": "The seed-bearing part of a plant, consisting of reproductive organs (stamens and carpels) that are typically surrounded by a brightly colored corolla (petals) and a green calyx (sepals).",
+        "example": "She received a beautiful bouquet of flowers.",
+        "hebrewTranslation": "פרח",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "fluent",
+        "definition": "Able to express oneself easily and articulately.",
+        "example": "She is fluent in three languages.",
+        "hebrewTranslation": "שולט",
+        "category": "Language",
+        "level": 5
+    },
+    {
+        "word": "fluid",
+        "definition": "A substance that has no fixed shape and yields easily to external pressure; a gas or (especially) a liquid.",
+        "example": "You should drink plenty of fluids when you are sick.",
+        "hebrewTranslation": "נוזל",
+        "category": "Science",
+        "level": 5
+    },
+    {
+        "word": "fly",
+        "definition": "(of a bird, insect, or bat) move through the air using wings.",
+        "example": "Birds can fly high in the sky.",
+        "hebrewTranslation": "לעוף",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "focus on",
+        "definition": "Concentrate on.",
+        "example": "You need to focus on your studies.",
+        "hebrewTranslation": "להתמקד ב",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fog",
+        "definition": "A thick cloud of tiny water droplets suspended in the atmosphere at or near the earth's surface that obscures or restricts visibility (to a greater extent than mist; strictly, reducing visibility to less than 1 km).",
+        "example": "The fog was so thick I could barely see.",
+        "hebrewTranslation": "ערפל",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "foggy",
+        "definition": "Full of or characterized by fog.",
+        "example": "It was a foggy morning.",
+        "hebrewTranslation": "מעורפל",
+        "category": "Nature",
+        "level": 4
+    },
+    {
+        "word": "fold",
+        "definition": "Bend (something flexible and relatively flat) over on itself so that one part of it covers another.",
+        "example": "Please fold the clothes neatly.",
+        "hebrewTranslation": "לקפל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "follow",
+        "definition": "Go or come after (a person or thing proceeding ahead); move or travel behind.",
+        "example": "The dog will follow you everywhere.",
+        "hebrewTranslation": "לעקוב",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fond",
+        "definition": "Having an affection or liking for.",
+        "example": "I'm very fond of her.",
+        "hebrewTranslation": "מחבב",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "food",
+        "definition": "Any nutritious substance that people or animals eat or drink or that plants absorb in order to maintain life and growth.",
+        "example": "We need to buy some food for dinner.",
+        "hebrewTranslation": "אוכל",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "fool",
+        "definition": "A person who acts unwisely or imprudently; a silly person.",
+        "example": "Don't be a fool, think before you act.",
+        "hebrewTranslation": "טיפש",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "foolish",
+        "definition": "(of a person or action) lacking good sense or judgment; unwise.",
+        "example": "It was a foolish thing to do.",
+        "hebrewTranslation": "טיפשי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "foot",
+        "definition": "The part of the leg below the ankle, on which a person stands or walks.",
+        "example": "My foot hurts after the long walk.",
+        "hebrewTranslation": "כף רגל",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "for",
+        "definition": "Intended to be given to.",
+        "example": "This gift is for you.",
+        "hebrewTranslation": "עבור",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "forbid",
+        "definition": "Refuse to allow (something).",
+        "example": "I forbid you to go out tonight.",
+        "hebrewTranslation": "לאסור",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "force",
+        "definition": "Strength or energy as an attribute of physical action or movement.",
+        "example": "He used force to open the door.",
+        "hebrewTranslation": "כוח",
+        "category": "Physics",
+        "level": 3
+    },
+    {
+        "word": "forecast",
+        "definition": "A prediction or estimate of future events, especially coming weather or a financial trend.",
+        "example": "The weather forecast for tomorrow is sunny.",
+        "hebrewTranslation": "תחזית",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "forehead",
+        "definition": "The part of the face above the eyebrows.",
+        "example": "He wiped the sweat from his forehead.",
+        "hebrewTranslation": "מצח",
+        "category": "Biology",
+        "level": 4
+    },
+    {
+        "word": "foreign",
+        "definition": "Of, from, in, or characteristic of a country or language other than one's own.",
+        "example": "She speaks several foreign languages.",
+        "hebrewTranslation": "זר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "foreigner",
+        "definition": "A person born in or coming from a country other than one's own.",
+        "example": "He felt like a foreigner in the new city.",
+        "hebrewTranslation": "זר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "forest",
+        "definition": "A large area covered chiefly with trees and undergrowth.",
+        "example": "We went for a walk in the forest.",
+        "hebrewTranslation": "יער",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "forever",
+        "definition": "For all future time; for always.",
+        "example": "I will love you forever.",
+        "hebrewTranslation": "לנצח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "forget",
+        "definition": "Fail to remember.",
+        "example": "Don't forget to lock the door.",
+        "hebrewTranslation": "לשכוח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "forgive",
+        "definition": "Stop feeling angry or resentful toward (someone) for an offense, flaw, or mistake.",
+        "example": "It's important to forgive others.",
+        "hebrewTranslation": "לסלוח",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fork",
+        "definition": "A utensil, usually having two or more prongs, used for lifting food to the mouth or holding it when cutting.",
+        "example": "I need a knife and fork.",
+        "hebrewTranslation": "מזלג",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "form",
+        "definition": "The visible shape or configuration of something.",
+        "example": "The building has an unusual form.",
+        "hebrewTranslation": "צורה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "formal",
+        "definition": "Done in accordance with rules of convention or etiquette; suitable for or constituting an official or important occasion.",
+        "example": "It was a formal dinner party.",
+        "hebrewTranslation": "רשמי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "formally",
+        "definition": "In a formal manner.",
+        "example": "He was formally introduced to the queen.",
+        "hebrewTranslation": "באופן רשמי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "former",
+        "definition": "Having previously been a particular thing.",
+        "example": "The former president gave a speech.",
+        "hebrewTranslation": "לשעבר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "formerly",
+        "definition": "In the past.",
+        "example": "The building was formerly a school.",
+        "hebrewTranslation": "בעבר",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "formidable",
+        "definition": "Inspiring fear or respect through being impressively large, powerful, intense, or capable.",
+        "example": "He was a formidable opponent.",
+        "hebrewTranslation": "מרשים",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "formula",
+        "definition": "A mathematical relationship or rule expressed in symbols.",
+        "example": "He couldn't remember the formula for the area of a circle.",
+        "hebrewTranslation": "נוסחה",
+        "category": "Science",
+        "level": 6
+    },
+    {
+        "word": "formulate",
+        "definition": "Create or devise methodically (a strategy or a proposal).",
+        "example": "They need to formulate a new plan.",
+        "hebrewTranslation": "לנסח",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "forsake",
+        "definition": "Abandon or leave.",
+        "example": "He promised never to forsake her.",
+        "hebrewTranslation": "לנטוש",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "forthcoming",
+        "definition": "About to happen or appear.",
+        "example": "The forthcoming elections are causing a lot of debate.",
+        "hebrewTranslation": "הבא",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fortunate",
+        "definition": "Favored by or involving good luck or fortune; lucky.",
+        "example": "He was fortunate to escape with only minor injuries.",
+        "hebrewTranslation": "בר מזל",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fortunately",
+        "definition": "By good luck.",
+        "example": "Fortunately, the rain stopped before the picnic.",
+        "hebrewTranslation": "למזלנו",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fortune",
+        "definition": "Chance or luck as an external, arbitrary force affecting human affairs.",
+        "example": "He had the good fortune to be born into a wealthy family.",
+        "hebrewTranslation": "מזל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "forward",
+        "definition": "In the direction that one is facing or traveling; toward the front.",
+        "example": "She took a step forward.",
+        "hebrewTranslation": "קדימה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "found",
+        "definition": "Establish or originate (an institution or organization), especially by providing an endowment.",
+        "example": "The university was founded in 1636.",
+        "hebrewTranslation": "לייסד",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fragile",
+        "definition": "(of an object) easily broken or damaged.",
+        "example": "Be careful with that fragile vase.",
+        "hebrewTranslation": "שביר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "fragment",
+        "definition": "A small part broken or separated off something.",
+        "example": "She found a fragment of the ancient pottery.",
+        "hebrewTranslation": "שבר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fragrance",
+        "definition": "A pleasant, sweet smell.",
+        "example": "The fragrance of the roses filled the air.",
+        "hebrewTranslation": "ניחוח",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "fragrant",
+        "definition": "Having a pleasant or sweet smell.",
+        "example": "The flowers were very fragrant.",
+        "hebrewTranslation": "ריחני",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "frame",
+        "definition": "A rigid structure that surrounds or encloses something such as a picture, door, or windowpane.",
+        "example": "The picture was in a beautiful wooden frame.",
+        "hebrewTranslation": "מסגרת",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "framework",
+        "definition": "A basic structure underlying a system, concept, or text.",
+        "example": "They are developing a new legal framework for the industry.",
+        "hebrewTranslation": "מסגרת",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "frank",
+        "definition": "Open, honest, and direct in speech or writing, especially when dealing with unpalatable matters.",
+        "example": "To be frank, I don't think your plan will work.",
+        "hebrewTranslation": "כנה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "frankly",
+        "definition": "In an open, honest, and direct manner.",
+        "example": "Frankly, I was disappointed with the result.",
+        "hebrewTranslation": "בכנות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "frantic",
+        "definition": "Wild or distraught with fear, anxiety, or other emotion.",
+        "example": "She was frantic with worry.",
+        "hebrewTranslation": "מטורף",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "fraud",
+        "definition": "Wrongful or criminal deception intended to result in financial or personal gain.",
+        "example": "He was arrested for credit card fraud.",
+        "hebrewTranslation": "הונאה",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "fraudulent",
+        "definition": "Obtained, done by, or involving deception, especially criminal deception.",
+        "example": "He was convicted of fraudulent activities.",
+        "hebrewTranslation": "הונאתי",
+        "category": "Legal",
+        "level": 7
+    },
+    {
+        "word": "free",
+        "definition": "Able to act or be done as one wishes; not under the control of another.",
+        "example": "You are free to leave at any time.",
+        "hebrewTranslation": "חופשי",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "freedom",
+        "definition": "The power or right to act, speak, or think as one wants without hindrance or restraint.",
+        "example": "Freedom of speech is a fundamental right.",
+        "hebrewTranslation": "חופש",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "freeze",
+        "definition": "(of a liquid) turn or be turned into ice or another solid as a result of extreme cold.",
+        "example": "Water will freeze at 0°C.",
+        "hebrewTranslation": "לקפוא",
+        "category": "Science",
+        "level": 3
+    },
+    {
+        "word": "freezer",
+        "definition": "A refrigerated cabinet or room for preserving food at very low temperatures.",
+        "example": "Put the ice cream in the freezer.",
+        "hebrewTranslation": "מקפיא",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "freezing",
+        "definition": "Below 32°F (0°C).",
+        "example": "It's freezing outside!",
+        "hebrewTranslation": "קפוא",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "frequency",
+        "definition": "The rate at which something occurs or is repeated over a particular period of time or in a given sample.",
+        "example": "The frequency of his visits increased.",
+        "hebrewTranslation": "תדירות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "frequent",
+        "definition": "Occurring or done on many occasions, in many cases, or in quick succession.",
+        "example": "He is a frequent visitor to the library.",
+        "hebrewTranslation": "תדיר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "frequently",
+        "definition": "Often.",
+        "example": "We frequently go to the movies.",
+        "hebrewTranslation": "לעיתים קרובות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "fresh",
+        "definition": "(of food) recently made or obtained; not canned, frozen, or otherwise preserved.",
+        "example": "I love the smell of fresh bread.",
+        "hebrewTranslation": "טרי",
+        "category": "Food",
+        "level": 3
+    },
+    {
+        "word": "friction",
+        "definition": "The resistance that one surface or object encounters when moving over another.",
+        "example": "The friction between the two surfaces caused heat.",
+        "hebrewTranslation": "חיכוך",
+        "category": "Physics",
+        "level": 6
+    },
+    {
+        "word": "friend",
+        "definition": "A person whom one knows and with whom one has a bond of mutual affection, typically exclusive of sexual or family relations.",
+        "example": "He is my best friend.",
+        "hebrewTranslation": "חבר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "friendly",
+        "definition": "Kind and pleasant.",
+        "example": "The local people were very friendly.",
+        "hebrewTranslation": "ידידותי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "friendship",
+        "definition": "The emotions or conduct of friends; the state of being friends.",
+        "example": "Their friendship lasted a lifetime.",
+        "hebrewTranslation": "חברות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "frighten",
+        "definition": "Make (someone) afraid or anxious.",
+        "example": "The loud noise frightened the baby.",
+        "hebrewTranslation": "להפחיד",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "from",
+        "definition": "Indicating the point in space at which a journey, motion, or action starts.",
+        "example": "The train from Tel Aviv has arrived.",
+        "hebrewTranslation": "מ",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "front",
+        "definition": "The side or part of an object that presents itself to view or that is normally seen or used first; the most forward part of something.",
+        "example": "Please wait in front of the building.",
+        "hebrewTranslation": "חזית",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "frown",
+        "definition": "Furrow one's brow in an expression of disapproval, displeasure, or concentration.",
+        "example": "She frowned at his rude comment.",
+        "hebrewTranslation": "להזעיף פנים",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "fruit",
+        "definition": "The sweet, fleshy product of a tree or other plant that contains seed and can be eaten as food.",
+        "example": "You should eat five portions of fruit and vegetables a day.",
+        "hebrewTranslation": "פרי",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "frustrate",
+        "definition": "Prevent (a plan or attempted action) from progressing, succeeding, or being fulfilled.",
+        "example": "The bad weather frustrated our plans.",
+        "hebrewTranslation": "לתסכל",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "frustrated",
+        "definition": "Feeling or expressing distress and annoyance, especially because of inability to change or achieve something.",
+        "example": "He felt frustrated by the lack of progress.",
+        "hebrewTranslation": "מתוסכל",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "frustrating",
+        "definition": "Causing distress and annoyance, especially because of inability to change or achieve something.",
+        "example": "It was a frustrating situation.",
+        "hebrewTranslation": "מתסכל",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "frustration",
+        "definition": "The feeling of being upset or annoyed, especially because of inability to change or achieve something.",
+        "example": "He shouted in frustration.",
+        "hebrewTranslation": "תסכול",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "fuel",
+        "definition": "Material such as coal, gas, or oil that is burned to produce heat or power.",
+        "example": "We need to stop for fuel.",
+        "hebrewTranslation": "דלק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "fulfill",
+        "definition": "Bring to completion or reality; achieve or realize (something desired, promised, or predicted).",
+        "example": "She managed to fulfill her dream of becoming a pilot.",
+        "hebrewTranslation": "למלא",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "full",
+        "definition": "Containing or holding as much or as many as possible; having no empty space.",
+        "example": "The bottle is full of water.",
+        "hebrewTranslation": "מלא",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "fun",
+        "definition": "Enjoyment, amusement, or lighthearted pleasure.",
+        "example": "We had a lot of fun at the party.",
+        "hebrewTranslation": "כיף",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "function",
+        "definition": "An activity or purpose natural to or intended for a person or thing.",
+        "example": "The function of the heart is to pump blood.",
+        "hebrewTranslation": "תפקיד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "functional",
+        "definition": "Of or having a special activity, purpose, or task; relating to the way in which something works or operates.",
+        "example": "The kitchen is small but functional.",
+        "hebrewTranslation": "תפקודי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "fund",
+        "definition": "A sum of money saved or made available for a particular purpose.",
+        "example": "The charity has set up a fund to help the victims.",
+        "hebrewTranslation": "קרן",
+        "category": "Finance",
+        "level": 3
+    },
+    {
+        "word": "fundamental",
+        "definition": "Forming a necessary base or core; of central importance.",
+        "example": "Respect for others is a fundamental principle.",
+        "hebrewTranslation": "יסודי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "funeral",
+        "definition": "A ceremony or service held shortly after a person's death, usually including the person's burial or cremation.",
+        "example": "Many people attended the funeral.",
+        "hebrewTranslation": "הלוויה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "funny",
+        "definition": "Causing laughter or amusement; humorous.",
+        "example": "He told a funny story.",
+        "hebrewTranslation": "מצחיק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "furious",
+        "definition": "Extremely angry.",
+        "example": "She was furious with him for being late.",
+        "hebrewTranslation": "זועם",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "furnish",
+        "definition": "Provide (a house or room) with furniture and fittings.",
+        "example": "They need to furnish their new apartment.",
+        "hebrewTranslation": "לרהט",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "furniture",
+        "definition": "The movable articles that are used to make a room or building suitable for living or working in, such as tables, chairs, or desks.",
+        "example": "They bought new furniture for the living room.",
+        "hebrewTranslation": "רהיטים",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "further",
+        "definition": "At, to, or by a greater distance (used to indicate the extent to which one thing is remote from another).",
+        "example": "We need to discuss this matter further.",
+        "hebrewTranslation": "הלאה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "furthermore",
+        "definition": "In addition; besides (used to add a point to an argument).",
+        "example": "The house is beautiful. Furthermore, it's in a great location.",
+        "hebrewTranslation": "יתר על כן",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "fury",
+        "definition": "Wild or violent anger.",
+        "example": "He flew into a fury when he heard the news.",
+        "hebrewTranslation": "זעם",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "future",
+        "definition": "The time or a period of time following the moment of speaking or writing; time regarded as still to come.",
+        "example": "Nobody knows what the future holds.",
+        "hebrewTranslation": "עתיד",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "gain",
+        "definition": "Obtain or secure (something desired, favorable, or profitable).",
+        "example": "You will gain a lot of experience from this job.",
+        "hebrewTranslation": "להרוויח",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "gamble",
+        "definition": "Play games of chance for money; bet.",
+        "example": "He likes to gamble on horse races.",
+        "hebrewTranslation": "להמר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "game",
+        "definition": "An activity that one engages in for amusement or fun.",
+        "example": "Let's play a game of chess.",
+        "hebrewTranslation": "משחק",
+        "category": "Entertainment",
+        "level": 1
+    },
+    {
+        "word": "gap",
+        "definition": "A break or hole in an object or between two objects.",
+        "example": "There is a gap in the fence.",
+        "hebrewTranslation": "פער",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "garage",
+        "definition": "A building for housing a motor vehicle or vehicles.",
+        "example": "He parked his car in the garage.",
+        "hebrewTranslation": "מוסך",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "garbage",
+        "definition": "Wasted or spoiled food and other refuse, as from a kitchen or household.",
+        "example": "Don't forget to take out the garbage.",
+        "hebrewTranslation": "זבל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "garden",
+        "definition": "A piece of ground, often near a house, used for growing flowers, fruit, or vegetables.",
+        "example": "She is working in the garden.",
+        "hebrewTranslation": "גינה",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "gas",
+        "definition": "An airlike fluid substance which expands freely to fill any space available, irrespective of its quantity.",
+        "example": "Natural gas is used for heating.",
+        "hebrewTranslation": "גז",
+        "category": "Science",
+        "level": 1
+    },
+    {
+        "word": "gasoline",
+        "definition": "Refined petroleum used as fuel for internal combustion engines.",
+        "example": "I need to put some gasoline in the car.",
+        "hebrewTranslation": "בנזין",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "gate",
+        "definition": "A hinged barrier used to close an opening in a wall, fence, or hedge.",
+        "example": "Please close the gate behind you.",
+        "hebrewTranslation": "שער",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "gather",
+        "definition": "Come together; assemble or accumulate.",
+        "example": "A crowd gathered to see what was happening.",
+        "hebrewTranslation": "לאסוף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "gear",
+        "definition": "A toothed wheel that works with others to alter the relation between the speed of a driving mechanism (such as the engine of a vehicle or the pedals of a bicycle) and the speed of the driven parts (the wheels).",
+        "example": "He shifted the car into a lower gear.",
+        "hebrewTranslation": "הילוך",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "gender",
+        "definition": "Either of the two sexes (male and female), especially when considered with reference to social and cultural differences rather than biological ones.",
+        "example": "The company is committed to gender equality.",
+        "hebrewTranslation": "מגדר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "general",
+        "definition": "Affecting or concerning all or most people, places, or things; widespread.",
+        "example": "The general opinion is that the new law is a good idea.",
+        "hebrewTranslation": "כללי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "generally",
+        "definition": "In most cases; usually.",
+        "example": "Generally, I prefer to travel by train.",
+        "hebrewTranslation": "בדרך כלל",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "generation",
+        "definition": "All of the people born and living at about the same time, regarded collectively.",
+        "example": "The younger generation is very tech-savvy.",
+        "hebrewTranslation": "דור",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "generosity",
+        "definition": "The quality of being kind and generous.",
+        "example": "He was known for his generosity.",
+        "hebrewTranslation": "נדיבות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "generous",
+        "definition": "Showing a readiness to give more of something, as money or time, than is strictly necessary or expected.",
+        "example": "She made a generous donation to the charity.",
+        "hebrewTranslation": "נדיב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "genetic",
+        "definition": "Relating to genes or heredity.",
+        "example": "Some diseases have a genetic component.",
+        "hebrewTranslation": "גנטי",
+        "category": "Biology",
+        "level": 5
+    },
+    {
+        "word": "genetics",
+        "definition": "The study of heredity and the variation of inherited characteristics.",
+        "example": "He is a professor of genetics.",
+        "hebrewTranslation": "גנטיקה",
+        "category": "Biology",
+        "level": 6
+    },
+    {
+        "word": "genius",
+        "definition": "Exceptional intellectual or creative power or other natural ability.",
+        "example": "Einstein was a scientific genius.",
+        "hebrewTranslation": "גאון",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "gentle",
+        "definition": "Having or showing a mild, kind, or tender temperament or character.",
+        "example": "He has a gentle touch.",
+        "hebrewTranslation": "עדין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "genuine",
+        "definition": "Truly what something is said to be; authentic.",
+        "example": "This is a genuine leather jacket.",
+        "hebrewTranslation": "אמיתי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "genuinely",
+        "definition": "Truly; in a way that is not false or pretended.",
+        "example": "I was genuinely surprised by the news.",
+        "hebrewTranslation": "באמת",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "geography",
+        "definition": "The study of the physical features of the earth and its atmosphere, and of human activity as it affects and is affected by these.",
+        "example": "She is studying geography at university.",
+        "hebrewTranslation": "גאוגרפיה",
+        "category": "Science",
+        "level": 4
+    },
+    {
+        "word": "geology",
+        "definition": "The science that deals with the earth's physical structure and substance, its history, and the processes which act on it.",
+        "example": "He is an expert in the geology of the region.",
+        "hebrewTranslation": "גאולוגיה",
+        "category": "Science",
+        "level": 5
+    },
+    {
+        "word": "geometry",
+        "definition": "The branch of mathematics concerned with the properties and relations of points, lines, surfaces, solids, and higher dimensional analogs.",
+        "example": "We are learning about circles in our geometry class.",
+        "hebrewTranslation": "גאומטריה",
+        "category": "Science",
+        "level": 5
+    },
+    {
+        "word": "get",
+        "definition": "Come to have or hold (something); receive.",
+        "example": "I need to get some milk from the store.",
+        "hebrewTranslation": "לקבל",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "gift",
+        "definition": "A thing given willingly to someone without payment; a present.",
+        "example": "He gave me a beautiful gift for my birthday.",
+        "hebrewTranslation": "מתנה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "gigantic",
+        "definition": "Of very great size or extent; huge or enormous.",
+        "example": "A gigantic wave crashed onto the shore.",
+        "hebrewTranslation": "ענקי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "give",
+        "definition": "Freely transfer the possession of something to (someone).",
+        "example": "Can you give me that book?",
+        "hebrewTranslation": "לתת",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "glad",
+        "definition": "Pleased; delighted.",
+        "example": "I'm so glad you could come.",
+        "hebrewTranslation": "שמח",
+        "category": "Emotion",
+        "level": 1
+    },
+    {
+        "word": "glance",
+        "definition": "Take a brief or hurried look.",
+        "example": "She gave a quick glance at her watch.",
+        "hebrewTranslation": "מבט חטוף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "glass",
+        "definition": "A hard, brittle substance, typically transparent or translucent, made by fusing sand with soda, lime, and sometimes other ingredients and cooling rapidly.",
+        "example": "The window is made of glass.",
+        "hebrewTranslation": "זכוכית",
+        "category": "Material",
+        "level": 1
+    },
+    {
+        "word": "glasses",
+        "definition": "A pair of lenses set in a frame resting on the nose and ears, used to correct or assist defective eyesight or protect the eyes.",
+        "example": "He needs glasses to read.",
+        "hebrewTranslation": "משקפיים",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "glimpse",
+        "definition": "A momentary or partial view.",
+        "example": "I caught a glimpse of him in the crowd.",
+        "hebrewTranslation": "הצצה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "global",
+        "definition": "Relating to the whole world; worldwide.",
+        "example": "Climate change is a global issue.",
+        "hebrewTranslation": "עולמי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "globe",
+        "definition": "The earth.",
+        "example": "He has traveled all over the globe.",
+        "hebrewTranslation": "גלובוס",
+        "category": "Geography",
+        "level": 2
+    },
+    {
+        "word": "glorious",
+        "definition": "Having, worthy of, or bringing fame or admiration.",
+        "example": "It was a glorious victory.",
+        "hebrewTranslation": "מפואר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "glory",
+        "definition": "High renown or honor won by notable achievements.",
+        "example": "He fought for the glory of his country.",
+        "hebrewTranslation": "תהילה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "glove",
+        "definition": "A covering for the hand worn for protection against cold or dirt and typically having separate parts for each finger and the thumb.",
+        "example": "She wore gloves to keep her hands warm.",
+        "hebrewTranslation": "כפפה",
+        "category": "Fashion",
+        "level": 2
+    },
+    {
+        "word": "go",
+        "definition": "Move from one place to another; travel.",
+        "example": "I have to go to work now.",
+        "hebrewTranslation": "ללכת",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "goal",
+        "definition": "The object of a person's ambition or effort; an aim or desired result.",
+        "example": "My goal is to run a marathon next year.",
+        "hebrewTranslation": "מטרה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "God",
+        "definition": "(in Christianity and other monotheistic religions) the creator and ruler of the universe and source of all moral authority; the supreme being.",
+        "example": "Many people pray to God.",
+        "hebrewTranslation": "אלוהים",
+        "category": "Religion",
+        "level": 3
+    },
+    {
+        "word": "gold",
+        "definition": "A yellow precious metal, the chemical element of atomic number 79, used especially in jewelry and decoration and to guarantee the value of currencies.",
+        "example": "The ring is made of pure gold.",
+        "hebrewTranslation": "זהב",
+        "category": "Material",
+        "level": 3
+    },
+    {
+        "word": "golden",
+        "definition": "Colored or shining like gold.",
+        "example": "She has beautiful golden hair.",
+        "hebrewTranslation": "זהוב",
+        "category": "Color",
+        "level": 3
+    },
+    {
+        "word": "good",
+        "definition": "To be desired or approved of.",
+        "example": "This is a good book.",
+        "hebrewTranslation": "טוב",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "goods",
+        "definition": "Merchandise or possessions.",
+        "example": "The store sells a variety of goods.",
+        "hebrewTranslation": "סחורות",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "govern",
+        "definition": "Conduct the policy, actions, and affairs of (a state, organization, or people).",
+        "example": "The new party was elected to govern the country.",
+        "hebrewTranslation": "למשול",
+        "category": "Politics",
+        "level": 5
+    },
+    {
+        "word": "government",
+        "definition": "The group of people with the authority to govern a country or state; a particular ministry in office.",
+        "example": "The government announced new policies.",
+        "hebrewTranslation": "ממשלה",
+        "category": "Politics",
+        "level": 5
+    },
+    {
+        "word": "grab",
+        "definition": "Grasp or seize suddenly and roughly.",
+        "example": "He grabbed his coat and ran out.",
+        "hebrewTranslation": "לתפוס",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "grace",
+        "definition": "Simple elegance or refinement of movement.",
+        "example": "She moved with the grace of a dancer.",
+        "hebrewTranslation": "חן",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "graceful",
+        "definition": "Having or showing grace or elegance.",
+        "example": "The swan is a graceful bird.",
+        "hebrewTranslation": "חינני",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "gracious",
+        "definition": "Courteous, kind, and pleasant.",
+        "example": "She was a gracious hostess.",
+        "hebrewTranslation": "אדיב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "grade",
+        "definition": "A particular level of quality, size, importance, etc.",
+        "example": "He got a good grade on his exam.",
+        "hebrewTranslation": "ציון",
+        "category": "Education",
+        "level": 2
+    },
+    {
+        "word": "gradual",
+        "definition": "Taking place or progressing slowly or by degrees.",
+        "example": "There has been a gradual improvement in his health.",
+        "hebrewTranslation": "הדרגתי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "gradually",
+        "definition": "In a gradual way; slowly; by degrees.",
+        "example": "The weather gradually improved.",
+        "hebrewTranslation": "בהדרגה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "graduate",
+        "definition": "A person who has successfully completed a course of study or training, especially a person who has been awarded an undergraduate academic degree.",
+        "example": "He is a graduate of Harvard University.",
+        "hebrewTranslation": "בוגר",
+        "category": "Education",
+        "level": 6
+    },
+    {
+        "word": "grain",
+        "definition": "Wheat or any other cultivated cereal crop used as food.",
+        "example": "The fields were full of golden grain.",
+        "hebrewTranslation": "דגן",
+        "category": "Agriculture",
+        "level": 4
+    },
+    {
+        "word": "grand",
+        "definition": "Magnificent and imposing in appearance, size, or style.",
+        "example": "The hotel has a grand staircase.",
+        "hebrewTranslation": "גדול",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "grandchild",
+        "definition": "A child of one's son or daughter.",
+        "example": "She loves spending time with her grandchild.",
+        "hebrewTranslation": "נכד",
+        "category": "Family",
+        "level": 4
+    },
+    {
+        "word": "granddaughter",
+        "definition": "A daughter of one's son or daughter.",
+        "example": "His granddaughter is five years old.",
+        "hebrewTranslation": "נכדה",
+        "category": "Family",
+        "level": 4
+    },
+    {
+        "word": "grandfather",
+        "definition": "The father of one's father or mother.",
+        "example": "My grandfather fought in the war.",
+        "hebrewTranslation": "סבא",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "grandmother",
+        "definition": "The mother of one's father or mother.",
+        "example": "My grandmother bakes the best cookies.",
+        "hebrewTranslation": "סבתא",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "grandparent",
+        "definition": "A parent of one's father or mother; a grandmother or grandfather.",
+        "example": "My grandparents live nearby.",
+        "hebrewTranslation": "סבא וסבתא",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "grandson",
+        "definition": "A son of one's son or daughter.",
+        "example": "Her grandson is a talented musician.",
+        "hebrewTranslation": "נכד",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "grant",
+        "definition": "Agree to give or allow (something requested) to.",
+        "example": "The government granted them permission to build.",
+        "hebrewTranslation": "להעניק",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "grape",
+        "definition": "A berry, typically green (classified as white), purple, red, or black, growing in clusters on a grapevine, eaten as fruit, and used in making wine.",
+        "example": "I love eating fresh grapes.",
+        "hebrewTranslation": "ענב",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "grasp",
+        "definition": "Seize and hold firmly.",
+        "example": "He grasped her hand tightly.",
+        "hebrewTranslation": "לאחוז",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "grass",
+        "definition": "Vegetation consisting of typically short plants with long, narrow leaves, growing wild or cultivated on lawns and pasture, and as a fodder crop.",
+        "example": "The children were playing on the grass.",
+        "hebrewTranslation": "דשא",
+        "category": "Nature",
+        "level": 1
+    },
+    {
+        "word": "grateful",
+        "definition": "Feeling or showing an appreciation of kindness; thankful.",
+        "example": "I'm very grateful for your help.",
+        "hebrewTranslation": "אסיר תודה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "gratitude",
+        "definition": "The quality of being thankful; readiness to show appreciation for and to return kindness.",
+        "example": "She expressed her gratitude for the gift.",
+        "hebrewTranslation": "הכרת תודה",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "grave",
+        "definition": "A place of burial for a dead body, typically a hole dug in the ground and marked by a stone or mound.",
+        "example": "They visited his grave on the anniversary of his death.",
+        "hebrewTranslation": "קבר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "gravity",
+        "definition": "The force that attracts a body toward the center of the earth, or toward any other physical body having mass.",
+        "example": "Gravity keeps us on the ground.",
+        "hebrewTranslation": "כוח המשיכה",
+        "category": "Physics",
+        "level": 6
+    },
+    {
+        "word": "gray",
+        "definition": "Of a color intermediate between black and white, as of ashes or lead.",
+        "example": "He has gray hair.",
+        "hebrewTranslation": "אפור",
+        "category": "Color",
+        "level": 1
+    },
+    {
+        "word": "great",
+        "definition": "Of an extent, amount, or intensity considerably above the normal or average.",
+        "example": "She has a great sense of humor.",
+        "hebrewTranslation": "נהדר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "greatly",
+        "definition": "By a large amount; very much.",
+        "example": "I greatly appreciate your help.",
+        "hebrewTranslation": "מאוד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "greed",
+        "definition": "Intense and selfish desire for something, especially wealth, power, or food.",
+        "example": "His greed for money was his downfall.",
+        "hebrewTranslation": "חמדנות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "greedy",
+        "definition": "Having or showing an intense and selfish desire for something, especially wealth or power.",
+        "example": "He is a greedy man.",
+        "hebrewTranslation": "חמדן",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "green",
+        "definition": "Of the color between blue and yellow in the spectrum; colored like grass or emeralds.",
+        "example": "Her favorite color is green.",
+        "hebrewTranslation": "ירוק",
+        "category": "Color",
+        "level": 1
+    },
+    {
+        "word": "greet",
+        "definition": "Give a polite word or sign of welcome or recognition to (someone) on meeting.",
+        "example": "He greeted me with a warm smile.",
+        "hebrewTranslation": "לברך",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "greeting",
+        "definition": "A polite word or sign of welcome or recognition.",
+        "example": "She sent me a birthday greeting.",
+        "hebrewTranslation": "ברכה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "grief",
+        "definition": "Deep sorrow, especially that caused by someone's death.",
+        "example": "She was overcome with grief.",
+        "hebrewTranslation": "יגון",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "grieve",
+        "definition": "Feel intense sorrow.",
+        "example": "She is still grieving for her husband.",
+        "hebrewTranslation": "להתאבל",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "grim",
+        "definition": "Forbidding or uninviting.",
+        "example": "The future looks grim.",
+        "hebrewTranslation": "קודר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "grin",
+        "definition": "Smile broadly.",
+        "example": "He had a wide grin on his face.",
+        "hebrewTranslation": "חיוך רחב",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "grind",
+        "definition": "Reduce something to small particles or powder by crushing it.",
+        "example": "She grinds her own coffee beans.",
+        "hebrewTranslation": "לטחון",
+        "category": "Food",
+        "level": 4
+    },
+    {
+        "word": "grip",
+        "definition": "Take and keep a firm hold of; grasp tightly.",
+        "example": "He had a firm grip on the rope.",
+        "hebrewTranslation": "אחיזה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "groan",
+        "definition": "Make a deep inarticulate sound in response to pain or despair.",
+        "example": "He let out a groan of pain.",
+        "hebrewTranslation": "גניחה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "grocery",
+        "definition": "A grocer's shop or business.",
+        "example": "I need to go to the grocery store.",
+        "hebrewTranslation": "מכולת",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "groom",
+        "definition": "A man on his wedding day or just before and after the event.",
+        "example": "The groom was waiting at the altar.",
+        "hebrewTranslation": "חתן",
+        "category": "Family",
+        "level": 3
+    },
+    {
+        "word": "gross",
+        "definition": "(of income, profit, or interest) without deduction of tax or other contributions; total.",
+        "example": "His gross income is $50,000 a year.",
+        "hebrewTranslation": "ברוטו",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "ground",
+        "definition": "The solid surface of the earth.",
+        "example": "He dropped his keys on the ground.",
+        "hebrewTranslation": "אדמה",
+        "category": "Nature",
+        "level": 2
+    },
+    {
+        "word": "group",
+        "definition": "A number of people or things that are located, gathered, or classed together.",
+        "example": "A group of tourists was waiting for the bus.",
+        "hebrewTranslation": "קבוצה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "grow",
+        "definition": "(of a living thing) undergo natural development by increasing in size and changing physically.",
+        "example": "Children grow up so quickly.",
+        "hebrewTranslation": "לגדול",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "guarantee",
+        "definition": "A formal promise or assurance (typically in writing) that certain conditions will be fulfilled, especially that a product will be repaired or replaced if not of a specified quality and durability.",
+        "example": "The watch comes with a two-year guarantee.",
+        "hebrewTranslation": "אחריות",
+        "category": "Business",
+        "level": 5
+    },
+    {
+        "word": "guard",
+        "definition": "Watch over in order to protect or control.",
+        "example": "The dog will guard the house.",
+        "hebrewTranslation": "לשמור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "guess",
+        "definition": "Estimate or suppose (something) without sufficient information to be sure of being correct.",
+        "example": "Can you guess how old I am?",
+        "hebrewTranslation": "לנחש",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "guest",
+        "definition": "A person who is invited to visit the home of or take part in a function organized by another.",
+        "example": "We have a guest staying with us this week.",
+        "hebrewTranslation": "אורח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "guidance",
+        "definition": "Advice or information aimed at resolving a problem or difficulty, especially as given by someone in authority.",
+        "example": "He sought guidance from his mentor.",
+        "hebrewTranslation": "הדרכה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "guide",
+        "definition": "A person who shows the way to others, especially one employed to show tourists around places of interest.",
+        "example": "The tour guide was very knowledgeable.",
+        "hebrewTranslation": "מדריך",
+        "category": "Travel",
+        "level": 2
+    },
+    {
+        "word": "guideline",
+        "definition": "A general rule, principle, or piece of advice.",
+        "example": "The company has strict guidelines on safety.",
+        "hebrewTranslation": "הנחיה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "guilt",
+        "definition": "The fact of having committed a specified or implied offense or crime.",
+        "example": "He was consumed by guilt.",
+        "hebrewTranslation": "אשמה",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "guilty",
+        "definition": "Justly chargeable with a particular fault or error.",
+        "example": "The jury found him guilty of the crime.",
+        "hebrewTranslation": "אשם",
+        "category": "Legal",
+        "level": 3
+    },
+    {
+        "word": "gulf",
+        "definition": "A deep inlet of the sea almost surrounded by land, with a narrow mouth.",
+        "example": "The Persian Gulf is rich in oil.",
+        "hebrewTranslation": "מפרץ",
+        "category": "Geography",
+        "level": 2
+    },
+    {
+        "word": "gun",
+        "definition": "A weapon incorporating a metal tube from which bullets, shells, or other missiles are propelled by explosive force, typically making a loud noise.",
+        "example": "The police officer carried a gun.",
+        "hebrewTranslation": "אקדח",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "habit",
+        "definition": "A settled or regular tendency or practice, especially one that is hard to give up.",
+        "example": "Biting your nails is a bad habit.",
+        "hebrewTranslation": "הרגל",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "habitat",
+        "definition": "The natural home or environment of an animal, plant, or other organism.",
+        "example": "The panda's natural habitat is the bamboo forest.",
+        "hebrewTranslation": "בית גידול",
+        "category": "Biology",
+        "level": 5
+    },
+    {
+        "word": "habitual",
+        "definition": "Done or doing constantly or as a habit.",
+        "example": "He is a habitual liar.",
+        "hebrewTranslation": "הרגלי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hair",
+        "definition": "Any of the fine threadlike strands growing from the skin of humans, mammals, and some other animals.",
+        "example": "She has long, brown hair.",
+        "hebrewTranslation": "שיער",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "half",
+        "definition": "Either of two equal or corresponding parts into which something is or can be divided.",
+        "example": "He ate half of the pizza.",
+        "hebrewTranslation": "חצי",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "hall",
+        "definition": "The room or space just inside the front entrance of a house or flat.",
+        "example": "Please leave your coat in the hall.",
+        "hebrewTranslation": "מסדרון",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "halt",
+        "definition": "Bring or come to an abrupt stop.",
+        "example": "The train came to a sudden halt.",
+        "hebrewTranslation": "לעצור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "ham",
+        "definition": "Meat from the upper part of a pig's leg salted and dried or smoked.",
+        "example": "He had a ham and cheese sandwich.",
+        "hebrewTranslation": "בשר חזיר",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "hamburger",
+        "definition": "A round patty of ground beef, fried or grilled and typically served in a split bun with various condiments.",
+        "example": "I would like a hamburger with fries.",
+        "hebrewTranslation": "המבורגר",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "hand",
+        "definition": "The end part of a person's arm beyond the wrist, including the palm, fingers, and thumb.",
+        "example": "He held the book in his hand.",
+        "hebrewTranslation": "יד",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "handbag",
+        "definition": "A small bag used by a woman to carry everyday personal items.",
+        "example": "She bought a new handbag.",
+        "hebrewTranslation": "תיק יד",
+        "category": "Fashion",
+        "level": 2
+    },
+    {
+        "word": "handful",
+        "definition": "A quantity that fills the hand.",
+        "example": "He grabbed a handful of coins.",
+        "hebrewTranslation": "חופן",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "handicap",
+        "definition": "A condition that markedly restricts a person's ability to function physically, mentally, or socially.",
+        "example": "Despite his handicap, he leads a full life.",
+        "hebrewTranslation": "נכות",
+        "category": "Health",
+        "level": 5
+    },
+    {
+        "word": "handicapped",
+        "definition": "Having a condition that markedly restricts one's ability to function physically, mentally, or socially.",
+        "example": "The building has facilities for handicapped people.",
+        "hebrewTranslation": "נכה",
+        "category": "Health",
+        "level": 5
+    },
+    {
+        "word": "handle",
+        "definition": "The part by which a thing is held, carried, or controlled.",
+        "example": "The handle of the cup is broken.",
+        "hebrewTranslation": "ידית",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "handsome",
+        "definition": "(of a man) good-looking.",
+        "example": "He is a very handsome man.",
+        "hebrewTranslation": "נאה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "handwriting",
+        "definition": "A person's particular style of writing.",
+        "example": "His handwriting is difficult to read.",
+        "hebrewTranslation": "כתב יד",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "handy",
+        "definition": "Convenient to handle or use; useful.",
+        "example": "This tool is very handy.",
+        "hebrewTranslation": "שימושי",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hang",
+        "definition": "Suspend or be suspended from above with the lower part dangling free.",
+        "example": "Please hang your coat on the hook.",
+        "hebrewTranslation": "לתלות",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "happen",
+        "definition": "Take place; occur.",
+        "example": "What will happen if I press this button?",
+        "hebrewTranslation": "לקרות",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "happiness",
+        "definition": "The state of being happy.",
+        "example": "I wish you all the happiness in the world.",
+        "hebrewTranslation": "אושר",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "happy",
+        "definition": "Feeling or showing pleasure or contentment.",
+        "example": "She looks so happy in her new job.",
+        "hebrewTranslation": "שמח",
+        "category": "Emotion",
+        "level": 1
+    },
+    {
+        "word": "harass",
+        "definition": "Subject to aggressive pressure or intimidation.",
+        "example": "It is illegal to harass someone at work.",
+        "hebrewTranslation": "להטריד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "harassment",
+        "definition": "Aggressive pressure or intimidation.",
+        "example": "She filed a complaint for harassment.",
+        "hebrewTranslation": "הטרדה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "harbor",
+        "definition": "A place on the coast where vessels may find shelter, especially one protected from rough water by piers, jetties, and other artificial structures.",
+        "example": "The ships were safe in the harbor.",
+        "hebrewTranslation": "נמל",
+        "category": "Geography",
+        "level": 4
+    },
+    {
+        "word": "hard",
+        "definition": "Solid, firm, and rigid; not easily broken, bent, or pierced.",
+        "example": "This material is as hard as a rock.",
+        "hebrewTranslation": "קשה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "harden",
+        "definition": "Make or become hard or harder.",
+        "example": "The clay will harden in the sun.",
+        "hebrewTranslation": "להקשות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "hardly",
+        "definition": "Scarcely (used to qualify a statement by saying that it is true to an insignificant degree).",
+        "example": "I can hardly hear you.",
+        "hebrewTranslation": "בקושי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hardship",
+        "definition": "Severe suffering or privation.",
+        "example": "They faced many hardships during the war.",
+        "hebrewTranslation": "קושי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hardware",
+        "definition": "Tools, machinery, and other durable equipment.",
+        "example": "I need to buy some hardware from the store.",
+        "hebrewTranslation": "חומרה",
+        "category": "Technology",
+        "level": 3
+    },
+    {
+        "word": "hardy",
+        "definition": "Robust; capable of enduring difficult conditions.",
+        "example": "These plants are very hardy and can survive the winter.",
+        "hebrewTranslation": "עמיד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "harm",
+        "definition": "Physical injury, especially that which is deliberately inflicted.",
+        "example": "The storm caused a lot of harm to the crops.",
+        "hebrewTranslation": "נזק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "harmful",
+        "definition": "Causing or likely to cause harm.",
+        "example": "Smoking is harmful to your health.",
+        "hebrewTranslation": "מזיק",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "harmless",
+        "definition": "Not able or likely to cause harm.",
+        "example": "The snake is completely harmless.",
+        "hebrewTranslation": "לא מזיק",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "harmonious",
+        "definition": "Tuneful; not discordant.",
+        "example": "The choir sang in harmonious voices.",
+        "hebrewTranslation": "הרמוני",
+        "category": "Music",
+        "level": 6
+    },
+    {
+        "word": "harmonize",
+        "definition": "Add notes to (a melody) to produce harmony.",
+        "example": "They need to harmonize their efforts to achieve success.",
+        "hebrewTranslation": "להתאים",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "harmony",
+        "definition": "The combination of simultaneously sounded musical notes to produce chords and chord progressions having a pleasing effect.",
+        "example": "They lived together in perfect harmony.",
+        "hebrewTranslation": "הרמוניה",
+        "category": "Music",
+        "level": 5
+    },
+    {
+        "word": "harsh",
+        "definition": "Unpleasantly rough or jarring to the senses.",
+        "example": "The punishment was too harsh.",
+        "hebrewTranslation": "קשה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "harvest",
+        "definition": "The process or period of gathering in crops.",
+        "example": "It's time for the autumn harvest.",
+        "hebrewTranslation": "קציר",
+        "category": "Agriculture",
+        "level": 4
+    },
+    {
+        "word": "haste",
+        "definition": "Excessive speed or urgency of movement or action; hurry.",
+        "example": "He left in great haste.",
+        "hebrewTranslation": "חיפזון",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "hasten",
+        "definition": "Be quick to do something.",
+        "example": "We must hasten to finish our work.",
+        "hebrewTranslation": "למהר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hasty",
+        "definition": "Done or acting with excessive speed or urgency; hurried.",
+        "example": "Don't make a hasty decision.",
+        "hebrewTranslation": "פזיז",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hat",
+        "definition": "A shaped covering for the head worn for warmth, as a fashion item, or as part of a uniform.",
+        "example": "He wore a hat to protect his head from the sun.",
+        "hebrewTranslation": "כובע",
+        "category": "Fashion",
+        "level": 1
+    },
+    {
+        "word": "hatch",
+        "definition": "(of an egg) open and produce a young animal.",
+        "example": "The chicks will hatch in a few days.",
+        "hebrewTranslation": "לבקוע",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "hate",
+        "definition": "Feel intense or passionate dislike for (someone).",
+        "example": "I hate the taste of cilantro.",
+        "hebrewTranslation": "לשנוא",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "hatred",
+        "definition": "Intense dislike or ill will.",
+        "example": "His heart was filled with hatred.",
+        "hebrewTranslation": "שנאה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "haul",
+        "definition": "(of a person) pull or drag with effort or force.",
+        "example": "He hauled the heavy sack onto his shoulder.",
+        "hebrewTranslation": "לגרור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "have",
+        "definition": "Possess, own, or hold.",
+        "example": "I have a new car.",
+        "hebrewTranslation": "יש ל",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "have to",
+        "definition": "Must (expressing obligation).",
+        "example": "I have to go to work now.",
+        "hebrewTranslation": "חייב",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "havoc",
+        "definition": "Widespread destruction.",
+        "example": "The storm wreaked havoc on the coastal town.",
+        "hebrewTranslation": "הרס",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hawk",
+        "definition": "A bird of prey with broad rounded wings and a long tail, typically taking prey by surprise with a short chase.",
+        "example": "A hawk was circling high in the sky.",
+        "hebrewTranslation": "נץ",
+        "category": "Biology",
+        "level": 4
+    },
+    {
+        "word": "hay",
+        "definition": "Grass that has been mown and dried for use as fodder.",
+        "example": "The farmer was baling hay in the field.",
+        "hebrewTranslation": "חציר",
+        "category": "Agriculture",
+        "level": 2
+    },
+    {
+        "word": "hazard",
+        "definition": "A danger or risk.",
+        "example": "Smoking is a serious health hazard.",
+        "hebrewTranslation": "סכנה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hazardous",
+        "definition": "Risky; dangerous.",
+        "example": "The chemical is hazardous to health.",
+        "hebrewTranslation": "מסוכן",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "he",
+        "definition": "Used to refer to a man, boy, or male animal previously mentioned or easily identified.",
+        "example": "He is my brother.",
+        "hebrewTranslation": "הוא",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "head",
+        "definition": "The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.",
+        "example": "My head hurts.",
+        "hebrewTranslation": "ראש",
+        "category": "Biology",
+        "level": 1
+    },
+    {
+        "word": "heal",
+        "definition": "(of a wound or a person) become sound or healthy again.",
+        "example": "The wound will heal in a few days.",
+        "hebrewTranslation": "להירפא",
+        "category": "Health",
+        "level": 2
+    },
+    {
+        "word": "health",
+        "definition": "The state of being free from illness or injury.",
+        "example": "Good health is the most important thing.",
+        "hebrewTranslation": "בריאות",
+        "category": "Health",
+        "level": 2
+    },
+    {
+        "word": "healthy",
+        "definition": "In a good physical or mental condition; in good health.",
+        "example": "She leads a very healthy lifestyle.",
+        "hebrewTranslation": "בריא",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "hear",
+        "definition": "Perceive with the ear the sound made by (someone or something).",
+        "example": "Can you hear the music?",
+        "hebrewTranslation": "לשמוע",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "hearing",
+        "definition": "The faculty of perceiving sounds.",
+        "example": "His hearing is not as good as it used to be.",
+        "hebrewTranslation": "שמיעה",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "heart",
+        "definition": "A hollow muscular organ that pumps the blood through the circulatory system by contraction and dilation.",
+        "example": "The heart is a vital organ.",
+        "hebrewTranslation": "לב",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "heat",
+        "definition": "The quality of being hot; high temperature.",
+        "example": "I can't stand the heat in the summer.",
+        "hebrewTranslation": "חום",
+        "category": "Science",
+        "level": 2
+    },
+    {
+        "word": "heaven",
+        "definition": "A place regarded in various religions as the abode of God (or the gods) and the angels, and of the good after death, often traditionally depicted as being above the sky.",
+        "example": "Many people believe in heaven.",
+        "hebrewTranslation": "שמיים",
+        "category": "Religion",
+        "level": 3
+    },
+    {
+        "word": "heavy",
+        "definition": "Of great weight; difficult to lift or move.",
+        "example": "This box is too heavy for me to lift.",
+        "hebrewTranslation": "כבד",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "heel",
+        "definition": "The back part of the human foot below the ankle.",
+        "example": "She was wearing high-heeled shoes.",
+        "hebrewTranslation": "עקב",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "height",
+        "definition": "The measurement from base to top or (of a standing person) from head to foot.",
+        "example": "What is the height of the building?",
+        "hebrewTranslation": "גובה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "heighten",
+        "definition": "Make or become more intense.",
+        "example": "The tension in the room began to heighten.",
+        "hebrewTranslation": "להגביר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "heir",
+        "definition": "A person legally entitled to the property or rank of another on that person's death.",
+        "example": "He is the heir to a large fortune.",
+        "hebrewTranslation": "יורש",
+        "category": "Legal",
+        "level": 4
+    },
+    {
+        "word": "heiress",
+        "definition": "A female heir, especially a woman who has inherited or is likely to inherit a large fortune.",
+        "example": "She is a wealthy heiress.",
+        "hebrewTranslation": "יורשת",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "hell",
+        "definition": "A place regarded in various religions as a spiritual realm of evil and suffering, often traditionally depicted as a place of perpetual fire beneath the earth where the wicked are punished after death.",
+        "example": "Some religions teach about heaven and hell.",
+        "hebrewTranslation": "גיהנום",
+        "category": "Religion",
+        "level": 3
+    },
+    {
+        "word": "help",
+        "definition": "Make it easier for (someone) to do something by offering one's services or resources.",
+        "example": "Can you help me with this problem?",
+        "hebrewTranslation": "לעזור",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "helpful",
+        "definition": "Giving or ready to give help.",
+        "example": "The staff at the hotel were very helpful.",
+        "hebrewTranslation": "מועיל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "helpless",
+        "definition": "Unable to defend oneself or to act without help.",
+        "example": "The baby was small and helpless.",
+        "hebrewTranslation": "חסר אונים",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "her",
+        "definition": "Used as the object of a verb or preposition to refer to a female person or animal previously mentioned or easily identified.",
+        "example": "I saw her yesterday.",
+        "hebrewTranslation": "אותה",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "herald",
+        "definition": "An official messenger bringing news.",
+        "example": "The robin is a herald of spring.",
+        "hebrewTranslation": "מבשר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "herb",
+        "definition": "Any plant with leaves, seeds, or flowers used for flavoring, food, medicine, or perfume.",
+        "example": "She grows herbs in her garden.",
+        "hebrewTranslation": "עשב תיבול",
+        "category": "Food",
+        "level": 3
+    },
+    {
+        "word": "herd",
+        "definition": "A large group of animals, especially hoofed mammals such as cattle, elephants, goats, or sheep, that live, feed, or travel together or are kept together as livestock.",
+        "example": "A herd of elephants crossed the river.",
+        "hebrewTranslation": "עדר",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "here",
+        "definition": "In, at, or to this place or position.",
+        "example": "Please come here.",
+        "hebrewTranslation": "כאן",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "heritage",
+        "definition": "Property that is or may be inherited; an inheritance.",
+        "example": "The country has a rich cultural heritage.",
+        "hebrewTranslation": "מורשת",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hero",
+        "definition": "A person who is admired or idealized for courage, outstanding achievements, or noble qualities.",
+        "example": "He was hailed as a hero for saving the child.",
+        "hebrewTranslation": "גיבור",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "heroic",
+        "definition": "Having the characteristics of a hero or heroine; very brave.",
+        "example": "He made a heroic effort to rescue the drowning man.",
+        "hebrewTranslation": "הרואי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "heroine",
+        "definition": "A woman admired or idealized for her courage, outstanding achievements, or noble qualities.",
+        "example": "She is the heroine of the story.",
+        "hebrewTranslation": "גיבורה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hers",
+        "definition": "Used to refer to a thing or things belonging to or associated with a female person or animal previously mentioned.",
+        "example": "The book is hers.",
+        "hebrewTranslation": "שלה",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "herself",
+        "definition": "Used as the object of a verb or preposition to refer to a female person or animal that is the subject of the clause.",
+        "example": "She cooked the meal herself.",
+        "hebrewTranslation": "עצמה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hesitant",
+        "definition": "Tending to hesitate; slow to act or speak.",
+        "example": "She was hesitant to accept the offer.",
+        "hebrewTranslation": "מהסס",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hesitate",
+        "definition": "Pause before saying or doing something, especially through uncertainty.",
+        "example": "Don't hesitate to ask for help.",
+        "hebrewTranslation": "להסס",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hesitation",
+        "definition": "The action of pausing or hesitating before saying or doing something.",
+        "example": "After a moment's hesitation, she agreed.",
+        "hebrewTranslation": "היסוס",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hide",
+        "definition": "Put or keep out of sight.",
+        "example": "Let's hide behind the tree.",
+        "hebrewTranslation": "להתחבא",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "high",
+        "definition": "Of great vertical extent.",
+        "example": "The mountain is very high.",
+        "hebrewTranslation": "גבוה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "highly",
+        "definition": "To a high degree or level.",
+        "example": "He is a highly respected scientist.",
+        "hebrewTranslation": "מאוד",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "highway",
+        "definition": "A main road, especially one connecting major towns or cities.",
+        "example": "The highway was busy with traffic.",
+        "hebrewTranslation": "כביש מהיר",
+        "category": "Travel",
+        "level": 3
+    },
+    {
+        "word": "hijack",
+        "definition": "Illegally seize (an aircraft, vehicle, or ship) while in transit.",
+        "example": "The plane was hijacked by terrorists.",
+        "hebrewTranslation": "לחטוף",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hill",
+        "definition": "A naturally raised area of land, not as high or craggy as a mountain.",
+        "example": "We walked up the hill to see the view.",
+        "hebrewTranslation": "גבעה",
+        "category": "Nature",
+        "level": 2
+    },
+    {
+        "word": "him",
+        "definition": "Used as the object of a verb or preposition to refer to a male person or animal previously mentioned or easily identified.",
+        "example": "I gave the book to him.",
+        "hebrewTranslation": "אתו",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "himself",
+        "definition": "Used as the object of a verb or preposition to refer to a male person or animal that is the subject of the clause.",
+        "example": "He cooked the meal himself.",
+        "hebrewTranslation": "עצמו",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hinder",
+        "definition": "Create difficulties for (someone or something), resulting in delay or obstruction.",
+        "example": "The bad weather will hinder our progress.",
+        "hebrewTranslation": "לעכב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hindrance",
+        "definition": "A thing that provides resistance, delay, or obstruction to something or someone.",
+        "example": "The lack of funding was a major hindrance.",
+        "hebrewTranslation": "מכשול",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "hinge",
+        "definition": "A movable joint or mechanism on which a door, gate, or lid swings as it opens and closes, or which connects linked objects.",
+        "example": "The door came off its hinges.",
+        "hebrewTranslation": "ציר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hint",
+        "definition": "A slight or indirect indication or suggestion.",
+        "example": "He gave me a hint about the answer.",
+        "hebrewTranslation": "רמז",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "hip",
+        "definition": "A projection of the pelvis and upper thigh bone on each side of the body in human beings and quadrupeds.",
+        "example": "She broke her hip in the fall.",
+        "hebrewTranslation": "ירך",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "hire",
+        "definition": "Employ (someone) for wages.",
+        "example": "The company is planning to hire new staff.",
+        "hebrewTranslation": "לשכור",
+        "category": "Business",
+        "level": 2
+    },
+    {
+        "word": "his",
+        "definition": "Belonging to or associated with a male person or animal previously mentioned or easily identified.",
+        "example": "This is his car.",
+        "hebrewTranslation": "שלו",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "historian",
+        "definition": "An expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.",
+        "example": "He is a famous historian.",
+        "hebrewTranslation": "היסטוריון",
+        "category": "Academics",
+        "level": 6
+    },
+    {
+        "word": "historic",
+        "definition": "Famous or important in history, or potentially so.",
+        "example": "It was a historic moment.",
+        "hebrewTranslation": "היסטורי",
+        "category": "History",
+        "level": 5
+    },
+    {
+        "word": "historical",
+        "definition": "Of or concerning history or past events.",
+        "example": "She is writing a historical novel.",
+        "hebrewTranslation": "היסטורי",
+        "category": "History",
+        "level": 5
+    },
+    {
+        "word": "history",
+        "definition": "The study of past events, particularly in human affairs.",
+        "example": "He is a professor of modern history.",
+        "hebrewTranslation": "היסטוריה",
+        "category": "Academics",
+        "level": 3
+    },
+    {
+        "word": "hit",
+        "definition": "Bring one's hand or a tool or weapon into contact with (someone or something) quickly and forcefully.",
+        "example": "He hit the ball with the bat.",
+        "hebrewTranslation": "להכות",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hitherto",
+        "definition": "Until now or until the point in time under discussion.",
+        "example": "Hitherto, he had been a successful businessman.",
+        "hebrewTranslation": "עד כה",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "hobby",
+        "definition": "An activity done regularly in one's leisure time for pleasure.",
+        "example": "My hobby is painting.",
+        "hebrewTranslation": "תחביב",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hold",
+        "definition": "Grasp, carry, or support with one's hands.",
+        "example": "Please hold my hand.",
+        "hebrewTranslation": "להחזיק",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "hole",
+        "definition": "A hollow place in a solid body or surface.",
+        "example": "There is a hole in my sock.",
+        "hebrewTranslation": "חור",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "holiday",
+        "definition": "An extended period of leisure and recreation, especially one spent away from home or in traveling.",
+        "example": "We are going on holiday to Italy.",
+        "hebrewTranslation": "חופשה",
+        "category": "Travel",
+        "level": 2
+    },
+    {
+        "word": "hollow",
+        "definition": "Having a hole or empty space inside.",
+        "example": "The tree trunk was hollow.",
+        "hebrewTranslation": "חלול",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "holy",
+        "definition": "Dedicated or consecrated to God or a religious purpose; sacred.",
+        "example": "Jerusalem is a holy city for three religions.",
+        "hebrewTranslation": "קדוש",
+        "category": "Religion",
+        "level": 5
+    },
+    {
+        "word": "home",
+        "definition": "The place where one lives permanently, especially as a member of a family or household.",
+        "example": "There's no place like home.",
+        "hebrewTranslation": "בית",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "honest",
+        "definition": "Free of deceit and untruthfulness; sincere.",
+        "example": "He is an honest man.",
+        "hebrewTranslation": "ישר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "honestly",
+        "definition": "In a truthful, fair, or honorable way.",
+        "example": "Honestly, I don't know the answer.",
+        "hebrewTranslation": "בכנות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "honesty",
+        "definition": "The quality of being honest.",
+        "example": "Honesty is the best policy.",
+        "hebrewTranslation": "יושר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "honey",
+        "definition": "A sweet, sticky yellowish-brown fluid made by bees and other insects from nectar collected from flowers.",
+        "example": "I like to put honey in my tea.",
+        "hebrewTranslation": "דבש",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "honor",
+        "definition": "High respect; great esteem.",
+        "example": "It was an honor to meet the president.",
+        "hebrewTranslation": "כבוד",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "honorable",
+        "definition": "Bringing or worthy of honor.",
+        "example": "He is an honorable man.",
+        "hebrewTranslation": "מכובד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hook",
+        "definition": "A piece of metal or other material, curved or bent back at an angle, for catching hold of or hanging things on.",
+        "example": "Hang your coat on the hook.",
+        "hebrewTranslation": "וו",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hope",
+        "definition": "A feeling of expectation and desire for a certain thing to happen.",
+        "example": "I hope you have a great time.",
+        "hebrewTranslation": "לקוות",
+        "category": "Emotion",
+        "level": 1
+    },
+    {
+        "word": "hopeful",
+        "definition": "Feeling or inspiring optimism about a future event.",
+        "example": "I'm hopeful that we will succeed.",
+        "hebrewTranslation": "מלא תקווה",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "hopefully",
+        "definition": "In a hopeful manner.",
+        "example": "Hopefully, the weather will be good tomorrow.",
+        "hebrewTranslation": "בתקווה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hopeless",
+        "definition": "Feeling or causing despair about something.",
+        "example": "The situation seemed hopeless.",
+        "hebrewTranslation": "חסר תקווה",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "horizon",
+        "definition": "The line at which the earth's surface and the sky appear to meet.",
+        "example": "The sun set below the horizon.",
+        "hebrewTranslation": "אופק",
+        "category": "Nature",
+        "level": 5
+    },
+    {
+        "word": "horizontal",
+        "definition": "Parallel to the plane of the horizon; at right angles to the vertical.",
+        "example": "Draw a horizontal line across the page.",
+        "hebrewTranslation": "אופקי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "horn",
+        "definition": "A hard permanent outgrowth, often curved and pointed, found in pairs on the heads of various animals, including cattle, sheep, goats, and antelopes.",
+        "example": "The bull has sharp horns.",
+        "hebrewTranslation": "קרן",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "horrible",
+        "definition": "Causing or likely to cause horror; shocking.",
+        "example": "It was a horrible accident.",
+        "hebrewTranslation": "נורא",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "horrid",
+        "definition": "Causing horror.",
+        "example": "What a horrid smell!",
+        "hebrewTranslation": "נורא",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "horrific",
+        "definition": "Causing horror.",
+        "example": "The details of the crime were horrific.",
+        "hebrewTranslation": "מזעזע",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "horrify",
+        "definition": "Fill with horror; shock greatly.",
+        "example": "The news of the disaster horrified the nation.",
+        "hebrewTranslation": "לזעזע",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "horse",
+        "definition": "A large plant-eating domesticated mammal with solid hoofs and a flowing mane and tail, used for riding, racing, and to carry and pull loads.",
+        "example": "She loves to ride her horse.",
+        "hebrewTranslation": "סוס",
+        "category": "Animal",
+        "level": 2
+    },
+    {
+        "word": "hospitable",
+        "definition": "Friendly and welcoming to strangers or guests.",
+        "example": "The local people are very hospitable.",
+        "hebrewTranslation": "מכניס אורחים",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hospitality",
+        "definition": "The friendly and generous reception and entertainment of guests, visitors, or strangers.",
+        "example": "Thank you for your warm hospitality.",
+        "hebrewTranslation": "הכנסת אורחים",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hospital",
+        "definition": "An institution providing medical and surgical treatment and nursing care for sick or injured people.",
+        "example": "He was taken to the hospital after the accident.",
+        "hebrewTranslation": "בית חולים",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "host",
+        "definition": "A person who receives or entertains other people as guests.",
+        "example": "He was a wonderful host.",
+        "hebrewTranslation": "מארח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hostage",
+        "definition": "A person seized or held as security for the fulfillment of a condition.",
+        "example": "The terrorists took several people hostage.",
+        "hebrewTranslation": "בן ערובה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "hostile",
+        "definition": "Unfriendly; antagonistic.",
+        "example": "He received a hostile reception.",
+        "hebrewTranslation": "עוין",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hostility",
+        "definition": "Hostile behavior; unfriendliness or opposition.",
+        "example": "There was open hostility between the two groups.",
+        "hebrewTranslation": "עוינות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hot",
+        "definition": "Having a high degree of heat or a high temperature.",
+        "example": "The coffee is too hot to drink.",
+        "hebrewTranslation": "חם",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "hotel",
+        "definition": "An establishment providing accommodation, meals, and other services for travelers and tourists.",
+        "example": "We stayed in a nice hotel by the beach.",
+        "hebrewTranslation": "מלון",
+        "category": "Travel",
+        "level": 2
+    },
+    {
+        "word": "hour",
+        "definition": "A period of time equal to a twenty-fourth part of a day and night and divided into 60 minutes.",
+        "example": "The meeting will last for one hour.",
+        "hebrewTranslation": "שעה",
+        "category": "Time",
+        "level": 1
+    },
+    {
+        "word": "house",
+        "definition": "A building for human habitation, especially one that is lived in by a family or a small group of people.",
+        "example": "They live in a big house in the suburbs.",
+        "hebrewTranslation": "בית",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "household",
+        "definition": "A house and its occupants regarded as a unit.",
+        "example": "The average household income has increased.",
+        "hebrewTranslation": "משק בית",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "housewife",
+        "definition": "A woman whose main occupation is caring for her family, managing household affairs, and doing housework.",
+        "example": "She is a housewife and a mother of three.",
+        "hebrewTranslation": "עקרת בית",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "housing",
+        "definition": "Houses and apartments considered collectively, especially when regarded as a social or economic issue.",
+        "example": "There is a shortage of affordable housing in the city.",
+        "hebrewTranslation": "דיור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "how",
+        "definition": "In what way or manner; by what means.",
+        "example": "How do you solve this puzzle?",
+        "hebrewTranslation": "איך",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "however",
+        "definition": "Used to introduce a statement that contrasts with or seems to contradict something that has been said previously.",
+        "example": "He is a good student; however, he can be lazy at times.",
+        "hebrewTranslation": "עם זאת",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "huge",
+        "definition": "Extremely large; enormous.",
+        "example": "They live in a huge mansion.",
+        "hebrewTranslation": "ענק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "human",
+        "definition": "Relating to or characteristic of people or human beings.",
+        "example": "To err is human.",
+        "hebrewTranslation": "אנושי",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "humane",
+        "definition": "Having or showing compassion or benevolence.",
+        "example": "The organization promotes the humane treatment of animals.",
+        "hebrewTranslation": "אנושי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "humanitarian",
+        "definition": "Concerned with or seeking to promote human welfare.",
+        "example": "They are on a humanitarian mission to help the refugees.",
+        "hebrewTranslation": "הומניטרי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "humanity",
+        "definition": "The human race; human beings collectively.",
+        "example": "We must work together for the future of humanity.",
+        "hebrewTranslation": "אנושות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "humble",
+        "definition": "Having or showing a modest or low estimate of one's own importance.",
+        "example": "Despite his success, he remained a humble man.",
+        "hebrewTranslation": "צנוע",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "humid",
+        "definition": "Marked by a relatively high level of water vapor in the atmosphere.",
+        "example": "The weather was hot and humid.",
+        "hebrewTranslation": "לח",
+        "category": "Nature",
+        "level": 4
+    },
+    {
+        "word": "humidity",
+        "definition": "The amount of water vapor in the air.",
+        "example": "The humidity is very high today.",
+        "hebrewTranslation": "לחות",
+        "category": "Nature",
+        "level": 5
+    },
+    {
+        "word": "humiliate",
+        "definition": "Make (someone) feel ashamed and foolish by injuring their dignity and self-respect, especially publicly.",
+        "example": "He was humiliated by his defeat.",
+        "hebrewTranslation": "להשפיל",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "humiliating",
+        "definition": "Making someone feel ashamed and foolish by injuring their dignity and self-respect.",
+        "example": "It was a humiliating experience.",
+        "hebrewTranslation": "משפיל",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "humiliation",
+        "definition": "The action of humiliating someone or the state of being humiliated.",
+        "example": "He suffered the humiliation of being fired.",
+        "hebrewTranslation": "השפלה",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "humor",
+        "definition": "The quality of being amusing or comic, especially as expressed in literature or speech.",
+        "example": "He has a great sense of humor.",
+        "hebrewTranslation": "הומור",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "humorous",
+        "definition": "Causing lighthearted laughter and amusement; comic.",
+        "example": "It was a humorous story.",
+        "hebrewTranslation": "הומוריסטי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hundred",
+        "definition": "The number equivalent to the product of ten and ten; 100.",
+        "example": "There were a hundred people at the concert.",
+        "hebrewTranslation": "מאה",
+        "category": "Number",
+        "level": 2
+    },
+    {
+        "word": "hunger",
+        "definition": "A feeling of discomfort or weakness caused by lack of food, coupled with the desire to eat.",
+        "example": "Hunger is a major problem in many parts of the world.",
+        "hebrewTranslation": "רעב",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "hungry",
+        "definition": "Feeling or displaying the need for food.",
+        "example": "I'm hungry, let's get something to eat.",
+        "hebrewTranslation": "רעב",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hunt",
+        "definition": "Pursue and kill (a wild animal) for sport or food.",
+        "example": "He likes to hunt deer.",
+        "hebrewTranslation": "לצוד",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hurl",
+        "definition": "Throw (an object) with great force.",
+        "example": "He hurled the stone into the river.",
+        "hebrewTranslation": "להשליך",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "hurricane",
+        "definition": "A storm with a violent wind, in particular a tropical cyclone in the Caribbean.",
+        "example": "The hurricane caused widespread damage.",
+        "hebrewTranslation": "הוריקן",
+        "category": "Nature",
+        "level": 5
+    },
+    {
+        "word": "hurry",
+        "definition": "Move or act with great haste.",
+        "example": "We have to hurry or we'll be late.",
+        "hebrewTranslation": "למהר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "hurt",
+        "definition": "Cause physical pain or injury to.",
+        "example": "Be careful not to hurt yourself.",
+        "hebrewTranslation": "לפגוע",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "husband",
+        "definition": "A married man considered in relation to his spouse.",
+        "example": "Her husband is a doctor.",
+        "hebrewTranslation": "בעל",
+        "category": "Family",
+        "level": 2
+    },
+    {
+        "word": "hygiene",
+        "definition": "Conditions or practices conducive to maintaining health and preventing disease, especially through cleanliness.",
+        "example": "Good personal hygiene is important.",
+        "hebrewTranslation": "היגיינה",
+        "category": "Health",
+        "level": 5
+    },
+    {
+        "word": "hymn",
+        "definition": "A religious song or poem of praise to God or a god.",
+        "example": "The congregation sang a hymn.",
+        "hebrewTranslation": "מזמור",
+        "category": "Religion",
+        "level": 6
+    },
+    {
+        "word": "hypnosis",
+        "definition": "The induction of a state of consciousness in which a person loses the power of voluntary action and is highly responsive to suggestion or direction.",
+        "example": "He was put under hypnosis to help him quit smoking.",
+        "hebrewTranslation": "היפנוזה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "hypnotize",
+        "definition": "Produce a state of hypnosis in (someone).",
+        "example": "The magician tried to hypnotize a member of the audience.",
+        "hebrewTranslation": "להפנט",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hypocrisy",
+        "definition": "The practice of claiming to have moral standards or beliefs to which one's own behavior does not conform; pretense.",
+        "example": "His hypocrisy was obvious to everyone.",
+        "hebrewTranslation": "צביעות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "hypocrite",
+        "definition": "A person who indulges in hypocrisy.",
+        "example": "He is a hypocrite for telling others not to smoke while he does.",
+        "hebrewTranslation": "צבוע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hypothesis",
+        "definition": "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
+        "example": "The scientist tested his hypothesis with an experiment.",
+        "hebrewTranslation": "השערה",
+        "category": "Science",
+        "level": 7
+    },
+    {
+        "word": "hypothetical",
+        "definition": "Of, based on, or serving as a hypothesis.",
+        "example": "Let's consider a hypothetical situation.",
+        "hebrewTranslation": "היפותטי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "hysterical",
+        "definition": "Deriving from or affected by uncontrolled extreme emotion.",
+        "example": "She became hysterical with fear.",
+        "hebrewTranslation": "היסטרי",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "ice",
+        "definition": "Frozen water, a brittle transparent crystalline solid.",
+        "example": "Would you like some ice in your drink?",
+        "hebrewTranslation": "קרח",
+        "category": "Nature",
+        "level": 1
+    },
+    {
+        "word": "icon",
+        "definition": "A person or thing regarded as a representative symbol of something.",
+        "example": "She is a fashion icon.",
+        "hebrewTranslation": "סמל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "idea",
+        "definition": "A thought or suggestion as to a possible course of action.",
+        "example": "That's a brilliant idea!",
+        "hebrewTranslation": "רעיון",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "ideal",
+        "definition": "Satisfying one's conception of what is perfect; most suitable.",
+        "example": "This is the ideal location for a new school.",
+        "hebrewTranslation": "אידיאלי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "identical",
+        "definition": "Similar in every detail; exactly alike.",
+        "example": "The twins are identical.",
+        "hebrewTranslation": "זהה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "identification",
+        "definition": "The action or process of identifying someone or something or the fact of being identified.",
+        "example": "Please show some form of identification.",
+        "hebrewTranslation": "זיהוי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "identify",
+        "definition": "Establish or indicate who or what (someone or something) is.",
+        "example": "Can you identify the person in the photograph?",
+        "hebrewTranslation": "לזהות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "identity",
+        "definition": "The fact of being who or what a person or thing is.",
+        "example": "He tried to hide his true identity.",
+        "hebrewTranslation": "זהות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "ideological",
+        "definition": "Based on or relating to a system of ideas and ideals, especially one that forms the basis of economic or political theory and policy.",
+        "example": "There are deep ideological differences between the two parties.",
+        "hebrewTranslation": "אידיאולוגי",
+        "category": "Politics",
+        "level": 7
+    },
+    {
+        "word": "ideology",
+        "definition": "A system of ideas and ideals, especially one that forms the basis of economic or political theory and policy.",
+        "example": "He is a firm believer in socialist ideology.",
+        "hebrewTranslation": "אידיאולוגיה",
+        "category": "Politics",
+        "level": 7
+    },
+    {
+        "word": "idiot",
+        "definition": "A stupid person.",
+        "example": "He felt like an idiot for making such a simple mistake.",
+        "hebrewTranslation": "אידיוט",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "idle",
+        "definition": "(of a person) avoiding work; lazy.",
+        "example": "He spent the day in idle conversation.",
+        "hebrewTranslation": "בטל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "if",
+        "definition": "Introducing a conditional clause.",
+        "example": "If it rains, we will stay inside.",
+        "hebrewTranslation": "אם",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "ignite",
+        "definition": "Catch fire or cause to catch fire.",
+        "example": "The spark ignited the dry grass.",
+        "hebrewTranslation": "להצית",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "ignorance",
+        "definition": "Lack of knowledge or information.",
+        "example": "His ignorance of the law is not an excuse.",
+        "hebrewTranslation": "בורות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "ignorant",
+        "definition": "Lacking knowledge or awareness in general; uneducated or unsophisticated.",
+        "example": "He is ignorant of the facts.",
+        "hebrewTranslation": "בור",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "ignore",
+        "definition": "Refuse to take notice of or acknowledge; disregard intentionally.",
+        "example": "He decided to ignore her rude comment.",
+        "hebrewTranslation": "להתעלם",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "ill",
+        "definition": "Not in full health; sick.",
+        "example": "He was too ill to go to work.",
+        "hebrewTranslation": "חולה",
+        "category": "Health",
+        "level": 2
+    },
+    {
+        "word": "illegal",
+        "definition": "Contrary to or forbidden by law, especially criminal law.",
+        "example": "It is illegal to drive without a license.",
+        "hebrewTranslation": "לא חוקי",
+        "category": "Legal",
+        "level": 4
+    },
+    {
+        "word": "illegible",
+        "definition": "Not clear enough to be read.",
+        "example": "His handwriting is illegible.",
+        "hebrewTranslation": "לא קריא",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "illiterate",
+        "definition": "Unable to read or write.",
+        "example": "Many people in the village are illiterate.",
+        "hebrewTranslation": "אנאלפבית",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "illness",
+        "definition": "A disease or period of sickness affecting the body or mind.",
+        "example": "She is recovering from a long illness.",
+        "hebrewTranslation": "מחלה",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "illuminate",
+        "definition": "Light up.",
+        "example": "The streetlights illuminated the path.",
+        "hebrewTranslation": "להאיר",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "illusion",
+        "definition": "A thing that is or is likely to be wrongly perceived or interpreted by the senses.",
+        "example": "The magician created the illusion that he had disappeared.",
+        "hebrewTranslation": "אשליה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "illustrate",
+        "definition": "Provide (a book, newspaper, etc.) with pictures.",
+        "example": "The book is beautifully illustrated.",
+        "hebrewTranslation": "לאייר",
+        "category": "Art",
+        "level": 5
+    },
+    {
+        "word": "illustration",
+        "definition": "A picture illustrating a book, newspaper, etc.",
+        "example": "The book has many colorful illustrations.",
+        "hebrewTranslation": "איור",
+        "category": "Art",
+        "level": 5
+    },
+    {
+        "word": "image",
+        "definition": "A representation of the external form of a person or thing in art.",
+        "example": "The book contains many images of the ancient city.",
+        "hebrewTranslation": "תמונה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "imaginary",
+        "definition": "Existing only in the imagination.",
+        "example": "The child had an imaginary friend.",
+        "hebrewTranslation": "דמיוני",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "imagination",
+        "definition": "The faculty or action of forming new ideas, or images or concepts of external objects not present to the senses.",
+        "example": "He has a vivid imagination.",
+        "hebrewTranslation": "דמיון",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "imagine",
+        "definition": "Form a mental image or concept of.",
+        "example": "Can you imagine what it would be like to fly?",
+        "hebrewTranslation": "לדמיין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "imitate",
+        "definition": "Take or follow as a model.",
+        "example": "He can imitate the calls of many different birds.",
+        "hebrewTranslation": "לחקות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "imitation",
+        "definition": "A thing intended to simulate or copy something else.",
+        "example": "The bag is an imitation of a famous brand.",
+        "hebrewTranslation": "חיקוי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "immediate",
+        "definition": "Occurring or done at once; instant.",
+        "example": "The problem requires immediate attention.",
+        "hebrewTranslation": "מיידי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "immediately",
+        "definition": "At once; instantly.",
+        "example": "Please come here immediately.",
+        "hebrewTranslation": "מייד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "immense",
+        "definition": "Extremely large or great, especially in scale or degree.",
+        "example": "The project was an immense success.",
+        "hebrewTranslation": "עצום",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "immerse",
+        "definition": "Dip or submerge in a liquid.",
+        "example": "She immersed herself in her work.",
+        "hebrewTranslation": "לטבול",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "immigrant",
+        "definition": "A person who comes to live permanently in a foreign country.",
+        "example": "Many immigrants came to this country in search of a better life.",
+        "hebrewTranslation": "מהגר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "immigrate",
+        "definition": "Come to live permanently in a foreign country.",
+        "example": "His family immigrated from Italy.",
+        "hebrewTranslation": "להגר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "imminent",
+        "definition": "About to happen.",
+        "example": "The storm is imminent.",
+        "hebrewTranslation": "קרוב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "immoral",
+        "definition": "Not conforming to accepted standards of morality.",
+        "example": "It is immoral to steal.",
+        "hebrewTranslation": "לא מוסרי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "immune",
+        "definition": "Resistant to a particular infection or toxin owing to the presence of specific antibodies or sensitized white blood cells.",
+        "example": "He is immune to the disease.",
+        "hebrewTranslation": "חסין",
+        "category": "Health",
+        "level": 4
+    },
+    {
+        "word": "impact",
+        "definition": "The action of one object coming forcibly into contact with another.",
+        "example": "The new law will have a significant impact on the economy.",
+        "hebrewTranslation": "השפעה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "impair",
+        "definition": "Weaken or damage something (especially a human faculty or function).",
+        "example": "Loud music can impair your hearing.",
+        "hebrewTranslation": "לפגום",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "impart",
+        "definition": "Make (information) known; communicate.",
+        "example": "The teacher's role is to impart knowledge to the students.",
+        "hebrewTranslation": "להקנות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "impartial",
+        "definition": "Treating all rivals or disputants equally; fair and just.",
+        "example": "A judge must be impartial.",
+        "hebrewTranslation": "חסר פניות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "impatient",
+        "definition": "Having or showing a tendency to be quickly irritated or provoked.",
+        "example": "He is very impatient with slow drivers.",
+        "hebrewTranslation": "חסר סבלנות",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "impatience",
+        "definition": "The tendency to be impatient; irritability or restlessness.",
+        "example": "She tapped her foot with impatience.",
+        "hebrewTranslation": "חוסר סבלנות",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "impede",
+        "definition": "Delay or prevent (someone or something) by obstructing them; hinder.",
+        "example": "The bad weather will impede our progress.",
+        "hebrewTranslation": "לעכב",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "impediment",
+        "definition": "A hindrance or obstruction in doing something.",
+        "example": "The lack of funding is a major impediment to the project.",
+        "hebrewTranslation": "מכשול",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "impel",
+        "definition": "Drive, force, or urge (someone) to do something.",
+        "example": "His sense of duty impelled him to act.",
+        "hebrewTranslation": "לדחוף",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "imperative",
+        "definition": "Of vital importance; crucial.",
+        "example": "It is imperative that we act now.",
+        "hebrewTranslation": "הכרחי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "imperial",
+        "definition": "Relating to an empire.",
+        "example": "The British Empire had many imperial colonies.",
+        "hebrewTranslation": "אימפריאלי",
+        "category": "History",
+        "level": 6
+    },
+    {
+        "word": "impersonal",
+        "definition": "Not influenced by, showing, or involving personal feeling.",
+        "example": "The letter was cold and impersonal.",
+        "hebrewTranslation": "לא אישי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "impetus",
+        "definition": "The force or energy with which a body moves.",
+        "example": "The new discovery gave impetus to the research.",
+        "hebrewTranslation": "תנופה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "implement",
+        "definition": "Put (a decision, plan, agreement, etc.) into effect.",
+        "example": "The company will implement the new policy next month.",
+        "hebrewTranslation": "ליישם",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "implementation",
+        "definition": "The process of putting a decision or plan into effect; execution.",
+        "example": "The implementation of the new system was successful.",
+        "hebrewTranslation": "יישום",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "implicate",
+        "definition": "Show (someone) to be involved in a crime.",
+        "example": "The evidence implicated him in the robbery.",
+        "hebrewTranslation": "לסבך",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "implication",
+        "definition": "The conclusion that can be drawn from something, although it is not explicitly stated.",
+        "example": "The implication is that he is not telling the truth.",
+        "hebrewTranslation": "השלכה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "implicit",
+        "definition": "Suggested though not directly expressed.",
+        "example": "There was an implicit threat in his words.",
+        "hebrewTranslation": "מרומז",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "imply",
+        "definition": "Strongly suggest the truth or existence of (something not expressly stated).",
+        "example": "What are you trying to imply?",
+        "hebrewTranslation": "לרמוז",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "import",
+        "definition": "Bring (goods or services) into a country from abroad for sale.",
+        "example": "The country imports a lot of oil.",
+        "hebrewTranslation": "לייבא",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "importance",
+        "definition": "The state or fact of being of great significance or value.",
+        "example": "He stressed the importance of education.",
+        "hebrewTranslation": "חשיבות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "important",
+        "definition": "Of great significance or value.",
+        "example": "It's important to be on time.",
+        "hebrewTranslation": "חשוב",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "impose",
+        "definition": "Force (something unwelcome or unfamiliar) to be accepted or put in place.",
+        "example": "The government imposed a new tax.",
+        "hebrewTranslation": "להטיל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "imposition",
+        "definition": "The action or process of imposing something or of being imposed.",
+        "example": "The new tax was a heavy imposition on the poor.",
+        "hebrewTranslation": "הטלה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "impossible",
+        "definition": "Not able to occur, exist, or be done.",
+        "example": "It's impossible to be in two places at once.",
+        "hebrewTranslation": "בלתי אפשרי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "impress",
+        "definition": "Make (someone) feel admiration and respect.",
+        "example": "He tried to impress her with his knowledge.",
+        "hebrewTranslation": "להרשים",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "impression",
+        "definition": "An idea, feeling, or opinion about something or someone, especially one formed without conscious thought or on the basis of little evidence.",
+        "example": "He made a good impression on his first day at work.",
+        "hebrewTranslation": "רושם",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "impressive",
+        "definition": "Evoking admiration through size, quality, or skill; grand, imposing, or awesome.",
+        "example": "It was an impressive performance.",
+        "hebrewTranslation": "מרשים",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "imprison",
+        "definition": "Put or keep in prison or a place like a prison.",
+        "example": "He was imprisoned for his crimes.",
+        "hebrewTranslation": "לכלוא",
+        "category": "Legal",
+        "level": 5
+    },
+    {
+        "word": "imprisonment",
+        "definition": "The state of being imprisoned; captivity.",
+        "example": "He was sentenced to life imprisonment.",
+        "hebrewTranslation": "מאסר",
+        "category": "Legal",
+        "level": 6
+    },
+    {
+        "word": "improve",
+        "definition": "Make or become better.",
+        "example": "I need to improve my English.",
+        "hebrewTranslation": "לשפר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "improvement",
+        "definition": "A thing that makes something better or is better than something else.",
+        "example": "There has been a significant improvement in his health.",
+        "hebrewTranslation": "שיפור",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "impulsive",
+        "definition": "Acting or done without forethought.",
+        "example": "He has an impulsive nature.",
+        "hebrewTranslation": "אימפולסיבי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in",
+        "definition": "Expressing the situation of something that is or appears to be enclosed or surrounded by something else.",
+        "example": "The cat is in the box.",
+        "hebrewTranslation": "ב",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "in case",
+        "definition": "As a provision against something happening or being true.",
+        "example": "Take an umbrella in case it rains.",
+        "hebrewTranslation": "למקרה ש",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "in charge of",
+        "definition": "Having control or command of.",
+        "example": "Who is in charge of this project?",
+        "hebrewTranslation": "אחראי על",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in common",
+        "definition": "Shared by or belonging to two or more people or things.",
+        "example": "We have a lot in common.",
+        "hebrewTranslation": "במשותף",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in comparison with",
+        "definition": "When compared with.",
+        "example": "In comparison with other cities, this one is very safe.",
+        "hebrewTranslation": "בהשוואה ל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in conclusion",
+        "definition": "Finally; to sum up.",
+        "example": "In conclusion, I would like to thank you all for coming.",
+        "hebrewTranslation": "לסיכום",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in connection with",
+        "definition": "Concerning; about.",
+        "example": "He was arrested in connection with the robbery.",
+        "hebrewTranslation": "בקשר ל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in danger",
+        "definition": "In a situation in which harm, loss, or failure is possible.",
+        "example": "The species is in danger of extinction.",
+        "hebrewTranslation": "בסכנה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in exchange for",
+        "definition": "As a thing given in return for.",
+        "example": "He gave her a painting in exchange for her help.",
+        "hebrewTranslation": "בתמורה ל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "in fact",
+        "definition": "Used to emphasize the truth of a statement, especially one that is surprising or contrary to what might be expected.",
+        "example": "He looks young, but in fact he is over fifty.",
+        "hebrewTranslation": "למעשה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in favor of",
+        "definition": "In support or on the side of.",
+        "example": "Are you in favor of the new law?",
+        "hebrewTranslation": "בעד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in front of",
+        "definition": "In a position forward of (someone or something).",
+        "example": "The car is parked in front of the house.",
+        "hebrewTranslation": "מול",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "in general",
+        "definition": "Usually; in most situations.",
+        "example": "In general, I prefer to wake up early.",
+        "hebrewTranslation": "באופן כללי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in order to",
+        "definition": "With the aim or purpose of doing something.",
+        "example": "He studied hard in order to pass the exam.",
+        "hebrewTranslation": "כדי ל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in other words",
+        "definition": "To express something in a different, usually simpler, way.",
+        "example": "He was too busy; in other words, he didn't want to come.",
+        "hebrewTranslation": "במילים אחרות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in place of",
+        "definition": "As a substitute for.",
+        "example": "We had soup in place of a main course.",
+        "hebrewTranslation": "במקום",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in practice",
+        "definition": "In reality, as opposed to in theory.",
+        "example": "The idea sounds good, but it's hard to implement in practice.",
+        "hebrewTranslation": "בפועל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in private",
+        "definition": "Not in public; secretly.",
+        "example": "I need to speak with you in private.",
+        "hebrewTranslation": "באופן פרטי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in public",
+        "definition": "In a place where other people can see or hear.",
+        "example": "They argued in public.",
+        "hebrewTranslation": "בפומבי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in retrospect",
+        "definition": "When looking back on a past event or situation.",
+        "example": "In retrospect, I should have taken the other job.",
+        "hebrewTranslation": "בדיעבד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "in short",
+        "definition": "To sum up; briefly.",
+        "example": "In short, the plan failed.",
+        "hebrewTranslation": "בקיצור",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "in spite of",
+        "definition": "Without being affected by the particular factor mentioned.",
+        "example": "In spite of the rain, we enjoyed the walk.",
+        "hebrewTranslation": "למרות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in terms of",
+        "definition": "With regard to the particular aspect or subject specified.",
+        "example": "In terms of cost, this is the best option.",
+        "hebrewTranslation": "במונחים של",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in the course of",
+        "definition": "During.",
+        "example": "In the course of the investigation, new evidence was found.",
+        "hebrewTranslation": "במהלך",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in the long run",
+        "definition": "Over a long period of time; eventually.",
+        "example": "This decision will be beneficial in the long run.",
+        "hebrewTranslation": "בטווח הארוך",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "in the meantime",
+        "definition": "During the time before something happens or before a specified period ends.",
+        "example": "The new system will be ready next week; in the meantime, we'll use the old one.",
+        "hebrewTranslation": "בינתיים",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in time",
+        "definition": "Not late; with enough time to spare.",
+        "example": "We arrived just in time for the movie.",
+        "hebrewTranslation": "בזמן",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "in vain",
+        "definition": "Without success or a result.",
+        "example": "All our efforts were in vain.",
+        "hebrewTranslation": "לשווא",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "in view of",
+        "definition": "Because or as a result of.",
+        "example": "In view of the circumstances, we decided to cancel the event.",
+        "hebrewTranslation": "לאור",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "inability",
+        "definition": "The state of being unable to do something.",
+        "example": "His inability to swim was a problem at the beach.",
+        "hebrewTranslation": "אי יכולת",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inaccessible",
+        "definition": "Unable to be reached.",
+        "example": "The village is inaccessible by road.",
+        "hebrewTranslation": "לא נגיש",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inaccurate",
+        "definition": "Not accurate; incorrect or untrue.",
+        "example": "The report contained inaccurate information.",
+        "hebrewTranslation": "לא מדויק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inadequate",
+        "definition": "Lacking the quality or quantity required; insufficient for a purpose.",
+        "example": "The food supply was inadequate for the number of people.",
+        "hebrewTranslation": "לא מספיק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inappropriate",
+        "definition": "Not suitable or proper in the circumstances.",
+        "example": "His comments were completely inappropriate.",
+        "hebrewTranslation": "לא הולם",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inattentive",
+        "definition": "Not paying attention to something.",
+        "example": "He was inattentive in class and missed the instructions.",
+        "hebrewTranslation": "לא קשוב",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "incalculable",
+        "definition": "Too great to be calculated or estimated.",
+        "example": "The damage to the environment is incalculable.",
+        "hebrewTranslation": "לא ניתן לחישוב",
+        "category": "General",
+        "level": 9
+    },
+    {
+        "word": "incapable",
+        "definition": "Unable to do or achieve (something).",
+        "example": "He is incapable of telling a lie.",
+        "hebrewTranslation": "לא מסוגל",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incentive",
+        "definition": "A thing that motivates or encourages one to do something.",
+        "example": "The company offered a financial incentive for employees to work harder.",
+        "hebrewTranslation": "תמריץ",
+        "category": "Business",
+        "level": 6
+    },
+    {
+        "word": "incessant",
+        "definition": "(of something regarded as unpleasant) continuing without pause or interruption.",
+        "example": "The incessant noise from the construction site was unbearable.",
+        "hebrewTranslation": "בלתי פוסק",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "incident",
+        "definition": "An event or occurrence.",
+        "example": "The police are investigating the incident.",
+        "hebrewTranslation": "תקרית",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "incidentally",
+        "definition": "Used when you are about to say something that is not as important as the main subject of conversation.",
+        "example": "Incidentally, I saw your brother yesterday.",
+        "hebrewTranslation": "אגב",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inclination",
+        "definition": "A person's natural tendency or urge to act or feel in a particular way; a disposition or propensity.",
+        "example": "She has a natural inclination towards music.",
+        "hebrewTranslation": "נטייה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "incline",
+        "definition": "Feel willing or favorably disposed toward (an action, belief, or attitude).",
+        "example": "I incline to agree with you.",
+        "hebrewTranslation": "לנטות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "include",
+        "definition": "Comprise or contain as part of a whole.",
+        "example": "The price includes breakfast.",
+        "hebrewTranslation": "לכלול",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "inclusion",
+        "definition": "The action or state of including or of being included within a group or structure.",
+        "example": "The school promotes the inclusion of all students.",
+        "hebrewTranslation": "הכללה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inclusive",
+        "definition": "Including all the services or items normally expected or required.",
+        "example": "The price is inclusive of all taxes.",
+        "hebrewTranslation": "כולל",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "income",
+        "definition": "Money received, especially on a regular basis, for work or through investments.",
+        "example": "His monthly income is not enough to support his family.",
+        "hebrewTranslation": "הכנסה",
+        "category": "Finance",
+        "level": 2
+    },
+    {
+        "word": "incomparable",
+        "definition": "Without an equal in quality or extent; matchless.",
+        "example": "The beauty of the sunset was incomparable.",
+        "hebrewTranslation": "אין שני לו",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "incompatible",
+        "definition": "(of two things) so different in nature as to be incapable of coexisting.",
+        "example": "Their personalities were completely incompatible.",
+        "hebrewTranslation": "לא תואם",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incompetent",
+        "definition": "Not having or showing the necessary skills to do something successfully.",
+        "example": "He was fired for being incompetent.",
+        "hebrewTranslation": "חסר יכולת",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incomplete",
+        "definition": "Not having all the necessary or appropriate parts.",
+        "example": "The report is incomplete.",
+        "hebrewTranslation": "לא שלם",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "incomprehensible",
+        "definition": "Not able to be understood; not intelligible.",
+        "example": "His lecture was incomprehensible to most of the students.",
+        "hebrewTranslation": "לא מובן",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "inconclusive",
+        "definition": "Not leading to a firm conclusion; not ending doubt or dispute.",
+        "example": "The results of the experiment were inconclusive.",
+        "hebrewTranslation": "לא חד משמעי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inconsistent",
+        "definition": "Not staying the same throughout.",
+        "example": "His statements were inconsistent with the evidence.",
+        "hebrewTranslation": "לא עקבי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inconvenience",
+        "definition": "Trouble or difficulty caused to one's personal requirements or comfort.",
+        "example": "We apologize for any inconvenience caused.",
+        "hebrewTranslation": "אי נוחות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inconvenient",
+        "definition": "Causing trouble, difficulties, or discomfort.",
+        "example": "It's an inconvenient time to call.",
+        "hebrewTranslation": "לא נוח",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "incorporate",
+        "definition": "Take in or contain (something) as part of a whole; include.",
+        "example": "We will incorporate your suggestions into the final plan.",
+        "hebrewTranslation": "לשלב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incorrect",
+        "definition": "Not in accordance with fact; wrong.",
+        "example": "Your answer is incorrect.",
+        "hebrewTranslation": "לא נכון",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "increase",
+        "definition": "Become or make greater in size, amount, intensity, or degree.",
+        "example": "The population of the city continues to increase.",
+        "hebrewTranslation": "להגדיל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "increasingly",
+        "definition": "To an increasing extent; more and more.",
+        "example": "It is becoming increasingly difficult to find a job.",
+        "hebrewTranslation": "יותר ויותר",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "incredible",
+        "definition": "Difficult to believe; extraordinary.",
+        "example": "The view from the top of the mountain was incredible.",
+        "hebrewTranslation": "לא ייאמן",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "incredibly",
+        "definition": "To a great degree; extremely or unusually.",
+        "example": "She is incredibly talented.",
+        "hebrewTranslation": "באופן לא ייאמן",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incur",
+        "definition": "Become subject to (something unwelcome or unpleasant) as a result of one's own behavior or actions.",
+        "example": "The company will incur additional costs.",
+        "hebrewTranslation": "לשאת ב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "incurable",
+        "definition": "(of a sick person or a disease) not able to be cured.",
+        "example": "He was diagnosed with an incurable disease.",
+        "hebrewTranslation": "חסר מרפא",
+        "category": "Health",
+        "level": 7
+    },
+    {
+        "word": "indebted",
+        "definition": "Owing money.",
+        "example": "I am deeply indebted to you for your help.",
+        "hebrewTranslation": "חייב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indecent",
+        "definition": "Not conforming with generally accepted standards of behavior or propriety; obscene.",
+        "example": "He was arrested for indecent exposure.",
+        "hebrewTranslation": "לא צנוע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indeed",
+        "definition": "Used to emphasize a statement or response confirming something already suggested.",
+        "example": "It was, indeed, a very cold day.",
+        "hebrewTranslation": "אכן",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "indefinite",
+        "definition": "Lasting for an unknown or unstated length of time.",
+        "example": "The strike could last for an indefinite period.",
+        "hebrewTranslation": "בלתי מוגדר",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indefinitely",
+        "definition": "For an unlimited or unspecified period of time.",
+        "example": "The meeting was postponed indefinitely.",
+        "hebrewTranslation": "ללא הגבלת זמן",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "indent",
+        "definition": "Start (a line of text) or position (a block of text) further from the margin than the main part of the text.",
+        "example": "You should indent the first line of each paragraph.",
+        "hebrewTranslation": "להזיח",
+        "category": "Writing",
+        "level": 5
+    },
+    {
+        "word": "independence",
+        "definition": "The fact or state of being independent.",
+        "example": "The country gained its independence in 1948.",
+        "hebrewTranslation": "עצמאות",
+        "category": "Politics",
+        "level": 7
+    },
+    {
+        "word": "independent",
+        "definition": "Free from outside control; not depending on another for livelihood or subsistence.",
+        "example": "She is a very independent woman.",
+        "hebrewTranslation": "עצמאי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "independently",
+        "definition": "In a way that is free from the control, influence, support, aid, or the like, of others.",
+        "example": "He works independently from home.",
+        "hebrewTranslation": "באופן עצמאי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "indescribable",
+        "definition": "Too unusual, extreme, or vague to be adequately described.",
+        "example": "The beauty of the scene was indescribable.",
+        "hebrewTranslation": "לא ניתן לתיאור",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "index",
+        "definition": "An alphabetical list of names, subjects, etc., with references to the places where they occur, typically found at the end of a book.",
+        "example": "Look up the topic in the index.",
+        "hebrewTranslation": "אינדקס",
+        "category": "Writing",
+        "level": 4
+    },
+    {
+        "word": "indicate",
+        "definition": "Point out; show.",
+        "example": "The survey results indicate a change in public opinion.",
+        "hebrewTranslation": "להצביע על",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "indication",
+        "definition": "A sign or piece of information that indicates something.",
+        "example": "There is no indication that the problem will be solved soon.",
+        "hebrewTranslation": "סימן",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indicative",
+        "definition": "Serving as a sign or indication of something.",
+        "example": "His smile was indicative of his happiness.",
+        "hebrewTranslation": "מעיד על",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "indifference",
+        "definition": "Lack of interest, concern, or sympathy.",
+        "example": "She showed complete indifference to his suffering.",
+        "hebrewTranslation": "אדישות",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "indifferent",
+        "definition": "Having no particular interest or sympathy; unconcerned.",
+        "example": "He was indifferent to the outcome of the game.",
+        "hebrewTranslation": "אדיש",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "indigenous",
+        "definition": "Originating or occurring naturally in a particular place; native.",
+        "example": "The indigenous people of the region have a rich culture.",
+        "hebrewTranslation": "ילידי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indignant",
+        "definition": "Feeling or showing anger or annoyance at what is perceived as unfair treatment.",
+        "example": "She was indignant at the accusation.",
+        "hebrewTranslation": "ממורמר",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "indignation",
+        "definition": "Anger or annoyance provoked by what is perceived as unfair treatment.",
+        "example": "He was filled with indignation at the injustice.",
+        "hebrewTranslation": "תרעומת",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "indirect",
+        "definition": "Not directly caused by or resulting from something.",
+        "example": "The new law had an indirect effect on the economy.",
+        "hebrewTranslation": "עקיף",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "indiscriminate",
+        "definition": "Done at random or without careful judgment.",
+        "example": "The terrorist attack was an act of indiscriminate violence.",
+        "hebrewTranslation": "חסר הבחנה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "indispensable",
+        "definition": "Absolutely necessary.",
+        "example": "A good dictionary is indispensable for learning a language.",
+        "hebrewTranslation": "הכרחי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "individual",
+        "definition": "A single human being as distinct from a group, class, or family.",
+        "example": "Each individual has the right to freedom of speech.",
+        "hebrewTranslation": "פרט",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "induce",
+        "definition": "Succeed in persuading or influencing (someone) to do something.",
+        "example": "They induced him to sign the contract.",
+        "hebrewTranslation": "לשכנע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indulge",
+        "definition": "Allow oneself to enjoy the pleasure of.",
+        "example": "I decided to indulge in a piece of chocolate cake.",
+        "hebrewTranslation": "להתפנק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "indulgence",
+        "definition": "The action or fact of indulging.",
+        "example": "Chocolate is my only indulgence.",
+        "hebrewTranslation": "פינוק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "industrial",
+        "definition": "Relating to or characterized by industry.",
+        "example": "The city is a major industrial center.",
+        "hebrewTranslation": "תעשייתי",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "industrious",
+        "definition": "Diligent and hard-working.",
+        "example": "He is an industrious student.",
+        "hebrewTranslation": "חרוץ",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "industry",
+        "definition": "Economic activity concerned with the processing of raw materials and manufacture of goods in factories.",
+        "example": "The tourism industry is very important to the economy.",
+        "hebrewTranslation": "תעשייה",
+        "category": "Business",
+        "level": 3
+    },
+    {
+        "word": "inevitable",
+        "definition": "Certain to happen; unavoidable.",
+        "example": "Change is an inevitable part of life.",
+        "hebrewTranslation": "בלתי נמנע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inevitably",
+        "definition": "As is certain to happen; unavoidably.",
+        "example": "Inevitably, the project was delayed.",
+        "hebrewTranslation": "באופן בלתי נמנע",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inexcusable",
+        "definition": "Too bad to be justified or tolerated.",
+        "example": "His behavior was inexcusable.",
+        "hebrewTranslation": "בלתי נסלח",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inexpensive",
+        "definition": "Not costing a great deal; cheap.",
+        "example": "It was an inexpensive but delicious meal.",
+        "hebrewTranslation": "זול",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "inexperienced",
+        "definition": "Having little knowledge or experience of a particular thing.",
+        "example": "He is an inexperienced driver.",
+        "hebrewTranslation": "חסר ניסיון",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "inexplicable",
+        "definition": "Hard to explain or account for.",
+        "example": "For some inexplicable reason, he decided to quit his job.",
+        "hebrewTranslation": "בלתי מוסבר",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "infamous",
+        "definition": "Well known for some bad quality or deed.",
+        "example": "He is an infamous criminal.",
+        "hebrewTranslation": "ידוע לשמצה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "infamy",
+        "definition": "The state of being well known for some bad quality or deed.",
+        "example": "He will live in infamy.",
+        "hebrewTranslation": "שמצה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "infant",
+        "definition": "A very young child or baby.",
+        "example": "The infant was sleeping peacefully.",
+        "hebrewTranslation": "תינוק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "infancy",
+        "definition": "The state or period of early childhood or babyhood.",
+        "example": "The project is still in its infancy.",
+        "hebrewTranslation": "ינקות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "infect",
+        "definition": "Affect (a person, organ, etc.) with a disease-causing organism.",
+        "example": "The wound became infected.",
+        "hebrewTranslation": "להדביק",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "infection",
+        "definition": "The process of infecting or the state of being infected.",
+        "example": "He has a serious infection.",
+        "hebrewTranslation": "זיהום",
+        "category": "Health",
+        "level": 4
+    },
+    {
+        "word": "infectious",
+        "definition": "(of a disease) likely to be transmitted to people, organisms, etc., through the environment.",
+        "example": "The flu is an infectious disease.",
+        "hebrewTranslation": "מדבק",
+        "category": "Health",
+        "level": 5
+    },
+    {
+        "word": "infer",
+        "definition": "Deduce or conclude (information) from evidence and reasoning rather than from explicit statements.",
+        "example": "What can you infer from the evidence?",
+        "hebrewTranslation": "להסיק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inference",
+        "definition": "A conclusion reached on the basis of evidence and reasoning.",
+        "example": "The police drew an inference from the available facts.",
+        "hebrewTranslation": "הסקה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inferior",
+        "definition": "Lower in rank, status, or quality.",
+        "example": "This product is inferior to the one we bought last year.",
+        "hebrewTranslation": "נחות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "infinite",
+        "definition": "Limitless or endless in space, extent, or size; impossible to measure or calculate.",
+        "example": "The universe is infinite.",
+        "hebrewTranslation": "אינסופי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "influential",
+        "definition": "Having great influence on someone or something.",
+        "example": "He is an influential figure in the art world.",
+        "hebrewTranslation": "משפיע",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inform",
+        "definition": "Give (someone) facts or information; tell.",
+        "example": "Please inform me of any changes.",
+        "hebrewTranslation": "ליידע",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "informal",
+        "definition": "Having a relaxed, friendly, or unofficial style, manner, or nature.",
+        "example": "It was an informal meeting.",
+        "hebrewTranslation": "לא רשמי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "information",
+        "definition": "Facts provided or learned about something or someone.",
+        "example": "I need more information about the project.",
+        "hebrewTranslation": "מידע",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "informative",
+        "definition": "Providing useful or interesting information.",
+        "example": "The lecture was very informative.",
+        "hebrewTranslation": "אינפורמטיבי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "infrequent",
+        "definition": "Not occurring often; rare.",
+        "example": "His visits became infrequent.",
+        "hebrewTranslation": "לא תדיר",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "infuriate",
+        "definition": "Make (someone) extremely angry and impatient.",
+        "example": "His rude behavior infuriated me.",
+        "hebrewTranslation": "להרגיז",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "ingenious",
+        "definition": "(of a person) clever, original, and inventive.",
+        "example": "He came up with an ingenious solution to the problem.",
+        "hebrewTranslation": "גאוני",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "ingenuity",
+        "definition": "The quality of being clever, original, and inventive.",
+        "example": "She showed great ingenuity in solving the puzzle.",
+        "hebrewTranslation": "תחכום",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "ingest",
+        "definition": "Take (food, drink, or another substance) into the body by swallowing or absorbing it.",
+        "example": "It is dangerous to ingest this chemical.",
+        "hebrewTranslation": "לבלוע",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "ingredient",
+        "definition": "Any of the foods or substances that are combined to make a particular dish.",
+        "example": "What are the ingredients for this recipe?",
+        "hebrewTranslation": "מרכיב",
+        "category": "Food",
+        "level": 4
+    },
+    {
+        "word": "inhabit",
+        "definition": "(of a person, animal, or group) live in or occupy (a place or environment).",
+        "example": "Many different species inhabit this forest.",
+        "hebrewTranslation": "לאכלס",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inhabitant",
+        "definition": "A person or animal that lives in or occupies a place.",
+        "example": "The inhabitants of the village were very friendly.",
+        "hebrewTranslation": "תושב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inherent",
+        "definition": "Existing in something as a permanent, essential, or characteristic attribute.",
+        "example": "There is an inherent risk in this type of investment.",
+        "hebrewTranslation": "מובנה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inherit",
+        "definition": "Receive (money, property, or a title) as an heir at the death of the previous holder.",
+        "example": "He will inherit the family business.",
+        "hebrewTranslation": "לרשת",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inheritance",
+        "definition": "A thing that is inherited.",
+        "example": "She received a large inheritance from her grandmother.",
+        "hebrewTranslation": "ירושה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inhibit",
+        "definition": "Hinder, restrain, or prevent (an action or process).",
+        "example": "Fear can inhibit your ability to perform.",
+        "hebrewTranslation": "לעכב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inhibition",
+        "definition": "A feeling that makes one self-conscious and unable to act in a relaxed and natural way.",
+        "example": "He had no inhibitions about dancing in public.",
+        "hebrewTranslation": "עכבה",
+        "category": "Emotion",
+        "level": 7
+    },
+    {
+        "word": "initial",
+        "definition": "Existing or occurring at the beginning.",
+        "example": "My initial impression was that he was a very serious person.",
+        "hebrewTranslation": "ראשוני",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "initially",
+        "definition": "At first.",
+        "example": "Initially, I was not sure if I would like the movie.",
+        "hebrewTranslation": "בתחילה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "initiate",
+        "definition": "Cause (a process or action) to begin.",
+        "example": "The company will initiate a new marketing campaign.",
+        "hebrewTranslation": "ליזום",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "initiative",
+        "definition": "The ability to assess and initiate things independently.",
+        "example": "She showed great initiative in her work.",
+        "hebrewTranslation": "יוזמה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inject",
+        "definition": "Introduce (a liquid, especially a drug or vaccine) into the body with a syringe.",
+        "example": "The doctor will inject the vaccine into your arm.",
+        "hebrewTranslation": "להזריק",
+        "category": "Health",
+        "level": 4
+    },
+    {
+        "word": "injection",
+        "definition": "An instance of injecting or being injected.",
+        "example": "He received an injection to relieve the pain.",
+        "hebrewTranslation": "זריקה",
+        "category": "Health",
+        "level": 5
+    },
+    {
+        "word": "injure",
+        "definition": "Do physical harm or damage to (someone).",
+        "example": "He injured his leg while playing football.",
+        "hebrewTranslation": "לפצוע",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "injurious",
+        "definition": "Causing or likely to cause damage or harm.",
+        "example": "Smoking is injurious to health.",
+        "hebrewTranslation": "מזיק",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "injury",
+        "definition": "An instance of being injured.",
+        "example": "He suffered a serious injury in the accident.",
+        "hebrewTranslation": "פציעה",
+        "category": "Health",
+        "level": 3
+    },
+    {
+        "word": "injustice",
+        "definition": "Lack of fairness or justice.",
+        "example": "They fought against the injustice of the system.",
+        "hebrewTranslation": "אי צדק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "ink",
+        "definition": "A colored fluid or paste used for writing, drawing, printing, or duplicating.",
+        "example": "The pen is out of ink.",
+        "hebrewTranslation": "דיו",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "innate",
+        "definition": "Inborn; natural.",
+        "example": "He has an innate talent for music.",
+        "hebrewTranslation": "מולד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inner",
+        "definition": "Situated inside or further in; internal.",
+        "example": "He felt a sense of inner peace.",
+        "hebrewTranslation": "פנימי",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "innocent",
+        "definition": "Not guilty of a crime or offense.",
+        "example": "The jury found him innocent.",
+        "hebrewTranslation": "חף מפשע",
+        "category": "Legal",
+        "level": 3
+    },
+    {
+        "word": "innovate",
+        "definition": "Make changes in something established, especially by introducing new methods, ideas, or products.",
+        "example": "The company needs to innovate to stay competitive.",
+        "hebrewTranslation": "לחדש",
+        "category": "Business",
+        "level": 5
+    },
+    {
+        "word": "innovation",
+        "definition": "The action or process of innovating.",
+        "example": "The company is known for its technological innovation.",
+        "hebrewTranslation": "חדשנות",
+        "category": "Business",
+        "level": 6
+    },
+    {
+        "word": "innovative",
+        "definition": "(of a product, idea, etc.) featuring new methods; advanced and original.",
+        "example": "It was an innovative design.",
+        "hebrewTranslation": "חדשני",
+        "category": "Business",
+        "level": 6
+    },
+    {
+        "word": "innumerable",
+        "definition": "Too many to be counted (often used hyperbolically).",
+        "example": "There are innumerable stars in the sky.",
+        "hebrewTranslation": "אינספור",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inquire",
+        "definition": "Ask for information from someone.",
+        "example": "I will inquire about the price.",
+        "hebrewTranslation": "לשאול",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "inquiry",
+        "definition": "An act of asking for information.",
+        "example": "The police have launched an inquiry into the matter.",
+        "hebrewTranslation": "חקירה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insane",
+        "definition": "In a state of mind that prevents normal perception, behavior, or social interaction; seriously mentally ill.",
+        "example": "The idea is completely insane.",
+        "hebrewTranslation": "מטורף",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "insert",
+        "definition": "Place, fit, or push (something) into something else.",
+        "example": "Please insert your card into the machine.",
+        "hebrewTranslation": "להכניס",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "inside",
+        "definition": "The inner side or surface of something.",
+        "example": "Let's go inside, it's cold out here.",
+        "hebrewTranslation": "בפנים",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "insight",
+        "definition": "The capacity to gain an accurate and deep intuitive understanding of a person or thing.",
+        "example": "The book provides a fascinating insight into the world of politics.",
+        "hebrewTranslation": "תובנה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insightful",
+        "definition": "Having or showing an accurate and deep understanding; perceptive.",
+        "example": "She made some very insightful comments.",
+        "hebrewTranslation": "בעל תובנה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "insignificant",
+        "definition": "Too small or unimportant to be worth consideration.",
+        "example": "The difference in price is insignificant.",
+        "hebrewTranslation": "חסר משמעות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "insist",
+        "definition": "Demand something forcefully, not accepting refusal.",
+        "example": "He insisted on paying for the meal.",
+        "hebrewTranslation": "להתעקש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "insistence",
+        "definition": "The fact or quality of insisting that something is the case or should be done.",
+        "example": "Her insistence on quality is well known.",
+        "hebrewTranslation": "התעקשות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "insistent",
+        "definition": "Insisting or demanding something; not allowing refusal.",
+        "example": "He was insistent that she come with him.",
+        "hebrewTranslation": "מתעקש",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "insolent",
+        "definition": "Showing a rude and arrogant lack of respect.",
+        "example": "He was fired for his insolent behavior.",
+        "hebrewTranslation": "חצוף",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "inspect",
+        "definition": "Look at (someone or something) closely, typically to assess their condition or to discover any shortcomings.",
+        "example": "The mechanic will inspect the car.",
+        "hebrewTranslation": "לבדוק",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "inspection",
+        "definition": "Careful examination or scrutiny.",
+        "example": "The car passed its annual inspection.",
+        "hebrewTranslation": "בדיקה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inspiration",
+        "definition": "The process of being mentally stimulated to do or feel something, especially to do something creative.",
+        "example": "She is an inspiration to us all.",
+        "hebrewTranslation": "השראה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "inspire",
+        "definition": "Fill (someone) with the urge or ability to do or feel something, especially to do something creative.",
+        "example": "His speech inspired the crowd.",
+        "hebrewTranslation": "לעורר השראה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "install",
+        "definition": "Place or fix (equipment or machinery) in position ready for use.",
+        "example": "We need to install a new air conditioner.",
+        "hebrewTranslation": "להתקין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "installation",
+        "definition": "The action or process of installing someone or something, or of being installed.",
+        "example": "The installation of the new software was easy.",
+        "hebrewTranslation": "התקנה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "instance",
+        "definition": "An example or single occurrence of something.",
+        "example": "For instance, you could try a different approach.",
+        "hebrewTranslation": "דוגמה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "instant",
+        "definition": "Happening or coming immediately.",
+        "example": "The new coffee machine provides instant coffee.",
+        "hebrewTranslation": "מיידי",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "instantly",
+        "definition": "At once; immediately.",
+        "example": "He instantly regretted his decision.",
+        "hebrewTranslation": "מייד",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "instead",
+        "definition": "As an alternative to.",
+        "example": "I'll have tea instead of coffee.",
+        "hebrewTranslation": "במקום",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "instead of",
+        "definition": "As an alternative to; in place of.",
+        "example": "Let's have fish instead of chicken.",
+        "hebrewTranslation": "במקום",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "instill",
+        "definition": "Gradually but firmly establish (an idea or attitude, especially a desirable one) in a person's mind.",
+        "example": "It is important to instill a sense of responsibility in children.",
+        "hebrewTranslation": "להחדיר",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "instinct",
+        "definition": "An innate, typically fixed pattern of behavior in animals in response to certain stimuli.",
+        "example": "Birds have a natural instinct to build nests.",
+        "hebrewTranslation": "אינסטינקט",
+        "category": "Biology",
+        "level": 5
+    },
+    {
+        "word": "institute",
+        "definition": "A society or organization having a particular object or common factor, especially a scientific, educational, or social one.",
+        "example": "He works at a research institute.",
+        "hebrewTranslation": "מכון",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "institution",
+        "definition": "An organization founded for a religious, educational, professional, or social purpose.",
+        "example": "The university is a well-respected institution.",
+        "hebrewTranslation": "מוסד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "instruct",
+        "definition": "Direct or command someone to do something, especially as an official order.",
+        "example": "The teacher will instruct the students on what to do.",
+        "hebrewTranslation": "להורות",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "instruction",
+        "definition": "A direction or order.",
+        "example": "Please follow the instructions carefully.",
+        "hebrewTranslation": "הוראה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "instrument",
+        "definition": "A tool or implement, especially one for precision work.",
+        "example": "A thermometer is a scientific instrument.",
+        "hebrewTranslation": "כלי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "insubordinate",
+        "definition": "Defiant of authority; disobedient to orders.",
+        "example": "The insubordinate soldier was punished.",
+        "hebrewTranslation": "מרדן",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "insufficient",
+        "definition": "Not enough; inadequate.",
+        "example": "There was insufficient evidence to convict him.",
+        "hebrewTranslation": "לא מספיק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insulate",
+        "definition": "Protect (something) by interposing material that prevents the loss of heat or the intrusion of sound.",
+        "example": "We need to insulate the house to save energy.",
+        "hebrewTranslation": "לבודד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insulation",
+        "definition": "The action of insulating something or the state of being insulated.",
+        "example": "Good insulation can reduce your heating bills.",
+        "hebrewTranslation": "בידוד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insult",
+        "definition": "Speak to or treat with disrespect or scornful abuse.",
+        "example": "He was offended by the insult.",
+        "hebrewTranslation": "עלבון",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "insulting",
+        "definition": "Disrespectful or scornfully abusive.",
+        "example": "His comments were very insulting.",
+        "hebrewTranslation": "מעליב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "insurance",
+        "definition": "A practice or arrangement by which a company or government agency provides a guarantee of compensation for specified loss, damage, illness, or death in return for payment of a premium.",
+        "example": "Do you have car insurance?",
+        "hebrewTranslation": "ביטוח",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "insure",
+        "definition": "Secure or protect someone or something against (a possible contingency).",
+        "example": "It is wise to insure your house against fire.",
+        "hebrewTranslation": "לבטח",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "intact",
+        "definition": "Not damaged or impaired in any way; complete.",
+        "example": "The vase remained intact after the earthquake.",
+        "hebrewTranslation": "שלם",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intake",
+        "definition": "An amount of food, air, or another substance taken into the body.",
+        "example": "You should reduce your daily intake of sugar.",
+        "hebrewTranslation": "צריכה",
+        "category": "Health",
+        "level": 4
+    },
+    {
+        "word": "integral",
+        "definition": "Necessary to make a whole complete; essential or fundamental.",
+        "example": "He is an integral part of the team.",
+        "hebrewTranslation": "חיוני",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "integrate",
+        "definition": "Combine (one thing) with another so that they become a whole.",
+        "example": "We need to integrate the new software with our existing system.",
+        "hebrewTranslation": "לשלב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "integration",
+        "definition": "The action or process of integrating.",
+        "example": "The integration of the two companies was a complex process.",
+        "hebrewTranslation": "שילוב",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "integrity",
+        "definition": "The quality of being honest and having strong moral principles; moral uprightness.",
+        "example": "He is a man of great integrity.",
+        "hebrewTranslation": "יושרה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "intellectual",
+        "definition": "Relating to the intellect.",
+        "example": "She enjoys intellectual conversations.",
+        "hebrewTranslation": "אינטלקטואלי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "intelligence",
+        "definition": "The ability to acquire and apply knowledge and skills.",
+        "example": "He is a man of great intelligence.",
+        "hebrewTranslation": "אינטליגנציה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intelligent",
+        "definition": "Having or showing intelligence, especially of a high level.",
+        "example": "She is a very intelligent student.",
+        "hebrewTranslation": "אינטליגנטי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intend",
+        "definition": "Have (a course of action) as one's purpose or objective; plan.",
+        "example": "I intend to visit my grandmother this weekend.",
+        "hebrewTranslation": "להתכוון",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "intense",
+        "definition": "Of extreme force, degree, or strength.",
+        "example": "The heat was intense.",
+        "hebrewTranslation": "עז",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intensify",
+        "definition": "Become or make more intense.",
+        "example": "The storm is expected to intensify.",
+        "hebrewTranslation": "להגביר",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intensity",
+        "definition": "The quality of being intense.",
+        "example": "The intensity of the light was blinding.",
+        "hebrewTranslation": "עוצמה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intensive",
+        "definition": "Concentrated on a single area or subject or into a short time; very thorough or vigorous.",
+        "example": "He is taking an intensive language course.",
+        "hebrewTranslation": "אינטנסיבי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intent",
+        "definition": "Intention or purpose.",
+        "example": "He acted with malicious intent.",
+        "hebrewTranslation": "כוונה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intention",
+        "definition": "A thing intended; an aim or plan.",
+        "example": "I have no intention of leaving.",
+        "hebrewTranslation": "כוונה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interact",
+        "definition": "Act in such a way as to have an effect on another; act reciprocally.",
+        "example": "The children interact well with each other.",
+        "hebrewTranslation": "לתקשר",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "interaction",
+        "definition": "Reciprocal action or influence.",
+        "example": "There is a lot of interaction between the students and teachers.",
+        "hebrewTranslation": "אינטראקציה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "interactive",
+        "definition": "(of two people or things) influencing each other.",
+        "example": "The museum has many interactive exhibits.",
+        "hebrewTranslation": "אינטראקטיבי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "interchange",
+        "definition": "(of two or more people) exchange (things) with each other.",
+        "example": "There was a lively interchange of ideas.",
+        "hebrewTranslation": "החלפה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interchangeable",
+        "definition": "(of two things) able to be interchanged.",
+        "example": "The two parts are interchangeable.",
+        "hebrewTranslation": "ניתן להחלפה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "intercourse",
+        "definition": "Communication or dealings between individuals or groups.",
+        "example": "The two countries have a long history of commercial intercourse.",
+        "hebrewTranslation": "יחסי מין",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "interest",
+        "definition": "The state of wanting to know or learn about something or someone.",
+        "example": "She has a great interest in history.",
+        "hebrewTranslation": "עניין",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "interested",
+        "definition": "Showing curiosity or concern about something or someone; having a feeling of interest.",
+        "example": "I'm interested in learning more about this topic.",
+        "hebrewTranslation": "מעוניין",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "interesting",
+        "definition": "Arousing curiosity or interest; holding or catching the attention.",
+        "example": "It was an interesting book.",
+        "hebrewTranslation": "מעניין",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "interfere",
+        "definition": "Prevent (a process or activity) from continuing or being carried out properly.",
+        "example": "Don't interfere in matters that don't concern you.",
+        "hebrewTranslation": "להתערב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "interference",
+        "definition": "The action of interfering or the process of being interfered with.",
+        "example": "I don't want any interference from you.",
+        "hebrewTranslation": "התערבות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interior",
+        "definition": "The inner or indoor part of something, especially a building; the inside.",
+        "example": "The interior of the house was beautifully decorated.",
+        "hebrewTranslation": "פנימי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "internal",
+        "definition": "Of or situated on the inside.",
+        "example": "The patient suffered internal injuries.",
+        "hebrewTranslation": "פנימי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "international",
+        "definition": "Existing, occurring, or carried on between two or more nations.",
+        "example": "The company has many international clients.",
+        "hebrewTranslation": "בינלאומי",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "internet",
+        "definition": "A global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols.",
+        "example": "I use the internet to find information.",
+        "hebrewTranslation": "אינטרנט",
+        "category": "Technology",
+        "level": 2
+    },
+    {
+        "word": "interpret",
+        "definition": "Explain the meaning of (information, words, or actions).",
+        "example": "How do you interpret this poem?",
+        "hebrewTranslation": "לפרש",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interpretation",
+        "definition": "The action of explaining the meaning of something.",
+        "example": "There are different interpretations of the law.",
+        "hebrewTranslation": "פרשנות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "interrupt",
+        "definition": "Stop the continuous progress of (an activity or process).",
+        "example": "Please don't interrupt me while I'm speaking.",
+        "hebrewTranslation": "להפריע",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "interruption",
+        "definition": "The action of interrupting or the state of being interrupted.",
+        "example": "I'm sorry for the interruption.",
+        "hebrewTranslation": "הפרעה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intersect",
+        "definition": "(of two or more things) pass or lie across each other.",
+        "example": "The two lines intersect at this point.",
+        "hebrewTranslation": "להצטלב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interval",
+        "definition": "An intervening time or space.",
+        "example": "There was a short interval between the two acts of the play.",
+        "hebrewTranslation": "מרווח",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "intervene",
+        "definition": "Take part in something so as to prevent or alter a result or course of events.",
+        "example": "The police had to intervene in the fight.",
+        "hebrewTranslation": "להתערב",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intervention",
+        "definition": "The action or process of intervening.",
+        "example": "Military intervention was necessary to restore order.",
+        "hebrewTranslation": "התערבות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "interview",
+        "definition": "A meeting of people face to face, especially for consultation.",
+        "example": "I have a job interview tomorrow.",
+        "hebrewTranslation": "ראיון",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "intimate",
+        "definition": "Closely acquainted; familiar, close.",
+        "example": "They are intimate friends.",
+        "hebrewTranslation": "אינטימי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intimidate",
+        "definition": "Frighten or overawe (someone), especially in order to make them do what one wants.",
+        "example": "He tried to intimidate the witness.",
+        "hebrewTranslation": "להפחיד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "into",
+        "definition": "Expressing movement or action with the result that someone or something becomes enclosed or surrounded by something else.",
+        "example": "He jumped into the pool.",
+        "hebrewTranslation": "לתוך",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "intolerant",
+        "definition": "Not tolerant of views, beliefs, or behavior that differ from one's own.",
+        "example": "He is intolerant of other people's opinions.",
+        "hebrewTranslation": "חסר סובלנות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intonation",
+        "definition": "The rise and fall of the voice in speaking.",
+        "example": "Her intonation showed that she was angry.",
+        "hebrewTranslation": "אינטונציה",
+        "category": "Language",
+        "level": 7
+    },
+    {
+        "word": "intricate",
+        "definition": "Very complicated or detailed.",
+        "example": "It was an intricate design.",
+        "hebrewTranslation": "מסובך",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "intrigue",
+        "definition": "Arouse the curiosity or interest of; fascinate.",
+        "example": "The story intrigued me.",
+        "hebrewTranslation": "לסקרן",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intriguing",
+        "definition": "Arousing one's curiosity or interest; fascinating.",
+        "example": "It was an intriguing idea.",
+        "hebrewTranslation": "מסקרן",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intrinsic",
+        "definition": "Belonging naturally; essential.",
+        "example": "The intrinsic value of the painting is very high.",
+        "hebrewTranslation": "מהותי",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "introduce",
+        "definition": "Bring (something, especially a product, measure, or concept) into use or operation for the first time.",
+        "example": "Let me introduce you to my friend.",
+        "hebrewTranslation": "להציג",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "introduction",
+        "definition": "The action of introducing something.",
+        "example": "The book has a long introduction.",
+        "hebrewTranslation": "הקדמה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "intrude",
+        "definition": "Put oneself deliberately into a place or situation where one is unwelcome or uninvited.",
+        "example": "I'm sorry to intrude, but I have an urgent message.",
+        "hebrewTranslation": "להתפרץ",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intruder",
+        "definition": "A person who intrudes, especially into a building with criminal intent.",
+        "example": "The police caught the intruder.",
+        "hebrewTranslation": "פולש",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intrusion",
+        "definition": "The action of intruding.",
+        "example": "I apologize for the intrusion.",
+        "hebrewTranslation": "התפרצות",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "intuition",
+        "definition": "The ability to understand something instinctively, without the need for conscious reasoning.",
+        "example": "She had an intuition that something was wrong.",
+        "hebrewTranslation": "אינטואיציה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "intuitive",
+        "definition": "Using or based on what one feels to be true even without conscious reasoning; instinctive.",
+        "example": "The software has an intuitive interface.",
+        "hebrewTranslation": "אינטואיטיבי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "invade",
+        "definition": "(of an armed force or its commander) enter (a country or region) so as to subjugate or occupy it.",
+        "example": "The army invaded the neighboring country.",
+        "hebrewTranslation": "לפלוש",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "invalid",
+        "definition": "Not valid.",
+        "example": "The ticket is invalid.",
+        "hebrewTranslation": "לא תקף",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "invaluable",
+        "definition": "Extremely useful; indispensable.",
+        "example": "Your help has been invaluable.",
+        "hebrewTranslation": "לא יסולא בפז",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "invariably",
+        "definition": "In every case or on every occasion; always.",
+        "example": "He is invariably late.",
+        "hebrewTranslation": "תמיד",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "invent",
+        "definition": "Create or design (something that has not existed before); be the originator of.",
+        "example": "Alexander Graham Bell invented the telephone.",
+        "hebrewTranslation": "להמציא",
+        "category": "Science",
+        "level": 3
+    },
+    {
+        "word": "invention",
+        "definition": "The action of inventing something, typically a process or device.",
+        "example": "The invention of the internet changed the world.",
+        "hebrewTranslation": "המצאה",
+        "category": "Science",
+        "level": 3
+    },
+    {
+        "word": "inventive",
+        "definition": "Having the ability to create or design new things or to think originally.",
+        "example": "She is a very inventive artist.",
+        "hebrewTranslation": "יצירתי",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inventory",
+        "definition": "A complete list of items such as property, goods in stock, or the contents of a building.",
+        "example": "We need to do an inventory of our stock.",
+        "hebrewTranslation": "מלאי",
+        "category": "Business",
+        "level": 4
+    },
+    {
+        "word": "inverse",
+        "definition": "Opposite or contrary in position, direction, order, or effect.",
+        "example": "Addition is the inverse of subtraction.",
+        "hebrewTranslation": "הפוך",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "invest",
+        "definition": "Expend money with the expectation of achieving a profit or material result by putting it into financial schemes, shares, or property, or by using it to develop a commercial venture.",
+        "example": "He decided to invest in the stock market.",
+        "hebrewTranslation": "להשקיע",
+        "category": "Finance",
+        "level": 3
+    },
+    {
+        "word": "investigate",
+        "definition": "Carry out a systematic or formal inquiry to discover and examine the facts of (an incident, allegation, etc.) so as to establish the truth.",
+        "example": "The police will investigate the crime.",
+        "hebrewTranslation": "לחקור",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "investigation",
+        "definition": "The action of investigating something or someone; formal or systematic examination or research.",
+        "example": "The investigation is still ongoing.",
+        "hebrewTranslation": "חקירה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "investment",
+        "definition": "The action or process of investing money for profit or material result.",
+        "example": "Real estate is a good investment.",
+        "hebrewTranslation": "השקעה",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "investor",
+        "definition": "A person or organization that puts money into financial schemes, property, etc. with the expectation of achieving a profit.",
+        "example": "The company is looking for investors.",
+        "hebrewTranslation": "משקיע",
+        "category": "Finance",
+        "level": 4
+    },
+    {
+        "word": "invisible",
+        "definition": "Unable to be seen.",
+        "example": "The air is invisible.",
+        "hebrewTranslation": "בלתי נראה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "invitation",
+        "definition": "A written or verbal request inviting someone to go somewhere or to do something.",
+        "example": "I received an invitation to the wedding.",
+        "hebrewTranslation": "הזמנה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "involve",
+        "definition": "Have or include (something) as a necessary or integral part or result.",
+        "example": "The job involves a lot of travel.",
+        "hebrewTranslation": "לערב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "involved",
+        "definition": "Difficult to comprehend; complicated.",
+        "example": "He was involved in a car accident.",
+        "hebrewTranslation": "מעורב",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "involvement",
+        "definition": "The fact or condition of being involved with or participating in something.",
+        "example": "His involvement in the project was crucial.",
+        "hebrewTranslation": "מעורבות",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "inward",
+        "definition": "Directed or proceeding toward the inside; coming in from outside.",
+        "example": "He took an inward breath.",
+        "hebrewTranslation": "פנימה",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "iq",
+        "definition": "Intelligence quotient.",
+        "example": "He has a very high IQ.",
+        "hebrewTranslation": "מנת משכל",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "irate",
+        "definition": "Feeling or characterized by great anger.",
+        "example": "The customer was irate about the poor service.",
+        "hebrewTranslation": "זועם",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "ironic",
+        "definition": "Happening in the opposite way to what is expected, and typically causing wry amusement because of this.",
+        "example": "It's ironic that the fire station burned down.",
+        "hebrewTranslation": "אירוני",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "irony",
+        "definition": "The expression of one's meaning by using language that normally signifies the opposite, typically for humorous or emphatic effect.",
+        "example": "The irony of the situation was not lost on him.",
+        "hebrewTranslation": "אירוניה",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "irrational",
+        "definition": "Not logical or reasonable.",
+        "example": "He has an irrational fear of spiders.",
+        "hebrewTranslation": "לא רציונלי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "irregular",
+        "definition": "Not even or balanced in shape or arrangement.",
+        "example": "The verb 'to be' is irregular.",
+        "hebrewTranslation": "לא סדיר",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "irrelevant",
+        "definition": "Not connected with or relevant to something.",
+        "example": "His comment was completely irrelevant to the discussion.",
+        "hebrewTranslation": "לא רלוונטי",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "irresistible",
+        "definition": "Too attractive and tempting to be resisted.",
+        "example": "The chocolate cake was irresistible.",
+        "hebrewTranslation": "לא ניתן לעמוד בפניו",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "irresponsible",
+        "definition": "(of a person, attitude, or action) not showing a proper sense of responsibility.",
+        "example": "It was irresponsible of him to leave the children alone.",
+        "hebrewTranslation": "חסר אחריות",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "irreversible",
+        "definition": "Not able to be undone or altered.",
+        "example": "The damage to the environment is irreversible.",
+        "hebrewTranslation": "בלתי הפיך",
+        "category": "General",
+        "level": 8
+    },
+    {
+        "word": "irrigate",
+        "definition": "Supply water to (land or crops) to help growth, typically by means of channels.",
+        "example": "The farmer will irrigate the fields.",
+        "hebrewTranslation": "להשקות",
+        "category": "Agriculture",
+        "level": 5
+    },
+    {
+        "word": "irrigation",
+        "definition": "The supply of water to land or crops to help growth, typically by means of channels.",
+        "example": "The farm uses a modern irrigation system.",
+        "hebrewTranslation": "השקיה",
+        "category": "Agriculture",
+        "level": 6
+    },
+    {
+        "word": "irritable",
+        "definition": "Having or showing a tendency to be easily annoyed or made angry.",
+        "example": "He was tired and irritable.",
+        "hebrewTranslation": "רגזן",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "irritate",
+        "definition": "Make (someone) annoyed, impatient, or angry.",
+        "example": "His constant complaining began to irritate me.",
+        "hebrewTranslation": "להרגיז",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "irritation",
+        "definition": "The state of feeling annoyed, impatient, or angry.",
+        "example": "She couldn't hide her irritation.",
+        "hebrewTranslation": "רוגז",
+        "category": "Emotion",
+        "level": 6
+    },
+    {
+        "word": "islam",
+        "definition": "The religion of the Muslims, a monotheistic faith regarded as revealed through Muhammad as the Prophet of Allah.",
+        "example": "Islam is one of the world's major religions.",
+        "hebrewTranslation": "אסלאם",
+        "category": "Religion",
+        "level": 3
+    },
+    {
+        "word": "islamic",
+        "definition": "Relating to Islam.",
+        "example": "The museum has a collection of Islamic art.",
+        "hebrewTranslation": "אסלאמי",
+        "category": "Religion",
+        "level": 4
+    },
+    {
+        "word": "island",
+        "definition": "A piece of land surrounded by water.",
+        "example": "They spent their vacation on a tropical island.",
+        "hebrewTranslation": "אי",
+        "category": "Geography",
+        "level": 2
+    },
+    {
+        "word": "isolate",
+        "definition": "Cause (a person or place) to be or remain alone or apart from others.",
+        "example": "They decided to isolate the patient to prevent the spread of the disease.",
+        "hebrewTranslation": "לבודד",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "isolation",
+        "definition": "The process or fact of isolating or being isolated.",
+        "example": "He lived in isolation in the mountains.",
+        "hebrewTranslation": "בידוד",
+        "category": "General",
+        "level": 6
+    },
+    {
+        "word": "issue",
+        "definition": "An important topic or problem for debate or discussion.",
+        "example": "Climate change is a major global issue.",
+        "hebrewTranslation": "סוגיה",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "it",
+        "definition": "Used to refer to a thing previously mentioned or easily identified.",
+        "example": "It is a beautiful day.",
+        "hebrewTranslation": "זה",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "item",
+        "definition": "An individual article or unit, especially one that is part of a list, collection, or set.",
+        "example": "There are several items on the shopping list.",
+        "hebrewTranslation": "פריט",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "its",
+        "definition": "Belonging to or associated with a thing previously mentioned or easily identified.",
+        "example": "The dog wagged its tail.",
+        "hebrewTranslation": "שלו/שלה (לחפץ)",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "itself",
+        "definition": "Used as the object of a verb or preposition to refer to a thing or animal previously mentioned as the subject of the clause.",
+        "example": "The cat washed itself.",
+        "hebrewTranslation": "עצמו/עצמה (לחפץ)",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "jacket",
+        "definition": "An outer garment extending either to the waist or the hips, typically having sleeves and a fastening down the front.",
+        "example": "He wore a warm jacket.",
+        "hebrewTranslation": "ז'קט",
+        "category": "Fashion",
+        "level": 2
+    },
+    {
+        "word": "jail",
+        "definition": "A place for the confinement of people accused or convicted of a crime.",
+        "example": "He was sent to jail for robbery.",
+        "hebrewTranslation": "כלא",
+        "category": "Legal",
+        "level": 3
+    },
+    {
+        "word": "jam",
+        "definition": "A sweet spread or preserve made from fruit and sugar boiled to a thick consistency.",
+        "example": "I like to have jam on my toast.",
+        "hebrewTranslation": "ריבה",
+        "category": "Food",
+        "level": 2
+    },
+    {
+        "word": "jar",
+        "definition": "A wide-mouthed cylindrical container made of glass or pottery, especially one used for storing food.",
+        "example": "The cookies are in the jar.",
+        "hebrewTranslation": "צנצנת",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "jaw",
+        "definition": "Each of the upper and lower bony structures in vertebrates forming the framework of the mouth and containing the teeth.",
+        "example": "He has a strong jaw.",
+        "hebrewTranslation": "לסת",
+        "category": "Biology",
+        "level": 3
+    },
+    {
+        "word": "jealous",
+        "definition": "Feeling or showing envy of someone or their achievements and advantages.",
+        "example": "She was jealous of her sister's success.",
+        "hebrewTranslation": "קנאי",
+        "category": "Emotion",
+        "level": 4
+    },
+    {
+        "word": "jealousy",
+        "definition": "The state or feeling of being jealous.",
+        "example": "He was consumed by jealousy.",
+        "hebrewTranslation": "קנאה",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "jeans",
+        "definition": "Hard-wearing trousers made of denim or other cotton fabric, for informal wear.",
+        "example": "He was wearing a pair of blue jeans.",
+        "hebrewTranslation": "ג'ינס",
+        "category": "Fashion",
+        "level": 2
+    },
+    {
+        "word": "jeep",
+        "definition": "A small, sturdy motor vehicle with four-wheel drive, especially one used by the military.",
+        "example": "They drove a jeep through the desert.",
+        "hebrewTranslation": "ג'יפ",
+        "category": "Vehicle",
+        "level": 2
+    },
+    {
+        "word": "jest",
+        "definition": "A thing said or done for amusement; a joke.",
+        "example": "He spoke in jest.",
+        "hebrewTranslation": "בדיחה",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "jet",
+        "definition": "A jet engine.",
+        "example": "The jet flew overhead.",
+        "hebrewTranslation": "סילון",
+        "category": "Vehicle",
+        "level": 2
+    },
+    {
+        "word": "Jew",
+        "definition": "A member of the people and cultural community whose traditional religion is Judaism and who trace their origins through the ancient Hebrew people of Israel to Abraham.",
+        "example": "He is a practicing Jew.",
+        "hebrewTranslation": "יהודי",
+        "category": "Religion",
+        "level": 4
+    },
+    {
+        "word": "Jewish",
+        "definition": "Relating to, associated with, or denoting Jews or Judaism.",
+        "example": "They celebrate Jewish holidays.",
+        "hebrewTranslation": "יהודי",
+        "category": "Religion",
+        "level": 5
+    },
+    {
+        "word": "job",
+        "definition": "A paid position of regular employment.",
+        "example": "He is looking for a new job.",
+        "hebrewTranslation": "עבודה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "join",
+        "definition": "Link; connect.",
+        "example": "Would you like to join us for dinner?",
+        "hebrewTranslation": "להצטרף",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "joke",
+        "definition": "A thing that someone says to cause amusement or laughter, especially a story with a funny punchline.",
+        "example": "He told a funny joke.",
+        "hebrewTranslation": "בדיחה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "journal",
+        "definition": "A newspaper or magazine that deals with a particular subject or professional activity.",
+        "example": "He published his research in a scientific journal.",
+        "hebrewTranslation": "כתב עת",
+        "category": "Writing",
+        "level": 4
+    },
+    {
+        "word": "journalism",
+        "definition": "The activity or profession of writing for newspapers, magazines, or news websites or preparing news to be broadcast.",
+        "example": "She studied journalism at university.",
+        "hebrewTranslation": "עיתונאות",
+        "category": "Writing",
+        "level": 6
+    },
+    {
+        "word": "journalist",
+        "definition": "A person who writes for newspapers, magazines, or news websites or prepares news to be broadcast.",
+        "example": "He is a well-known journalist.",
+        "hebrewTranslation": "עיתונאי",
+        "category": "Writing",
+        "level": 5
+    },
+    {
+        "word": "joy",
+        "definition": "A feeling of great pleasure and happiness.",
+        "example": "Her heart was filled with joy.",
+        "hebrewTranslation": "שמחה",
+        "category": "Emotion",
+        "level": 2
+    },
+    {
+        "word": "joyful",
+        "definition": "Feeling, expressing, or causing great pleasure and happiness.",
+        "example": "It was a joyful occasion.",
+        "hebrewTranslation": "שמח",
+        "category": "Emotion",
+        "level": 3
+    },
+    {
+        "word": "joyous",
+        "definition": "Full of happiness and joy.",
+        "example": "The wedding was a joyous celebration.",
+        "hebrewTranslation": "שמח",
+        "category": "Emotion",
+        "level": 5
+    },
+    {
+        "word": "judge",
+        "definition": "A public official appointed to decide cases in a court of law.",
+        "example": "The judge sentenced him to five years in prison.",
+        "hebrewTranslation": "שופט",
+        "category": "Legal",
+        "level": 3
+    },
+    {
+        "word": "judgment",
+        "definition": "The ability to make considered decisions or come to sensible conclusions.",
+        "example": "He showed poor judgment in his decision.",
+        "hebrewTranslation": "שיפוט",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "judicial",
+        "definition": "Of, by, or appropriate to a court or judge.",
+        "example": "The case is under judicial review.",
+        "hebrewTranslation": "שיפוטי",
+        "category": "Legal",
+        "level": 7
+    },
+    {
+        "word": "judiciary",
+        "definition": "The judicial authorities of a country; judges collectively.",
+        "example": "The judiciary is an important branch of government.",
+        "hebrewTranslation": "מערכת המשפט",
+        "category": "Legal",
+        "level": 8
+    },
+    {
+        "word": "jug",
+        "definition": "A large container for liquids, with a narrow mouth and typically a handle.",
+        "example": "She filled the jug with water.",
+        "hebrewTranslation": "כד",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "juice",
+        "definition": "The liquid obtained from or present in fruit or vegetables.",
+        "example": "I would like a glass of orange juice.",
+        "hebrewTranslation": "מיץ",
+        "category": "Food",
+        "level": 1
+    },
+    {
+        "word": "jump",
+        "definition": "Push oneself off a surface and into the air by using the muscles in one's legs and feet.",
+        "example": "The cat can jump very high.",
+        "hebrewTranslation": "לקפוץ",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "junction",
+        "definition": "A point where two or more things are joined.",
+        "example": "The two rivers meet at this junction.",
+        "hebrewTranslation": "צומת",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "jungle",
+        "definition": "An area of land overgrown with dense forest and tangled vegetation, typically in the tropics.",
+        "example": "They went on an expedition to the Amazon jungle.",
+        "hebrewTranslation": "ג'ונגל",
+        "category": "Nature",
+        "level": 3
+    },
+    {
+        "word": "junior",
+        "definition": "Of or for younger or more recent members of a group.",
+        "example": "He is a junior employee at the company.",
+        "hebrewTranslation": "זוטר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "jury",
+        "definition": "A body of people (typically twelve in number) sworn to give a verdict in a legal case on the basis of evidence submitted to them in court.",
+        "example": "The jury found him guilty.",
+        "hebrewTranslation": "חבר מושבעים",
+        "category": "Legal",
+        "level": 4
+    },
+    {
+        "word": "just",
+        "definition": "Based on or behaving according to what is morally right and fair.",
+        "example": "He is a just and fair ruler.",
+        "hebrewTranslation": "צודק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "justice",
+        "definition": "Just behavior or treatment.",
+        "example": "They are fighting for justice and equality.",
+        "hebrewTranslation": "צדק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "justification",
+        "definition": "The action of showing something to be right or reasonable.",
+        "example": "There is no justification for his behavior.",
+        "hebrewTranslation": "הצדקה",
+        "category": "General",
+        "level": 7
+    },
+    {
+        "word": "justify",
+        "definition": "Show or prove to be right or reasonable.",
+        "example": "Can you justify your actions?",
+        "hebrewTranslation": "להצדיק",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "keen",
+        "definition": "Having or showing eagerness or enthusiasm.",
+        "example": "He is a keen sportsman.",
+        "hebrewTranslation": "נלהב",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "keep",
+        "definition": "Have or retain possession of.",
+        "example": "You can keep the change.",
+        "hebrewTranslation": "לשמור",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "key",
+        "definition": "A small piece of shaped metal with incisions cut to fit the wards of a particular lock, which is inserted into a lock and turned to open or close it.",
+        "example": "I lost my house key.",
+        "hebrewTranslation": "מפתח",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "keyboard",
+        "definition": "A panel of keys that operate a computer or typewriter.",
+        "example": "I need to buy a new keyboard for my computer.",
+        "hebrewTranslation": "מקלדת",
+        "category": "Technology",
+        "level": 2
+    },
+    {
+        "word": "kick",
+        "definition": "Strike or propel forcefully with the foot.",
+        "example": "He can kick the ball a long way.",
+        "hebrewTranslation": "לבעוט",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "kid",
+        "definition": "A child or young person.",
+        "example": "The kids are playing in the park.",
+        "hebrewTranslation": "ילד",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "kidnap",
+        "definition": "Abduct (someone) and hold them captive, typically to obtain a ransom.",
+        "example": "The millionaire's son was kidnapped.",
+        "hebrewTranslation": "לחטוף",
+        "category": "General",
+        "level": 4
+    },
+    {
+        "word": "kidney",
+        "definition": "Each of a pair of organs in the abdominal cavity of mammals, birds, and reptiles, excreting urine.",
+        "example": "He donated a kidney to his brother.",
+        "hebrewTranslation": "כליה",
+        "category": "Biology",
+        "level": 5
+    },
+    {
+        "word": "kill",
+        "definition": "Cause the death of (a person, animal, or other living thing).",
+        "example": "It is wrong to kill animals for sport.",
+        "hebrewTranslation": "להרוג",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "kind",
+        "definition": "Having or showing a friendly, generous, and considerate nature.",
+        "example": "She is a very kind and caring person.",
+        "hebrewTranslation": "אדיב",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "kindergarten",
+        "definition": "An establishment where children below the age of compulsory education play and learn; a nursery school.",
+        "example": "My daughter goes to kindergarten.",
+        "hebrewTranslation": "גן ילדים",
+        "category": "Education",
+        "level": 4
+    },
+    {
+        "word": "kindness",
+        "definition": "The quality of being friendly, generous, and considerate.",
+        "example": "Thank you for your kindness.",
+        "hebrewTranslation": "אדיבות",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "king",
+        "definition": "The male ruler of an independent state, especially one who inherits the position by right of birth.",
+        "example": "The king ruled the country for many years.",
+        "hebrewTranslation": "מלך",
+        "category": "History",
+        "level": 2
+    },
+    {
+        "word": "kingdom",
+        "definition": "A country, state, or territory ruled by a king or queen.",
+        "example": "The United Kingdom is a constitutional monarchy.",
+        "hebrewTranslation": "ממלכה",
+        "category": "History",
+        "level": 4
+    },
+    {
+        "word": "kiss",
+        "definition": "Touch or caress with the lips as a sign of love, sexual desire, or greeting.",
+        "example": "She gave him a kiss on the cheek.",
+        "hebrewTranslation": "נשיקה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "kit",
+        "definition": "A set of articles or equipment needed for a specific purpose.",
+        "example": "He bought a first-aid kit.",
+        "hebrewTranslation": "ערכה",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "kitchen",
+        "definition": "A room or area equipped for preparing and cooking food.",
+        "example": "My mother is cooking in the kitchen.",
+        "hebrewTranslation": "מטבח",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "knee",
+        "definition": "The joint between the thigh and the lower leg in humans.",
+        "example": "He fell and hurt his knee.",
+        "hebrewTranslation": "ברך",
+        "category": "Biology",
+        "level": 2
+    },
+    {
+        "word": "kneel",
+        "definition": "Be in or assume a position in which the body is supported by a knee or the knees, as when praying or showing submission.",
+        "example": "He knelt down to pray.",
+        "hebrewTranslation": "לכרוע ברך",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "knife",
+        "definition": "An instrument composed of a blade fixed into a handle, used for cutting.",
+        "example": "Be careful with that sharp knife.",
+        "hebrewTranslation": "סכין",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "knight",
+        "definition": "(in the Middle Ages) a man who served his sovereign or lord as a mounted soldier in armor.",
+        "example": "The knight rode a white horse.",
+        "hebrewTranslation": "אביר",
+        "category": "History",
+        "level": 3
+    },
+    {
+        "word": "knit",
+        "definition": "Make (a garment, blanket, etc.) by interlocking loops of wool or other yarn with knitting needles or on a machine.",
+        "example": "My grandmother taught me how to knit.",
+        "hebrewTranslation": "לסרוג",
+        "category": "General",
+        "level": 3
+    },
+    {
+        "word": "knob",
+        "definition": "A rounded protuberance on a door, drawer, or other object, for grasping or turning.",
+        "example": "Turn the knob to open the door.",
+        "hebrewTranslation": "ידית",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "knock",
+        "definition": "Strike a surface noisily to attract attention, especially when waiting to be let in through a door.",
+        "example": "Someone is knocking on the door.",
+        "hebrewTranslation": "לדפוק",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "knot",
+        "definition": "A fastening made by looping a piece of string, rope, or something similar on itself and tightening it.",
+        "example": "He tied a knot in the rope.",
+        "hebrewTranslation": "קשר",
+        "category": "General",
+        "level": 2
+    },
+    {
+        "word": "know",
+        "definition": "Have knowledge or information about something.",
+        "example": "Do you know the answer?",
+        "hebrewTranslation": "לדעת",
+        "category": "General",
+        "level": 1
+    },
+    {
+        "word": "knowledge",
+        "definition": "Facts, information, and skills acquired by a person through experience or education; the theoretical or practical understanding of a subject.",
+        "example": "Knowledge is power.",
+        "hebrewTranslation": "ידע",
+        "category": "General",
+        "level": 5
+    },
+    {
+        "word": "knowledgeable",
+        "definition": "Intelligent and well informed.",
+        "example": "He is very knowledgeable about history.",
+        "hebrewTranslation": "בעל ידע",
+        "category": "General",
+        "level": 6
+    },
+
     {
         "word": "lab",
         "definition": "A laboratory.",
@@ -14049,13366 +27425,6 @@ export const list = [
         "level": 6
     },
     {
-        "word": "abbreviate",
-        "definition": "to make something shorter, especially a word or phrase.",
-        "example": "You can abbreviate 'doctor' as 'Dr.'",
-        "hebrewTranslation": "לקצר",
-        "category": "Language",
-        "level": 6
-    },
-    {
-        "word": "abdomen",
-        "definition": "the part of the body between the chest and the hips that contains the stomach and intestines.",
-        "example": "He had pain in his abdomen after eating.",
-        "hebrewTranslation": "בטן",
-        "category": "Biology",
-        "level": 4
-    },
-    {
-        "word": "ability",
-        "definition": "the skill or power to do something.",
-        "example": "She has the ability to solve complex problems.",
-        "hebrewTranslation": "יכולת",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "abnormal",
-        "definition": "different from what is usual or average, especially in a way that is worrying.",
-        "example": "The doctor noticed an abnormal heartbeat.",
-        "hebrewTranslation": "לא נורמלי",
-        "category": "Medical",
-        "level": 5
-    },
-    {
-        "word": "abolish",
-        "definition": "to officially end a law, system, or institution.",
-        "example": "The country decided to abolish the old tax law.",
-        "hebrewTranslation": "לבטל",
-        "category": "Government",
-        "level": 6
-    },
-    {
-        "word": "above",
-        "definition": "in or to a higher position than something else.",
-        "example": "The picture hangs above the fireplace.",
-        "hebrewTranslation": "מעל",
-        "category": "Prepositions",
-        "level": 1
-    },
-    {
-        "word": "absolute",
-        "definition": "complete, total, and not limited in any way.",
-        "example": "He has absolute control over the project.",
-        "hebrewTranslation": "מוחלט, מושלם",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "absolutely",
-        "definition": "completely or totally; used to emphasize a statement.",
-        "example": "She is absolutely right.",
-        "hebrewTranslation": "באופן מוחלט",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "absorb",
-        "definition": "to take in a liquid, gas, or other substance from the surface or space around.",
-        "example": "The sponge can absorb a lot of water.",
-        "hebrewTranslation": "לקלוט, לספוג, להתעמק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "absorbent",
-        "definition": "able to soak up liquid easily.",
-        "example": "This towel is very absorbent.",
-        "hebrewTranslation": "בעל כושר ספיגה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "accessible",
-        "definition": "able to be reached, entered, or used.",
-        "example": "The museum is fully accessible to wheelchair users.",
-        "hebrewTranslation": "נגיש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "accidental",
-        "definition": "happening by chance; not planned.",
-        "example": "It was an accidental discovery.",
-        "hebrewTranslation": "מקרי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "acceptable",
-        "definition": "good enough to be allowed or approved of.",
-        "example": "This behavior is not acceptable in school.",
-        "hebrewTranslation": "מקובל",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "accompaniment",
-        "definition": "a musical part that supports or partners a solo instrument, voice, or group.",
-        "example": "He sang with a piano accompaniment.",
-        "hebrewTranslation": "ליווי",
-        "category": "Music",
-        "level": 7
-    },
-    {
-        "word": "account",
-        "definition": "a report or description of an event or experience.",
-        "example": "She gave a detailed account of what happened.",
-        "hebrewTranslation": "חשבון",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "adherence",
-        "definition": "the fact of behaving according to a particular rule or belief.",
-        "example": "Strict adherence to the rules is expected.",
-        "hebrewTranslation": "היצמדות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "admit into",
-        "definition": "to allow someone or something to enter a place.",
-        "example": "Only members are admitted into the club.",
-        "hebrewTranslation": "להכניס",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "admittance",
-        "definition": "the process or fact of entering or being allowed to enter a place.",
-        "example": "Admittance to the museum is free on Sundays.",
-        "hebrewTranslation": "הכנסה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "agglomeration",
-        "definition": "a large group of many different things collected or brought together.",
-        "example": "The city is an agglomeration of various cultures and traditions.",
-        "hebrewTranslation": "ערימה",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "aim",
-        "definition": "a purpose or intention; a desired outcome.",
-        "example": "Her main aim in life is to help others.",
-        "hebrewTranslation": "תכלית",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "allowable",
-        "definition": "permitted by law or rules.",
-        "example": "What is the allowable amount of luggage?",
-        "hebrewTranslation": "חוקי",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "ambiguity",
-        "definition": "the quality of being open to more than one interpretation; inexactness.",
-        "example": "His statement was full of ambiguity.",
-        "hebrewTranslation": "דו משמעות",
-        "category": "Language",
-        "level": 6
-    },
-    {
-        "word": "anguish",
-        "definition": "severe mental or physical pain or suffering.",
-        "example": "He was in anguish after losing his best friend.",
-        "hebrewTranslation": "לסבול",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "annex",
-        "definition": "to add an area to a country or city.",
-        "example": "The government decided to annex the small territory.",
-        "hebrewTranslation": "לצרף",
-        "category": "Politics",
-        "level": 6
-    },
-    {
-        "word": "appeal",
-        "definition": "to make a serious and urgent request.",
-        "example": "The organization is appealing for food and clothing for the victims.",
-        "hebrewTranslation": "לבקש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "approval",
-        "definition": "the feeling or belief that something is good or satisfactory.",
-        "example": "They received official approval for the project.",
-        "hebrewTranslation": "אישור",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "argument",
-        "definition": "a reason or set of reasons given to persuade others that an idea is right or wrong.",
-        "example": "They had a strong argument over politics.",
-        "hebrewTranslation": "טענה",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "arouse",
-        "definition": "to cause a particular feeling or attitude in someone.",
-        "example": "The strange noise aroused his suspicion.",
-        "hebrewTranslation": "לעורר",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "ascertain",
-        "definition": "to find out something for certain.",
-        "example": "The police are trying to ascertain the cause of the fire.",
-        "hebrewTranslation": "לוודא",
-        "category": "Investigation",
-        "level": 7
-    },
-    {
-        "word": "assertion",
-        "definition": "a confident and forceful statement of fact or belief.",
-        "example": "Her assertion that she was innocent was convincing.",
-        "hebrewTranslation": "טענה",
-        "category": "Communication",
-        "level": 6
-    },
-    {
-        "word": "assertively",
-        "definition": "in a confident and determined way.",
-        "example": "She assertively presented her ideas to the board.",
-        "hebrewTranslation": "בביטחון",
-        "category": "Communication",
-        "level": 7
-    },
-    {
-        "word": "audacious",
-        "definition": "showing a willingness to take surprisingly bold risks.",
-        "example": "It was an audacious plan to climb the mountain in a storm.",
-        "hebrewTranslation": "נועז",
-        "category": "Character",
-        "level": 8
-    },
-    {
-        "word": "audience",
-        "definition": "the people gathered to see or listen to a play, concert, or public meeting.",
-        "example": "The audience clapped loudly at the end of the show.",
-        "hebrewTranslation": "קהל",
-        "category": "Events",
-        "level": 3
-    },
-    {
-        "word": "authoritative",
-        "definition": "able to be trusted as being accurate or true; reliable.",
-        "example": "The book is an authoritative guide on the subject.",
-        "hebrewTranslation": "מהימן",
-        "category": "Information",
-        "level": 7
-    },
-    {
-        "word": "avaricious",
-        "definition": "having or showing an extreme greed for wealth or material gain.",
-        "example": "The avaricious businessman was never satisfied.",
-        "hebrewTranslation": "חמדן",
-        "category": "Character",
-        "level": 8
-    },
-    {
-        "word": "awe",
-        "definition": "a feeling of great respect and admiration, often mixed with fear.",
-        "example": "The view of the mountains filled him with awe.",
-        "hebrewTranslation": "לעורר יראת כבוד",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "axis",
-        "definition": "an imaginary line around which a spinning object turns.",
-        "example": "The Earth rotates on its axis once every 24 hours.",
-        "hebrewTranslation": "ציר",
-        "category": "Science",
-        "level": 5
-    },
-    {
-        "word": "bait",
-        "definition": "food used to attract and catch fish or other animals.",
-        "example": "He put a worm on the hook as bait.",
-        "hebrewTranslation": "פיתיון",
-        "category": "Fishing",
-        "level": 4
-    },
-    {
-        "word": "belief",
-        "definition": "an acceptance that something exists or is true, especially one without proof.",
-        "example": "His belief in her ability never wavered.",
-        "hebrewTranslation": "אמונה",
-        "category": "Philosophy",
-        "level": 3
-    },
-    {
-        "word": "bestow",
-        "definition": "to give something as an honor or gift.",
-        "example": "The queen bestowed a knighthood on him.",
-        "hebrewTranslation": "להעניק",
-        "category": "Formal",
-        "level": 6
-    },
-    {
-        "word": "blindness",
-        "definition": "the state or condition of not being able to see.",
-        "example": "Blindness can result from eye injuries.",
-        "hebrewTranslation": "עיוורון",
-        "category": "Medical",
-        "level": 5
-    },
-    {
-        "word": "bother",
-        "definition": "to annoy someone, or to cause them trouble.",
-        "example": "I'm sorry to bother you, but could you help me?",
-        "hebrewTranslation": "להפריע",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "brake",
-        "definition": "a device for slowing or stopping a moving vehicle.",
-        "example": "He slammed on the brakes to avoid an accident.",
-        "hebrewTranslation": "לעצור",
-        "category": "Vehicles",
-        "level": 3
-    },
-    {
-        "word": "bridle",
-        "definition": "to show one's anger or resentment.",
-        "example": "She bridled at the suggestion that she was not telling the truth.",
-        "hebrewTranslation": "לרסן",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "bright",
-        "definition": "giving out or reflecting a lot of light; shining.",
-        "example": "The room was filled with bright sunshine.",
-        "hebrewTranslation": "בהיר",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "brighten",
-        "definition": "to make or become lighter or brighter.",
-        "example": "The sky began to brighten in the east.",
-        "hebrewTranslation": "להבהיר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "brightness",
-        "definition": "the quality of being full of light.",
-        "example": "The brightness of the screen hurt my eyes.",
-        "hebrewTranslation": "בהירות",
-        "category": "Physics",
-        "level": 4
-    },
-    {
-        "word": "broaden",
-        "definition": "to make something wider.",
-        "example": "Traveling is a great way to broaden your mind.",
-        "hebrewTranslation": "להרחיב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "brutish",
-        "definition": "cruel, violent, and not showing intelligence or feeling.",
-        "example": "He had a brutish and unpleasant manner.",
-        "hebrewTranslation": "בהמי",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "candid",
-        "definition": "truthful and straightforward; frank.",
-        "example": "Let me be candid; I don't think your plan will work.",
-        "hebrewTranslation": "כן",
-        "category": "Communication",
-        "level": 5
-    },
-    {
-        "word": "candidly",
-        "definition": "in an honest and direct way.",
-        "example": "He spoke candidly about his past mistakes.",
-        "hebrewTranslation": "בכנות",
-        "category": "Communication",
-        "level": 7
-    },
-    {
-        "word": "certify",
-        "definition": "to officially recognize someone or something as meeting certain standards.",
-        "example": "The document must be certified by a lawyer.",
-        "hebrewTranslation": "לאשר",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "characteristic",
-        "definition": "a typical quality or feature of someone or something.",
-        "example": "Patience is one of her main characteristics.",
-        "hebrewTranslation": "מובהק",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "complaisance",
-        "definition": "the quality of being willing to please others.",
-        "example": "His complaisance meant he never argued with anyone.",
-        "hebrewTranslation": "נכונות לרצות אחרים",
-        "category": "Character",
-        "level": 8
-    },
-    {
-        "word": "composition",
-        "definition": "the way in which something is made up of different parts.",
-        "example": "He wrote a beautiful musical composition.",
-        "hebrewTranslation": "חיבור",
-        "category": "Arts",
-        "level": 6
-    },
-    {
-        "word": "compulsory",
-        "definition": "required by law or a rule; obligatory.",
-        "example": "Education is compulsory for children between the ages of 5 and 16.",
-        "hebrewTranslation": "של חובה",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "confidential",
-        "definition": "intended to be kept secret.",
-        "example": "The information in this file is highly confidential.",
-        "hebrewTranslation": "חסוי",
-        "category": "Security",
-        "level": 7
-    },
-    {
-        "word": "conquer",
-        "definition": "to take control of a place or people by military force.",
-        "example": "The army set out to conquer the neighboring territory.",
-        "hebrewTranslation": "לכבוש",
-        "category": "Military",
-        "level": 5
-    },
-    {
-        "word": "conquest",
-        "definition": "the act of taking control of a country, city, etc., by force.",
-        "example": "The Norman conquest of England took place in 1066.",
-        "hebrewTranslation": "כיבוש",
-        "category": "History",
-        "level": 6
-    },
-    {
-        "word": "consideration",
-        "definition": "careful thought, typically over a period of time.",
-        "example": "After careful consideration, she accepted the job offer.",
-        "hebrewTranslation": "עיון",
-        "category": "Thinking",
-        "level": 5
-    },
-    {
-        "word": "consolation",
-        "definition": "comfort received by a person after a loss or disappointment.",
-        "example": "Her kind words were a great consolation to him.",
-        "hebrewTranslation": "נחמה",
-        "category": "Emotions",
-        "level": 7
-    },
-    {
-        "word": "constitution",
-        "definition": "the set of basic laws and principles that a country is governed by.",
-        "example": "The country's constitution protects the rights of its citizens.",
-        "hebrewTranslation": "חוקה",
-        "category": "Government",
-        "level": 6
-    },
-    {
-        "word": "contradiction",
-        "definition": "a situation in which two things are the opposite of each other.",
-        "example": "There is a clear contradiction between his words and his actions.",
-        "hebrewTranslation": "ניגוד",
-        "category": "Logic",
-        "level": 6
-    },
-    {
-        "word": "contribution",
-        "definition": "a gift or payment that is made to a person or an organization.",
-        "example": "She made a valuable contribution to the team's success.",
-        "hebrewTranslation": "תרומה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "conversion",
-        "definition": "the process of changing from one form or system to another.",
-        "example": "The conversion of the old warehouse into apartments was a success.",
-        "hebrewTranslation": "החלפה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "critique",
-        "definition": "a detailed analysis and assessment of something, especially a literary or artistic work.",
-        "example": "She wrote a critique of the new play.",
-        "hebrewTranslation": "לבקר",
-        "category": "Arts",
-        "level": 6
-    },
-    {
-        "word": "crossroads",
-        "definition": "a point at which a crucial decision must be made.",
-        "example": "He was at a crossroads in his career.",
-        "hebrewTranslation": "צומת",
-        "category": "Metaphor",
-        "level": 4
-    },
-    {
-        "word": "absorption",
-        "definition": "the process by which one thing absorbs or is absorbed by another.",
-        "example": "The plant's roots are responsible for water absorption.",
-        "hebrewTranslation": "ספיגה",
-        "category": "Science",
-        "level": 6
-    },
-    {
-        "word": "abundant",
-        "definition": "existing or available in large quantities; plentiful.",
-        "example": "There is abundant evidence to support his theory.",
-        "hebrewTranslation": "בשפע",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "abuse",
-        "definition": "to use something for a bad purpose; misuse.",
-        "example": "He began to abuse alcohol after he lost his job.",
-        "hebrewTranslation": "לנצל/להשתמש לרעה",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "accelerate",
-        "definition": "to begin to move more quickly.",
-        "example": "The car accelerated to overtake the truck.",
-        "hebrewTranslation": "להאיץ",
-        "category": "Physics",
-        "level": 4
-    },
-    {
-        "word": "accept",
-        "definition": "to consent to receive or undertake (something offered).",
-        "example": "She was happy to accept the job offer.",
-        "hebrewTranslation": "לקבל, להסכים",
-        "category": "Social",
-        "level": 2
-    },
-    {
-        "word": "acceptance",
-        "definition": "the action of consenting to receive or undertake something offered.",
-        "example": "Her acceptance into the university was a dream come true.",
-        "hebrewTranslation": "קבלה",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "access",
-        "definition": "the means or opportunity to approach or enter a place.",
-        "example": "You need a password to get access to the system.",
-        "hebrewTranslation": "גישה, כניסה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "accessibility",
-        "definition": "the quality of being able to be reached or entered.",
-        "example": "The new building has excellent accessibility for disabled people.",
-        "hebrewTranslation": "נגישות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "accessory",
-        "definition": "a thing which can be added to something else in order to make it more useful, versatile, or attractive.",
-        "example": "She bought a new accessory for her phone.",
-        "hebrewTranslation": "אביזר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "accompany",
-        "definition": "to go somewhere with (someone) as a companion or escort.",
-        "example": "Children under 12 must accompany an adult.",
-        "hebrewTranslation": "להתלוות, ללוות",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "accomplish",
-        "definition": "to achieve or complete successfully.",
-        "example": "It's amazing what you can accomplish when you work together.",
-        "hebrewTranslation": "לבצע, להשיג",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "accomplished",
-        "definition": "highly trained or skilled in a particular activity.",
-        "example": "She is an accomplished musician.",
-        "hebrewTranslation": "מוכשר, בעל הישגים",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "accomplishment",
-        "definition": "something that has been achieved successfully.",
-        "example": "Finishing the marathon was a great accomplishment.",
-        "hebrewTranslation": "הישג, השלמה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "according to",
-        "definition": "as stated by or in.",
-        "example": "According to the forecast, it will rain tomorrow.",
-        "hebrewTranslation": "על פי",
-        "category": "Language",
-        "level": 3
-    },
-    {
-        "word": "accordingly",
-        "definition": "in a way that is appropriate to the particular circumstances.",
-        "example": "We have a new manager, and we must act accordingly.",
-        "hebrewTranslation": "בהתאם לכך",
-        "category": "Language",
-        "level": 5
-    },
-    {
-        "word": "account for",
-        "definition": "to provide or serve as a reason or explanation for something.",
-        "example": "The bad weather accounts for the delay.",
-        "hebrewTranslation": "להסביר",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "accountable",
-        "definition": "required or expected to justify actions or decisions; responsible.",
-        "example": "Politicians are accountable to the people who elect them.",
-        "hebrewTranslation": "אחראי",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "accumulate",
-        "definition": "to gather together or acquire an increasing number or quantity of.",
-        "example": "Dust and dirt soon accumulate if you don't clean.",
-        "hebrewTranslation": "להצטבר, לצבור",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "accumulation",
-        "definition": "the acquisition or gradual gathering of something.",
-        "example": "The accumulation of wealth did not make him happy.",
-        "hebrewTranslation": "הצטברות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "accumulative",
-        "definition": "gradually increasing in amount or quantity.",
-        "example": "The accumulative effect of all the small changes was significant.",
-        "hebrewTranslation": "מצטבר",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "accurate",
-        "definition": "correct in all details; exact.",
-        "example": "We need to get an accurate measurement.",
-        "hebrewTranslation": "מדוייק, דייקן",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "accurately",
-        "definition": "in a way that is correct in all details; exactly.",
-        "example": "She accurately predicted the outcome.",
-        "hebrewTranslation": "בדייקנות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "achievable",
-        "definition": "able to be brought about or reached successfully.",
-        "example": "Set yourself small, achievable goals.",
-        "hebrewTranslation": "ניתן להשגה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "achieve",
-        "definition": "to successfully bring about or reach by effort, skill, or courage.",
-        "example": "He worked hard to achieve his dreams.",
-        "hebrewTranslation": "להשיג, להשלים",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "achievement",
-        "definition": "a thing done successfully, typically by effort, courage, or skill.",
-        "example": "Winning the Nobel Prize was her greatest achievement.",
-        "hebrewTranslation": "הישג",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "acquire",
-        "definition": "to buy or obtain (an asset or object) for oneself.",
-        "example": "The company will acquire several smaller firms.",
-        "hebrewTranslation": "לרכוש, להשיג",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "actual",
-        "definition": "existing in fact; real.",
-        "example": "The actual cost was higher than we expected.",
-        "hebrewTranslation": "עובדתי, אמיתי, ממשי",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "acute",
-        "definition": "(of a bad, difficult, or unwelcome situation) present or experienced to a severe or intense degree.",
-        "example": "There is an acute shortage of water.",
-        "hebrewTranslation": "רציני, חמור, אנוש, קריטי",
-        "category": "Medical",
-        "level": 5
-    },
-    {
-        "word": "adapt",
-        "definition": "to make (something) suitable for a new use or purpose; modify.",
-        "example": "We have to adapt to the new system.",
-        "hebrewTranslation": "להתאים, לעבד, לסגל",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "adaptable",
-        "definition": "able to adjust to new conditions.",
-        "example": "He's a very adaptable worker.",
-        "hebrewTranslation": "שאפשר להתאימו",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "adaptation",
-        "definition": "the action or process of adapting or being adapted.",
-        "example": "The adaptation of the book into a film was very successful.",
-        "hebrewTranslation": "הסתגלות, התאמה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "address",
-        "definition": "the particulars of the place where someone lives or an organization is situated.",
-        "example": "What is your current address?",
-        "hebrewTranslation": "כתובת",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "adhere to",
-        "definition": "to stick fast to (a surface or substance).",
-        "example": "You must adhere to the rules.",
-        "hebrewTranslation": "לדבוק ב...",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "adjust",
-        "definition": "to alter or move (something) slightly in order to achieve the desired fit, appearance, or result.",
-        "example": "You can adjust the height of the chair.",
-        "hebrewTranslation": "לכוון, להסתגל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "administer",
-        "definition": "to manage and be responsible for the running of (a business, organization, etc.).",
-        "example": "The government will administer the new program.",
-        "hebrewTranslation": "לנהל",
-        "category": "Business",
-        "level": 5
-    },
-    {
-        "word": "administration",
-        "definition": "the process or activity of running a business, organization, etc.",
-        "example": "She works in the university administration.",
-        "hebrewTranslation": "ניהול, מנהל",
-        "category": "Business",
-        "level": 5
-    },
-    {
-        "word": "administrative",
-        "definition": "relating to the running of a business, organization, etc.",
-        "example": "He has an administrative role in the company.",
-        "hebrewTranslation": "ניהולי",
-        "category": "Business",
-        "level": 6
-    },
-    {
-        "word": "administrator",
-        "definition": "a person responsible for running a business, organization, etc.",
-        "example": "He is the new administrator of the hospital.",
-        "hebrewTranslation": "מנהל",
-        "category": "Business",
-        "level": 5
-    },
-    {
-        "word": "admit",
-        "definition": "to confess to be true or to be the case.",
-        "example": "He admitted his mistake.",
-        "hebrewTranslation": "להודות",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "admittedly",
-        "definition": "used to introduce a concession or recognition that something is true.",
-        "example": "Admittedly, I could have tried harder.",
-        "hebrewTranslation": "מוסכם, לכל הדעות",
-        "category": "Language",
-        "level": 5
-    },
-    {
-        "word": "adolescence",
-        "definition": "the period following the onset of puberty during which a young person develops from a child into an adult.",
-        "example": "Adolescence can be a difficult time for many teenagers.",
-        "hebrewTranslation": "נעורים, גיל ההתבגרות",
-        "category": "Psychology",
-        "level": 6
-    },
-    {
-        "word": "adopt",
-        "definition": "to legally take (another's child) and bring it up as one's own.",
-        "example": "They decided to adopt a child.",
-        "hebrewTranslation": "לאמץ",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "advance",
-        "definition": "to move forward in a purposeful way.",
-        "example": "The army advanced on the city.",
-        "hebrewTranslation": "התקדמות, להתקדם, מקדמה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "advantage",
-        "definition": "a condition or circumstance that puts one in a favorable or superior position.",
-        "example": "Her experience gave her an advantage over the other candidates.",
-        "hebrewTranslation": "יתרון",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "advantageous",
-        "definition": "involving or creating favorable circumstances that increase the chances of success or effectiveness.",
-        "example": "A flexible schedule is advantageous for students.",
-        "hebrewTranslation": "מועיל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "adversary",
-        "definition": "one's opponent in a contest, conflict, or dispute.",
-        "example": "He was a formidable adversary in the chess match.",
-        "hebrewTranslation": "יריב",
-        "category": "Competition",
-        "level": 6
-    },
-    {
-        "word": "advertise",
-        "definition": "to describe or draw attention to (a product, service, or event) in a public medium.",
-        "example": "They will advertise their new product on television.",
-        "hebrewTranslation": "לפרסם",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "advertisement",
-        "definition": "a notice or announcement in a public medium promoting a product, service, or event.",
-        "example": "I saw an advertisement for a new car.",
-        "hebrewTranslation": "פרסומת, פרסום",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "advice",
-        "definition": "guidance or recommendations offered with regard to prudent future action.",
-        "example": "Can I give you a piece of advice?",
-        "hebrewTranslation": "עצה",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "advocate",
-        "definition": "to publicly recommend or support.",
-        "example": "He advocates for stricter environmental laws.",
-        "hebrewTranslation": "לסנגר, לדגול ב...",
-        "category": "Social",
-        "level": 5
-    },
-    {
-        "word": "affect",
-        "definition": "to have an effect on; make a difference to.",
-        "example": "The weather will affect our plans.",
-        "hebrewTranslation": "להשפיע",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "affection",
-        "definition": "a gentle feeling of fondness or liking.",
-        "example": "She has a deep affection for her grandparents.",
-        "hebrewTranslation": "חיבה",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "afflict",
-        "definition": "to cause pain or suffering to; affect or trouble.",
-        "example": "The country was afflicted by a severe drought.",
-        "hebrewTranslation": "לייסר",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "afford",
-        "definition": "to have enough money to pay for.",
-        "example": "I can't afford to buy a new car right now.",
-        "hebrewTranslation": "להרשות לעצמך",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "against",
-        "definition": "in opposition to.",
-        "example": "It's against the law to park here.",
-        "hebrewTranslation": "נגד",
-        "category": "Prepositions",
-        "level": 1
-    },
-    {
-        "word": "age",
-        "definition": "the length of time that a person has lived or a thing has existed.",
-        "example": "What is the age of this building?",
-        "hebrewTranslation": "גיל",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "agenda",
-        "definition": "a list of items to be discussed at a formal meeting.",
-        "example": "What's on the agenda for today's meeting?",
-        "hebrewTranslation": "סדר יום",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "aggression",
-        "definition": "hostile or violent behavior or attitudes toward another; readiness to attack or confront.",
-        "example": "His aggression was a problem for his teammates.",
-        "hebrewTranslation": "תוקפנות",
-        "category": "Psychology",
-        "level": 5
-    },
-    {
-        "word": "aggressive",
-        "definition": "ready or likely to attack or confront; characterized by or resulting from aggression.",
-        "example": "He is a very aggressive driver.",
-        "hebrewTranslation": "תוקפני, אגרסיבי",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "agree",
-        "definition": "to have the same opinion about something; concur.",
-        "example": "I agree with you completely.",
-        "hebrewTranslation": "להסכים",
-        "category": "Communication",
-        "level": 2
-    },
-    {
-        "word": "agriculture",
-        "definition": "the science or practice of farming, including cultivation of the soil for the growing of crops and the rearing of animals.",
-        "example": "Agriculture is an important part of the country's economy.",
-        "hebrewTranslation": "חקלאות",
-        "category": "Industry",
-        "level": 5
-    },
-    {
-        "word": "air",
-        "definition": "the invisible gaseous substance surrounding the earth, a mixture mainly of oxygen and nitrogen.",
-        "example": "The fresh mountain air was invigorating.",
-        "hebrewTranslation": "אוויר",
-        "category": "Nature",
-        "level": 1
-    },
-    {
-        "word": "airplane",
-        "definition": "a powered flying vehicle with fixed wings and a weight greater than that of the air it displaces.",
-        "example": "We traveled by airplane to Paris.",
-        "hebrewTranslation": "מטוס",
-        "category": "Transportation",
-        "level": 2
-    },
-    {
-        "word": "airport",
-        "definition": "a complex of runways and buildings for the takeoff, landing, and maintenance of civil aircraft.",
-        "example": "We need to be at the airport two hours before our flight.",
-        "hebrewTranslation": "שדה תעופה",
-        "category": "Transportation",
-        "level": 2
-    },
-    {
-        "word": "alert",
-        "definition": "quick to notice any unusual and possibly dangerous or difficult circumstances; watchful.",
-        "example": "The security guard was very alert.",
-        "hebrewTranslation": "ער, מוכן",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "alertness",
-        "definition": "the quality of being alert.",
-        "example": "His alertness saved him from the accident.",
-        "hebrewTranslation": "עירנות, דריכות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "alien",
-        "definition": "a hypothetical or fictional being from another world.",
-        "example": "The movie was about an alien invasion.",
-        "hebrewTranslation": "חוצן",
-        "category": "Fiction",
-        "level": 3
-    },
-    {
-        "word": "allegedly",
-        "definition": "used to convey that something is claimed to be the case or have taken place, although there is no proof.",
-        "example": "He was allegedly involved in the robbery.",
-        "hebrewTranslation": "לכאורה",
-        "category": "Legal",
-        "level": 7
-    },
-    {
-        "word": "allow",
-        "definition": "to let (someone) have or do something.",
-        "example": "Are you allowed to stay up late?",
-        "hebrewTranslation": "להרשות",
-        "category": "Social",
-        "level": 2
-    },
-    {
-        "word": "allow for",
-        "definition": "to take into consideration when making plans or calculations.",
-        "example": "We need to allow for unexpected delays.",
-        "hebrewTranslation": "להביא בחשבון",
-        "category": "Planning",
-        "level": 3
-    },
-    {
-        "word": "allowance",
-        "definition": "the amount of something that is permitted, especially within a set of regulations.",
-        "example": "My parents give me a weekly allowance.",
-        "hebrewTranslation": "דמי כיס, קצבה",
-        "category": "Finance",
-        "level": 3
-    },
-    {
-        "word": "ally",
-        "definition": "a state formally cooperating with another for a military or other purpose.",
-        "example": "The two countries were allies in the war.",
-        "hebrewTranslation": "בעל ברית",
-        "category": "Politics",
-        "level": 3
-    },
-    {
-        "word": "also",
-        "definition": "in addition; too.",
-        "example": "She is a talented singer and also a great actress.",
-        "hebrewTranslation": "גם",
-        "category": "Language",
-        "level": 1
-    },
-    {
-        "word": "alternate",
-        "definition": "to occur in turn repeatedly.",
-        "example": "The pattern alternates between red and blue stripes.",
-        "hebrewTranslation": "לסירוגין, חלופי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "although",
-        "definition": "in spite of the fact that; though.",
-        "example": "Although it was cold, we went for a walk.",
-        "hebrewTranslation": "אף על פי כן",
-        "category": "Language",
-        "level": 3
-    },
-    {
-        "word": "ambiguous",
-        "definition": "open to more than one interpretation; having a double meaning.",
-        "example": "His reply was ambiguous.",
-        "hebrewTranslation": "עמום, דו משמעי",
-        "category": "Language",
-        "level": 7
-    },
-    {
-        "word": "ambition",
-        "definition": "a strong desire to do or to achieve something, typically requiring determination and hard work.",
-        "example": "Her ambition is to become a successful writer.",
-        "hebrewTranslation": "שאפתנות, שאיפה",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "ambitious",
-        "definition": "having or showing a strong desire and determination to succeed.",
-        "example": "He is a very ambitious young man.",
-        "hebrewTranslation": "שאפתן, בעל שאיפות",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "ambivalence",
-        "definition": "the state of having mixed feelings or contradictory ideas about something or someone.",
-        "example": "She felt a certain ambivalence towards her new job.",
-        "hebrewTranslation": "רגשות סותרים",
-        "category": "Emotion",
-        "level": 8
-    },
-    {
-        "word": "ambivalent",
-        "definition": "having mixed feelings or contradictory ideas about something or someone.",
-        "example": "He was ambivalent about the proposal.",
-        "hebrewTranslation": "בעל משמעויות סותרות",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "amiss",
-        "definition": "not quite right; inappropriate or out of place.",
-        "example": "Something felt amiss, but I couldn't figure out what.",
-        "hebrewTranslation": "לא כשורה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "ammunition",
-        "definition": "a supply or quantity of bullets and shells.",
-        "example": "The soldiers ran out of ammunition.",
-        "hebrewTranslation": "תחמושת",
-        "category": "Military",
-        "level": 6
-    },
-    {
-        "word": "among",
-        "definition": "situated more or less centrally in relation to (several other things).",
-        "example": "There was a small cottage among the trees.",
-        "hebrewTranslation": "בקרב, בין כמה דברים",
-        "category": "Prepositions",
-        "level": 2
-    },
-    {
-        "word": "amount",
-        "definition": "a quantity of something, especially the total of a thing or things in number, size, value, or extent.",
-        "example": "What is the total amount you paid?",
-        "hebrewTranslation": "סכום, להסתכם",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "ancestor",
-        "definition": "a person, typically one more remote than a grandparent, from whom one is descended.",
-        "example": "My ancestors came from Italy.",
-        "hebrewTranslation": "אב קדמון",
-        "category": "Family",
-        "level": 5
-    },
-    {
-        "word": "ancient",
-        "definition": "belonging to the very distant past and no longer in existence.",
-        "example": "We visited the ancient ruins in Rome.",
-        "hebrewTranslation": "עתיק",
-        "category": "History",
-        "level": 4
-    },
-    {
-        "word": "annoy",
-        "definition": "to irritate (someone); make (someone) a little angry.",
-        "example": "His constant tapping was starting to annoy her.",
-        "hebrewTranslation": "להרגיז",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "anxiety",
-        "definition": "a feeling of worry, nervousness, or unease, typically about an imminent event or something with an uncertain outcome.",
-        "example": "She suffers from anxiety before exams.",
-        "hebrewTranslation": "חרדה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "anxious",
-        "definition": "experiencing worry, unease, or nervousness, typically about an imminent event or something with an uncertain outcome.",
-        "example": "I'm anxious about the results.",
-        "hebrewTranslation": "חרד, מודאג, משתוקק",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "apartment",
-        "definition": "a suite of rooms forming one residence, typically in a building containing a number of these.",
-        "example": "They live in a small apartment in the city.",
-        "hebrewTranslation": "דירה",
-        "category": "Housing",
-        "level": 2
-    },
-    {
-        "word": "appear",
-        "definition": "to come into sight; become visible or noticeable, typically without apparent cause.",
-        "example": "A figure suddenly appeared in the doorway.",
-        "hebrewTranslation": "להיראות, להופיע",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "applaud",
-        "definition": "to show approval or praise by clapping.",
-        "example": "The audience applauded enthusiastically.",
-        "hebrewTranslation": "להריע, למחוא כף",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "apply",
-        "definition": "to make a formal application or request.",
-        "example": "I'm going to apply for that job.",
-        "hebrewTranslation": "להגיש בקשה",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "apposite",
-        "definition": "apt in the circumstances or in relation to something.",
-        "example": "His comments were very apposite to the discussion.",
-        "hebrewTranslation": "מתאים מאד, הולם",
-        "category": "Language",
-        "level": 7
-    },
-    {
-        "word": "appreciate",
-        "definition": "to recognize the full worth of.",
-        "example": "I really appreciate all your help.",
-        "hebrewTranslation": "להעריך",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "approach",
-        "definition": "to come near or nearer to (someone or something) in distance or time.",
-        "example": "As we approached the house, we could see a light on.",
-        "hebrewTranslation": "להתקדם, לגשת",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "appropriate",
-        "definition": "suitable or proper in the circumstances.",
-        "example": "This is not an appropriate time to discuss the matter.",
-        "hebrewTranslation": "נאות, מתאים",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "appropriately",
-        "definition": "in a manner that is suitable or proper in the circumstances.",
-        "example": "She was dressed appropriately for the occasion.",
-        "hebrewTranslation": "באופן הולם, בצורה נאותה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "approve",
-        "definition": "to officially agree to or accept as satisfactory.",
-        "example": "The committee approved the plan.",
-        "hebrewTranslation": "להסכים, לאשר",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "argue",
-        "definition": "to give reasons or cite evidence in support of an idea, action, or theory, typically with the aim of persuading others to share one's view.",
-        "example": "He argued that the new law was unfair.",
-        "hebrewTranslation": "להתווכח, לטעון",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "argumentative",
-        "definition": "given to arguing.",
-        "example": "He's an argumentative person, always looking for a debate.",
-        "hebrewTranslation": "וכחן",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "arise",
-        "definition": "to emerge; become apparent.",
-        "example": "A new problem has arisen.",
-        "hebrewTranslation": "לקום, לנבוע",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "arm",
-        "definition": "each of the two upper limbs of the human body from the shoulder to the hand.",
-        "example": "He broke his arm playing football.",
-        "hebrewTranslation": "זרוע",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "aroma",
-        "definition": "a distinctive, typically pleasant smell.",
-        "example": "The aroma of freshly baked bread filled the room.",
-        "hebrewTranslation": "ניחוח",
-        "category": "Senses",
-        "level": 4
-    },
-    {
-        "word": "arrange",
-        "definition": "to put (things) in a neat, attractive, or required order.",
-        "example": "Can you arrange these books on the shelf?",
-        "hebrewTranslation": "לסדר",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "arrangement",
-        "definition": "the action, process, or result of arranging or being arranged.",
-        "example": "The arrangement of the furniture was very pleasing.",
-        "hebrewTranslation": "סידור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "arrive",
-        "definition": "to reach a place at the end of a journey or a stage in a journey.",
-        "example": "What time does the train arrive?",
-        "hebrewTranslation": "להגיע",
-        "category": "Travel",
-        "level": 2
-    },
-    {
-        "word": "arrogant",
-        "definition": "having or revealing an exaggerated sense of one's own importance or abilities.",
-        "example": "He is a very arrogant and self-important man.",
-        "hebrewTranslation": "יהיר, שחצן",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "art",
-        "definition": "the expression or application of human creative skill and imagination.",
-        "example": "She is studying art at college.",
-        "hebrewTranslation": "אומנות",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "ascribe",
-        "definition": "to attribute something to (a cause).",
-        "example": "He ascribed his success to hard work.",
-        "hebrewTranslation": "לייחס, לשייך",
-        "category": "Thinking",
-        "level": 7
-    },
-    {
-        "word": "assault",
-        "definition": "to make a physical attack on.",
-        "example": "He was charged with assault.",
-        "hebrewTranslation": "לתקוף, תקיפה, התקפה",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "assembly",
-        "definition": "a group of people gathered together in one place for a common purpose.",
-        "example": "The school holds an assembly every morning.",
-        "hebrewTranslation": "הרכבה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "assert",
-        "definition": "to state a fact or belief confidently and forcefully.",
-        "example": "She asserted her innocence.",
-        "hebrewTranslation": "לעמוד על, להכריז, לתבוע",
-        "category": "Communication",
-        "level": 5
-    },
-    {
-        "word": "assertive",
-        "definition": "having or showing a confident and forceful personality.",
-        "example": "You need to be more assertive to get what you want.",
-        "hebrewTranslation": "החלטי",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "asset",
-        "definition": "a useful or valuable thing, person, or quality.",
-        "example": "Her knowledge of languages is a great asset.",
-        "hebrewTranslation": "נכס",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "assign",
-        "definition": "to allocate (a job or duty).",
-        "example": "The teacher assigned homework to the students.",
-        "hebrewTranslation": "למנות",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "assimilate",
-        "definition": "to take in (information, ideas, or culture) and understand fully.",
-        "example": "It's difficult to assimilate so much information at once.",
-        "hebrewTranslation": "לספוג, להיטמע",
-        "category": "Thinking",
-        "level": 7
-    },
-    {
-        "word": "associated",
-        "definition": "(of a person or thing) connected with something else.",
-        "example": "There are many risks associated with this plan.",
-        "hebrewTranslation": "מקושר, מתלווה ל...",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "assume",
-        "definition": "to suppose to be the case, without proof.",
-        "example": "I assume you know what you're doing.",
-        "hebrewTranslation": "להניח, לקבל על עצמו",
-        "category": "Thinking",
-        "level": 3
-    },
-    {
-        "word": "assumption",
-        "definition": "a thing that is accepted as true or as certain to happen, without proof.",
-        "example": "Your assumption is incorrect.",
-        "hebrewTranslation": "הנחה",
-        "category": "Thinking",
-        "level": 5
-    },
-    {
-        "word": "astonish",
-        "definition": "to surprise or impress (someone) greatly.",
-        "example": "The news will astonish everyone.",
-        "hebrewTranslation": "מדהים, להדהים",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "at least",
-        "definition": "not less than; at the minimum.",
-        "example": "You should brush your teeth at least twice a day.",
-        "hebrewTranslation": "לפחות",
-        "category": "Language",
-        "level": 2
-    },
-    {
-        "word": "attach",
-        "definition": "to join or fasten (something) to something else.",
-        "example": "Please attach a recent photograph to your application form.",
-        "hebrewTranslation": "לחבר, להיות קשור ל...",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "attack",
-        "definition": "to take aggressive action against (a place or enemy forces) with weapons or armed force.",
-        "example": "The army launched an attack at dawn.",
-        "hebrewTranslation": "לתקוף",
-        "category": "Military",
-        "level": 3
-    },
-    {
-        "word": "attain",
-        "definition": "to succeed in achieving (something that one has worked for).",
-        "example": "He attained his goal of becoming a doctor.",
-        "hebrewTranslation": "להשיג",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "attempt",
-        "definition": "to make an effort to achieve or complete (something difficult).",
-        "example": "She will attempt to break the world record.",
-        "hebrewTranslation": "לנסות, ניסיון",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "attend",
-        "definition": "to be present at (an event, meeting, or function).",
-        "example": "Are you going to attend the conference?",
-        "hebrewTranslation": "להיות נוכח",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "attendance",
-        "definition": "the action or state of going regularly to or being present at a place or event.",
-        "example": "Attendance at the meeting is compulsory.",
-        "hebrewTranslation": "נוכחות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "attention",
-        "definition": "notice taken of someone or something; the regarding of someone or something as interesting or important.",
-        "example": "Please pay attention to the teacher.",
-        "hebrewTranslation": "תשומת לב",
-        "category": "Thinking",
-        "level": 2
-    },
-    {
-        "word": "attitude",
-        "definition": "a settled way of thinking or feeling about someone or something.",
-        "example": "She has a very positive attitude.",
-        "hebrewTranslation": "גישה",
-        "category": "Character",
-        "level": 3
-    },
-    {
-        "word": "attorney",
-        "definition": "a lawyer.",
-        "example": "You should consult an attorney before signing the contract.",
-        "hebrewTranslation": "עורך דין",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "attract",
-        "definition": "to cause to come to a place or participate in a venture by offering something of interest, advantage, or pleasure.",
-        "example": "The beautiful flowers attract bees.",
-        "hebrewTranslation": "למשוך",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "attraction",
-        "definition": "the action or power of evoking interest, pleasure, or liking for someone or something.",
-        "example": "The main attraction of the city is its beautiful architecture.",
-        "hebrewTranslation": "משיכה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "attractive",
-        "definition": "pleasing or appealing to the senses.",
-        "example": "She is a very attractive woman.",
-        "hebrewTranslation": "מושך",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "attribute",
-        "definition": "to regard something as being caused by (someone or something).",
-        "example": "He attributed his success to his hard work.",
-        "hebrewTranslation": "לייחס",
-        "category": "Thinking",
-        "level": 4
-    },
-    {
-        "word": "aunt",
-        "definition": "the sister of one's father or mother or the wife of one's uncle.",
-        "example": "My aunt lives in London.",
-        "hebrewTranslation": "דודה",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "authentic",
-        "definition": "of undisputed origin; genuine.",
-        "example": "This is an authentic painting by Picasso.",
-        "hebrewTranslation": "אמיתי, מקורי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "authenticity",
-        "definition": "the quality of being authentic.",
-        "example": "The authenticity of the document is in doubt.",
-        "hebrewTranslation": "אותנטיות, אמיתיות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "author",
-        "definition": "a writer of a book, article, or report.",
-        "example": "Who is your favorite author?",
-        "hebrewTranslation": "סופר, יוצר",
-        "category": "Literature",
-        "level": 3
-    },
-    {
-        "word": "authority",
-        "definition": "the power or right to give orders, make decisions, and enforce obedience.",
-        "example": "Only the manager has the authority to approve this.",
-        "hebrewTranslation": "סמכות, רשות מנהלית",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "autumn",
-        "definition": "the season after summer and before winter, in the northern hemisphere from September to November.",
-        "example": "The leaves turn brown in autumn.",
-        "hebrewTranslation": "סתיו",
-        "category": "Nature",
-        "level": 2
-    },
-    {
-        "word": "available",
-        "definition": "able to be used or obtained; at someone's disposal.",
-        "example": "Are there any tickets available for tonight's show?",
-        "hebrewTranslation": "פנוי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "avarice",
-        "definition": "extreme greed for wealth or material gain.",
-        "example": "His avarice led him to a life of crime.",
-        "hebrewTranslation": "תאוות בצע",
-        "category": "Character",
-        "level": 7
-    },
-    {
-        "word": "avoid",
-        "definition": "to keep away from or stop oneself from doing (something).",
-        "example": "You should avoid eating fatty foods.",
-        "hebrewTranslation": "להימנע מ...",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "aware",
-        "definition": "having knowledge or perception of a situation or fact.",
-        "example": "Are you aware of the risks?",
-        "hebrewTranslation": "מודע",
-        "category": "Thinking",
-        "level": 3
-    },
-    {
-        "word": "awareness",
-        "definition": "knowledge or perception of a situation or fact.",
-        "example": "There is a growing awareness of environmental issues.",
-        "hebrewTranslation": "מודעות",
-        "category": "Thinking",
-        "level": 5
-    },
-    {
-        "word": "awe inspiring",
-        "definition": "arousing awe through being impressive, formidable, or magnificent.",
-        "example": "The view from the top of the mountain was awe-inspiring.",
-        "hebrewTranslation": "מעורר יראת כבוד",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "azure",
-        "definition": "bright blue in color, like a cloudless sky.",
-        "example": "The azure sea stretched out before them.",
-        "hebrewTranslation": "תכלת",
-        "category": "Colors",
-        "level": 4
-    },
-    {
-        "word": "background",
-        "definition": "the part of a picture, scene, or design that forms a setting for the main figures or objects.",
-        "example": "The mountains in the background are beautiful.",
-        "hebrewTranslation": "רקע",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "balance",
-        "definition": "an even distribution of weight enabling someone or something to remain upright and steady.",
-        "example": "She lost her balance and fell.",
-        "hebrewTranslation": "מאזניים, איזון, שיווי משקל, לאזן",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "bamboozle",
-        "definition": "to fool or cheat (someone).",
-        "example": "He bamboozled her into giving him all her money.",
-        "hebrewTranslation": "לבלבל, לרמות",
-        "category": "Actions",
-        "level": 8
-    },
-    {
-        "word": "ban",
-        "definition": "to officially or legally prohibit.",
-        "example": "The government decided to ban smoking in public places.",
-        "hebrewTranslation": "להחרים, לאסור, חרם, איסור",
-        "category": "Legal",
-        "level": 2
-    },
-    {
-        "word": "band",
-        "definition": "a small group of musicians who play popular music together.",
-        "example": "My favorite band is playing a concert tonight.",
-        "hebrewTranslation": "להקה",
-        "category": "Music",
-        "level": 2
-    },
-    {
-        "word": "barefoot",
-        "definition": "wearing nothing on the feet.",
-        "example": "We walked barefoot on the beach.",
-        "hebrewTranslation": "יחף",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "barely",
-        "definition": "only just; almost not.",
-        "example": "I could barely hear what she was saying.",
-        "hebrewTranslation": "בקושי",
-        "category": "Adverbs",
-        "level": 3
-    },
-    {
-        "word": "barrack",
-        "definition": "to shout comments or jeers at (a speaker or performer).",
-        "example": "The crowd began to barrack the players.",
-        "hebrewTranslation": "לצעוק ולצחוק בגסות",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "barracks",
-        "definition": "a building or group of buildings used to house soldiers.",
-        "example": "The soldiers returned to their barracks after the training exercise.",
-        "hebrewTranslation": "מגורי חיילים",
-        "category": "Military",
-        "level": 6
-    },
-    {
-        "word": "barrier",
-        "definition": "a fence or other obstacle that prevents movement or access.",
-        "example": "The police put up a barrier to control the crowd.",
-        "hebrewTranslation": "מחסום",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "base",
-        "definition": "the lowest part or edge of something, especially the part on which it rests or is supported.",
-        "example": "The base of the statue is made of marble.",
-        "hebrewTranslation": "בסיס",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "base on",
-        "definition": "to use (something) as the foundation or starting point for something.",
-        "example": "The movie is based on a true story.",
-        "hebrewTranslation": "לבסס על",
-        "category": "Language",
-        "level": 3
-    },
-    {
-        "word": "basin",
-        "definition": "a bowl for washing, typically attached to a wall and having faucets.",
-        "example": "She washed her hands in the basin.",
-        "hebrewTranslation": "גיגית, אגם מים, קערה",
-        "category": "Household",
-        "level": 4
-    },
-    {
-        "word": "bathroom",
-        "definition": "a room containing a toilet and sink and typically also a bathtub or shower.",
-        "example": "Can I use your bathroom?",
-        "hebrewTranslation": "חדר אמבטיה",
-        "category": "Housing",
-        "level": 1
-    },
-    {
-        "word": "be aware of",
-        "definition": "to have knowledge or perception of (a situation, fact, or person).",
-        "example": "You should be aware of the potential dangers.",
-        "hebrewTranslation": "להיות מודע",
-        "category": "Thinking",
-        "level": 3
-    },
-    {
-        "word": "bedroom",
-        "definition": "a room for sleeping in.",
-        "example": "My bedroom is on the second floor.",
-        "hebrewTranslation": "חדר שינה",
-        "category": "Housing",
-        "level": 1
-    },
-    {
-        "word": "beforehand",
-        "definition": "in advance.",
-        "example": "If you're coming, please let me know beforehand.",
-        "hebrewTranslation": "מראש",
-        "category": "Time",
-        "level": 4
-    },
-    {
-        "word": "begin",
-        "definition": "to start; perform or undergo the first part of (an action or activity).",
-        "example": "Let's begin the meeting.",
-        "hebrewTranslation": "להתחיל",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "behavior",
-        "definition": "the way in which one acts or conducts oneself, especially toward others.",
-        "example": "His behavior was unacceptable.",
-        "hebrewTranslation": "התנהגות",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "bend",
-        "definition": "to shape or force (something straight) into a curve or angle.",
-        "example": "Can you bend this wire?",
-        "hebrewTranslation": "לעקם",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "beneath",
-        "definition": "at a lower level or layer than.",
-        "example": "The treasure was buried beneath the sand.",
-        "hebrewTranslation": "מתחת",
-        "category": "Prepositions",
-        "level": 4
-    },
-    {
-        "word": "benefit",
-        "definition": "an advantage or profit gained from something.",
-        "example": "There are many benefits to exercise.",
-        "hebrewTranslation": "תועלת",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "besides",
-        "definition": "in addition to; apart from.",
-        "example": "Besides German, he also speaks French.",
-        "hebrewTranslation": "חוץ מזה, בנוסף על",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "betray",
-        "definition": "to be unfaithful to (a person, cause, or trust).",
-        "example": "He betrayed his country by selling secrets to the enemy.",
-        "hebrewTranslation": "לבגוד",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "betrayal",
-        "definition": "the action of betraying one's country, a group, or a person; treachery.",
-        "example": "She felt a deep sense of betrayal.",
-        "hebrewTranslation": "בגידה",
-        "category": "Social",
-        "level": 7
-    },
-    {
-        "word": "between",
-        "definition": "at, into, or across the space separating (two objects or regions).",
-        "example": "The house is between the two trees.",
-        "hebrewTranslation": "בין",
-        "category": "Prepositions",
-        "level": 2
-    },
-    {
-        "word": "bitter",
-        "definition": "having a sharp, pungent taste or smell; not sweet.",
-        "example": "This coffee is too bitter for me.",
-        "hebrewTranslation": "מר, מכאיב, צורב",
-        "category": "Senses",
-        "level": 4
-    },
-    {
-        "word": "bizarre",
-        "definition": "very strange or unusual, especially so as to cause interest or amusement.",
-        "example": "He told a bizarre story about his trip.",
-        "hebrewTranslation": "מוזר",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "blaspheme",
-        "definition": "to speak irreverently about God or sacred things.",
-        "example": "It is considered a sin to blaspheme.",
-        "hebrewTranslation": "לחלל (דבר קדוש)",
-        "category": "Religion",
-        "level": 8
-    },
-    {
-        "word": "blasphemy",
-        "definition": "the act or offense of speaking sacrilegiously about God or sacred things; profane talk.",
-        "example": "He was accused of blasphemy.",
-        "hebrewTranslation": "חילול השם",
-        "category": "Religion",
-        "level": 7
-    },
-    {
-        "word": "bleed",
-        "definition": "to lose blood from the body as a result of injury or illness.",
-        "example": "His nose started to bleed.",
-        "hebrewTranslation": "לדמם",
-        "category": "Medical",
-        "level": 3
-    },
-    {
-        "word": "bloom",
-        "definition": "to produce flowers; be in flower.",
-        "example": "The roses will bloom in the spring.",
-        "hebrewTranslation": "לפרוח, ללבלב",
-        "category": "Nature",
-        "level": 4
-    },
-    {
-        "word": "borrow",
-        "definition": "to take and use (something belonging to someone else) with the intention of returning it.",
-        "example": "Can I borrow your pen?",
-        "hebrewTranslation": "לשאול חפץ, ללוות כסף",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "bothersome",
-        "definition": "causing annoyance; troublesome.",
-        "example": "The constant noise was very bothersome.",
-        "hebrewTranslation": "מטריד, מרגיז",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "bottle",
-        "definition": "a glass or plastic container with a narrow neck, used for holding drinks or other liquids.",
-        "example": "He drank a bottle of water.",
-        "hebrewTranslation": "בקבוק",
-        "category": "Household",
-        "level": 2
-    },
-    {
-        "word": "bottomless",
-        "definition": "having no bottom.",
-        "example": "The well seemed to be bottomless.",
-        "hebrewTranslation": "ללא תחתית",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "branch",
-        "definition": "a part of a tree which grows out from the trunk or from a bough.",
-        "example": "A bird was sitting on the branch of the tree.",
-        "hebrewTranslation": "ענף",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "brave",
-        "definition": "ready to face and endure danger or pain; showing courage.",
-        "example": "She was very brave to stand up to the bully.",
-        "hebrewTranslation": "אמיץ",
-        "category": "Character",
-        "level": 3
-    },
-    {
-        "word": "bread",
-        "definition": "food made of flour, water, and yeast or another leavening agent, mixed together and baked.",
-        "example": "Would you like a slice of bread?",
-        "hebrewTranslation": "לחם",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "breadth",
-        "definition": "the distance or measurement from side to side of something; width.",
-        "example": "We measured the breadth of the river.",
-        "hebrewTranslation": "רוחב",
-        "category": "Measurement",
-        "level": 6
-    },
-    {
-        "word": "break",
-        "definition": "to separate into pieces as a result of a blow, shock, or strain.",
-        "example": "Be careful not to break the glass.",
-        "hebrewTranslation": "לשבור",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "breakdown",
-        "definition": "a mechanical failure.",
-        "example": "We had a breakdown on the highway.",
-        "hebrewTranslation": "התמוטטות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "breakfast",
-        "definition": "a meal eaten in the morning, the first of the day.",
-        "example": "What did you have for breakfast?",
-        "hebrewTranslation": "ארוחת בוקר",
-        "category": "Food",
-        "level": 3
-    },
-    {
-        "word": "break-through",
-        "definition": "a sudden, dramatic, and important discovery or development.",
-        "example": "Scientists have made a major break-through in cancer research.",
-        "hebrewTranslation": "פריצת דרך",
-        "category": "Science",
-        "level": 7
-    },
-    {
-        "word": "breath",
-        "definition": "the air taken into or expelled from the lungs.",
-        "example": "Take a deep breath.",
-        "hebrewTranslation": "נשימה",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "bride",
-        "definition": "a woman on her wedding day or just before and after the event.",
-        "example": "The bride looked beautiful in her white dress.",
-        "hebrewTranslation": "כלה",
-        "category": "Family",
-        "level": 3
-    },
-    {
-        "word": "bring",
-        "definition": "to take or go with (someone or something) to a place.",
-        "example": "Can you bring me a glass of water?",
-        "hebrewTranslation": "להביא",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "broad",
-        "definition": "having an ample distance from side to side; wide.",
-        "example": "He has broad shoulders.",
-        "hebrewTranslation": "רחב, עצום, מלא, החלק הרחב",
-        "category": "Description",
-        "level": 3
-    },
-    {
-        "word": "broadcast",
-        "definition": "to transmit (a program or some information) by radio or television.",
-        "example": "The concert will be broadcast live.",
-        "hebrewTranslation": "לשדר",
-        "category": "Media",
-        "level": 5
-    },
-    {
-        "word": "brother",
-        "definition": "a man or boy with one or more parents in common with another person.",
-        "example": "I have two brothers.",
-        "hebrewTranslation": "אח",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "brutality",
-        "definition": "savage physical violence; great cruelty.",
-        "example": "The police were accused of brutality.",
-        "hebrewTranslation": "אכזריות",
-        "category": "Social",
-        "level": 7
-    },
-    {
-        "word": "brute",
-        "definition": "a savagely violent person or animal.",
-        "example": "He was a brute of a man.",
-        "hebrewTranslation": "בהמה, פראי",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "brutishly",
-        "definition": "in a savage and violent way.",
-        "example": "He behaved brutishly towards her.",
-        "hebrewTranslation": "בבהמיות, באכזריות",
-        "category": "Behavior",
-        "level": 8
-    },
-    {
-        "word": "budget",
-        "definition": "an estimate of income and expenditure for a set period of time.",
-        "example": "We need to stay within our budget.",
-        "hebrewTranslation": "תקציב",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "buffoon",
-        "definition": "a ridiculous but amusing person; a clown.",
-        "example": "He played the role of the buffoon in the play.",
-        "hebrewTranslation": "ליצן",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "build",
-        "definition": "to construct (something, typically a building, road, or machine) by putting parts or materials together.",
-        "example": "They are going to build a new bridge.",
-        "hebrewTranslation": "לבנות",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "building",
-        "definition": "a structure with a roof and walls, such as a house or factory.",
-        "example": "That's a very tall building.",
-        "hebrewTranslation": "בניין",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "birch",
-        "definition": "a slender, fast-growing tree that has thin, peeling bark.",
-        "example": "The path was lined with birch trees.",
-        "hebrewTranslation": "עץ ליבנה",
-        "category": "Nature",
-        "level": 5
-    },
-    {
-        "word": "burden",
-        "definition": "a load, typically a heavy one.",
-        "example": "He carried a heavy burden on his back.",
-        "hebrewTranslation": "עול",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "burn",
-        "definition": "to be on fire.",
-        "example": "The wood was burning brightly.",
-        "hebrewTranslation": "לשרוף",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "bus stop",
-        "definition": "a designated place where a public transport bus stops for passengers to board or alight.",
-        "example": "I'll meet you at the bus stop.",
-        "hebrewTranslation": "תחנת אוטובוס",
-        "category": "Transportation",
-        "level": 2
-    },
-    {
-        "word": "bush",
-        "definition": "a shrub or clump of shrubs with stems of moderate length.",
-        "example": "There was a rose bush in the garden.",
-        "hebrewTranslation": "שיח",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "business",
-        "definition": "a person's regular occupation, profession, or trade.",
-        "example": "He runs his own business.",
-        "hebrewTranslation": "עסקים",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "busy",
-        "definition": "having a great deal to do.",
-        "example": "I'm too busy to talk right now.",
-        "hebrewTranslation": "עסוק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "butter",
-        "definition": "a pale yellow edible fatty substance made by churning cream and used as a spread or in cooking.",
-        "example": "Would you like some butter on your toast?",
-        "hebrewTranslation": "חמאה",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "button",
-        "definition": "a small disk or knob sewn on to a garment, either to fasten it by being pushed through a buttonhole, or for decoration.",
-        "example": "You've lost a button from your shirt.",
-        "hebrewTranslation": "כפתור",
-        "category": "Clothing",
-        "level": 2
-    },
-    {
-        "word": "buttress",
-        "definition": "to provide (a building or structure) with projecting supports built against its walls.",
-        "example": "The argument was buttressed by solid evidence.",
-        "hebrewTranslation": "משען, תימוכין, לחזק, לתמוך",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "buy",
-        "definition": "to obtain in exchange for payment.",
-        "example": "I need to buy some new shoes.",
-        "hebrewTranslation": "לקנות",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "by all means",
-        "definition": "used to give permission.",
-        "example": "Can I borrow your pen? By all means.",
-        "hebrewTranslation": "בהחלט",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "by no means",
-        "definition": "not at all; certainly not.",
-        "example": "It is by no means certain that we will win.",
-        "hebrewTranslation": "בשום אופן לא",
-        "category": "Language",
-        "level": 5
-    },
-    {
-        "word": "bypass",
-        "definition": "to go past or around.",
-        "example": "We took the bypass to avoid the city center.",
-        "hebrewTranslation": "לעקוף, מעקף",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "calculate",
-        "definition": "to determine (the amount or number of something) mathematically.",
-        "example": "Can you calculate the total cost?",
-        "hebrewTranslation": "לחשב, לתכנן",
-        "category": "Math",
-        "level": 4
-    },
-    {
-        "word": "calm",
-        "definition": "not showing or feeling nervousness, anger, or other emotions.",
-        "example": "She remained calm throughout the crisis.",
-        "hebrewTranslation": "רוגע, להרגע",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "camouflage",
-        "definition": "the disguising of military personnel, equipment, and installations by painting or covering them to blend in with their surroundings.",
-        "example": "The lizard's camouflage made it difficult to see.",
-        "hebrewTranslation": "הסוואה",
-        "category": "Nature",
-        "level": 6
-    },
-    {
-        "word": "candle",
-        "definition": "a cylinder or block of wax or tallow with a central wick which is lit to produce light as it burns.",
-        "example": "She lit a candle.",
-        "hebrewTranslation": "נר",
-        "category": "Household",
-        "level": 3
-    },
-    {
-        "word": "capable",
-        "definition": "having the ability, fitness, or quality necessary to do or achieve a specified thing.",
-        "example": "She is a very capable student.",
-        "hebrewTranslation": "מסוגל, מוכשר",
-        "category": "Character",
-        "level": 4
-    },
-    {
-        "word": "capital",
-        "definition": "the most important city or town of a country or region, usually its seat of government and administrative center.",
-        "example": "Paris is the capital of France.",
-        "hebrewTranslation": "עיר בירה",
-        "category": "Geography",
-        "level": 4
-    },
-    {
-        "word": "carcass",
-        "definition": "the dead body of an animal.",
-        "example": "Vultures were feeding on the carcass of a dead deer.",
-        "hebrewTranslation": "פגר",
-        "category": "Nature",
-        "level": 7
-    },
-    {
-        "word": "care",
-        "definition": "the provision of what is necessary for the health, welfare, maintenance, and protection of someone or something.",
-        "example": "She takes great care of her garden.",
-        "hebrewTranslation": "אכפתיות, דאגה, לדאוג",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "carpet",
-        "definition": "a floor covering made from thick woven fabric.",
-        "example": "We have a new carpet in the living room.",
-        "hebrewTranslation": "שטיח",
-        "category": "Household",
-        "level": 3
-    },
-    {
-        "word": "casual",
-        "definition": "relaxed and unconcerned.",
-        "example": "It was just a casual conversation.",
-        "hebrewTranslation": "לבוש לא רשמי, מקרי",
-        "category": "Description",
-        "level": 3
-    },
-    {
-        "word": "catastrophe",
-        "definition": "an event causing great and often sudden damage or suffering; a disaster.",
-        "example": "The earthquake was a terrible catastrophe.",
-        "hebrewTranslation": "אסון",
-        "category": "Events",
-        "level": 8
-    },
-    {
-        "word": "catastrophic",
-        "definition": "involving or causing sudden great damage or suffering.",
-        "example": "The results of the war were catastrophic.",
-        "hebrewTranslation": "הרה אסון",
-        "category": "Description",
-        "level": 9
-    },
-    {
-        "word": "caused by",
-        "definition": "be the reason for something that happens.",
-        "example": "The accident was caused by human error.",
-        "hebrewTranslation": "נגרם על ידי",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "cease",
-        "definition": "to bring or come to an end.",
-        "example": "The rain will cease soon.",
-        "hebrewTranslation": "לחדול, להפסיק",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "ceaseless",
-        "definition": "constant and unending.",
-        "example": "The ceaseless noise of the traffic kept him awake.",
-        "hebrewTranslation": "ללא הפסק",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "cede",
-        "definition": "to give up (power or territory).",
-        "example": "The country was forced to cede some of its territory.",
-        "hebrewTranslation": "לוותר על",
-        "category": "Politics",
-        "level": 6
-    },
-    {
-        "word": "century",
-        "definition": "a period of one hundred years.",
-        "example": "We are living in the 21st century.",
-        "hebrewTranslation": "מאה",
-        "category": "Time",
-        "level": 3
-    },
-    {
-        "word": "ceremony",
-        "definition": "a formal religious or public occasion, typically one celebrating a particular event or anniversary.",
-        "example": "The wedding ceremony was beautiful.",
-        "hebrewTranslation": "טקס",
-        "category": "Events",
-        "level": 4
-    },
-    {
-        "word": "certain",
-        "definition": "known for sure; established beyond doubt.",
-        "example": "I'm certain that I'm right.",
-        "hebrewTranslation": "בטוח, ודאי, מסויים",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "certainly",
-        "definition": "without doubt; surely.",
-        "example": "I will certainly be there.",
-        "hebrewTranslation": "ללא ספק, בודאות",
-        "category": "Adverbs",
-        "level": 3
-    },
-    {
-        "word": "certainty",
-        "definition": "firm conviction that something is the case.",
-        "example": "I can't say with any certainty what will happen.",
-        "hebrewTranslation": "ודאות, דבר בטוח",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "chain",
-        "definition": "a series of connected links or rings, usually of metal.",
-        "example": "He wore a silver chain around his neck.",
-        "hebrewTranslation": "שרשרת",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "challenge",
-        "definition": "a call to take part in a contest or competition, especially a duel.",
-        "example": "She accepted his challenge to a game of chess.",
-        "hebrewTranslation": "אתגר",
-        "category": "Competition",
-        "level": 4
-    },
-    {
-        "word": "change",
-        "definition": "to make or become different.",
-        "example": "The city has changed a lot in recent years.",
-        "hebrewTranslation": "שינוי, לשנות, להחליף",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "chaos",
-        "definition": "complete disorder and confusion.",
-        "example": "There was chaos in the streets after the earthquake.",
-        "hebrewTranslation": "תוהו ובוהו",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "chaotic",
-        "definition": "in a state of complete confusion and disorder.",
-        "example": "The situation was chaotic.",
-        "hebrewTranslation": "פרוע, של תוהו ובוהו",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "character",
-        "definition": "the mental and moral qualities distinctive to an individual.",
-        "example": "She has a very strong character.",
-        "hebrewTranslation": "אופי, אישיות, דמות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "charity",
-        "definition": "an organization set up to provide help and raise money for those in need.",
-        "example": "She donates to charity every year.",
-        "hebrewTranslation": "צדקה",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "chauffeur",
-        "definition": "a person employed to drive a private or hired car.",
-        "example": "The rich man had his own chauffeur.",
-        "hebrewTranslation": "נהג",
-        "category": "Work",
-        "level": 7
-    },
-    {
-        "word": "cheap",
-        "definition": "low in price; worth more than its cost.",
-        "example": "This is a very cheap watch.",
-        "hebrewTranslation": "זול",
-        "category": "Finance",
-        "level": 1
-    },
-    {
-        "word": "cheese",
-        "definition": "a food made from the pressed curds of milk.",
-        "example": "I like cheese sandwiches.",
-        "hebrewTranslation": "גבינה",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "cherish",
-        "definition": "to protect and care for (someone) lovingly.",
-        "example": "She cherished the memories of her childhood.",
-        "hebrewTranslation": "לטפח, להוקיר",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "chicken",
-        "definition": "a domestic fowl kept for its eggs or meat.",
-        "example": "We had roast chicken for dinner.",
-        "hebrewTranslation": "עוף",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "chiefly",
-        "definition": "mainly; above all.",
-        "example": "The problem is chiefly one of resources.",
-        "hebrewTranslation": "בעיקר",
-        "category": "Adverbs",
-        "level": 5
-    },
-    {
-        "word": "child",
-        "definition": "a young human being below the age of puberty or below the legal age of majority.",
-        "example": "She is just a child.",
-        "hebrewTranslation": "ילד/ה",
-        "category": "Family",
-        "level": 1
-    },
-    {
-        "word": "choose",
-        "definition": "to pick out or select (someone or something) as being the best or most appropriate of two or more alternatives.",
-        "example": "You have to choose between these two options.",
-        "hebrewTranslation": "לבחור",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "cite",
-        "definition": "to quote (a passage, book, or author) as evidence for or justification of an argument or statement.",
-        "example": "He cited several sources in his essay.",
-        "hebrewTranslation": "לצטט",
-        "category": "Language",
-        "level": 5
-    },
-    {
-        "word": "civilization",
-        "definition": "the stage of human social and cultural development and organization that is considered most advanced.",
-        "example": "Ancient Egypt was a great civilization.",
-        "hebrewTranslation": "תרבות",
-        "category": "History",
-        "level": 7
-    },
-    {
-        "word": "civilize",
-        "definition": "to bring (a place or people) to a stage of social, cultural, and moral development considered to be more advanced.",
-        "example": "Missionaries tried to civilize the native population.",
-        "hebrewTranslation": "לתרבת",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "claim",
-        "definition": "to state or assert that something is the case, typically without providing evidence or proof.",
-        "example": "He claimed that he was innocent.",
-        "hebrewTranslation": "לטעון, לתבוע, טענה, תביעה",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "clarification",
-        "definition": "the action of making a statement or situation less confused and more comprehensible.",
-        "example": "I need some clarification on this point.",
-        "hebrewTranslation": "הבהרה, טיהור",
-        "category": "Communication",
-        "level": 7
-    },
-    {
-        "word": "clarify",
-        "definition": "to make (a statement or situation) less confused and more comprehensible.",
-        "example": "Can you clarify what you mean?",
-        "hebrewTranslation": "להבהיר, לטהר",
-        "category": "Communication",
-        "level": 6
-    },
-    {
-        "word": "classify",
-        "definition": "to arrange (a group of people or things) in classes or categories according to shared qualities or characteristics.",
-        "example": "The books are classified by subject.",
-        "hebrewTranslation": "לסווג",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "clean",
-        "definition": "free from dirt, marks, or stains.",
-        "example": "The room was very clean.",
-        "hebrewTranslation": "נקי",
-        "category": "Description",
-        "level": 1
-    },
-    {
-        "word": "clear",
-        "definition": "easy to perceive, understand, or interpret.",
-        "example": "The instructions are very clear.",
-        "hebrewTranslation": "בהיר, צלול",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "clever",
-        "definition": "quick to understand, learn, and devise or apply ideas; intelligent.",
-        "example": "She is a very clever student.",
-        "hebrewTranslation": "פיקח",
-        "category": "Character",
-        "level": 3
-    },
-    {
-        "word": "climate",
-        "definition": "the weather conditions prevailing in an area in general or over a long period.",
-        "example": "The climate in this region is very dry.",
-        "hebrewTranslation": "אקלים",
-        "category": "Nature",
-        "level": 4
-    },
-    {
-        "word": "clock",
-        "definition": "a mechanical or electrical device for measuring time.",
-        "example": "The clock on the wall says it's ten o'clock.",
-        "hebrewTranslation": "שעון",
-        "category": "Household",
-        "level": 1
-    },
-    {
-        "word": "cloud",
-        "definition": "a visible mass of condensed water vapor floating in the atmosphere, typically high above the ground.",
-        "example": "There wasn't a cloud in the sky.",
-        "hebrewTranslation": "ענן",
-        "category": "Nature",
-        "level": 1
-    },
-    {
-        "word": "coin",
-        "definition": "a flat, typically round piece of metal with an official stamp, used as money.",
-        "example": "I found a coin on the street.",
-        "hebrewTranslation": "מטבע",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "collaborate",
-        "definition": "to work jointly on an activity, especially to produce or create something.",
-        "example": "The two companies will collaborate on a new project.",
-        "hebrewTranslation": "לשתף פעולה",
-        "category": "Work",
-        "level": 7
-    },
-    {
-        "word": "collaboration",
-        "definition": "the action of working with someone to produce or create something.",
-        "example": "The project was a successful collaboration between two artists.",
-        "hebrewTranslation": "שיתוף פעולה",
-        "category": "Work",
-        "level": 7
-    },
-    {
-        "word": "collapse",
-        "definition": "(of a structure) to fall down or in; give way.",
-        "example": "The building collapsed during the earthquake.",
-        "hebrewTranslation": "להתמוטט, התמוטטות, לקפל",
-        "category": "Events",
-        "level": 5
-    },
-    {
-        "word": "collect",
-        "definition": "to bring or gather together (a number of things).",
-        "example": "She collects stamps.",
-        "hebrewTranslation": "לאסוף",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "come",
-        "definition": "to move or travel toward or into a place thought of as near or familiar to the speaker.",
-        "example": "Can you come to my party?",
-        "hebrewTranslation": "לבוא",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "commence",
-        "definition": "to begin; start.",
-        "example": "The meeting will commence at 10 am.",
-        "hebrewTranslation": "להתחיל",
-        "category": "Formal",
-        "level": 5
-    },
-    {
-        "word": "commensurate",
-        "definition": "corresponding in size or degree; in proportion.",
-        "example": "Salary will be commensurate with experience.",
-        "hebrewTranslation": "תואם",
-        "category": "Formal",
-        "level": 7
-    },
-    {
-        "word": "commerce",
-        "definition": "the activity of buying and selling, especially on a large scale.",
-        "example": "The city is a center of commerce.",
-        "hebrewTranslation": "מסחר",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "commercial",
-        "definition": "concerned with or engaged in commerce.",
-        "example": "This is a commercial district with many shops and businesses.",
-        "hebrewTranslation": "מסחרי",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "commiserate",
-        "definition": "to express or feel sympathy or pity; sympathize.",
-        "example": "I commiserated with him on his loss.",
-        "hebrewTranslation": "להשתתף בצער",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "common",
-        "definition": "occurring, found, or done often; prevalent.",
-        "example": "It's a common mistake.",
-        "hebrewTranslation": "נפוץ",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "communicate",
-        "definition": "to share or exchange information, news, or ideas.",
-        "example": "We need to communicate better with each other.",
-        "hebrewTranslation": "לתקשר",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "communication",
-        "definition": "the imparting or exchanging of information or news.",
-        "example": "Good communication is essential in a team.",
-        "hebrewTranslation": "תקשורת",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "communicative",
-        "definition": "willing to talk to people and give them information.",
-        "example": "He wasn't very communicative and kept to himself.",
-        "hebrewTranslation": "מוכן לתקשר",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "commute",
-        "definition": "to travel some distance between one's home and place of work on a regular basis.",
-        "example": "She commutes to the city every day for work.",
-        "hebrewTranslation": "נסיעה משותפת מפרברים לעבודה בעיר",
-        "category": "Transportation",
-        "level": 3
-    },
-    {
-        "word": "company",
-        "definition": "a commercial business.",
-        "example": "He works for a large software company.",
-        "hebrewTranslation": "חברה",
-        "category": "Business",
-        "level": 2
-    },
-    {
-        "word": "comparable",
-        "definition": "able to be likened to another; similar.",
-        "example": "The two cars are comparable in price.",
-        "hebrewTranslation": "ניתן להשוואה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "comparative",
-        "definition": "pertaining to the comparison of two or more things.",
-        "example": "He did a comparative study of the two novels.",
-        "hebrewTranslation": "יחסי, השוואתי",
-        "category": "Analysis",
-        "level": 6
-    },
-    {
-        "word": "compare",
-        "definition": "to estimate, measure, or note the similarity or dissimilarity between.",
-        "example": "Let's compare the two options.",
-        "hebrewTranslation": "להשוות",
-        "category": "Thinking",
-        "level": 3
-    },
-    {
-        "word": "comparison",
-        "definition": "a consideration or estimate of the similarities or dissimilarities between two things or people.",
-        "example": "The comparison showed that the first option was better.",
-        "hebrewTranslation": "השוואה",
-        "category": "Thinking",
-        "level": 5
-    },
-    {
-        "word": "compatible",
-        "definition": "(of two things) able to exist or occur together without conflict.",
-        "example": "This software is not compatible with your operating system.",
-        "hebrewTranslation": "מתאים, הולם, תואם",
-        "category": "Technology",
-        "level": 5
-    },
-    {
-        "word": "compete",
-        "definition": "to strive to gain or win something by defeating or establishing superiority over others.",
-        "example": "The two teams will compete for the championship.",
-        "hebrewTranslation": "להתחרות",
-        "category": "Competition",
-        "level": 4
-    },
-    {
-        "word": "competition",
-        "definition": "the activity or condition of competing.",
-        "example": "There is a lot of competition for this job.",
-        "hebrewTranslation": "תחרות",
-        "category": "Competition",
-        "level": 5
-    },
-    {
-        "word": "competitive",
-        "definition": "relating to or characterized by competition.",
-        "example": "She is a very competitive person.",
-        "hebrewTranslation": "תחרותי",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "complain",
-        "definition": "to express dissatisfaction or annoyance about something.",
-        "example": "He complained about the bad service.",
-        "hebrewTranslation": "להתלונן",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "completely",
-        "definition": "totally; to the fullest extent or degree.",
-        "example": "I completely forgot about the meeting.",
-        "hebrewTranslation": "לחלוטין",
-        "category": "Adverbs",
-        "level": 2
-    },
-    {
-        "word": "complex",
-        "definition": "consisting of many different and connected parts.",
-        "example": "It's a very complex issue.",
-        "hebrewTranslation": "מורכב",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "complexity",
-        "definition": "the state or quality of being intricate or complicated.",
-        "example": "I was amazed by the complexity of the design.",
-        "hebrewTranslation": "מורכבות, סיבוך",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "component",
-        "definition": "a part or element of a larger whole.",
-        "example": "The computer is made of many different components.",
-        "hebrewTranslation": "חלק, מרכיב, רכיב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "compose",
-        "definition": "to write or create (a work of art, especially music or poetry).",
-        "example": "He composed this symphony when he was very young.",
-        "hebrewTranslation": "להרכיב, להלחין",
-        "category": "Arts",
-        "level": 4
-    },
-    {
-        "word": "composite",
-        "definition": "made up of various parts or elements.",
-        "example": "The statue is made of a composite material.",
-        "hebrewTranslation": "מורכב",
-        "category": "Materials",
-        "level": 6
-    },
-    {
-        "word": "compulsion",
-        "definition": "the action or state of forcing or being forced to do something; constraint.",
-        "example": "He felt a compulsion to check the door was locked.",
-        "hebrewTranslation": "כפייה",
-        "category": "Psychology",
-        "level": 7
-    },
-    {
-        "word": "compulsive",
-        "definition": "resulting from or relating to an irresistible urge.",
-        "example": "He is a compulsive liar.",
-        "hebrewTranslation": "כפייתי",
-        "category": "Psychology",
-        "level": 6
-    },
-    {
-        "word": "conceive",
-        "definition": "to form or devise (a plan or idea) in the mind.",
-        "example": "She conceived the idea for her novel during her trip.",
-        "hebrewTranslation": "לחשוב על..., להרות",
-        "category": "Thinking",
-        "level": 6
-    },
-    {
-        "word": "concentrate",
-        "definition": "to focus all one's attention on a particular object or activity.",
-        "example": "I can't concentrate with all this noise.",
-        "hebrewTranslation": "להתרכז",
-        "category": "Thinking",
-        "level": 4
-    },
-    {
-        "word": "concern",
-        "definition": "to relate to; be about.",
-        "example": "The report concerns the company's financial performance.",
-        "hebrewTranslation": "דאגה, עניין, לדאוג, להתעניין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "conclude",
-        "definition": "to arrive at a judgment or opinion by reasoning.",
-        "example": "The jury concluded that he was guilty.",
-        "hebrewTranslation": "לסיים, להסיק",
-        "category": "Thinking",
-        "level": 4
-    },
-    {
-        "word": "conclusion",
-        "definition": "the end or finish of an event or process.",
-        "example": "In conclusion, I would like to thank you all.",
-        "hebrewTranslation": "סיום, מסקנה",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "conclusive",
-        "definition": "(of evidence or argument) serving to prove a case; decisive or convincing.",
-        "example": "The evidence was conclusive.",
-        "hebrewTranslation": "מכריע",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "concurred with",
-        "definition": "to happen at the same time; coincide.",
-        "example": "The two events concurred, causing confusion.",
-        "hebrewTranslation": "להתרחש בו זמנית, להתאים",
-        "category": "Events",
-        "level": 6
-    },
-    {
-        "word": "condemn",
-        "definition": "to express complete disapproval of, typically in public; censure.",
-        "example": "The government condemned the attack.",
-        "hebrewTranslation": "להרשיע, לגנות",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "conduct",
-        "definition": "to organize and carry out.",
-        "example": "The scientists will conduct an experiment.",
-        "hebrewTranslation": "לנהל, להוביל",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "confess",
-        "definition": "to admit or acknowledge something reluctantly, typically because one feels slightly ashamed or embarrassed.",
-        "example": "He confessed to stealing the money.",
-        "hebrewTranslation": "להודות, להתוודות",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "confidence",
-        "definition": "the feeling or belief that one can rely on someone or something; firm trust.",
-        "example": "I have great confidence in her abilities.",
-        "hebrewTranslation": "אמון",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "confident",
-        "definition": "feeling or showing confidence in oneself; self-assured.",
-        "example": "She is a confident and articulate speaker.",
-        "hebrewTranslation": "בטוח",
-        "category": "Character",
-        "level": 3
-    },
-    {
-        "word": "confine",
-        "definition": "to keep or restrict someone or something within certain limits of (space, scope, quantity, or time).",
-        "example": "Please confine your comments to the topic.",
-        "hebrewTranslation": "להגביל",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "confines",
-        "definition": "the borders or boundaries of a place.",
-        "example": "He never ventured beyond the confines of his village.",
-        "hebrewTranslation": "גבולות",
-        "category": "Geography",
-        "level": 5
-    },
-    {
-        "word": "conflict",
-        "definition": "a serious disagreement or argument, typically a protracted one.",
-        "example": "The two countries are in conflict.",
-        "hebrewTranslation": "ניגוד, סכסוך, לסתור",
-        "category": "Social",
-        "level": 4
-    },
-    {
-        "word": "confront",
-        "definition": "to face up to and deal with (a problem or difficult situation).",
-        "example": "You need to confront your fears.",
-        "hebrewTranslation": "לעמת",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "confrontation",
-        "definition": "a hostile or argumentative meeting or situation between opposing parties.",
-        "example": "There was a violent confrontation between the two groups.",
-        "hebrewTranslation": "עימות",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "conscience",
-        "definition": "a person's moral sense of right and wrong, viewed as acting as a guide to one's behavior.",
-        "example": "He had a guilty conscience.",
-        "hebrewTranslation": "מצפון",
-        "category": "Psychology",
-        "level": 6
-    },
-    {
-        "word": "conscientious",
-        "definition": "wishing to do one's work or duty well and thoroughly.",
-        "example": "She is a very conscientious student.",
-        "hebrewTranslation": "מודרך על יד מצפונו",
-        "category": "Character",
-        "level": 7
-    },
-    {
-        "word": "conscious",
-        "definition": "aware of and responding to one's surroundings; awake.",
-        "example": "The patient was conscious after the operation.",
-        "hebrewTranslation": "בעל הכרה",
-        "category": "Medical",
-        "level": 4
-    },
-    {
-        "word": "consciously",
-        "definition": "in a way that is aware of and responding to one's surroundings; with awareness.",
-        "example": "He consciously made the decision to leave.",
-        "hebrewTranslation": "במודע",
-        "category": "Thinking",
-        "level": 6
-    },
-    {
-        "word": "consciousness",
-        "definition": "the state of being awake and aware of one's surroundings.",
-        "example": "He lost consciousness after the accident.",
-        "hebrewTranslation": "הכרה, מודעות",
-        "category": "Medical",
-        "level": 7
-    },
-    {
-        "word": "consequence",
-        "definition": "a result or effect of an action or condition.",
-        "example": "The consequence of his actions was severe.",
-        "hebrewTranslation": "תוצאה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "consequent",
-        "definition": "following as a result or effect.",
-        "example": "The consequent damage was extensive.",
-        "hebrewTranslation": "בא כתוצאה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "consequential",
-        "definition": "following as a result or effect; important; significant.",
-        "example": "The decision was highly consequential for the company's future.",
-        "hebrewTranslation": "חשוב, מכריע",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "consequently",
-        "definition": "as a result.",
-        "example": "He was late and consequently missed the train.",
-        "hebrewTranslation": "כתוצאה מכך",
-        "category": "Language",
-        "level": 7
-    },
-    {
-        "word": "consider",
-        "definition": "to think carefully about (something), typically before making a decision.",
-        "example": "You should consider all the options.",
-        "hebrewTranslation": "לשקול, לחשוב על",
-        "category": "Thinking",
-        "level": 3
-    },
-    {
-        "word": "considerable",
-        "definition": "notably large in size, amount, or extent.",
-        "example": "The project required a considerable amount of time and effort.",
-        "hebrewTranslation": "ניכר, חשוב",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "considerate",
-        "definition": "careful not to cause inconvenience or hurt to others.",
-        "example": "It was very considerate of you to bring me a gift.",
-        "hebrewTranslation": "מתחשב",
-        "category": "Character",
-        "level": 5
-    },
-    {
-        "word": "consist",
-        "definition": "to be composed or made up of.",
-        "example": "The team consists of five members.",
-        "hebrewTranslation": "מורכב מ...",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "consistency",
-        "definition": "the quality of achieving a level of performance which does not vary greatly in quality over time.",
-        "example": "Consistency is key to success.",
-        "hebrewTranslation": "עקביות, סמיכות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "consistent",
-        "definition": "acting or done in the same way over time, especially so as to be fair or accurate.",
-        "example": "She is a very consistent player.",
-        "hebrewTranslation": "עקבי",
-        "category": "Character",
-        "level": 4
-    },
-    {
-        "word": "conspicuous",
-        "definition": "standing out so as to be clearly visible.",
-        "example": "He was conspicuous by his absence.",
-        "hebrewTranslation": "בולט",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "constant",
-        "definition": "occurring continuously over a period of time.",
-        "example": "The constant noise drove me crazy.",
-        "hebrewTranslation": "קבוע, תמידי",
-        "category": "Description",
-        "level": 3
-    },
-    {
-        "word": "consternation",
-        "definition": "a feeling of anxiety or dismay, typically at something unexpected.",
-        "example": "The announcement was met with consternation.",
-        "hebrewTranslation": "תדהמה, פחד",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "constituent",
-        "definition": "being a part of a whole.",
-        "example": "The constituent parts of the machine were easy to assemble.",
-        "hebrewTranslation": "מכונן, מרכיב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "constitute",
-        "definition": "to be (a part) of a whole.",
-        "example": "Women constitute 50% of the population.",
-        "hebrewTranslation": "לכונן, להרכיב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "consult",
-        "definition": "to seek information or advice from (someone with expertise in a particular area).",
-        "example": "You should consult a doctor.",
-        "hebrewTranslation": "להתייעץ",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "consume",
-        "definition": "to eat, drink, or ingest (food or drink).",
-        "example": "He consumed a large amount of food.",
-        "hebrewTranslation": "לשתות, לאכול, לצרוך, לכלות",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "consumer",
-        "definition": "a person who purchases goods and services for personal use.",
-        "example": "The new law protects consumer rights.",
-        "hebrewTranslation": "צרכן",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "contemporary",
-        "definition": "living or occurring at the same time.",
-        "example": "He was a contemporary of Shakespeare.",
-        "hebrewTranslation": "עכשווי, בן זמננו",
-        "category": "Time",
-        "level": 5
-    },
-    {
-        "word": "content",
-        "definition": "in a state of peaceful happiness.",
-        "example": "She was content with her life.",
-        "hebrewTranslation": "תוכן, להיות שבע רצון, שביעות רצון",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "contention",
-        "definition": "heated disagreement.",
-        "example": "The main point of contention was the budget.",
-        "hebrewTranslation": "מחלוקת",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "contentious",
-        "definition": "causing or likely to cause an argument; controversial.",
-        "example": "It is a contentious issue.",
-        "hebrewTranslation": "מעורר מחלוקת",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "continent",
-        "definition": "any of the world's main continuous expanses of land (Europe, Asia, Africa, North and South America, Australia, Antarctica).",
-        "example": "Africa is a large continent.",
-        "hebrewTranslation": "יבשת",
-        "category": "Geography",
-        "level": 4
-    },
-    {
-        "word": "continue",
-        "definition": "to persist in an activity or process.",
-        "example": "Please continue with your work.",
-        "hebrewTranslation": "להמשיך",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "contract",
-        "definition": "a written or spoken agreement, especially one concerning employment, sales, or tenancy, that is intended to be enforceable by law.",
-        "example": "You should read the contract carefully before signing.",
-        "hebrewTranslation": "חוזה, להתחייב בחוזה, לכווץ, לקצר",
-        "category": "Legal",
-        "level": 4
-    },
-    {
-        "word": "contradict",
-        "definition": "to deny the truth of (a statement) by asserting the opposite.",
-        "example": "His actions contradict his words.",
-        "hebrewTranslation": "לסתור",
-        "category": "Communication",
-        "level": 6
-    },
-    {
-        "word": "contrary",
-        "definition": "opposite in nature, direction, or meaning.",
-        "example": "Contrary to popular belief, the earth is not flat.",
-        "hebrewTranslation": "מנוגד, הפוך, ההיפך",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "contrast",
-        "definition": "the state of being strikingly different from something else in juxtaposition or close association.",
-        "example": "The contrast between the two pictures is obvious.",
-        "hebrewTranslation": "ניגוד, להנגיד, להשוות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "contribute",
-        "definition": "to give (something, especially money) in order to help achieve or provide something.",
-        "example": "She contributed to the charity.",
-        "hebrewTranslation": "לתרום",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "contributory",
-        "definition": "playing a part in bringing something about.",
-        "example": "Poor diet is a contributory factor in many illnesses.",
-        "hebrewTranslation": "תורם, מסייע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "convalesce",
-        "definition": "to recover one's health and strength over a period of time after an illness or medical treatment.",
-        "example": "She is convalescing at home after her operation.",
-        "hebrewTranslation": "להחלים",
-        "category": "Medical",
-        "level": 7
-    },
-    {
-        "word": "convalescence",
-        "definition": "time spent recovering from an illness or medical treatment; recuperation.",
-        "example": "He needs a long period of convalescence.",
-        "hebrewTranslation": "החלמה",
-        "category": "Medical",
-        "level": 7
-    },
-    {
-        "word": "conversation",
-        "definition": "a talk, especially an informal one, between two or more people.",
-        "example": "We had a long conversation about our plans.",
-        "hebrewTranslation": "שיחה",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "converse",
-        "definition": "to engage in conversation.",
-        "example": "They conversed in a low voice.",
-        "hebrewTranslation": "לשוחח",
-        "category": "Communication",
-        "level": 5
-    },
-    {
-        "word": "convict",
-        "definition": "to declare (someone) to be guilty of a criminal offense by the verdict of a jury or the decision of a judge in a court of law.",
-        "example": "He was convicted of robbery.",
-        "hebrewTranslation": "אסיר בכלא, להרשיע",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "conviction",
-        "definition": "a formal declaration that someone is guilty of a criminal offense, made by the verdict of a jury or the decision of a judge in a court of law.",
-        "example": "He has a previous conviction for theft.",
-        "hebrewTranslation": "הרשעה, שכנוע עצמי",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "convince",
-        "definition": "to cause (someone) to believe firmly in the truth of something.",
-        "example": "I'm convinced that she is telling the truth.",
-        "hebrewTranslation": "לשכנע",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "cooperate",
-        "definition": "to act jointly; work toward the same end.",
-        "example": "The two countries agreed to cooperate on the project.",
-        "hebrewTranslation": "לשתף פעולה",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "coordination",
-        "definition": "the organization of the different elements of a complex body or activity so as to enable them to work together effectively.",
-        "example": "Good coordination is essential for this task.",
-        "hebrewTranslation": "תיאום, קואורדינציה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "copy",
-        "definition": "to make a similar or identical version of; reproduce.",
-        "example": "Can you make a copy of this document for me?",
-        "hebrewTranslation": "להעתיק, עותק",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "corner",
-        "definition": "a place or angle where two or more sides or edges meet.",
-        "example": "The table is in the corner of the room.",
-        "hebrewTranslation": "פינה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "corollary",
-        "definition": "a proposition that follows from (and is often appended to) one already proved.",
-        "example": "A necessary corollary of this argument is that we need to act now.",
-        "hebrewTranslation": "תוספת, תולדה",
-        "category": "Logic",
-        "level": 6
-    },
-    {
-        "word": "correspond",
-        "definition": "to have a close similarity; match or agree almost exactly.",
-        "example": "The two accounts of the event do not correspond.",
-        "hebrewTranslation": "להיות תואם, להתכתב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "correspondence",
-        "definition": "a close similarity, connection, or equivalence.",
-        "example": "There is a close correspondence between the two sets of data.",
-        "hebrewTranslation": "התאמה, התכתבות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "corresponding",
-        "definition": "analogous or equivalent in character, form, or function; comparable.",
-        "example": "Sales are up this year, with a corresponding increase in profits.",
-        "hebrewTranslation": "תואם",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "corruption",
-        "definition": "dishonest or fraudulent conduct by those in power, typically involving bribery.",
-        "example": "The country is plagued by corruption.",
-        "hebrewTranslation": "שחיתות",
-        "category": "Social",
-        "level": 5
-    },
-    {
-        "word": "cost",
-        "definition": "(of an object or an action) require the payment of (a specified sum of money) before it can be acquired or done.",
-        "example": "How much does this book cost?",
-        "hebrewTranslation": "לעלות, עלות",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "cough",
-        "definition": "to expel air from the lungs with a sudden sharp sound.",
-        "example": "He started to cough.",
-        "hebrewTranslation": "להשתעל",
-        "category": "Medical",
-        "level": 2
-    },
-    {
-        "word": "country",
-        "definition": "a nation with its own government, occupying a particular territory.",
-        "example": "France is a beautiful country.",
-        "hebrewTranslation": "מדינה",
-        "category": "Geography",
-        "level": 2
-    },
-    {
-        "word": "course",
-        "definition": "a direction or route taken or intended.",
-        "example": "The ship is on a course for the island.",
-        "hebrewTranslation": "מסלול, דרך",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "creature",
-        "definition": "an animal, as distinct from a human being.",
-        "example": "The forest is full of strange creatures.",
-        "hebrewTranslation": "יצור",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "creed",
-        "definition": "a set of beliefs or aims which guide someone's actions.",
-        "example": "People of all races and creeds are welcome.",
-        "hebrewTranslation": "עיקרי אמונה",
-        "category": "Religion",
-        "level": 6
-    },
-    {
-        "word": "creep",
-        "definition": "to move slowly and carefully in order to avoid being heard or noticed.",
-        "example": "She crept up the stairs.",
-        "hebrewTranslation": "להתגנב, לזחול",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "crisis",
-        "definition": "a time of intense difficulty, trouble, or danger.",
-        "example": "The country is facing an economic crisis.",
-        "hebrewTranslation": "משבר",
-        "category": "Events",
-        "level": 5
-    },
-    {
-        "word": "critic",
-        "definition": "a person who expresses an unfavorable opinion of something.",
-        "example": "He is a harsh critic of the government.",
-        "hebrewTranslation": "מבקר",
-        "category": "Work",
-        "level": 5
-    },
-    {
-        "word": "critical",
-        "definition": "expressing adverse or disapproving comments or judgments.",
-        "example": "She is very critical of her own work.",
-        "hebrewTranslation": "מכריע, ביקורתי",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "criticism",
-        "definition": "the expression of disapproval of someone or something based on perceived faults or mistakes.",
-        "example": "She received a lot of criticism for her decision.",
-        "hebrewTranslation": "ביקורת",
-        "category": "Communication",
-        "level": 7
-    },
-    {
-        "word": "criticize",
-        "definition": "to indicate the faults of (someone or something) in a disapproving way.",
-        "example": "He was criticized for his poor performance.",
-        "hebrewTranslation": "לבקר (להעביר ביקורת)",
-        "category": "Communication",
-        "level": 7
-    },
-    {
-        "word": "crop",
-        "definition": "a cultivated plant that is grown as food, especially a grain, fruit, or vegetable.",
-        "example": "The main crop is rice.",
-        "hebrewTranslation": "יבול",
-        "category": "Agriculture",
-        "level": 3
-    },
-    {
-        "word": "crowd",
-        "definition": "a large number of people gathered together in a public place.",
-        "example": "A large crowd had gathered in the square.",
-        "hebrewTranslation": "קהל, המון, להתקהל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "crowded",
-        "definition": "(of a space) full of people, leaving little or no room for movement; packed.",
-        "example": "The train was very crowded.",
-        "hebrewTranslation": "צפוף",
-        "category": "Description",
-        "level": 3
-    },
-    {
-        "word": "cruise",
-        "definition": "a voyage on a ship or boat taken for pleasure or as a holiday and calling at several places.",
-        "example": "They went on a cruise in the Caribbean.",
-        "hebrewTranslation": "הפלגה, שיט",
-        "category": "Travel",
-        "level": 4
-    },
-    {
-        "word": "cucumber",
-        "definition": "a long, green-skinned fruit with watery flesh, usually eaten raw in salads.",
-        "example": "I'll have a cucumber sandwich.",
-        "hebrewTranslation": "מלפפון",
-        "category": "Food",
-        "level": 4
-    },
-    {
-        "word": "culminate",
-        "definition": "to reach a climax or point of highest development.",
-        "example": "The project culminated in a grand exhibition.",
-        "hebrewTranslation": "להגיע לשיא",
-        "category": "Events",
-        "level": 8
-    },
-    {
-        "word": "culture",
-        "definition": "the arts and other manifestations of human intellectual achievement regarded collectively.",
-        "example": "The city has a rich and diverse culture.",
-        "hebrewTranslation": "תרבות",
-        "category": "Social",
-        "level": 5
-    },
-    {
-        "word": "cumulative",
-        "definition": "increasing or increased in quantity, degree, or force by successive additions.",
-        "example": "The cumulative effect of the changes was significant.",
-        "hebrewTranslation": "מצטבר",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "cup",
-        "definition": "a small bowl-shaped container for drinking from, typically having a handle.",
-        "example": "Would you like a cup of tea?",
-        "hebrewTranslation": "כוס, ספל",
-        "category": "Household",
-        "level": 1
-    },
-    {
-        "word": "cupboard",
-        "definition": "a recess or piece of furniture with a door and usually shelves, used for storage.",
-        "example": "The plates are in the cupboard.",
-        "hebrewTranslation": "ארון כלים",
-        "category": "Household",
-        "level": 3
-    },
-    {
-        "word": "cure",
-        "definition": "to relieve (a person or animal) of the symptoms of a disease or condition.",
-        "example": "There is no cure for the common cold.",
-        "hebrewTranslation": "תרופה",
-        "category": "Medical",
-        "level": 3
-    },
-    {
-        "word": "curl",
-        "definition": "to form or cause to form into a curved or spiral shape.",
-        "example": "The smoke curled up from the chimney.",
-        "hebrewTranslation": "להסתלסל, להתכווץ",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "current",
-        "definition": "belonging to the present time; happening or being used or done now.",
-        "example": "What is the current situation?",
-        "hebrewTranslation": "נוכחי, עכשווי, שוטף, זרם",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "currently",
-        "definition": "at the present time.",
-        "example": "The factory is currently closed.",
-        "hebrewTranslation": "כעת",
-        "category": "Time",
-        "level": 4
-    },
-    {
-        "word": "curriculum",
-        "definition": "the subjects comprising a course of study in a school or college.",
-        "example": "The school has a broad curriculum.",
-        "hebrewTranslation": "תוכנית לימודים",
-        "category": "Education",
-        "level": 6
-    },
-    {
-        "word": "cut",
-        "definition": "to make an opening, incision, or wound in (something) with a sharp-edged tool or object.",
-        "example": "He cut his finger on a piece of glass.",
-        "hebrewTranslation": "לחתוך",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "cycle",
-        "definition": "a series of events that are regularly repeated in the same order.",
-        "example": "The life cycle of a butterfly.",
-        "hebrewTranslation": "מחזור",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "daily",
-        "definition": "done, produced, or occurring every day or every weekday.",
-        "example": "He goes for a daily walk in the park.",
-        "hebrewTranslation": "יומי",
-        "category": "Time",
-        "level": 2
-    },
-    {
-        "word": "damage",
-        "definition": "physical harm caused to something in such a way as to impair its value, usefulness, or normal function.",
-        "example": "The storm caused a lot of damage to the houses.",
-        "hebrewTranslation": "נזק, להזיק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "data",
-        "definition": "facts and statistics collected together for reference or analysis.",
-        "example": "We need more data to make a decision.",
-        "hebrewTranslation": "נתונים",
-        "category": "Science",
-        "level": 3
-    },
-    {
-        "word": "date",
-        "definition": "the day of the month or year as specified by a number.",
-        "example": "What's the date today?",
-        "hebrewTranslation": "תאריך, פגישה",
-        "category": "Time",
-        "level": 2
-    },
-    {
-        "word": "daughter",
-        "definition": "a girl or woman in relation to her parents.",
-        "example": "She is their only daughter.",
-        "hebrewTranslation": "בת",
-        "category": "Family",
-        "level": 3
-    },
-    {
-        "word": "dawdle",
-        "definition": "to waste time; be slow.",
-        "example": "Stop dawdling, we're going to be late!",
-        "hebrewTranslation": "להתבטל",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "dawn",
-        "definition": "the first appearance of light in the sky before sunrise.",
-        "example": "They started their journey at dawn.",
-        "hebrewTranslation": "שחר, זריחה",
-        "category": "Time",
-        "level": 3
-    },
-    {
-        "word": "de facto",
-        "definition": "in fact, or in effect, whether by right or not.",
-        "example": "He is the de facto leader of the country.",
-        "hebrewTranslation": "הלכה למעשה",
-        "category": "Legal",
-        "level": 7
-    },
-    {
-        "word": "decade",
-        "definition": "a period of ten years.",
-        "example": "The company has grown a lot over the last decade.",
-        "hebrewTranslation": "עשור",
-        "category": "Time",
-        "level": 3
-    },
-    {
-        "word": "deceit",
-        "definition": "the action or practice of deceiving someone by concealing or misrepresenting the truth.",
-        "example": "He was accused of deceit.",
-        "hebrewTranslation": "רמאות, הונאה",
-        "category": "Social",
-        "level": 6
-    },
-    {
-        "word": "declaration",
-        "definition": "a formal or explicit statement or announcement.",
-        "example": "He made a declaration of his love for her.",
-        "hebrewTranslation": "הצהרה",
-        "category": "Communication",
-        "level": 5
-    },
-    {
-        "word": "declare",
-        "definition": "to say something in a solemn and emphatic manner.",
-        "example": "The country declared its independence.",
-        "hebrewTranslation": "להצהיר",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "decline",
-        "definition": "to (typically of something regarded as good) become smaller, fewer, or less; decrease.",
-        "example": "The number of students has declined.",
-        "hebrewTranslation": "לסרב, לרדת",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "deduce",
-        "definition": "to arrive at (a fact or a conclusion) by reasoning; draw as a logical conclusion.",
-        "example": "From the evidence, we can deduce that he is guilty.",
-        "hebrewTranslation": "להסיק",
-        "category": "Thinking",
-        "level": 6
-    },
-    {
-        "word": "deed",
-        "definition": "an action that is performed intentionally or consciously.",
-        "example": "He did a good deed by helping the old lady.",
-        "hebrewTranslation": "מעשה",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "deep",
-        "definition": "extending far down from the top or surface.",
-        "example": "The ocean is very deep.",
-        "hebrewTranslation": "עמוק",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "deer",
-        "definition": "a hoofed grazing or browsing animal, with branched bony antlers that are shed annually and typically borne only by the male.",
-        "example": "We saw a deer in the forest.",
-        "hebrewTranslation": "צבי",
-        "category": "Nature",
-        "level": 2
-    },
-    {
-        "word": "defamation",
-        "definition": "the action of damaging the good reputation of someone; slander or libel.",
-        "example": "He sued the newspaper for defamation.",
-        "hebrewTranslation": "השמצה, הכפשה",
-        "category": "Legal",
-        "level": 7
-    },
-    {
-        "word": "defeat",
-        "definition": "to win a victory over (someone) in a battle or other contest; overcome or beat.",
-        "example": "Our team defeated the champions.",
-        "hebrewTranslation": "להביס, תבוסה",
-        "category": "Competition",
-        "level": 4
-    },
-    {
-        "word": "defect",
-        "definition": "a shortcoming, imperfection, or lack.",
-        "example": "There is a defect in the product.",
-        "hebrewTranslation": "פגם, לערוק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "defection",
-        "definition": "the desertion of one's country or cause in favor of an opposing one.",
-        "example": "His defection to the other side was a shock.",
-        "hebrewTranslation": "עריקה",
-        "category": "Politics",
-        "level": 7
-    },
-    {
-        "word": "defective",
-        "definition": "imperfect or faulty.",
-        "example": "The product was defective and had to be returned.",
-        "hebrewTranslation": "פגום",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "defend",
-        "definition": "to resist an attack made on (someone or something); protect from harm or danger.",
-        "example": "The soldiers defended the city.",
-        "hebrewTranslation": "להגן",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "defense",
-        "definition": "the action of defending from or resisting attack.",
-        "example": "The city's defense was strong.",
-        "hebrewTranslation": "הגנה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "defiance",
-        "definition": "open resistance; bold disobedience.",
-        "example": "She acted in defiance of her parents' wishes.",
-        "hebrewTranslation": "מרי",
-        "category": "Behavior",
-        "level": 6
-    },
-    {
-        "word": "defiant",
-        "definition": "showing defiance.",
-        "example": "He was in a defiant mood.",
-        "hebrewTranslation": "סרבן",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "deficiency",
-        "definition": "a lack or shortage.",
-        "example": "A deficiency of vitamin C can cause illness.",
-        "hebrewTranslation": "מחסור, גירעון",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "deficient",
-        "definition": "not having enough of a specified quality or ingredient.",
-        "example": "Their diet is deficient in iron.",
-        "hebrewTranslation": "חסר",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "definite",
-        "definition": "clearly stated or decided; not vague or doubtful.",
-        "example": "We need a definite answer by tomorrow.",
-        "hebrewTranslation": "מוחלט, ברור",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "definitive",
-        "definition": "(of a conclusion or agreement) done or reached decisively and with authority.",
-        "example": "The definitive biography of the artist.",
-        "hebrewTranslation": "סופי ומוחלט",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "defy",
-        "definition": "to openly resist or refuse to obey.",
-        "example": "She defied her parents and went to the party.",
-        "hebrewTranslation": "לסרב בתוקף",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "deliberate",
-        "definition": "done consciously and intentionally.",
-        "example": "It was a deliberate act of cruelty.",
-        "hebrewTranslation": "במכוון, לשקול",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "deliberately",
-        "definition": "consciously and intentionally; on purpose.",
-        "example": "He deliberately broke the window.",
-        "hebrewTranslation": "בכוונה תחילה",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "deliver",
-        "definition": "to bring and hand over (a letter, parcel, or goods) to the proper recipient or address.",
-        "example": "The postman delivered a package for you.",
-        "hebrewTranslation": "למסור",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "demand",
-        "definition": "an insistent and peremptory request, made as if by right.",
-        "example": "The workers' demand for higher wages was met.",
-        "hebrewTranslation": "לדרוש, דרישה",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "demented",
-        "definition": "behaving irrationally due to anger, distress, or excitement.",
-        "example": "He was driven demented by the constant noise.",
-        "hebrewTranslation": "משוגע",
-        "category": "Medical",
-        "level": 7
-    },
-    {
-        "word": "demonstrate",
-        "definition": "to clearly show the existence or truth of (something) by giving proof or evidence.",
-        "example": "He demonstrated how to use the new software.",
-        "hebrewTranslation": "להפגין, להדגים",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "demonstration",
-        "definition": "an act of showing that something exists or is true by giving proof or evidence.",
-        "example": "There was a demonstration against the new law.",
-        "hebrewTranslation": "הוכחה, הפגנה",
-        "category": "Events",
-        "level": 5
-    },
-    {
-        "word": "dense",
-        "definition": "closely compacted in substance.",
-        "example": "The forest was dense and dark.",
-        "hebrewTranslation": "צפוף",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "dentist",
-        "definition": "a person qualified to treat the diseases and conditions that affect the teeth and gums.",
-        "example": "I need to go to the dentist.",
-        "hebrewTranslation": "רופא שיניים",
-        "category": "Work",
-        "level": 4
-    },
-    {
-        "word": "deny",
-        "definition": "to state that one refuses to admit the truth or existence of.",
-        "example": "He denied any involvement in the crime.",
-        "hebrewTranslation": "להכחיש",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "depart",
-        "definition": "to leave, especially in order to start a journey.",
-        "example": "The train will depart from platform 5.",
-        "hebrewTranslation": "לפרוש, לצאת",
-        "category": "Travel",
-        "level": 4
-    },
-    {
-        "word": "department",
-        "definition": "a division of a large organization such as a government, university, or business, dealing with a specific area of activity.",
-        "example": "She works in the sales department.",
-        "hebrewTranslation": "מחלקה",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "depict",
-        "definition": "to represent by a drawing, painting, or other art form.",
-        "example": "The painting depicts a scene from the Bible.",
-        "hebrewTranslation": "לצייר, לתאר",
-        "category": "Arts",
-        "level": 5
-    },
-    {
-        "word": "depressed",
-        "definition": "(of a person) in a state of general unhappiness or despondency.",
-        "example": "She felt depressed after losing her job.",
-        "hebrewTranslation": "מדוכא",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "derive",
-        "definition": "to obtain something from (a specified source).",
-        "example": "The word 'derive' is derived from Latin.",
-        "hebrewTranslation": "להסיק, להפיק",
-        "category": "Language",
-        "level": 6
-    },
-    {
-        "word": "desert",
-        "definition": "a waterless, desolate area of land with little or no vegetation, typically one covered with sand.",
-        "example": "The Sahara is a vast desert.",
-        "hebrewTranslation": "מדבר, לנטוש",
-        "category": "Geography",
-        "level": 4
-    },
-    {
-        "word": "desirable",
-        "definition": "wished for as being an attractive, useful, or necessary course of action.",
-        "example": "A good education is highly desirable.",
-        "hebrewTranslation": "רצוי, נחשק",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "desire",
-        "definition": "a strong feeling of wanting to have something or wishing for something to happen.",
-        "example": "He had a strong desire to travel the world.",
-        "hebrewTranslation": "להשתוקק, תשוקה",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "desk",
-        "definition": "a piece of furniture with a flat table-style work surface used in a school, office, or at home.",
-        "example": "He sat at his desk and started to work.",
-        "hebrewTranslation": "שולחן עבודה",
-        "category": "Household",
-        "level": 1
-    },
-    {
-        "word": "despite",
-        "definition": "without being affected by; in spite of.",
-        "example": "Despite the rain, we enjoyed the walk.",
-        "hebrewTranslation": "למרות",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "destination",
-        "definition": "the place to which someone or something is going or being sent.",
-        "example": "Our destination is Paris.",
-        "hebrewTranslation": "יעד",
-        "category": "Travel",
-        "level": 5
-    },
-    {
-        "word": "destroy",
-        "definition": "to end the existence of (something) by damaging or attacking it.",
-        "example": "The fire destroyed the entire building.",
-        "hebrewTranslation": "להרוס",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "destruction",
-        "definition": "the action or process of causing so much damage to something that it no longer exists or cannot be repaired.",
-        "example": "The war caused widespread destruction.",
-        "hebrewTranslation": "הרס",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "detain",
-        "definition": "to keep (someone) from proceeding; hold back.",
-        "example": "The police detained him for questioning.",
-        "hebrewTranslation": "לעכב",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "detect",
-        "definition": "to discover or identify the presence or existence of.",
-        "example": "The machine can detect even small amounts of radiation.",
-        "hebrewTranslation": "לגלות, לאתר",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "detective",
-        "definition": "a person, especially a police officer, whose occupation is to investigate and solve crimes.",
-        "example": "The detective solved the mystery.",
-        "hebrewTranslation": "בלש",
-        "category": "Work",
-        "level": 4
-    },
-    {
-        "word": "deter",
-        "definition": "to discourage (someone) from doing something by instilling doubt or fear of the consequences.",
-        "example": "The high price will deter many customers.",
-        "hebrewTranslation": "להרתיע, למנוע",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "deteriorate",
-        "definition": "to become progressively worse.",
-        "example": "His health began to deteriorate.",
-        "hebrewTranslation": "להדרדר, להחמיר",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "deterioration",
-        "definition": "the process of becoming progressively worse.",
-        "example": "There has been a deterioration in the political situation.",
-        "hebrewTranslation": "הדרדרות",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "determination",
-        "definition": "the quality of being determined; firmness of purpose.",
-        "example": "She has a lot of determination to succeed.",
-        "hebrewTranslation": "קביעה, נחישות",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "deterrent",
-        "definition": "a thing that discourages or is intended to discourage someone from doing something.",
-        "example": "The threat of punishment is a deterrent.",
-        "hebrewTranslation": "מעכב, מונע",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "devastate",
-        "definition": "to destroy or ruin (something).",
-        "example": "The city was devastated by the earthquake.",
-        "hebrewTranslation": "לזרוע חורבן",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "develop",
-        "definition": "to grow or cause to grow and become more mature, advanced, or elaborate.",
-        "example": "The company is developing a new product.",
-        "hebrewTranslation": "לפתח, להתפתח",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "device",
-        "definition": "a thing made or adapted for a particular purpose, especially a piece of mechanical or electronic equipment.",
-        "example": "This is a very useful device.",
-        "hebrewTranslation": "כלי, מכשיר",
-        "category": "Technology",
-        "level": 3
-    },
-    {
-        "word": "devise",
-        "definition": "to plan or invent (a complex procedure, system, or mechanism) by careful thought.",
-        "example": "He devised a new way to store energy.",
-        "hebrewTranslation": "להגות תוכנית",
-        "category": "Thinking",
-        "level": 6
-    },
-    {
-        "word": "devote",
-        "definition": "to give all or a large part of one's time or resources to (a person, activity, or cause).",
-        "example": "She devoted her life to helping the poor.",
-        "hebrewTranslation": "להקדיש, להתמסר",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "differ",
-        "definition": "to be unlike or dissimilar.",
-        "example": "Our opinions differ on this matter.",
-        "hebrewTranslation": "להיות שונה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "diffuse",
-        "definition": "to spread or cause to spread over a wide area or among a large number of people.",
-        "example": "The heat from the fire diffused throughout the room.",
-        "hebrewTranslation": "להתפשט, להפיץ",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "diffusion",
-        "definition": "the spreading of something more widely.",
-        "example": "The diffusion of knowledge has been accelerated by the internet.",
-        "hebrewTranslation": "תערובת",
-        "category": "Science",
-        "level": 7
-    },
-    {
-        "word": "dig",
-        "definition": "to break up and move earth with a tool or machine, or with hands, paws, snout, etc.",
-        "example": "The dog was digging a hole in the garden.",
-        "hebrewTranslation": "לחפור",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "dilemma",
-        "definition": "a situation in which a difficult choice has to be made between two or more alternatives, especially equally undesirable ones.",
-        "example": "She faced the dilemma of choosing between her career and her family.",
-        "hebrewTranslation": "דילמה",
-        "category": "Thinking",
-        "level": 7
-    },
-    {
-        "word": "dimension",
-        "definition": "a measurable extent of a particular kind, such as length, breadth, depth, or height.",
-        "example": "What are the dimensions of the room?",
-        "hebrewTranslation": "מידה, מימד",
-        "category": "Measurement",
-        "level": 5
-    },
-    {
-        "word": "diminish",
-        "definition": "to make or become less.",
-        "example": "The pain will gradually diminish.",
-        "hebrewTranslation": "להפחית",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "dinner",
-        "definition": "the main meal of the day, taken either around midday or in the evening.",
-        "example": "What's for dinner tonight?",
-        "hebrewTranslation": "ארוחת ערב",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "dirty",
-        "definition": "covered or marked with an unclean substance.",
-        "example": "His clothes were dirty.",
-        "hebrewTranslation": "מלוכלך",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "disabled",
-        "definition": "(of a person) having a physical or mental condition that limits their movements, senses, or activities.",
-        "example": "He is disabled and uses a wheelchair.",
-        "hebrewTranslation": "בעל מוגבלות, נכה",
-        "category": "Medical",
-        "level": 4
-    },
-    {
-        "word": "disadvantage",
-        "definition": "an unfavorable circumstance or condition that reduces the chances of success or effectiveness.",
-        "example": "The main disadvantage of the plan is its cost.",
-        "hebrewTranslation": "חיסרון",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "disappointment",
-        "definition": "sadness or displeasure caused by the nonfulfillment of one's hopes or expectations.",
-        "example": "Her disappointment was obvious.",
-        "hebrewTranslation": "אכזבה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "disaster",
-        "definition": "a sudden event, such as an accident or a natural catastrophe, that causes great damage or loss of life.",
-        "example": "The earthquake was a terrible disaster.",
-        "hebrewTranslation": "אסון",
-        "category": "Events",
-        "level": 5
-    },
-    {
-        "word": "disastrous",
-        "definition": "causing great damage.",
-        "example": "The consequences of the decision were disastrous.",
-        "hebrewTranslation": "נוראי",
-        "category": "Description",
-        "level": 7
-    },
-    {
-        "word": "discipline",
-        "definition": "the practice of training people to obey rules or a code of behavior, using punishment to correct disobedience.",
-        "example": "The school has a strict discipline policy.",
-        "hebrewTranslation": "משמעת",
-        "category": "Social",
-        "level": 5
-    },
-    {
-        "word": "discover",
-        "definition": "to find unexpectedly or during a search.",
-        "example": "They discovered a new species of frog.",
-        "hebrewTranslation": "לגלות",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "discovery",
-        "definition": "the action or process of discovering or being discovered.",
-        "example": "The discovery of penicillin was a major breakthrough.",
-        "hebrewTranslation": "תגלית",
-        "category": "Science",
-        "level": 4
-    },
-    {
-        "word": "discriminate",
-        "definition": "to make an unjust or prejudicial distinction in the treatment of different categories of people or things, especially on the grounds of race, sex, or age.",
-        "example": "It is illegal to discriminate against people because of their race.",
-        "hebrewTranslation": "להבחין, להפלות",
-        "category": "Social",
-        "level": 7
-    },
-    {
-        "word": "discuss",
-        "definition": "to talk about (something) with another person or group of people.",
-        "example": "We need to discuss our plans for the weekend.",
-        "hebrewTranslation": "לדון",
-        "category": "Communication",
-        "level": 3
-    },
-    {
-        "word": "discussion",
-        "definition": "the action or process of talking about something in order to reach a decision or to exchange ideas.",
-        "example": "We had a long discussion about the problem.",
-        "hebrewTranslation": "דיון",
-        "category": "Communication",
-        "level": 4
-    },
-    {
-        "word": "disease",
-        "definition": "a disorder of structure or function in a human, animal, or plant, especially one that produces specific signs or symptoms or that affects a specific location and is not simply a direct result of physical injury.",
-        "example": "He suffers from a rare disease.",
-        "hebrewTranslation": "מחלה",
-        "category": "Medical",
-        "level": 5
-    },
-    {
-        "word": "disinfect",
-        "definition": "to clean (something) with a disinfectant in order to destroy bacteria.",
-        "example": "You should disinfect the wound.",
-        "hebrewTranslation": "לחטא",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "displace",
-        "definition": "to take over the place, position, or role of (someone or something).",
-        "example": "The new technology will displace many workers.",
-        "hebrewTranslation": "לעקור ממקומו",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "display",
-        "definition": "to put (something) in a prominent place in order that it may readily be seen.",
-        "example": "The museum will display the new collection.",
-        "hebrewTranslation": "הצגה (לראווה)",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "dispose",
-        "definition": "to get rid of by throwing away or giving or selling to someone else.",
-        "example": "Please dispose of your trash properly.",
-        "hebrewTranslation": "לזרוק, להיפטר מ...",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "disqualify",
-        "definition": "to pronounce (someone) ineligible for an office, activity, or competition because of an offense or infringement.",
-        "example": "He was disqualified from the race for cheating.",
-        "hebrewTranslation": "לפסול",
-        "category": "Competition",
-        "level": 8
-    },
-    {
-        "word": "disregard",
-        "definition": "to pay no attention to; ignore.",
-        "example": "He disregarded the warning and got into trouble.",
-        "hebrewTranslation": "להתעלם",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "distance",
-        "definition": "an amount of space between two things or people.",
-        "example": "What is the distance between the two cities?",
-        "hebrewTranslation": "מרחק",
-        "category": "Measurement",
-        "level": 3
-    },
-    {
-        "word": "distinct",
-        "definition": "recognizably different in nature from something else of a similar type.",
-        "example": "There are two distinct types of this plant.",
-        "hebrewTranslation": "מיוחד, נפרד",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "distinction",
-        "definition": "a difference or contrast between similar things or people.",
-        "example": "There is a clear distinction between the two concepts.",
-        "hebrewTranslation": "ייחוד, אבחנה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "distinguish",
-        "definition": "to recognize or treat (someone or something) as different.",
-        "example": "It's important to distinguish between fact and opinion.",
-        "hebrewTranslation": "להבחין, להפריד",
-        "category": "Thinking",
-        "level": 6
-    },
-    {
-        "word": "distort",
-        "definition": "to pull or twist out of shape.",
-        "example": "The mirror distorted his reflection.",
-        "hebrewTranslation": "לעוות, לסלף",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "distract",
-        "definition": "to prevent (someone) from giving full attention to something.",
-        "example": "The noise from the street distracted me from my work.",
-        "hebrewTranslation": "להסיח דעת",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "distribute",
-        "definition": "to give shares of (something); deal out.",
-        "example": "They will distribute food to the needy.",
-        "hebrewTranslation": "לחלק",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "divergence",
-        "definition": "the process or state of diverging.",
-        "example": "There is a divergence of opinion on this issue.",
-        "hebrewTranslation": "התפצלות, סטייה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "diverse",
-        "definition": "showing a great deal of variety; very different.",
-        "example": "The city has a diverse population.",
-        "hebrewTranslation": "מגוון",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "diversify",
-        "definition": "to make or become more diverse or varied.",
-        "example": "The company is trying to diversify its business.",
-        "hebrewTranslation": "לגוון",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "do",
-        "definition": "to perform (an action, the precise nature of which is often unspecified).",
-        "example": "What are you doing?",
-        "hebrewTranslation": "לעשות",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "docile",
-        "definition": "ready to accept control or instruction; submissive.",
-        "example": "The dog was docile and obedient.",
-        "hebrewTranslation": "קל לשליטה, צייתן",
-        "category": "Character",
-        "level": 6
-    },
-    {
-        "word": "docility",
-        "definition": "the quality of being ready to accept control or instruction; submissiveness.",
-        "example": "The docility of the sheep made them easy to manage.",
-        "hebrewTranslation": "כניעות, צייתנות",
-        "category": "Character",
-        "level": 8
-    },
-    {
-        "word": "dominate",
-        "definition": "to have a commanding influence on; exercise control over.",
-        "example": "The team dominated the game from the start.",
-        "hebrewTranslation": "לשלוט",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "donation",
-        "definition": "something that is given to a charity, especially a sum of money.",
-        "example": "He made a generous donation to the hospital.",
-        "hebrewTranslation": "מתנה, תרומה",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "donkey",
-        "definition": "a domesticated hoofed mammal of the horse family with long ears and a braying call.",
-        "example": "The farmer used a donkey to carry his goods.",
-        "hebrewTranslation": "חמור",
-        "category": "Nature",
-        "level": 2
-    },
-    {
-        "word": "doom",
-        "definition": "death, destruction, or some other terrible fate.",
-        "example": "The castle was doomed to fall.",
-        "hebrewTranslation": "לדון, אסון",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "dote",
-        "definition": "to be extremely and uncritically fond of.",
-        "example": "She dotes on her grandchildren.",
-        "hebrewTranslation": "לחבב יתר על המידה",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "doubt",
-        "definition": "a feeling of uncertainty or lack of conviction.",
-        "example": "I have no doubt that you will succeed.",
-        "hebrewTranslation": "להטיל ספק, ספק",
-        "category": "Thinking",
-        "level": 4
-    },
-    {
-        "word": "doubtful",
-        "definition": "feeling uncertain about something.",
-        "example": "I'm doubtful about our chances of winning.",
-        "hebrewTranslation": "מפוקפק",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "dozen",
-        "definition": "a group or set of twelve.",
-        "example": "I bought a dozen eggs.",
-        "hebrewTranslation": "תריסר",
-        "category": "Measurement",
-        "level": 2
-    },
-    {
-        "word": "drab",
-        "definition": "lacking brightness or interest; drearily dull.",
-        "example": "The room was painted in a drab color.",
-        "hebrewTranslation": "משעמם",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "drawing",
-        "definition": "a picture or diagram made with a pencil, pen, or crayon rather than paint.",
-        "example": "She made a beautiful drawing of a flower.",
-        "hebrewTranslation": "ציור",
-        "category": "Arts",
-        "level": 2
-    },
-    {
-        "word": "dread",
-        "definition": "to anticipate with great apprehension or fear.",
-        "example": "I dread going to the dentist.",
-        "hebrewTranslation": "לפחד, אימה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "drift",
-        "definition": "to be carried slowly by a current of air or water.",
-        "example": "The boat drifted out to sea.",
-        "hebrewTranslation": "להיסחף, סחף",
-        "category": "Movement",
-        "level": 3
-    },
-    {
-        "word": "drink",
-        "definition": "to take (a liquid) into the mouth and swallow.",
-        "example": "He drank a glass of water.",
-        "hebrewTranslation": "לשתות",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "drop",
-        "definition": "to let or make (something) fall vertically.",
-        "example": "Be careful not to drop the glass.",
-        "hebrewTranslation": "להפיל, טיפה",
-        "category": "Actions",
-        "level": 1
-    },
-    {
-        "word": "drug",
-        "definition": "a medicine or other substance which has a physiological effect when ingested or otherwise introduced into the body.",
-        "example": "The doctor prescribed a new drug for her.",
-        "hebrewTranslation": "סם",
-        "category": "Medical",
-        "level": 4
-    },
-    {
-        "word": "dry",
-        "definition": "free from moisture or liquid; not wet or moist.",
-        "example": "The clothes are dry now.",
-        "hebrewTranslation": "יבש",
-        "category": "Description",
-        "level": 1
-    },
-    {
-        "word": "dubious",
-        "definition": "hesitating or doubting.",
-        "example": "I was dubious about his promises.",
-        "hebrewTranslation": "מפוקפק",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "due",
-        "definition": "expected at or planned for at a certain time.",
-        "example": "The baby is due in May.",
-        "hebrewTranslation": "חל, צפוי",
-        "category": "Time",
-        "level": 3
-    },
-    {
-        "word": "due to",
-        "definition": "because of; owing to.",
-        "example": "The game was canceled due to rain.",
-        "hebrewTranslation": "בשל, בגלל",
-        "category": "Language",
-        "level": 4
-    },
-    {
-        "word": "duplicate",
-        "definition": "to make an exact copy of.",
-        "example": "Please duplicate this key for me.",
-        "hebrewTranslation": "לשכפל",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "duty",
-        "definition": "a moral or legal obligation; a responsibility.",
-        "example": "It is my duty to report the crime.",
-        "hebrewTranslation": "חובה",
-        "category": "Social",
-        "level": 2
-    },
-    {
-        "word": "dwindle",
-        "definition": "to diminish gradually in size, amount, or strength.",
-        "example": "Our supplies began to dwindle.",
-        "hebrewTranslation": "להתמעט",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "dynamic",
-        "definition": "(of a process or system) characterized by constant change, activity, or progress.",
-        "example": "He is a dynamic and energetic leader.",
-        "hebrewTranslation": "רב עוצמה, פעיל",
-        "category": "Character",
-        "level": 7
-    },
-    {
-        "word": "eager",
-        "definition": "strongly wanting to do or have something.",
-        "example": "She was eager to start her new job.",
-        "hebrewTranslation": "להוט",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "early",
-        "definition": "happening or done before the usual or expected time.",
-        "example": "I got up early this morning.",
-        "hebrewTranslation": "מוקדם",
-        "category": "Time",
-        "level": 1
-    },
-    {
-        "word": "ease",
-        "definition": "absence of difficulty or effort.",
-        "example": "She passed the exam with ease.",
-        "hebrewTranslation": "להקל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "east",
-        "definition": "the direction toward the point of the horizon where the sun rises at the equinoxes, on the right-hand side of a person facing north, or the point on the horizon itself.",
-        "example": "The sun rises in the east.",
-        "hebrewTranslation": "מזרח",
-        "category": "Geography",
-        "level": 1
-    },
-    {
-        "word": "eavesdrop",
-        "definition": "to secretly listen to a conversation.",
-        "example": "It's rude to eavesdrop on other people's conversations.",
-        "hebrewTranslation": "לצותת",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "eclectic",
-        "definition": "deriving ideas, style, or taste from a broad and diverse range of sources.",
-        "example": "Her music taste is very eclectic.",
-        "hebrewTranslation": "אוסף 'מפה ומשם'",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "eclipse",
-        "definition": "an obscuring of the light from one celestial body by the passage of another between it and the observer or between it and its source of illumination.",
-        "example": "We watched the solar eclipse.",
-        "hebrewTranslation": "ליקוי",
-        "category": "Science",
-        "level": 5
-    },
-    {
-        "word": "editor",
-        "definition": "a person who is in charge of and determines the final content of a text, particularly a newspaper or magazine.",
-        "example": "She is the editor of a fashion magazine.",
-        "hebrewTranslation": "עורך",
-        "category": "Work",
-        "level": 3
-    },
-    {
-        "word": "effect",
-        "definition": "a change which is a result or consequence of an action or other cause.",
-        "example": "The medicine had a positive effect.",
-        "hebrewTranslation": "השפעה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "efficiency",
-        "definition": "the state or quality of being efficient.",
-        "example": "The new system has improved our efficiency.",
-        "hebrewTranslation": "יעילות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "efficient",
-        "definition": "(especially of a system or machine) achieving maximum productivity with minimum wasted effort or expense.",
-        "example": "The new machine is very efficient.",
-        "hebrewTranslation": "יעיל",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "effort",
-        "definition": "a vigorous or determined attempt.",
-        "example": "It took a lot of effort to lift the box.",
-        "hebrewTranslation": "מאמץ",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "elaborate",
-        "definition": "involving many carefully arranged parts or details; detailed and complicated in design and planning.",
-        "example": "She had an elaborate plan to escape.",
-        "hebrewTranslation": "מתוכנן, לפרט",
-        "category": "Description",
-        "level": 5
-    },
-    {
-        "word": "elderly",
-        "definition": "(of a person) old or aging.",
-        "example": "He is an elderly man.",
-        "hebrewTranslation": "זקן, מבוגר",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "elevator",
-        "definition": "a platform or compartment housed in a shaft for raising and lowering people or things to different floors or levels.",
-        "example": "We took the elevator to the top floor.",
-        "hebrewTranslation": "מעלית",
-        "category": "Technology",
-        "level": 2
-    },
-    {
-        "word": "eliminate",
-        "definition": "to completely remove or get rid of (something).",
-        "example": "We need to eliminate the possibility of error.",
-        "hebrewTranslation": "לפסול",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "elsewhere",
-        "definition": "in, at, or to some other place or other places.",
-        "example": "Let's go somewhere else.",
-        "hebrewTranslation": "במקום אחר",
-        "category": "Language",
-        "level": 3
-    },
-    {
-        "word": "embarrass",
-        "definition": "to cause (someone) to feel awkward, self-conscious, or ashamed.",
-        "example": "He embarrassed me in front of my friends.",
-        "hebrewTranslation": "להביך",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "embarrassing",
-        "definition": "causing embarrassment.",
-        "example": "It was an embarrassing situation.",
-        "hebrewTranslation": "מביך",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "embassy",
-        "definition": "the official residence or offices of an ambassador.",
-        "example": "He works at the American embassy.",
-        "hebrewTranslation": "שגרירות",
-        "category": "Politics",
-        "level": 5
-    },
-    {
-        "word": "embrace",
-        "definition": "to hold (someone) closely in one's arms, especially as a sign of affection.",
-        "example": "She embraced her son warmly.",
-        "hebrewTranslation": "לחבק, לקבל",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "emerge",
-        "definition": "to move out of or away from something and come into view.",
-        "example": "The sun emerged from behind the clouds.",
-        "hebrewTranslation": "להופיע בהדרגה",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "emergence",
-        "definition": "the process of coming into view or becoming prominent.",
-        "example": "The emergence of new technologies has changed our lives.",
-        "hebrewTranslation": "הופעה הדרגתית",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "emigrate",
-        "definition": "to leave one's own country in order to settle permanently in another.",
-        "example": "They decided to emigrate to Australia.",
-        "hebrewTranslation": "להגר",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "emigration",
-        "definition": "the act of leaving one's own country to settle permanently in another; moving abroad.",
-        "example": "There has been a rise in emigration in recent years.",
-        "hebrewTranslation": "הגירה",
-        "category": "Social",
-        "level": 7
-    },
-    {
-        "word": "eminence",
-        "definition": "fame or recognized superiority, especially within a particular sphere or profession.",
-        "example": "He is a man of great eminence in the field of science.",
-        "hebrewTranslation": "חשיבות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "eminent",
-        "definition": "(of a person) famous and respected within a particular sphere or profession.",
-        "example": "He is an eminent scientist.",
-        "hebrewTranslation": "דגול",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "emotion",
-        "definition": "a strong feeling deriving from one's circumstances, mood, or relationships with others.",
-        "example": "Love is a powerful emotion.",
-        "hebrewTranslation": "רגש",
-        "category": "Psychology",
-        "level": 3
-    },
-    {
-        "word": "emphasize",
-        "definition": "to give special importance or prominence to (something) in speaking or writing.",
-        "example": "I want to emphasize the importance of this point.",
-        "hebrewTranslation": "להדגיש",
-        "category": "Communication",
-        "level": 5
-    },
-    {
-        "word": "employ",
-        "definition": "to give work to (someone) and pay them for it.",
-        "example": "The company employs 500 people.",
-        "hebrewTranslation": "להעסיק",
-        "category": "Work",
-        "level": 3
-    },
-    {
-        "word": "empty",
-        "definition": "containing nothing; not filled or occupied.",
-        "example": "The box is empty.",
-        "hebrewTranslation": "ריק",
-        "category": "Description",
-        "level": 2
-    },
-    {
-        "word": "enable",
-        "definition": "to give (someone or something) the authority or means to do something.",
-        "example": "The new software will enable us to work more efficiently.",
-        "hebrewTranslation": "לאפשר",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "encompass",
-        "definition": "to surround and have or hold within.",
-        "example": "The project will encompass a wide range of activities.",
-        "hebrewTranslation": "לכלול, להקיף",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "encounter",
-        "definition": "to unexpectedly experience or be faced with (something difficult or hostile).",
-        "example": "We encountered some problems along the way.",
-        "hebrewTranslation": "מפגש",
-        "category": "Events",
-        "level": 4
-    },
-    {
-        "word": "encourage",
-        "definition": "to give support, confidence, or hope to (someone).",
-        "example": "My parents always encouraged me to follow my dreams.",
-        "hebrewTranslation": "לעודד",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "endeavor",
-        "definition": "to try hard to do or achieve something.",
-        "example": "We must endeavor to do our best.",
-        "hebrewTranslation": "להתאמץ, מאמץ",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "enfeeble",
-        "definition": "to make weak or feeble.",
-        "example": "The illness enfeebled him.",
-        "hebrewTranslation": "להחליש",
-        "category": "Actions",
-        "level": 7
-    },
-    {
-        "word": "engage",
-        "definition": "to occupy, attract, or involve (someone's interest or attention).",
-        "example": "The book engaged my interest from the first page.",
-        "hebrewTranslation": "להעסיק",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "engagement",
-        "definition": "an arrangement to do something or go somewhere at a fixed time.",
-        "example": "I have a previous engagement.",
-        "hebrewTranslation": "התחייבות, אירוסין",
-        "category": "Events",
-        "level": 5
-    },
-    {
-        "word": "engineer",
-        "definition": "a person who designs, builds, or maintains engines, machines, or public works.",
-        "example": "He is a civil engineer.",
-        "hebrewTranslation": "מהנדס",
-        "category": "Work",
-        "level": 3
-    },
-    {
-        "word": "enhance",
-        "definition": "to intensify, increase, or further improve the quality, value, or extent of.",
-        "example": "The new software will enhance the user experience.",
-        "hebrewTranslation": "להגביר, להעצים",
-        "category": "Actions",
-        "level": 5
-    },
-    {
-        "word": "enjoy",
-        "definition": "to take delight or pleasure in (an activity or occasion).",
-        "example": "I enjoy playing tennis.",
-        "hebrewTranslation": "להנות",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "enlist",
-        "definition": "to enroll or be enrolled in the armed services.",
-        "example": "He enlisted in the army.",
-        "hebrewTranslation": "לגייס",
-        "category": "Military",
-        "level": 5
-    },
-    {
-        "word": "enormous",
-        "definition": "very large in size, quantity, or extent.",
-        "example": "He has an enormous amount of work to do.",
-        "hebrewTranslation": "ענק, עצום",
-        "category": "Description",
-        "level": 4
-    },
-    {
-        "word": "ensure",
-        "definition": "to make certain that (something) shall occur or be the case.",
-        "example": "Please ensure that you have all the necessary documents.",
-        "hebrewTranslation": "להבטיח",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "enter",
-        "definition": "to come or go into (a place).",
-        "example": "Please enter the room.",
-        "hebrewTranslation": "להיכנס",
-        "category": "Actions",
-        "level": 2
-    },
-    {
-        "word": "enthusiasm",
-        "definition": "intense and eager enjoyment, interest, or approval.",
-        "example": "She has a great enthusiasm for her work.",
-        "hebrewTranslation": "התלהבות",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "entire",
-        "definition": "with no part left out; whole.",
-        "example": "He ate the entire cake.",
-        "hebrewTranslation": "שלם, כולל",
-        "category": "Description",
-        "level": 3
-    },
-    {
-        "word": "entwine",
-        "definition": "to wind or twist together; interweave.",
-        "example": "The vines entwined around the tree.",
-        "hebrewTranslation": "לשלב, לקלוע",
-        "category": "Actions",
-        "level": 6
-    },
-    {
-        "word": "epilogue",
-        "definition": "a section or speech at the end of a book or play that serves as a comment on or a conclusion to what has happened.",
-        "example": "The book has a moving epilogue.",
-        "hebrewTranslation": "אחרית דבר",
-        "category": "Literature",
-        "level": 7
-    },
-    {
-        "word": "equality",
-        "definition": "the state of being equal, especially in status, rights, and opportunities.",
-        "example": "They are fighting for equality.",
-        "hebrewTranslation": "שוויון",
-        "category": "Social",
-        "level": 3
-    },
-    {
-        "word": "equipment",
-        "definition": "the necessary items for a particular purpose.",
-        "example": "The company provides all the necessary equipment.",
-        "hebrewTranslation": "ציוד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "equivalent",
-        "definition": "equal in value, amount, function, meaning, etc.",
-        "example": "The two words are equivalent in meaning.",
-        "hebrewTranslation": "שווה ערך",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "equivocal",
-        "definition": "open to more than one interpretation; ambiguous.",
-        "example": "His answer was equivocal.",
-        "hebrewTranslation": "שאינו חד משמעי",
-        "category": "Language",
-        "level": 8
-    },
-    {
-        "word": "era",
-        "definition": "a long and distinct period of history with a particular feature or characteristic.",
-        "example": "The Victorian era was a time of great change.",
-        "hebrewTranslation": "עידן",
-        "category": "Time",
-        "level": 2
-    },
-    {
-        "word": "erroneous",
-        "definition": "wrong; incorrect.",
-        "example": "The report was based on erroneous information.",
-        "hebrewTranslation": "שגוי",
-        "category": "Description",
-        "level": 6
-    },
-    {
-        "word": "erudition",
-        "definition": "the quality of having or showing great knowledge or learning; scholarship.",
-        "example": "He was a man of great erudition.",
-        "hebrewTranslation": "השכלה עצומה",
-        "category": "Character",
-        "level": 9
-    },
-    {
-        "word": "erupt",
-        "definition": "(of a volcano) become active and eject lava, ash, and gases.",
-        "example": "The volcano could erupt at any time.",
-        "hebrewTranslation": "להתפרץ",
-        "category": "Nature",
-        "level": 5
-    },
-    {
-        "word": "escaped",
-        "definition": "to break free from confinement or control.",
-        "example": "The prisoner escaped from jail.",
-        "hebrewTranslation": "לברוח",
-        "category": "Actions",
-        "level": 3
-    },
-    {
-        "word": "essence",
-        "definition": "the intrinsic nature or indispensable quality of something, especially something abstract, that determines its character.",
-        "example": "The essence of his argument is that we need to act now.",
-        "hebrewTranslation": "מהות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "establish",
-        "definition": "to set up (an organization, system, or set of rules) on a firm or permanent basis.",
-        "example": "The company was established in 1950.",
-        "hebrewTranslation": "לייסד",
-        "category": "Actions",
-        "level": 4
-    },
-    {
-        "word": "establishment",
-        "definition": "the action of establishing something or being established.",
-        "example": "The establishment of the new school was a great success.",
-        "hebrewTranslation": "מוסד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "eulogize",
-        "definition": "to praise highly in speech or writing.",
-        "example": "He was eulogized at his funeral.",
-        "hebrewTranslation": "לפאר ולשבח",
-        "category": "Communication",
-        "level": 8
-    },
-    {
-        "word": "even",
-        "definition": "flat and smooth.",
-        "example": "The road was even and easy to drive on.",
-        "hebrewTranslation": "חלק, זוגי, אפילו",
-        "category": "Description",
-        "level": 1
-    },
-    {
-        "word": "even though",
-        "definition": "despite the fact that.",
-        "example": "Even though it was raining, we went for a walk.",
-        "hebrewTranslation": "למרות, אף על פי כן",
-        "category": "Language",
-        "level": 3
-    },
-    {
-        "word": "evenly",
-        "definition": "in a regular or steady way.",
-        "example": "The work was divided evenly among the team members.",
-        "hebrewTranslation": "באופן שווה",
-        "category": "Adverbs",
-        "level": 4
-    },
-    {
-        "word": "eventually",
-        "definition": "In the end, especially after a long delay or series of problems.",
-        "example": "After many attempts, she eventually succeeded.",
-        "hebrewTranslation": "בסופו של דבר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "ever",
-        "definition": "At any time.",
-        "example": "Have you ever been to Paris?",
-        "hebrewTranslation": "אי פעם",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "every",
-        "definition": "Used to refer to all the individual members of a set without exception.",
-        "example": "Every student received a book.",
-        "hebrewTranslation": "כל",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "everyone",
-        "definition": "Every person.",
-        "example": "Everyone clapped at the end of the performance.",
-        "hebrewTranslation": "כולם",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "everything",
-        "definition": "All things.",
-        "example": "He packed everything he needed for the trip.",
-        "hebrewTranslation": "הכל",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "everywhere",
-        "definition": "In or to all places.",
-        "example": "I looked everywhere for my keys.",
-        "hebrewTranslation": "בכל מקום",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "evident",
-        "definition": "Plain or obvious; clearly seen or understood.",
-        "example": "It was evident from her smile that she was happy.",
-        "hebrewTranslation": "ניכר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "evil",
-        "definition": "Profoundly immoral and wicked.",
-        "example": "The fairy tale featured a struggle between good and evil.",
-        "hebrewTranslation": "רשע",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exact",
-        "definition": "Not approximated in any way; precise.",
-        "example": "Please tell me the exact time you will arrive.",
-        "hebrewTranslation": "מדויק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exactly",
-        "definition": "Used to emphasize the precision of a statement.",
-        "example": "That is exactly what I was thinking.",
-        "hebrewTranslation": "בדיוק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exaggerate",
-        "definition": "Represent (something) as being larger, greater, better, or worse than it really is.",
-        "example": "He tends to exaggerate the difficulty of the task.",
-        "hebrewTranslation": "להגזים",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "exaggerated",
-        "definition": "Regarded or represented as larger, better, or worse than in reality.",
-        "example": "The stories of his wealth were greatly exaggerated.",
-        "hebrewTranslation": "מוגזם",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "an exaggeration",
-        "definition": "A statement that represents something as better or worse than it really is.",
-        "example": "To say it was the worst day ever is an exaggeration.",
-        "hebrewTranslation": "הגזמה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "examination",
-        "definition": "A detailed inspection or study.",
-        "example": "The doctor gave him a thorough examination.",
-        "hebrewTranslation": "בדיקה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "examine",
-        "definition": "Inspect (someone or something) in detail to determine their nature or condition.",
-        "example": "The detective will examine the evidence carefully.",
-        "hebrewTranslation": "לבדוק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exceed",
-        "definition": "Be greater in number or size than (a quantity, number, or other measurable thing).",
-        "example": "The cost must not exceed the budget.",
-        "hebrewTranslation": "לחרוג",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exceedingly",
-        "definition": "Extremely; to a very great degree.",
-        "example": "He was exceedingly polite.",
-        "hebrewTranslation": "ביותר",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "excel",
-        "definition": "Be exceptionally good at or proficient in an activity or subject.",
-        "example": "She hopes to excel in her chosen field.",
-        "hebrewTranslation": "להצטיין",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "excellence",
-        "definition": "The quality of being outstanding or extremely good.",
-        "example": "The school is known for its academic excellence.",
-        "hebrewTranslation": "מצוינות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "excellent",
-        "definition": "Extremely good; outstanding.",
-        "example": "She did an excellent job on the project.",
-        "hebrewTranslation": "מצוין",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "except",
-        "definition": "Not including; other than.",
-        "example": "Everyone was there except for Tom.",
-        "hebrewTranslation": "חוץ מ",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exception",
-        "definition": "A person or thing that is excluded from a general statement or does not follow a rule.",
-        "example": "There are exceptions to every rule.",
-        "hebrewTranslation": "יוצא מן הכלל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exceptional",
-        "definition": "Unusual; not typical.",
-        "example": "He has exceptional talent as a musician.",
-        "hebrewTranslation": "יוצא דופן",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "excess",
-        "definition": "An amount of something that is more than necessary, permitted, or desirable.",
-        "example": "An excess of enthusiasm can be a problem.",
-        "hebrewTranslation": "עודף",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "excessive",
-        "definition": "More than is necessary, normal, or desirable; immoderate.",
-        "example": "He was drinking excessive amounts of coffee.",
-        "hebrewTranslation": "מופרז",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "exchange",
-        "definition": "An act of giving one thing and receiving another (especially of the same type or value) in return.",
-        "example": "They made an exchange of gifts at the party.",
-        "hebrewTranslation": "החלפה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "excite",
-        "definition": "Cause (someone) to feel very enthusiastic and eager.",
-        "example": "The news of the trip will excite the children.",
-        "hebrewTranslation": "לרגש",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "excited",
-        "definition": "Very enthusiastic and eager.",
-        "example": "The children were excited about the upcoming holiday.",
-        "hebrewTranslation": "נרגש",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "excitement",
-        "definition": "A feeling of great enthusiasm and eagerness.",
-        "example": "Her voice was full of excitement.",
-        "hebrewTranslation": "התרגשות",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "exciting",
-        "definition": "Causing great enthusiasm and eagerness.",
-        "example": "It was an exciting football match.",
-        "hebrewTranslation": "מרגש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "exclude",
-        "definition": "Deny (someone) access to or bar (someone) from a place, group, or privilege.",
-        "example": "The club decided to exclude him from membership.",
-        "hebrewTranslation": "להדיר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "exclusion",
-        "definition": "The process or state of excluding or being excluded.",
-        "example": "Her exclusion from the team was unfair.",
-        "hebrewTranslation": "הדרה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "exclusive",
-        "definition": "Excluding or not admitting other things.",
-        "example": "The hotel has exclusive access to the beach.",
-        "hebrewTranslation": "בלעדי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exclusively",
-        "definition": "To the exclusion of others; only.",
-        "example": "This offer is available exclusively to our members.",
-        "hebrewTranslation": "באופן בלעדי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "excuse",
-        "definition": "A reason or explanation put forward to defend or justify a fault or offense.",
-        "example": "He had a good excuse for being late.",
-        "hebrewTranslation": "תירוץ",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "execute",
-        "definition": "Carry out or put into effect (a plan, order, or course of action).",
-        "example": "The general gave the order to execute the plan.",
-        "hebrewTranslation": "לבצע",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "execution",
-        "definition": "The carrying out or putting into effect of a plan, order, or course of action.",
-        "example": "The execution of the project was flawless.",
-        "hebrewTranslation": "ביצוע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "executive",
-        "definition": "A person with senior managerial responsibility in a business organization.",
-        "example": "She is a top executive at a major corporation.",
-        "hebrewTranslation": "מנהל בכיר",
-        "category": "Business",
-        "level": 6
-    },
-    {
-        "word": "exemplify",
-        "definition": "Be a typical example of.",
-        "example": "The city's architecture exemplifies the colonial period.",
-        "hebrewTranslation": "להדגים",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "exempt",
-        "definition": "Free from an obligation or liability imposed on others.",
-        "example": "Charities are exempt from paying taxes.",
-        "hebrewTranslation": "פטור",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "exemption",
-        "definition": "The action of freeing or state of being free from an obligation or liability imposed on others.",
-        "example": "He was granted an exemption from military service.",
-        "hebrewTranslation": "פטור",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "exercise",
-        "definition": "Activity requiring physical effort, carried out to sustain or improve health and fitness.",
-        "example": "Regular exercise is important for good health.",
-        "hebrewTranslation": "פעילות גופנית",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "exert",
-        "definition": "Apply or bring to bear (a force, influence, or quality).",
-        "example": "He had to exert all his strength to move the rock.",
-        "hebrewTranslation": "להפעיל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "exhale",
-        "definition": "Breathe out.",
-        "example": "Take a deep breath in, and then exhale slowly.",
-        "hebrewTranslation": "לנשוף",
-        "category": "Biology",
-        "level": 4
-    },
-    {
-        "word": "exhaust",
-        "definition": "Make (someone) feel very tired.",
-        "example": "The long hike will exhaust you.",
-        "hebrewTranslation": "להתיש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "exhausted",
-        "definition": "Extremely tired.",
-        "example": "After the marathon, he was completely exhausted.",
-        "hebrewTranslation": "מותש",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exhausting",
-        "definition": "Making one feel very tired; very tiring.",
-        "example": "It was an exhausting day at work.",
-        "hebrewTranslation": "מתיש",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exhaustion",
-        "definition": "A state of extreme physical or mental fatigue.",
-        "example": "She was suffering from exhaustion.",
-        "hebrewTranslation": "תשישות",
-        "category": "Health",
-        "level": 6
-    },
-    {
-        "word": "exhaustive",
-        "definition": "Including or considering all elements or aspects; fully comprehensive.",
-        "example": "The police conducted an exhaustive investigation.",
-        "hebrewTranslation": "ממצה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "exhibit",
-        "definition": "Publicly display (a work of art or item of interest) in an art gallery or museum or at a trade fair.",
-        "example": "The museum will exhibit the artist's early works.",
-        "hebrewTranslation": "להציג",
-        "category": "Art",
-        "level": 4
-    },
-    {
-        "word": "exhibition",
-        "definition": "A public display of works of art or other items of interest, held in an art gallery or museum or at a trade fair.",
-        "example": "We went to see the new art exhibition.",
-        "hebrewTranslation": "תערוכה",
-        "category": "Art",
-        "level": 5
-    },
-    {
-        "word": "exile",
-        "definition": "The state of being barred from one's native country, typically for political or punitive reasons.",
-        "example": "He spent many years in exile.",
-        "hebrewTranslation": "גלות",
-        "category": "Politics",
-        "level": 6
-    },
-    {
-        "word": "exist",
-        "definition": "Have objective reality or being.",
-        "example": "Do you believe that ghosts exist?",
-        "hebrewTranslation": "להתקיים",
-        "category": "Philosophy",
-        "level": 3
-    },
-    {
-        "word": "existence",
-        "definition": "The fact or state of living or having objective reality.",
-        "example": "The organization depends on donations for its existence.",
-        "hebrewTranslation": "קיום",
-        "category": "Philosophy",
-        "level": 4
-    },
-    {
-        "word": "exit",
-        "definition": "A way out of a building, room, or passenger vehicle.",
-        "example": "Please use the nearest exit in case of an emergency.",
-        "hebrewTranslation": "יציאה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "exotic",
-        "definition": "Originating in or characteristic of a distant foreign country.",
-        "example": "She loves to travel to exotic locations.",
-        "hebrewTranslation": "אקזוטי",
-        "category": "Travel",
-        "level": 5
-    },
-    {
-        "word": "expand",
-        "definition": "Become or make larger or more extensive.",
-        "example": "The company plans to expand its operations overseas.",
-        "hebrewTranslation": "להרחיב",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "expanse",
-        "definition": "A wide continuous area of something.",
-        "example": "The great expanse of the desert stretched before them.",
-        "hebrewTranslation": "מרחב",
-        "category": "Geography",
-        "level": 5
-    },
-    {
-        "word": "expect",
-        "definition": "Regard (something) as likely to happen.",
-        "example": "I expect to be back by noon.",
-        "hebrewTranslation": "לצפות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "expectation",
-        "definition": "A strong belief that something will happen or be the case in the future.",
-        "example": "The team failed to live up to expectations.",
-        "hebrewTranslation": "ציפייה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "expel",
-        "definition": "Officially make (someone) leave a school or other organization.",
-        "example": "He was expelled from school for bad behavior.",
-        "hebrewTranslation": "לגרש",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "expendable",
-        "definition": "Of little significance when compared to an overall purpose, and therefore able to be abandoned.",
-        "example": "In the general's view, the foot soldiers were expendable.",
-        "hebrewTranslation": "מתכלה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "expenditure",
-        "definition": "The action of spending funds.",
-        "example": "The government's expenditure on defense is very high.",
-        "hebrewTranslation": "הוצאה",
-        "category": "Finance",
-        "level": 7
-    },
-    {
-        "word": "expense",
-        "definition": "The cost required for something; the money spent on something.",
-        "example": "The company covered all his travel expenses.",
-        "hebrewTranslation": "הוצאה",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "experiment",
-        "definition": "A scientific procedure undertaken to make a discovery, test a hypothesis, or demonstrate a known fact.",
-        "example": "The students conducted an experiment in the lab.",
-        "hebrewTranslation": "ניסוי",
-        "category": "Science",
-        "level": 4
-    },
-    {
-        "word": "experimental",
-        "definition": "Relating to, based on, or having the nature of an experiment.",
-        "example": "The new drug is still in the experimental stage.",
-        "hebrewTranslation": "ניסיוני",
-        "category": "Science",
-        "level": 6
-    },
-    {
-        "word": "expert",
-        "definition": "A person who has a comprehensive and authoritative knowledge of or skill in a particular area.",
-        "example": "She is an expert in marine biology.",
-        "hebrewTranslation": "מומחה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "expertise",
-        "definition": "Expert skill or knowledge in a particular field.",
-        "example": "His expertise in computers is well known.",
-        "hebrewTranslation": "מומחיות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "explain",
-        "definition": "Make (an idea, situation, or problem) clear to someone by describing it in more detail or revealing relevant facts or ideas.",
-        "example": "Can you explain the rules of the game to me?",
-        "hebrewTranslation": "להסביר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "explanation",
-        "definition": "A statement or account that makes something clear.",
-        "example": "He gave a clear explanation of the process.",
-        "hebrewTranslation": "הסבר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "explicit",
-        "definition": "Stated clearly and in detail, leaving no room for confusion or doubt.",
-        "example": "She gave me explicit instructions on how to get there.",
-        "hebrewTranslation": "מפורש",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "explode",
-        "definition": "Burst or shatter violently and noisily as a result of rapid combustion or decomposition.",
-        "example": "The bomb could explode at any moment.",
-        "hebrewTranslation": "להתפוצץ",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "exploit",
-        "definition": "Make full use of and derive benefit from (a resource).",
-        "example": "The company is trying to exploit the new technology.",
-        "hebrewTranslation": "לנצל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "exploitation",
-        "definition": "The action or fact of treating someone unfairly in order to benefit from their work.",
-        "example": "The exploitation of workers is a serious issue.",
-        "hebrewTranslation": "ניצול",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "exploration",
-        "definition": "The action of exploring an unfamiliar area.",
-        "example": "Space exploration is a fascinating field.",
-        "hebrewTranslation": "חקירה",
-        "category": "Science",
-        "level": 6
-    },
-    {
-        "word": "explore",
-        "definition": "Travel in or through (an unfamiliar country or area) in order to learn about or familiarize oneself with it.",
-        "example": "They set out to explore the new continent.",
-        "hebrewTranslation": "לחקור",
-        "category": "Travel",
-        "level": 4
-    },
-    {
-        "word": "explosion",
-        "definition": "A violent and destructive shattering or blowing apart of something, as is caused by a bomb.",
-        "example": "The explosion could be heard for miles.",
-        "hebrewTranslation": "פיצוץ",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "explosive",
-        "definition": "Able or likely to shatter violently or burst apart, as when a bomb explodes.",
-        "example": "The device contained explosive material.",
-        "hebrewTranslation": "נפיץ",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "export",
-        "definition": "Send (goods or services) to another country for sale.",
-        "example": "The country exports a lot of coffee.",
-        "hebrewTranslation": "לייצא",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "expose",
-        "definition": "Make (something) visible by uncovering it.",
-        "example": "The investigation exposed a web of corruption.",
-        "hebrewTranslation": "לחשוף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "exposure",
-        "definition": "The state of having no protection from something harmful.",
-        "example": "Prolonged exposure to the sun can be dangerous.",
-        "hebrewTranslation": "חשיפה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "express",
-        "definition": "Convey (a thought or feeling) in words or by gestures and conduct.",
-        "example": "He found it difficult to express his feelings.",
-        "hebrewTranslation": "להביע",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "expression",
-        "definition": "The process of making known one's thoughts or feelings.",
-        "example": "Freedom of expression is a basic human right.",
-        "hebrewTranslation": "ביטוי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "expressive",
-        "definition": "Effectively conveying thought or feeling.",
-        "example": "She has a very expressive face.",
-        "hebrewTranslation": "מביע",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "extend",
-        "definition": "Cause to cover a larger area; make longer or wider.",
-        "example": "We plan to extend the house.",
-        "hebrewTranslation": "להאריך",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "extension",
-        "definition": "A part that is added to something to enlarge or prolong it.",
-        "example": "They are building an extension to the school.",
-        "hebrewTranslation": "הרחבה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "extensive",
-        "definition": "Covering or affecting a large area.",
-        "example": "The storm caused extensive damage.",
-        "hebrewTranslation": "נרחב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "extent",
-        "definition": "The area covered by something.",
-        "example": "It is difficult to assess the full extent of the damage.",
-        "hebrewTranslation": "היקף",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "exterior",
-        "definition": "The outer surface or structure of something.",
-        "example": "The exterior of the building needs painting.",
-        "hebrewTranslation": "חיצוני",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "external",
-        "definition": "Belonging to or forming the outer surface or structure of something.",
-        "example": "The medicine is for external use only.",
-        "hebrewTranslation": "חיצוני",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "extinct",
-        "definition": "(of a species, family, or other larger group) having no living members.",
-        "example": "Dinosaurs have been extinct for millions of years.",
-        "hebrewTranslation": "נכחד",
-        "category": "Biology",
-        "level": 6
-    },
-    {
-        "word": "extinction",
-        "definition": "The state or process of a species, family, or other group of animals or plants becoming extinct.",
-        "example": "Many species are in danger of extinction.",
-        "hebrewTranslation": "הכחדה",
-        "category": "Biology",
-        "level": 7
-    },
-    {
-        "word": "extinguish",
-        "definition": "Cause (a fire or light) to cease to burn or shine.",
-        "example": "The firefighters worked to extinguish the blaze.",
-        "hebrewTranslation": "לכבות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "extra",
-        "definition": "Added to an existing or usual amount or number.",
-        "example": "Do you want extra cheese on your pizza?",
-        "hebrewTranslation": "תוספת",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "extract",
-        "definition": "Remove or take out, especially by effort or force.",
-        "example": "The dentist had to extract the tooth.",
-        "hebrewTranslation": "לחלץ",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "extraordinary",
-        "definition": "Very unusual or remarkable.",
-        "example": "He had an extraordinary talent for music.",
-        "hebrewTranslation": "יוצא מן הכלל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "extreme",
-        "definition": "Reaching a high or the highest degree; very great.",
-        "example": "He lives in a region with an extreme climate.",
-        "hebrewTranslation": "קיצוני",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "extremely",
-        "definition": "To a very great degree; very.",
-        "example": "It was an extremely difficult task.",
-        "hebrewTranslation": "באופן קיצוני",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "eye",
-        "definition": "Each of a pair of globular organs in the head through which people and vertebrate animals see.",
-        "example": "She has beautiful blue eyes.",
-        "hebrewTranslation": "עין",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "fabric",
-        "definition": "Cloth or other material produced by weaving or knitting fibers.",
-        "example": "The dress was made of a soft, silky fabric.",
-        "hebrewTranslation": "בד",
-        "category": "Fashion",
-        "level": 3
-    },
-    {
-        "word": "fabricate",
-        "definition": "Invent or concoct (something), typically with deceitful intent.",
-        "example": "He was accused of fabricating evidence.",
-        "hebrewTranslation": "לפברק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "face",
-        "definition": "The front part of a person's head from the forehead to the chin.",
-        "example": "He had a happy expression on his face.",
-        "hebrewTranslation": "פנים",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "facilitate",
-        "definition": "Make (an action or process) easy or easier.",
-        "example": "The new software will facilitate the sharing of information.",
-        "hebrewTranslation": "להקל",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "facility",
-        "definition": "A place, amenity, or piece of equipment provided for a particular purpose.",
-        "example": "The hotel has excellent sports facilities.",
-        "hebrewTranslation": "מתקן",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fact",
-        "definition": "A thing that is known or proved to be true.",
-        "example": "It is a fact that the earth revolves around the sun.",
-        "hebrewTranslation": "עובדה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "factor in",
-        "definition": "To include something when you are doing a calculation, or when you are trying to understand something.",
-        "example": "You must factor in the cost of labor when calculating the total price.",
-        "hebrewTranslation": "להביא בחשבון",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fail",
-        "definition": "Be unsuccessful in achieving one's goal.",
-        "example": "He was afraid he would fail the exam.",
-        "hebrewTranslation": "להיכשל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "failure",
-        "definition": "Lack of success.",
-        "example": "The project ended in failure.",
-        "hebrewTranslation": "כישלון",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "faint",
-        "definition": "Lose consciousness for a short time because of a temporarily insufficient supply of oxygen to the brain.",
-        "example": "She fainted from the heat.",
-        "hebrewTranslation": "להתעלף",
-        "category": "Health",
-        "level": 4
-    },
-    {
-        "word": "fair",
-        "definition": "Treating people equally without favoritism or discrimination.",
-        "example": "The referee made a fair decision.",
-        "hebrewTranslation": "הוגן",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fairly",
-        "definition": "With justice; to a moderately high degree.",
-        "example": "The work was fairly easy to complete.",
-        "hebrewTranslation": "למדי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "faith",
-        "definition": "Complete trust or confidence in someone or something.",
-        "example": "She has a strong faith in her abilities.",
-        "hebrewTranslation": "אמונה",
-        "category": "Religion",
-        "level": 3
-    },
-    {
-        "word": "faithful",
-        "definition": "Remaining loyal and steadfast.",
-        "example": "He was a faithful friend through thick and thin.",
-        "hebrewTranslation": "נאמן",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fall",
-        "definition": "Move downward, typically rapidly and freely without control, from a higher to a lower level.",
-        "example": "The leaves fall from the trees in autumn.",
-        "hebrewTranslation": "ליפול",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "false",
-        "definition": "Not according with truth or fact; incorrect.",
-        "example": "He gave a false name to the police.",
-        "hebrewTranslation": "שקרי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "familiar",
-        "definition": "Well known from long or close association.",
-        "example": "His face seemed familiar to me.",
-        "hebrewTranslation": "מוכר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "familiarity",
-        "definition": "Close acquaintance with or knowledge of something.",
-        "example": "Her familiarity with the subject was impressive.",
-        "hebrewTranslation": "היכרות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "family",
-        "definition": "A group consisting of parents and children living together in a household.",
-        "example": "He loves spending time with his family.",
-        "hebrewTranslation": "משפחה",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "famine",
-        "definition": "Extreme scarcity of food.",
-        "example": "The famine caused widespread suffering.",
-        "hebrewTranslation": "רעב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "famous",
-        "definition": "Known about by many people.",
-        "example": "She is a famous actress.",
-        "hebrewTranslation": "מפורסם",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fan",
-        "definition": "An apparatus with rotating blades that creates a current of air for cooling or ventilation.",
-        "example": "It was hot, so I turned on the fan.",
-        "hebrewTranslation": "מאוורר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fancy",
-        "definition": "Feel a desire or liking for.",
-        "example": "Do you fancy going out for a meal?",
-        "hebrewTranslation": "לחשוק ב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fantastic",
-        "definition": "Extraordinarily good or attractive.",
-        "example": "We had a fantastic time on vacation.",
-        "hebrewTranslation": "פנטסטי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "far from",
-        "definition": "Not at all; a long way from being.",
-        "example": "The situation is far from resolved.",
-        "hebrewTranslation": "רחוק מ",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fare",
-        "definition": "The money a passenger on public transportation has to pay.",
-        "example": "What is the bus fare to the city center?",
-        "hebrewTranslation": "דמי נסיעה",
-        "category": "Travel",
-        "level": 4
-    },
-    {
-        "word": "farm",
-        "definition": "An area of land and its buildings used for growing crops and rearing animals.",
-        "example": "My grandparents live on a farm.",
-        "hebrewTranslation": "חווה",
-        "category": "Agriculture",
-        "level": 2
-    },
-    {
-        "word": "farmer",
-        "definition": "A person who owns or manages a farm.",
-        "example": "The farmer was working in the fields.",
-        "hebrewTranslation": "חקלאי",
-        "category": "Agriculture",
-        "level": 2
-    },
-    {
-        "word": "farther",
-        "definition": "At, to, or by a greater distance.",
-        "example": "We need to walk a little farther to reach the lake.",
-        "hebrewTranslation": "רחוק יותר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fascinate",
-        "definition": "Draw irresistibly the attention and interest of (someone).",
-        "example": "Ancient history has always fascinated me.",
-        "hebrewTranslation": "לרתק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "fascinating",
-        "definition": "Extremely interesting.",
-        "example": "It was a fascinating documentary about wildlife.",
-        "hebrewTranslation": "מרתק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fashion",
-        "definition": "A popular or the latest style of clothing, hair, decoration, or behavior.",
-        "example": "She is very interested in fashion.",
-        "hebrewTranslation": "אופנה",
-        "category": "Fashion",
-        "level": 3
-    },
-    {
-        "word": "fashionable",
-        "definition": "Conforming to the current fashion.",
-        "example": "She always wears fashionable clothes.",
-        "hebrewTranslation": "אופנתי",
-        "category": "Fashion",
-        "level": 4
-    },
-    {
-        "word": "fast",
-        "definition": "Moving or capable of moving at high speed.",
-        "example": "A cheetah is a very fast runner.",
-        "hebrewTranslation": "מהיר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fasten",
-        "definition": "Close or join securely.",
-        "example": "Please fasten your seatbelt.",
-        "hebrewTranslation": "להדק",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fat",
-        "definition": "A natural oily or greasy substance occurring in animal bodies, especially when deposited as a layer under the skin or around certain organs.",
-        "example": "This cheese has a high fat content.",
-        "hebrewTranslation": "שומן",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "fatal",
-        "definition": "Causing death.",
-        "example": "He made a fatal mistake.",
-        "hebrewTranslation": "קטלני",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "fate",
-        "definition": "The development of events beyond a person's control, regarded as determined by a supernatural power.",
-        "example": "It was fate that brought them together.",
-        "hebrewTranslation": "גורל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "father",
-        "definition": "A man in relation to his natural child or children.",
-        "example": "My father taught me how to ride a bike.",
-        "hebrewTranslation": "אבא",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "fault",
-        "definition": "An unattractive or unsatisfactory feature, especially in a piece of work or in a person's character.",
-        "example": "It's not my fault that we are late.",
-        "hebrewTranslation": "אשמה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "favor",
-        "definition": "An act of kindness beyond what is due or usual.",
-        "example": "Could you do me a favor and watch my bag?",
-        "hebrewTranslation": "טובה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "favorable",
-        "definition": "Expressing approval.",
-        "example": "The new policy received a favorable response.",
-        "hebrewTranslation": "אוהד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "favorite",
-        "definition": "Preferred to all others of the same kind.",
-        "example": "What is your favorite color?",
-        "hebrewTranslation": "מועדף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fear",
-        "definition": "An unpleasant emotion caused by the belief that someone or something is dangerous, likely to cause pain, or a threat.",
-        "example": "He has a fear of heights.",
-        "hebrewTranslation": "פחד",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "fearful",
-        "definition": "Feeling afraid; showing fear or anxiety.",
-        "example": "The child was fearful of the dark.",
-        "hebrewTranslation": "מפוחד",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "feasible",
-        "definition": "Possible to do easily or conveniently.",
-        "example": "It is not feasible to finish the project by tomorrow.",
-        "hebrewTranslation": "אפשרי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "feast",
-        "definition": "A large meal, typically one in celebration of something.",
-        "example": "They prepared a feast for the wedding.",
-        "hebrewTranslation": "משתה",
-        "category": "Food",
-        "level": 4
-    },
-    {
-        "word": "feather",
-        "definition": "Any of the flat appendages growing from a bird's skin and forming its plumage, consisting of a partly hollow horny shaft fringed with vanes of barbs.",
-        "example": "The pillow was filled with soft feathers.",
-        "hebrewTranslation": "נוצה",
-        "category": "Biology",
-        "level": 4
-    },
-    {
-        "word": "feature",
-        "definition": "A distinctive attribute or aspect of something.",
-        "example": "An interesting feature of the city is its old architecture.",
-        "hebrewTranslation": "מאפיין",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "federal",
-        "definition": "Having or relating to a system of government in which several states form a unity but remain independent in internal affairs.",
-        "example": "The FBI is a federal agency.",
-        "hebrewTranslation": "פדרלי",
-        "category": "Politics",
-        "level": 5
-    },
-    {
-        "word": "fee",
-        "definition": "A payment made to a professional person or to a professional or public body in exchange for advice or services.",
-        "example": "The lawyer charged a high fee.",
-        "hebrewTranslation": "עמלה",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "feed",
-        "definition": "Give food to.",
-        "example": "It's time to feed the cat.",
-        "hebrewTranslation": "להאכיל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "feel",
-        "definition": "Experience an emotion or sensation.",
-        "example": "I feel happy today.",
-        "hebrewTranslation": "להרגיש",
-        "category": "Emotion",
-        "level": 1
-    },
-    {
-        "word": "feeling",
-        "definition": "An emotional state or reaction.",
-        "example": "I have a strange feeling about this.",
-        "hebrewTranslation": "הרגשה",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "female",
-        "definition": "Of or denoting the sex that can bear offspring or produce eggs, distinguished biologically by the production of gametes (ova) which can be fertilized by male gametes.",
-        "example": "The lioness is the female of the species.",
-        "hebrewTranslation": "נקבה",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "feminine",
-        "definition": "Having qualities or an appearance traditionally associated with women, especially delicacy and prettiness.",
-        "example": "She has a very feminine style.",
-        "hebrewTranslation": "נשי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "fence",
-        "definition": "A barrier, railing, or other upright structure, typically of wood or wire, enclosing an area of ground to mark a boundary, control access, or prevent escape.",
-        "example": "There is a wooden fence around the garden.",
-        "hebrewTranslation": "גדר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fertile",
-        "definition": "(of soil or land) producing or capable of producing abundant vegetation or crops.",
-        "example": "The valley has fertile soil.",
-        "hebrewTranslation": "פורה",
-        "category": "Agriculture",
-        "level": 6
-    },
-    {
-        "word": "fertility",
-        "definition": "The quality of being fertile; productiveness.",
-        "example": "The fertility of the land decreased over the years.",
-        "hebrewTranslation": "פוריות",
-        "category": "Biology",
-        "level": 7
-    },
-    {
-        "word": "fertilize",
-        "definition": "Cause (an egg, female animal, or plant) to develop a new individual by introducing male reproductive material.",
-        "example": "The farmer will fertilize the fields.",
-        "hebrewTranslation": "לדשן",
-        "category": "Agriculture",
-        "level": 7
-    },
-    {
-        "word": "fertilizer",
-        "definition": "A chemical or natural substance added to soil or land to increase its fertility.",
-        "example": "He used organic fertilizer in his garden.",
-        "hebrewTranslation": "דשן",
-        "category": "Agriculture",
-        "level": 5
-    },
-    {
-        "word": "festival",
-        "definition": "A day or period of celebration, typically a religious commemoration.",
-        "example": "The city holds an annual music festival.",
-        "hebrewTranslation": "פסטיבל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fetch",
-        "definition": "Go for and then bring back (someone or something) for someone.",
-        "example": "The dog loves to fetch the ball.",
-        "hebrewTranslation": "להביא",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fever",
-        "definition": "An abnormally high body temperature, usually accompanied by shivering, headache, and in severe instances, delirium.",
-        "example": "He has a high fever and needs to see a doctor.",
-        "hebrewTranslation": "חום",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "few",
-        "definition": "A small number of.",
-        "example": "Only a few people came to the meeting.",
-        "hebrewTranslation": "מעטים",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "fiber",
-        "definition": "A thread or filament from which a vegetable tissue, mineral substance, or textile is formed.",
-        "example": "Eating fruits and vegetables provides dietary fiber.",
-        "hebrewTranslation": "סיב",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "field",
-        "definition": "An area of open land, especially one planted with crops or pasture, typically bounded by hedges or fences.",
-        "example": "The cows were grazing in the field.",
-        "hebrewTranslation": "שדה",
-        "category": "Agriculture",
-        "level": 2
-    },
-    {
-        "word": "fierce",
-        "definition": "Having or displaying an intense or ferocious aggressiveness.",
-        "example": "A fierce dog guarded the house.",
-        "hebrewTranslation": "עז",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fight",
-        "definition": "Take part in a violent struggle involving the exchange of physical blows or the use of weapons.",
-        "example": "The soldiers had to fight for their country.",
-        "hebrewTranslation": "להילחם",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "figure out",
-        "definition": "Find the solution to a problem or question.",
-        "example": "I can't figure out how to solve this puzzle.",
-        "hebrewTranslation": "להבין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fill",
-        "definition": "Cause (a space or container) to become full or almost full.",
-        "example": "Please fill the glass with water.",
-        "hebrewTranslation": "למלא",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "film",
-        "definition": "A story or event recorded by a camera as a set of moving images and shown in a theater or on television; a motion picture.",
-        "example": "We watched a great film last night.",
-        "hebrewTranslation": "סרט",
-        "category": "Entertainment",
-        "level": 2
-    },
-    {
-        "word": "final",
-        "definition": "Coming at the end of a series.",
-        "example": "This is the final chapter of the book.",
-        "hebrewTranslation": "סופי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "finally",
-        "definition": "After a long time, typically when there has been difficulty or delay.",
-        "example": "After hours of searching, he finally found his keys.",
-        "hebrewTranslation": "סוף סוף",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "finance",
-        "definition": "The management of large amounts of money, especially by governments or large companies.",
-        "example": "He works in the finance department.",
-        "hebrewTranslation": "כספים",
-        "category": "Finance",
-        "level": 6
-    },
-    {
-        "word": "financial",
-        "definition": "Relating to finance.",
-        "example": "She sought financial advice from an expert.",
-        "hebrewTranslation": "פיננסי",
-        "category": "Finance",
-        "level": 6
-    },
-    {
-        "word": "find",
-        "definition": "Discover or perceive by chance or unexpectedly.",
-        "example": "I can't find my keys.",
-        "hebrewTranslation": "למצוא",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "finding",
-        "definition": "The action of finding someone or something.",
-        "example": "The findings of the report were very interesting.",
-        "hebrewTranslation": "ממצא",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fine",
-        "definition": "Of high quality.",
-        "example": "This is a fine piece of jewelry.",
-        "hebrewTranslation": "משובח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "finger",
-        "definition": "Each of the four slender joints attached to either hand (or five, if the thumb is included).",
-        "example": "She pointed her finger at the map.",
-        "hebrewTranslation": "אצבע",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "finish",
-        "definition": "Bring (a task or activity) to an end; complete.",
-        "example": "I need to finish my homework.",
-        "hebrewTranslation": "לסיים",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fire",
-        "definition": "Combustion or burning, in which substances combine chemically with oxygen from the air and typically give out bright light, heat, and smoke.",
-        "example": "The campers sat around the fire.",
-        "hebrewTranslation": "אש",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "firm",
-        "definition": "Having a solid, almost unyielding surface or structure.",
-        "example": "The mattress is too firm for me.",
-        "hebrewTranslation": "מוצק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "firmly",
-        "definition": "With little possibility of movement; securely.",
-        "example": "He held her hand firmly.",
-        "hebrewTranslation": "בחוזקה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "first",
-        "definition": "Coming before all others in time or order; earliest; 1st.",
-        "example": "He was the first person to arrive.",
-        "hebrewTranslation": "ראשון",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fish",
-        "definition": "A limbless cold-blooded vertebrate animal with gills and fins and living wholly in water.",
-        "example": "We caught a big fish in the lake.",
-        "hebrewTranslation": "דג",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "fit",
-        "definition": "Be of the right shape and size for.",
-        "example": "These shoes don't fit me.",
-        "hebrewTranslation": "להתאים",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fix",
-        "definition": "Mend or repair.",
-        "example": "Can you fix my broken watch?",
-        "hebrewTranslation": "לתקן",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "flag",
-        "definition": "A piece of cloth or similar material, typically oblong or square, attachable by one edge to a pole or rope and used as the symbol or emblem of a country or institution or as a signal.",
-        "example": "The flag was waving in the wind.",
-        "hebrewTranslation": "דגל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "flame",
-        "definition": "A hot glowing body of ignited gas that is generated by something on fire.",
-        "example": "The candle flame flickered in the dark.",
-        "hebrewTranslation": "להבה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "flash",
-        "definition": "A sudden brief burst of bright light.",
-        "example": "A flash of lightning lit up the sky.",
-        "hebrewTranslation": "הבזק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "flat",
-        "definition": "Having a level surface; without raised areas or indentations.",
-        "example": "The countryside is very flat in this region.",
-        "hebrewTranslation": "שטוח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "flavor",
-        "definition": "The distinctive taste of a food or drink.",
-        "example": "This soup has a wonderful flavor.",
-        "hebrewTranslation": "טעם",
-        "category": "Food",
-        "level": 3
-    },
-    {
-        "word": "flaw",
-        "definition": "A mark, blemish, or other imperfection which mars a substance or object.",
-        "example": "The diamond had a small flaw.",
-        "hebrewTranslation": "פגם",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "flawless",
-        "definition": "Without any blemishes or imperfections; perfect.",
-        "example": "She gave a flawless performance.",
-        "hebrewTranslation": "ללא פגם",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "flee",
-        "definition": "Run away from a place or situation of danger.",
-        "example": "They had to flee the country during the war.",
-        "hebrewTranslation": "לברוח",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "flexible",
-        "definition": "Capable of bending easily without breaking.",
-        "example": "The plastic is very flexible.",
-        "hebrewTranslation": "גמיש",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "flexibility",
-        "definition": "The quality of bending easily without breaking.",
-        "example": "Yoga can improve your flexibility.",
-        "hebrewTranslation": "גמישות",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "flight",
-        "definition": "The action or process of flying through the air.",
-        "example": "Our flight to New York was delayed.",
-        "hebrewTranslation": "טיסה",
-        "category": "Travel",
-        "level": 4
-    },
-    {
-        "word": "float",
-        "definition": "Rest or move on or near the surface of a liquid without sinking.",
-        "example": "A cork will float on water.",
-        "hebrewTranslation": "לצוף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "flock",
-        "definition": "A number of birds of one kind feeding, resting, or traveling together.",
-        "example": "A flock of sheep was grazing on the hill.",
-        "hebrewTranslation": "עדר",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "flood",
-        "definition": "An overflowing of a large amount of water beyond its normal confines, especially over what is normally dry land.",
-        "example": "The heavy rain caused a flood in the town.",
-        "hebrewTranslation": "שיטפון",
-        "category": "Nature",
-        "level": 4
-    },
-    {
-        "word": "floor",
-        "definition": "The lower surface of a room, on which one may walk.",
-        "example": "The kids were sitting on the floor.",
-        "hebrewTranslation": "רצפה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "flour",
-        "definition": "A powder obtained by grinding grain, typically wheat, and used to make bread, cakes, and pastry.",
-        "example": "You need flour to bake a cake.",
-        "hebrewTranslation": "קמח",
-        "category": "Food",
-        "level": 4
-    },
-    {
-        "word": "flourish",
-        "definition": "(of a person, animal, or other living organism) grow or develop in a healthy or vigorous way, especially as the result of a particularly favorable environment.",
-        "example": "The plants flourish in the sunny weather.",
-        "hebrewTranslation": "לשגשג",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "flow",
-        "definition": "(of a liquid, gas, or electricity) move along or out steadily and continuously in a current or stream.",
-        "example": "The river flows to the sea.",
-        "hebrewTranslation": "לזרום",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "flower",
-        "definition": "The seed-bearing part of a plant, consisting of reproductive organs (stamens and carpels) that are typically surrounded by a brightly colored corolla (petals) and a green calyx (sepals).",
-        "example": "She received a beautiful bouquet of flowers.",
-        "hebrewTranslation": "פרח",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "fluent",
-        "definition": "Able to express oneself easily and articulately.",
-        "example": "She is fluent in three languages.",
-        "hebrewTranslation": "שולט",
-        "category": "Language",
-        "level": 5
-    },
-    {
-        "word": "fluid",
-        "definition": "A substance that has no fixed shape and yields easily to external pressure; a gas or (especially) a liquid.",
-        "example": "You should drink plenty of fluids when you are sick.",
-        "hebrewTranslation": "נוזל",
-        "category": "Science",
-        "level": 5
-    },
-    {
-        "word": "fly",
-        "definition": "(of a bird, insect, or bat) move through the air using wings.",
-        "example": "Birds can fly high in the sky.",
-        "hebrewTranslation": "לעוף",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "focus on",
-        "definition": "Concentrate on.",
-        "example": "You need to focus on your studies.",
-        "hebrewTranslation": "להתמקד ב",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fog",
-        "definition": "A thick cloud of tiny water droplets suspended in the atmosphere at or near the earth's surface that obscures or restricts visibility (to a greater extent than mist; strictly, reducing visibility to less than 1 km).",
-        "example": "The fog was so thick I could barely see.",
-        "hebrewTranslation": "ערפל",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "foggy",
-        "definition": "Full of or characterized by fog.",
-        "example": "It was a foggy morning.",
-        "hebrewTranslation": "מעורפל",
-        "category": "Nature",
-        "level": 4
-    },
-    {
-        "word": "fold",
-        "definition": "Bend (something flexible and relatively flat) over on itself so that one part of it covers another.",
-        "example": "Please fold the clothes neatly.",
-        "hebrewTranslation": "לקפל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "follow",
-        "definition": "Go or come after (a person or thing proceeding ahead); move or travel behind.",
-        "example": "The dog will follow you everywhere.",
-        "hebrewTranslation": "לעקוב",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fond",
-        "definition": "Having an affection or liking for.",
-        "example": "I'm very fond of her.",
-        "hebrewTranslation": "מחבב",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "food",
-        "definition": "Any nutritious substance that people or animals eat or drink or that plants absorb in order to maintain life and growth.",
-        "example": "We need to buy some food for dinner.",
-        "hebrewTranslation": "אוכל",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "fool",
-        "definition": "A person who acts unwisely or imprudently; a silly person.",
-        "example": "Don't be a fool, think before you act.",
-        "hebrewTranslation": "טיפש",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "foolish",
-        "definition": "(of a person or action) lacking good sense or judgment; unwise.",
-        "example": "It was a foolish thing to do.",
-        "hebrewTranslation": "טיפשי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "foot",
-        "definition": "The part of the leg below the ankle, on which a person stands or walks.",
-        "example": "My foot hurts after the long walk.",
-        "hebrewTranslation": "כף רגל",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "for",
-        "definition": "Intended to be given to.",
-        "example": "This gift is for you.",
-        "hebrewTranslation": "עבור",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "forbid",
-        "definition": "Refuse to allow (something).",
-        "example": "I forbid you to go out tonight.",
-        "hebrewTranslation": "לאסור",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "force",
-        "definition": "Strength or energy as an attribute of physical action or movement.",
-        "example": "He used force to open the door.",
-        "hebrewTranslation": "כוח",
-        "category": "Physics",
-        "level": 3
-    },
-    {
-        "word": "forecast",
-        "definition": "A prediction or estimate of future events, especially coming weather or a financial trend.",
-        "example": "The weather forecast for tomorrow is sunny.",
-        "hebrewTranslation": "תחזית",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "forehead",
-        "definition": "The part of the face above the eyebrows.",
-        "example": "He wiped the sweat from his forehead.",
-        "hebrewTranslation": "מצח",
-        "category": "Biology",
-        "level": 4
-    },
-    {
-        "word": "foreign",
-        "definition": "Of, from, in, or characteristic of a country or language other than one's own.",
-        "example": "She speaks several foreign languages.",
-        "hebrewTranslation": "זר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "foreigner",
-        "definition": "A person born in or coming from a country other than one's own.",
-        "example": "He felt like a foreigner in the new city.",
-        "hebrewTranslation": "זר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "forest",
-        "definition": "A large area covered chiefly with trees and undergrowth.",
-        "example": "We went for a walk in the forest.",
-        "hebrewTranslation": "יער",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "forever",
-        "definition": "For all future time; for always.",
-        "example": "I will love you forever.",
-        "hebrewTranslation": "לנצח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "forget",
-        "definition": "Fail to remember.",
-        "example": "Don't forget to lock the door.",
-        "hebrewTranslation": "לשכוח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "forgive",
-        "definition": "Stop feeling angry or resentful toward (someone) for an offense, flaw, or mistake.",
-        "example": "It's important to forgive others.",
-        "hebrewTranslation": "לסלוח",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fork",
-        "definition": "A utensil, usually having two or more prongs, used for lifting food to the mouth or holding it when cutting.",
-        "example": "I need a knife and fork.",
-        "hebrewTranslation": "מזלג",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "form",
-        "definition": "The visible shape or configuration of something.",
-        "example": "The building has an unusual form.",
-        "hebrewTranslation": "צורה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "formal",
-        "definition": "Done in accordance with rules of convention or etiquette; suitable for or constituting an official or important occasion.",
-        "example": "It was a formal dinner party.",
-        "hebrewTranslation": "רשמי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "formally",
-        "definition": "In a formal manner.",
-        "example": "He was formally introduced to the queen.",
-        "hebrewTranslation": "באופן רשמי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "former",
-        "definition": "Having previously been a particular thing.",
-        "example": "The former president gave a speech.",
-        "hebrewTranslation": "לשעבר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "formerly",
-        "definition": "In the past.",
-        "example": "The building was formerly a school.",
-        "hebrewTranslation": "בעבר",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "formidable",
-        "definition": "Inspiring fear or respect through being impressively large, powerful, intense, or capable.",
-        "example": "He was a formidable opponent.",
-        "hebrewTranslation": "מרשים",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "formula",
-        "definition": "A mathematical relationship or rule expressed in symbols.",
-        "example": "He couldn't remember the formula for the area of a circle.",
-        "hebrewTranslation": "נוסחה",
-        "category": "Science",
-        "level": 6
-    },
-    {
-        "word": "formulate",
-        "definition": "Create or devise methodically (a strategy or a proposal).",
-        "example": "They need to formulate a new plan.",
-        "hebrewTranslation": "לנסח",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "forsake",
-        "definition": "Abandon or leave.",
-        "example": "He promised never to forsake her.",
-        "hebrewTranslation": "לנטוש",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "forthcoming",
-        "definition": "About to happen or appear.",
-        "example": "The forthcoming elections are causing a lot of debate.",
-        "hebrewTranslation": "הבא",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fortunate",
-        "definition": "Favored by or involving good luck or fortune; lucky.",
-        "example": "He was fortunate to escape with only minor injuries.",
-        "hebrewTranslation": "בר מזל",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fortunately",
-        "definition": "By good luck.",
-        "example": "Fortunately, the rain stopped before the picnic.",
-        "hebrewTranslation": "למזלנו",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fortune",
-        "definition": "Chance or luck as an external, arbitrary force affecting human affairs.",
-        "example": "He had the good fortune to be born into a wealthy family.",
-        "hebrewTranslation": "מזל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "forward",
-        "definition": "In the direction that one is facing or traveling; toward the front.",
-        "example": "She took a step forward.",
-        "hebrewTranslation": "קדימה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "found",
-        "definition": "Establish or originate (an institution or organization), especially by providing an endowment.",
-        "example": "The university was founded in 1636.",
-        "hebrewTranslation": "לייסד",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fragile",
-        "definition": "(of an object) easily broken or damaged.",
-        "example": "Be careful with that fragile vase.",
-        "hebrewTranslation": "שביר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "fragment",
-        "definition": "A small part broken or separated off something.",
-        "example": "She found a fragment of the ancient pottery.",
-        "hebrewTranslation": "שבר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fragrance",
-        "definition": "A pleasant, sweet smell.",
-        "example": "The fragrance of the roses filled the air.",
-        "hebrewTranslation": "ניחוח",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "fragrant",
-        "definition": "Having a pleasant or sweet smell.",
-        "example": "The flowers were very fragrant.",
-        "hebrewTranslation": "ריחני",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "frame",
-        "definition": "A rigid structure that surrounds or encloses something such as a picture, door, or windowpane.",
-        "example": "The picture was in a beautiful wooden frame.",
-        "hebrewTranslation": "מסגרת",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "framework",
-        "definition": "A basic structure underlying a system, concept, or text.",
-        "example": "They are developing a new legal framework for the industry.",
-        "hebrewTranslation": "מסגרת",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "frank",
-        "definition": "Open, honest, and direct in speech or writing, especially when dealing with unpalatable matters.",
-        "example": "To be frank, I don't think your plan will work.",
-        "hebrewTranslation": "כנה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "frankly",
-        "definition": "In an open, honest, and direct manner.",
-        "example": "Frankly, I was disappointed with the result.",
-        "hebrewTranslation": "בכנות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "frantic",
-        "definition": "Wild or distraught with fear, anxiety, or other emotion.",
-        "example": "She was frantic with worry.",
-        "hebrewTranslation": "מטורף",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "fraud",
-        "definition": "Wrongful or criminal deception intended to result in financial or personal gain.",
-        "example": "He was arrested for credit card fraud.",
-        "hebrewTranslation": "הונאה",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "fraudulent",
-        "definition": "Obtained, done by, or involving deception, especially criminal deception.",
-        "example": "He was convicted of fraudulent activities.",
-        "hebrewTranslation": "הונאתי",
-        "category": "Legal",
-        "level": 7
-    },
-    {
-        "word": "free",
-        "definition": "Able to act or be done as one wishes; not under the control of another.",
-        "example": "You are free to leave at any time.",
-        "hebrewTranslation": "חופשי",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "freedom",
-        "definition": "The power or right to act, speak, or think as one wants without hindrance or restraint.",
-        "example": "Freedom of speech is a fundamental right.",
-        "hebrewTranslation": "חופש",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "freeze",
-        "definition": "(of a liquid) turn or be turned into ice or another solid as a result of extreme cold.",
-        "example": "Water will freeze at 0°C.",
-        "hebrewTranslation": "לקפוא",
-        "category": "Science",
-        "level": 3
-    },
-    {
-        "word": "freezer",
-        "definition": "A refrigerated cabinet or room for preserving food at very low temperatures.",
-        "example": "Put the ice cream in the freezer.",
-        "hebrewTranslation": "מקפיא",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "freezing",
-        "definition": "Below 32°F (0°C).",
-        "example": "It's freezing outside!",
-        "hebrewTranslation": "קפוא",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "frequency",
-        "definition": "The rate at which something occurs or is repeated over a particular period of time or in a given sample.",
-        "example": "The frequency of his visits increased.",
-        "hebrewTranslation": "תדירות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "frequent",
-        "definition": "Occurring or done on many occasions, in many cases, or in quick succession.",
-        "example": "He is a frequent visitor to the library.",
-        "hebrewTranslation": "תדיר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "frequently",
-        "definition": "Often.",
-        "example": "We frequently go to the movies.",
-        "hebrewTranslation": "לעיתים קרובות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "fresh",
-        "definition": "(of food) recently made or obtained; not canned, frozen, or otherwise preserved.",
-        "example": "I love the smell of fresh bread.",
-        "hebrewTranslation": "טרי",
-        "category": "Food",
-        "level": 3
-    },
-    {
-        "word": "friction",
-        "definition": "The resistance that one surface or object encounters when moving over another.",
-        "example": "The friction between the two surfaces caused heat.",
-        "hebrewTranslation": "חיכוך",
-        "category": "Physics",
-        "level": 6
-    },
-    {
-        "word": "friend",
-        "definition": "A person whom one knows and with whom one has a bond of mutual affection, typically exclusive of sexual or family relations.",
-        "example": "He is my best friend.",
-        "hebrewTranslation": "חבר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "friendly",
-        "definition": "Kind and pleasant.",
-        "example": "The local people were very friendly.",
-        "hebrewTranslation": "ידידותי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "friendship",
-        "definition": "The emotions or conduct of friends; the state of being friends.",
-        "example": "Their friendship lasted a lifetime.",
-        "hebrewTranslation": "חברות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "frighten",
-        "definition": "Make (someone) afraid or anxious.",
-        "example": "The loud noise frightened the baby.",
-        "hebrewTranslation": "להפחיד",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "from",
-        "definition": "Indicating the point in space at which a journey, motion, or action starts.",
-        "example": "The train from Tel Aviv has arrived.",
-        "hebrewTranslation": "מ",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "front",
-        "definition": "The side or part of an object that presents itself to view or that is normally seen or used first; the most forward part of something.",
-        "example": "Please wait in front of the building.",
-        "hebrewTranslation": "חזית",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "frown",
-        "definition": "Furrow one's brow in an expression of disapproval, displeasure, or concentration.",
-        "example": "She frowned at his rude comment.",
-        "hebrewTranslation": "להזעיף פנים",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "fruit",
-        "definition": "The sweet, fleshy product of a tree or other plant that contains seed and can be eaten as food.",
-        "example": "You should eat five portions of fruit and vegetables a day.",
-        "hebrewTranslation": "פרי",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "frustrate",
-        "definition": "Prevent (a plan or attempted action) from progressing, succeeding, or being fulfilled.",
-        "example": "The bad weather frustrated our plans.",
-        "hebrewTranslation": "לתסכל",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "frustrated",
-        "definition": "Feeling or expressing distress and annoyance, especially because of inability to change or achieve something.",
-        "example": "He felt frustrated by the lack of progress.",
-        "hebrewTranslation": "מתוסכל",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "frustrating",
-        "definition": "Causing distress and annoyance, especially because of inability to change or achieve something.",
-        "example": "It was a frustrating situation.",
-        "hebrewTranslation": "מתסכל",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "frustration",
-        "definition": "The feeling of being upset or annoyed, especially because of inability to change or achieve something.",
-        "example": "He shouted in frustration.",
-        "hebrewTranslation": "תסכול",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "fuel",
-        "definition": "Material such as coal, gas, or oil that is burned to produce heat or power.",
-        "example": "We need to stop for fuel.",
-        "hebrewTranslation": "דלק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "fulfill",
-        "definition": "Bring to completion or reality; achieve or realize (something desired, promised, or predicted).",
-        "example": "She managed to fulfill her dream of becoming a pilot.",
-        "hebrewTranslation": "למלא",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "full",
-        "definition": "Containing or holding as much or as many as possible; having no empty space.",
-        "example": "The bottle is full of water.",
-        "hebrewTranslation": "מלא",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "fun",
-        "definition": "Enjoyment, amusement, or lighthearted pleasure.",
-        "example": "We had a lot of fun at the party.",
-        "hebrewTranslation": "כיף",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "function",
-        "definition": "An activity or purpose natural to or intended for a person or thing.",
-        "example": "The function of the heart is to pump blood.",
-        "hebrewTranslation": "תפקיד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "functional",
-        "definition": "Of or having a special activity, purpose, or task; relating to the way in which something works or operates.",
-        "example": "The kitchen is small but functional.",
-        "hebrewTranslation": "תפקודי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "fund",
-        "definition": "A sum of money saved or made available for a particular purpose.",
-        "example": "The charity has set up a fund to help the victims.",
-        "hebrewTranslation": "קרן",
-        "category": "Finance",
-        "level": 3
-    },
-    {
-        "word": "fundamental",
-        "definition": "Forming a necessary base or core; of central importance.",
-        "example": "Respect for others is a fundamental principle.",
-        "hebrewTranslation": "יסודי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "funeral",
-        "definition": "A ceremony or service held shortly after a person's death, usually including the person's burial or cremation.",
-        "example": "Many people attended the funeral.",
-        "hebrewTranslation": "הלוויה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "funny",
-        "definition": "Causing laughter or amusement; humorous.",
-        "example": "He told a funny story.",
-        "hebrewTranslation": "מצחיק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "furious",
-        "definition": "Extremely angry.",
-        "example": "She was furious with him for being late.",
-        "hebrewTranslation": "זועם",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "furnish",
-        "definition": "Provide (a house or room) with furniture and fittings.",
-        "example": "They need to furnish their new apartment.",
-        "hebrewTranslation": "לרהט",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "furniture",
-        "definition": "The movable articles that are used to make a room or building suitable for living or working in, such as tables, chairs, or desks.",
-        "example": "They bought new furniture for the living room.",
-        "hebrewTranslation": "רהיטים",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "further",
-        "definition": "At, to, or by a greater distance (used to indicate the extent to which one thing is remote from another).",
-        "example": "We need to discuss this matter further.",
-        "hebrewTranslation": "הלאה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "furthermore",
-        "definition": "In addition; besides (used to add a point to an argument).",
-        "example": "The house is beautiful. Furthermore, it's in a great location.",
-        "hebrewTranslation": "יתר על כן",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "fury",
-        "definition": "Wild or violent anger.",
-        "example": "He flew into a fury when he heard the news.",
-        "hebrewTranslation": "זעם",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "future",
-        "definition": "The time or a period of time following the moment of speaking or writing; time regarded as still to come.",
-        "example": "Nobody knows what the future holds.",
-        "hebrewTranslation": "עתיד",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "gain",
-        "definition": "Obtain or secure (something desired, favorable, or profitable).",
-        "example": "You will gain a lot of experience from this job.",
-        "hebrewTranslation": "להרוויח",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "gamble",
-        "definition": "Play games of chance for money; bet.",
-        "example": "He likes to gamble on horse races.",
-        "hebrewTranslation": "להמר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "game",
-        "definition": "An activity that one engages in for amusement or fun.",
-        "example": "Let's play a game of chess.",
-        "hebrewTranslation": "משחק",
-        "category": "Entertainment",
-        "level": 1
-    },
-    {
-        "word": "gap",
-        "definition": "A break or hole in an object or between two objects.",
-        "example": "There is a gap in the fence.",
-        "hebrewTranslation": "פער",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "garage",
-        "definition": "A building for housing a motor vehicle or vehicles.",
-        "example": "He parked his car in the garage.",
-        "hebrewTranslation": "מוסך",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "garbage",
-        "definition": "Wasted or spoiled food and other refuse, as from a kitchen or household.",
-        "example": "Don't forget to take out the garbage.",
-        "hebrewTranslation": "זבל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "garden",
-        "definition": "A piece of ground, often near a house, used for growing flowers, fruit, or vegetables.",
-        "example": "She is working in the garden.",
-        "hebrewTranslation": "גינה",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "gas",
-        "definition": "An airlike fluid substance which expands freely to fill any space available, irrespective of its quantity.",
-        "example": "Natural gas is used for heating.",
-        "hebrewTranslation": "גז",
-        "category": "Science",
-        "level": 1
-    },
-    {
-        "word": "gasoline",
-        "definition": "Refined petroleum used as fuel for internal combustion engines.",
-        "example": "I need to put some gasoline in the car.",
-        "hebrewTranslation": "בנזין",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "gate",
-        "definition": "A hinged barrier used to close an opening in a wall, fence, or hedge.",
-        "example": "Please close the gate behind you.",
-        "hebrewTranslation": "שער",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "gather",
-        "definition": "Come together; assemble or accumulate.",
-        "example": "A crowd gathered to see what was happening.",
-        "hebrewTranslation": "לאסוף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "gear",
-        "definition": "A toothed wheel that works with others to alter the relation between the speed of a driving mechanism (such as the engine of a vehicle or the pedals of a bicycle) and the speed of the driven parts (the wheels).",
-        "example": "He shifted the car into a lower gear.",
-        "hebrewTranslation": "הילוך",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "gender",
-        "definition": "Either of the two sexes (male and female), especially when considered with reference to social and cultural differences rather than biological ones.",
-        "example": "The company is committed to gender equality.",
-        "hebrewTranslation": "מגדר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "general",
-        "definition": "Affecting or concerning all or most people, places, or things; widespread.",
-        "example": "The general opinion is that the new law is a good idea.",
-        "hebrewTranslation": "כללי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "generally",
-        "definition": "In most cases; usually.",
-        "example": "Generally, I prefer to travel by train.",
-        "hebrewTranslation": "בדרך כלל",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "generation",
-        "definition": "All of the people born and living at about the same time, regarded collectively.",
-        "example": "The younger generation is very tech-savvy.",
-        "hebrewTranslation": "דור",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "generosity",
-        "definition": "The quality of being kind and generous.",
-        "example": "He was known for his generosity.",
-        "hebrewTranslation": "נדיבות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "generous",
-        "definition": "Showing a readiness to give more of something, as money or time, than is strictly necessary or expected.",
-        "example": "She made a generous donation to the charity.",
-        "hebrewTranslation": "נדיב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "genetic",
-        "definition": "Relating to genes or heredity.",
-        "example": "Some diseases have a genetic component.",
-        "hebrewTranslation": "גנטי",
-        "category": "Biology",
-        "level": 5
-    },
-    {
-        "word": "genetics",
-        "definition": "The study of heredity and the variation of inherited characteristics.",
-        "example": "He is a professor of genetics.",
-        "hebrewTranslation": "גנטיקה",
-        "category": "Biology",
-        "level": 6
-    },
-    {
-        "word": "genius",
-        "definition": "Exceptional intellectual or creative power or other natural ability.",
-        "example": "Einstein was a scientific genius.",
-        "hebrewTranslation": "גאון",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "gentle",
-        "definition": "Having or showing a mild, kind, or tender temperament or character.",
-        "example": "He has a gentle touch.",
-        "hebrewTranslation": "עדין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "genuine",
-        "definition": "Truly what something is said to be; authentic.",
-        "example": "This is a genuine leather jacket.",
-        "hebrewTranslation": "אמיתי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "genuinely",
-        "definition": "Truly; in a way that is not false or pretended.",
-        "example": "I was genuinely surprised by the news.",
-        "hebrewTranslation": "באמת",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "geography",
-        "definition": "The study of the physical features of the earth and its atmosphere, and of human activity as it affects and is affected by these.",
-        "example": "She is studying geography at university.",
-        "hebrewTranslation": "גאוגרפיה",
-        "category": "Science",
-        "level": 4
-    },
-    {
-        "word": "geology",
-        "definition": "The science that deals with the earth's physical structure and substance, its history, and the processes which act on it.",
-        "example": "He is an expert in the geology of the region.",
-        "hebrewTranslation": "גאולוגיה",
-        "category": "Science",
-        "level": 5
-    },
-    {
-        "word": "geometry",
-        "definition": "The branch of mathematics concerned with the properties and relations of points, lines, surfaces, solids, and higher dimensional analogs.",
-        "example": "We are learning about circles in our geometry class.",
-        "hebrewTranslation": "גאומטריה",
-        "category": "Science",
-        "level": 5
-    },
-    {
-        "word": "get",
-        "definition": "Come to have or hold (something); receive.",
-        "example": "I need to get some milk from the store.",
-        "hebrewTranslation": "לקבל",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "gift",
-        "definition": "A thing given willingly to someone without payment; a present.",
-        "example": "He gave me a beautiful gift for my birthday.",
-        "hebrewTranslation": "מתנה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "gigantic",
-        "definition": "Of very great size or extent; huge or enormous.",
-        "example": "A gigantic wave crashed onto the shore.",
-        "hebrewTranslation": "ענקי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "give",
-        "definition": "Freely transfer the possession of something to (someone).",
-        "example": "Can you give me that book?",
-        "hebrewTranslation": "לתת",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "glad",
-        "definition": "Pleased; delighted.",
-        "example": "I'm so glad you could come.",
-        "hebrewTranslation": "שמח",
-        "category": "Emotion",
-        "level": 1
-    },
-    {
-        "word": "glance",
-        "definition": "Take a brief or hurried look.",
-        "example": "She gave a quick glance at her watch.",
-        "hebrewTranslation": "מבט חטוף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "glass",
-        "definition": "A hard, brittle substance, typically transparent or translucent, made by fusing sand with soda, lime, and sometimes other ingredients and cooling rapidly.",
-        "example": "The window is made of glass.",
-        "hebrewTranslation": "זכוכית",
-        "category": "Material",
-        "level": 1
-    },
-    {
-        "word": "glasses",
-        "definition": "A pair of lenses set in a frame resting on the nose and ears, used to correct or assist defective eyesight or protect the eyes.",
-        "example": "He needs glasses to read.",
-        "hebrewTranslation": "משקפיים",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "glimpse",
-        "definition": "A momentary or partial view.",
-        "example": "I caught a glimpse of him in the crowd.",
-        "hebrewTranslation": "הצצה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "global",
-        "definition": "Relating to the whole world; worldwide.",
-        "example": "Climate change is a global issue.",
-        "hebrewTranslation": "עולמי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "globe",
-        "definition": "The earth.",
-        "example": "He has traveled all over the globe.",
-        "hebrewTranslation": "גלובוס",
-        "category": "Geography",
-        "level": 2
-    },
-    {
-        "word": "glorious",
-        "definition": "Having, worthy of, or bringing fame or admiration.",
-        "example": "It was a glorious victory.",
-        "hebrewTranslation": "מפואר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "glory",
-        "definition": "High renown or honor won by notable achievements.",
-        "example": "He fought for the glory of his country.",
-        "hebrewTranslation": "תהילה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "glove",
-        "definition": "A covering for the hand worn for protection against cold or dirt and typically having separate parts for each finger and the thumb.",
-        "example": "She wore gloves to keep her hands warm.",
-        "hebrewTranslation": "כפפה",
-        "category": "Fashion",
-        "level": 2
-    },
-    {
-        "word": "go",
-        "definition": "Move from one place to another; travel.",
-        "example": "I have to go to work now.",
-        "hebrewTranslation": "ללכת",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "goal",
-        "definition": "The object of a person's ambition or effort; an aim or desired result.",
-        "example": "My goal is to run a marathon next year.",
-        "hebrewTranslation": "מטרה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "God",
-        "definition": "(in Christianity and other monotheistic religions) the creator and ruler of the universe and source of all moral authority; the supreme being.",
-        "example": "Many people pray to God.",
-        "hebrewTranslation": "אלוהים",
-        "category": "Religion",
-        "level": 3
-    },
-    {
-        "word": "gold",
-        "definition": "A yellow precious metal, the chemical element of atomic number 79, used especially in jewelry and decoration and to guarantee the value of currencies.",
-        "example": "The ring is made of pure gold.",
-        "hebrewTranslation": "זהב",
-        "category": "Material",
-        "level": 3
-    },
-    {
-        "word": "golden",
-        "definition": "Colored or shining like gold.",
-        "example": "She has beautiful golden hair.",
-        "hebrewTranslation": "זהוב",
-        "category": "Color",
-        "level": 3
-    },
-    {
-        "word": "good",
-        "definition": "To be desired or approved of.",
-        "example": "This is a good book.",
-        "hebrewTranslation": "טוב",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "goods",
-        "definition": "Merchandise or possessions.",
-        "example": "The store sells a variety of goods.",
-        "hebrewTranslation": "סחורות",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "govern",
-        "definition": "Conduct the policy, actions, and affairs of (a state, organization, or people).",
-        "example": "The new party was elected to govern the country.",
-        "hebrewTranslation": "למשול",
-        "category": "Politics",
-        "level": 5
-    },
-    {
-        "word": "government",
-        "definition": "The group of people with the authority to govern a country or state; a particular ministry in office.",
-        "example": "The government announced new policies.",
-        "hebrewTranslation": "ממשלה",
-        "category": "Politics",
-        "level": 5
-    },
-    {
-        "word": "grab",
-        "definition": "Grasp or seize suddenly and roughly.",
-        "example": "He grabbed his coat and ran out.",
-        "hebrewTranslation": "לתפוס",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "grace",
-        "definition": "Simple elegance or refinement of movement.",
-        "example": "She moved with the grace of a dancer.",
-        "hebrewTranslation": "חן",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "graceful",
-        "definition": "Having or showing grace or elegance.",
-        "example": "The swan is a graceful bird.",
-        "hebrewTranslation": "חינני",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "gracious",
-        "definition": "Courteous, kind, and pleasant.",
-        "example": "She was a gracious hostess.",
-        "hebrewTranslation": "אדיב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "grade",
-        "definition": "A particular level of quality, size, importance, etc.",
-        "example": "He got a good grade on his exam.",
-        "hebrewTranslation": "ציון",
-        "category": "Education",
-        "level": 2
-    },
-    {
-        "word": "gradual",
-        "definition": "Taking place or progressing slowly or by degrees.",
-        "example": "There has been a gradual improvement in his health.",
-        "hebrewTranslation": "הדרגתי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "gradually",
-        "definition": "In a gradual way; slowly; by degrees.",
-        "example": "The weather gradually improved.",
-        "hebrewTranslation": "בהדרגה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "graduate",
-        "definition": "A person who has successfully completed a course of study or training, especially a person who has been awarded an undergraduate academic degree.",
-        "example": "He is a graduate of Harvard University.",
-        "hebrewTranslation": "בוגר",
-        "category": "Education",
-        "level": 6
-    },
-    {
-        "word": "grain",
-        "definition": "Wheat or any other cultivated cereal crop used as food.",
-        "example": "The fields were full of golden grain.",
-        "hebrewTranslation": "דגן",
-        "category": "Agriculture",
-        "level": 4
-    },
-    {
-        "word": "grand",
-        "definition": "Magnificent and imposing in appearance, size, or style.",
-        "example": "The hotel has a grand staircase.",
-        "hebrewTranslation": "גדול",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "grandchild",
-        "definition": "A child of one's son or daughter.",
-        "example": "She loves spending time with her grandchild.",
-        "hebrewTranslation": "נכד",
-        "category": "Family",
-        "level": 4
-    },
-    {
-        "word": "granddaughter",
-        "definition": "A daughter of one's son or daughter.",
-        "example": "His granddaughter is five years old.",
-        "hebrewTranslation": "נכדה",
-        "category": "Family",
-        "level": 4
-    },
-    {
-        "word": "grandfather",
-        "definition": "The father of one's father or mother.",
-        "example": "My grandfather fought in the war.",
-        "hebrewTranslation": "סבא",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "grandmother",
-        "definition": "The mother of one's father or mother.",
-        "example": "My grandmother bakes the best cookies.",
-        "hebrewTranslation": "סבתא",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "grandparent",
-        "definition": "A parent of one's father or mother; a grandmother or grandfather.",
-        "example": "My grandparents live nearby.",
-        "hebrewTranslation": "סבא וסבתא",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "grandson",
-        "definition": "A son of one's son or daughter.",
-        "example": "Her grandson is a talented musician.",
-        "hebrewTranslation": "נכד",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "grant",
-        "definition": "Agree to give or allow (something requested) to.",
-        "example": "The government granted them permission to build.",
-        "hebrewTranslation": "להעניק",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "grape",
-        "definition": "A berry, typically green (classified as white), purple, red, or black, growing in clusters on a grapevine, eaten as fruit, and used in making wine.",
-        "example": "I love eating fresh grapes.",
-        "hebrewTranslation": "ענב",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "grasp",
-        "definition": "Seize and hold firmly.",
-        "example": "He grasped her hand tightly.",
-        "hebrewTranslation": "לאחוז",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "grass",
-        "definition": "Vegetation consisting of typically short plants with long, narrow leaves, growing wild or cultivated on lawns and pasture, and as a fodder crop.",
-        "example": "The children were playing on the grass.",
-        "hebrewTranslation": "דשא",
-        "category": "Nature",
-        "level": 1
-    },
-    {
-        "word": "grateful",
-        "definition": "Feeling or showing an appreciation of kindness; thankful.",
-        "example": "I'm very grateful for your help.",
-        "hebrewTranslation": "אסיר תודה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "gratitude",
-        "definition": "The quality of being thankful; readiness to show appreciation for and to return kindness.",
-        "example": "She expressed her gratitude for the gift.",
-        "hebrewTranslation": "הכרת תודה",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "grave",
-        "definition": "A place of burial for a dead body, typically a hole dug in the ground and marked by a stone or mound.",
-        "example": "They visited his grave on the anniversary of his death.",
-        "hebrewTranslation": "קבר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "gravity",
-        "definition": "The force that attracts a body toward the center of the earth, or toward any other physical body having mass.",
-        "example": "Gravity keeps us on the ground.",
-        "hebrewTranslation": "כוח המשיכה",
-        "category": "Physics",
-        "level": 6
-    },
-    {
-        "word": "gray",
-        "definition": "Of a color intermediate between black and white, as of ashes or lead.",
-        "example": "He has gray hair.",
-        "hebrewTranslation": "אפור",
-        "category": "Color",
-        "level": 1
-    },
-    {
-        "word": "great",
-        "definition": "Of an extent, amount, or intensity considerably above the normal or average.",
-        "example": "She has a great sense of humor.",
-        "hebrewTranslation": "נהדר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "greatly",
-        "definition": "By a large amount; very much.",
-        "example": "I greatly appreciate your help.",
-        "hebrewTranslation": "מאוד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "greed",
-        "definition": "Intense and selfish desire for something, especially wealth, power, or food.",
-        "example": "His greed for money was his downfall.",
-        "hebrewTranslation": "חמדנות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "greedy",
-        "definition": "Having or showing an intense and selfish desire for something, especially wealth or power.",
-        "example": "He is a greedy man.",
-        "hebrewTranslation": "חמדן",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "green",
-        "definition": "Of the color between blue and yellow in the spectrum; colored like grass or emeralds.",
-        "example": "Her favorite color is green.",
-        "hebrewTranslation": "ירוק",
-        "category": "Color",
-        "level": 1
-    },
-    {
-        "word": "greet",
-        "definition": "Give a polite word or sign of welcome or recognition to (someone) on meeting.",
-        "example": "He greeted me with a warm smile.",
-        "hebrewTranslation": "לברך",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "greeting",
-        "definition": "A polite word or sign of welcome or recognition.",
-        "example": "She sent me a birthday greeting.",
-        "hebrewTranslation": "ברכה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "grief",
-        "definition": "Deep sorrow, especially that caused by someone's death.",
-        "example": "She was overcome with grief.",
-        "hebrewTranslation": "יגון",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "grieve",
-        "definition": "Feel intense sorrow.",
-        "example": "She is still grieving for her husband.",
-        "hebrewTranslation": "להתאבל",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "grim",
-        "definition": "Forbidding or uninviting.",
-        "example": "The future looks grim.",
-        "hebrewTranslation": "קודר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "grin",
-        "definition": "Smile broadly.",
-        "example": "He had a wide grin on his face.",
-        "hebrewTranslation": "חיוך רחב",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "grind",
-        "definition": "Reduce something to small particles or powder by crushing it.",
-        "example": "She grinds her own coffee beans.",
-        "hebrewTranslation": "לטחון",
-        "category": "Food",
-        "level": 4
-    },
-    {
-        "word": "grip",
-        "definition": "Take and keep a firm hold of; grasp tightly.",
-        "example": "He had a firm grip on the rope.",
-        "hebrewTranslation": "אחיזה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "groan",
-        "definition": "Make a deep inarticulate sound in response to pain or despair.",
-        "example": "He let out a groan of pain.",
-        "hebrewTranslation": "גניחה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "grocery",
-        "definition": "A grocer's shop or business.",
-        "example": "I need to go to the grocery store.",
-        "hebrewTranslation": "מכולת",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "groom",
-        "definition": "A man on his wedding day or just before and after the event.",
-        "example": "The groom was waiting at the altar.",
-        "hebrewTranslation": "חתן",
-        "category": "Family",
-        "level": 3
-    },
-    {
-        "word": "gross",
-        "definition": "(of income, profit, or interest) without deduction of tax or other contributions; total.",
-        "example": "His gross income is $50,000 a year.",
-        "hebrewTranslation": "ברוטו",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "ground",
-        "definition": "The solid surface of the earth.",
-        "example": "He dropped his keys on the ground.",
-        "hebrewTranslation": "אדמה",
-        "category": "Nature",
-        "level": 2
-    },
-    {
-        "word": "group",
-        "definition": "A number of people or things that are located, gathered, or classed together.",
-        "example": "A group of tourists was waiting for the bus.",
-        "hebrewTranslation": "קבוצה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "grow",
-        "definition": "(of a living thing) undergo natural development by increasing in size and changing physically.",
-        "example": "Children grow up so quickly.",
-        "hebrewTranslation": "לגדול",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "guarantee",
-        "definition": "A formal promise or assurance (typically in writing) that certain conditions will be fulfilled, especially that a product will be repaired or replaced if not of a specified quality and durability.",
-        "example": "The watch comes with a two-year guarantee.",
-        "hebrewTranslation": "אחריות",
-        "category": "Business",
-        "level": 5
-    },
-    {
-        "word": "guard",
-        "definition": "Watch over in order to protect or control.",
-        "example": "The dog will guard the house.",
-        "hebrewTranslation": "לשמור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "guess",
-        "definition": "Estimate or suppose (something) without sufficient information to be sure of being correct.",
-        "example": "Can you guess how old I am?",
-        "hebrewTranslation": "לנחש",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "guest",
-        "definition": "A person who is invited to visit the home of or take part in a function organized by another.",
-        "example": "We have a guest staying with us this week.",
-        "hebrewTranslation": "אורח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "guidance",
-        "definition": "Advice or information aimed at resolving a problem or difficulty, especially as given by someone in authority.",
-        "example": "He sought guidance from his mentor.",
-        "hebrewTranslation": "הדרכה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "guide",
-        "definition": "A person who shows the way to others, especially one employed to show tourists around places of interest.",
-        "example": "The tour guide was very knowledgeable.",
-        "hebrewTranslation": "מדריך",
-        "category": "Travel",
-        "level": 2
-    },
-    {
-        "word": "guideline",
-        "definition": "A general rule, principle, or piece of advice.",
-        "example": "The company has strict guidelines on safety.",
-        "hebrewTranslation": "הנחיה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "guilt",
-        "definition": "The fact of having committed a specified or implied offense or crime.",
-        "example": "He was consumed by guilt.",
-        "hebrewTranslation": "אשמה",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "guilty",
-        "definition": "Justly chargeable with a particular fault or error.",
-        "example": "The jury found him guilty of the crime.",
-        "hebrewTranslation": "אשם",
-        "category": "Legal",
-        "level": 3
-    },
-    {
-        "word": "gulf",
-        "definition": "A deep inlet of the sea almost surrounded by land, with a narrow mouth.",
-        "example": "The Persian Gulf is rich in oil.",
-        "hebrewTranslation": "מפרץ",
-        "category": "Geography",
-        "level": 2
-    },
-    {
-        "word": "gun",
-        "definition": "A weapon incorporating a metal tube from which bullets, shells, or other missiles are propelled by explosive force, typically making a loud noise.",
-        "example": "The police officer carried a gun.",
-        "hebrewTranslation": "אקדח",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "habit",
-        "definition": "A settled or regular tendency or practice, especially one that is hard to give up.",
-        "example": "Biting your nails is a bad habit.",
-        "hebrewTranslation": "הרגל",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "habitat",
-        "definition": "The natural home or environment of an animal, plant, or other organism.",
-        "example": "The panda's natural habitat is the bamboo forest.",
-        "hebrewTranslation": "בית גידול",
-        "category": "Biology",
-        "level": 5
-    },
-    {
-        "word": "habitual",
-        "definition": "Done or doing constantly or as a habit.",
-        "example": "He is a habitual liar.",
-        "hebrewTranslation": "הרגלי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hair",
-        "definition": "Any of the fine threadlike strands growing from the skin of humans, mammals, and some other animals.",
-        "example": "She has long, brown hair.",
-        "hebrewTranslation": "שיער",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "half",
-        "definition": "Either of two equal or corresponding parts into which something is or can be divided.",
-        "example": "He ate half of the pizza.",
-        "hebrewTranslation": "חצי",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "hall",
-        "definition": "The room or space just inside the front entrance of a house or flat.",
-        "example": "Please leave your coat in the hall.",
-        "hebrewTranslation": "מסדרון",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "halt",
-        "definition": "Bring or come to an abrupt stop.",
-        "example": "The train came to a sudden halt.",
-        "hebrewTranslation": "לעצור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "ham",
-        "definition": "Meat from the upper part of a pig's leg salted and dried or smoked.",
-        "example": "He had a ham and cheese sandwich.",
-        "hebrewTranslation": "בשר חזיר",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "hamburger",
-        "definition": "A round patty of ground beef, fried or grilled and typically served in a split bun with various condiments.",
-        "example": "I would like a hamburger with fries.",
-        "hebrewTranslation": "המבורגר",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "hand",
-        "definition": "The end part of a person's arm beyond the wrist, including the palm, fingers, and thumb.",
-        "example": "He held the book in his hand.",
-        "hebrewTranslation": "יד",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "handbag",
-        "definition": "A small bag used by a woman to carry everyday personal items.",
-        "example": "She bought a new handbag.",
-        "hebrewTranslation": "תיק יד",
-        "category": "Fashion",
-        "level": 2
-    },
-    {
-        "word": "handful",
-        "definition": "A quantity that fills the hand.",
-        "example": "He grabbed a handful of coins.",
-        "hebrewTranslation": "חופן",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "handicap",
-        "definition": "A condition that markedly restricts a person's ability to function physically, mentally, or socially.",
-        "example": "Despite his handicap, he leads a full life.",
-        "hebrewTranslation": "נכות",
-        "category": "Health",
-        "level": 5
-    },
-    {
-        "word": "handicapped",
-        "definition": "Having a condition that markedly restricts one's ability to function physically, mentally, or socially.",
-        "example": "The building has facilities for handicapped people.",
-        "hebrewTranslation": "נכה",
-        "category": "Health",
-        "level": 5
-    },
-    {
-        "word": "handle",
-        "definition": "The part by which a thing is held, carried, or controlled.",
-        "example": "The handle of the cup is broken.",
-        "hebrewTranslation": "ידית",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "handsome",
-        "definition": "(of a man) good-looking.",
-        "example": "He is a very handsome man.",
-        "hebrewTranslation": "נאה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "handwriting",
-        "definition": "A person's particular style of writing.",
-        "example": "His handwriting is difficult to read.",
-        "hebrewTranslation": "כתב יד",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "handy",
-        "definition": "Convenient to handle or use; useful.",
-        "example": "This tool is very handy.",
-        "hebrewTranslation": "שימושי",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hang",
-        "definition": "Suspend or be suspended from above with the lower part dangling free.",
-        "example": "Please hang your coat on the hook.",
-        "hebrewTranslation": "לתלות",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "happen",
-        "definition": "Take place; occur.",
-        "example": "What will happen if I press this button?",
-        "hebrewTranslation": "לקרות",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "happiness",
-        "definition": "The state of being happy.",
-        "example": "I wish you all the happiness in the world.",
-        "hebrewTranslation": "אושר",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "happy",
-        "definition": "Feeling or showing pleasure or contentment.",
-        "example": "She looks so happy in her new job.",
-        "hebrewTranslation": "שמח",
-        "category": "Emotion",
-        "level": 1
-    },
-    {
-        "word": "harass",
-        "definition": "Subject to aggressive pressure or intimidation.",
-        "example": "It is illegal to harass someone at work.",
-        "hebrewTranslation": "להטריד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "harassment",
-        "definition": "Aggressive pressure or intimidation.",
-        "example": "She filed a complaint for harassment.",
-        "hebrewTranslation": "הטרדה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "harbor",
-        "definition": "A place on the coast where vessels may find shelter, especially one protected from rough water by piers, jetties, and other artificial structures.",
-        "example": "The ships were safe in the harbor.",
-        "hebrewTranslation": "נמל",
-        "category": "Geography",
-        "level": 4
-    },
-    {
-        "word": "hard",
-        "definition": "Solid, firm, and rigid; not easily broken, bent, or pierced.",
-        "example": "This material is as hard as a rock.",
-        "hebrewTranslation": "קשה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "harden",
-        "definition": "Make or become hard or harder.",
-        "example": "The clay will harden in the sun.",
-        "hebrewTranslation": "להקשות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "hardly",
-        "definition": "Scarcely (used to qualify a statement by saying that it is true to an insignificant degree).",
-        "example": "I can hardly hear you.",
-        "hebrewTranslation": "בקושי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hardship",
-        "definition": "Severe suffering or privation.",
-        "example": "They faced many hardships during the war.",
-        "hebrewTranslation": "קושי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hardware",
-        "definition": "Tools, machinery, and other durable equipment.",
-        "example": "I need to buy some hardware from the store.",
-        "hebrewTranslation": "חומרה",
-        "category": "Technology",
-        "level": 3
-    },
-    {
-        "word": "hardy",
-        "definition": "Robust; capable of enduring difficult conditions.",
-        "example": "These plants are very hardy and can survive the winter.",
-        "hebrewTranslation": "עמיד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "harm",
-        "definition": "Physical injury, especially that which is deliberately inflicted.",
-        "example": "The storm caused a lot of harm to the crops.",
-        "hebrewTranslation": "נזק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "harmful",
-        "definition": "Causing or likely to cause harm.",
-        "example": "Smoking is harmful to your health.",
-        "hebrewTranslation": "מזיק",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "harmless",
-        "definition": "Not able or likely to cause harm.",
-        "example": "The snake is completely harmless.",
-        "hebrewTranslation": "לא מזיק",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "harmonious",
-        "definition": "Tuneful; not discordant.",
-        "example": "The choir sang in harmonious voices.",
-        "hebrewTranslation": "הרמוני",
-        "category": "Music",
-        "level": 6
-    },
-    {
-        "word": "harmonize",
-        "definition": "Add notes to (a melody) to produce harmony.",
-        "example": "They need to harmonize their efforts to achieve success.",
-        "hebrewTranslation": "להתאים",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "harmony",
-        "definition": "The combination of simultaneously sounded musical notes to produce chords and chord progressions having a pleasing effect.",
-        "example": "They lived together in perfect harmony.",
-        "hebrewTranslation": "הרמוניה",
-        "category": "Music",
-        "level": 5
-    },
-    {
-        "word": "harsh",
-        "definition": "Unpleasantly rough or jarring to the senses.",
-        "example": "The punishment was too harsh.",
-        "hebrewTranslation": "קשה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "harvest",
-        "definition": "The process or period of gathering in crops.",
-        "example": "It's time for the autumn harvest.",
-        "hebrewTranslation": "קציר",
-        "category": "Agriculture",
-        "level": 4
-    },
-    {
-        "word": "haste",
-        "definition": "Excessive speed or urgency of movement or action; hurry.",
-        "example": "He left in great haste.",
-        "hebrewTranslation": "חיפזון",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "hasten",
-        "definition": "Be quick to do something.",
-        "example": "We must hasten to finish our work.",
-        "hebrewTranslation": "למהר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hasty",
-        "definition": "Done or acting with excessive speed or urgency; hurried.",
-        "example": "Don't make a hasty decision.",
-        "hebrewTranslation": "פזיז",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hat",
-        "definition": "A shaped covering for the head worn for warmth, as a fashion item, or as part of a uniform.",
-        "example": "He wore a hat to protect his head from the sun.",
-        "hebrewTranslation": "כובע",
-        "category": "Fashion",
-        "level": 1
-    },
-    {
-        "word": "hatch",
-        "definition": "(of an egg) open and produce a young animal.",
-        "example": "The chicks will hatch in a few days.",
-        "hebrewTranslation": "לבקוע",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "hate",
-        "definition": "Feel intense or passionate dislike for (someone).",
-        "example": "I hate the taste of cilantro.",
-        "hebrewTranslation": "לשנוא",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "hatred",
-        "definition": "Intense dislike or ill will.",
-        "example": "His heart was filled with hatred.",
-        "hebrewTranslation": "שנאה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "haul",
-        "definition": "(of a person) pull or drag with effort or force.",
-        "example": "He hauled the heavy sack onto his shoulder.",
-        "hebrewTranslation": "לגרור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "have",
-        "definition": "Possess, own, or hold.",
-        "example": "I have a new car.",
-        "hebrewTranslation": "יש ל",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "have to",
-        "definition": "Must (expressing obligation).",
-        "example": "I have to go to work now.",
-        "hebrewTranslation": "חייב",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "havoc",
-        "definition": "Widespread destruction.",
-        "example": "The storm wreaked havoc on the coastal town.",
-        "hebrewTranslation": "הרס",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hawk",
-        "definition": "A bird of prey with broad rounded wings and a long tail, typically taking prey by surprise with a short chase.",
-        "example": "A hawk was circling high in the sky.",
-        "hebrewTranslation": "נץ",
-        "category": "Biology",
-        "level": 4
-    },
-    {
-        "word": "hay",
-        "definition": "Grass that has been mown and dried for use as fodder.",
-        "example": "The farmer was baling hay in the field.",
-        "hebrewTranslation": "חציר",
-        "category": "Agriculture",
-        "level": 2
-    },
-    {
-        "word": "hazard",
-        "definition": "A danger or risk.",
-        "example": "Smoking is a serious health hazard.",
-        "hebrewTranslation": "סכנה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hazardous",
-        "definition": "Risky; dangerous.",
-        "example": "The chemical is hazardous to health.",
-        "hebrewTranslation": "מסוכן",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "he",
-        "definition": "Used to refer to a man, boy, or male animal previously mentioned or easily identified.",
-        "example": "He is my brother.",
-        "hebrewTranslation": "הוא",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "head",
-        "definition": "The upper part of the human body, or the front or upper part of the body of an animal, typically separated from the rest of the body by a neck, and containing the brain, mouth, and sense organs.",
-        "example": "My head hurts.",
-        "hebrewTranslation": "ראש",
-        "category": "Biology",
-        "level": 1
-    },
-    {
-        "word": "heal",
-        "definition": "(of a wound or a person) become sound or healthy again.",
-        "example": "The wound will heal in a few days.",
-        "hebrewTranslation": "להירפא",
-        "category": "Health",
-        "level": 2
-    },
-    {
-        "word": "health",
-        "definition": "The state of being free from illness or injury.",
-        "example": "Good health is the most important thing.",
-        "hebrewTranslation": "בריאות",
-        "category": "Health",
-        "level": 2
-    },
-    {
-        "word": "healthy",
-        "definition": "In a good physical or mental condition; in good health.",
-        "example": "She leads a very healthy lifestyle.",
-        "hebrewTranslation": "בריא",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "hear",
-        "definition": "Perceive with the ear the sound made by (someone or something).",
-        "example": "Can you hear the music?",
-        "hebrewTranslation": "לשמוע",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "hearing",
-        "definition": "The faculty of perceiving sounds.",
-        "example": "His hearing is not as good as it used to be.",
-        "hebrewTranslation": "שמיעה",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "heart",
-        "definition": "A hollow muscular organ that pumps the blood through the circulatory system by contraction and dilation.",
-        "example": "The heart is a vital organ.",
-        "hebrewTranslation": "לב",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "heat",
-        "definition": "The quality of being hot; high temperature.",
-        "example": "I can't stand the heat in the summer.",
-        "hebrewTranslation": "חום",
-        "category": "Science",
-        "level": 2
-    },
-    {
-        "word": "heaven",
-        "definition": "A place regarded in various religions as the abode of God (or the gods) and the angels, and of the good after death, often traditionally depicted as being above the sky.",
-        "example": "Many people believe in heaven.",
-        "hebrewTranslation": "שמיים",
-        "category": "Religion",
-        "level": 3
-    },
-    {
-        "word": "heavy",
-        "definition": "Of great weight; difficult to lift or move.",
-        "example": "This box is too heavy for me to lift.",
-        "hebrewTranslation": "כבד",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "heel",
-        "definition": "The back part of the human foot below the ankle.",
-        "example": "She was wearing high-heeled shoes.",
-        "hebrewTranslation": "עקב",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "height",
-        "definition": "The measurement from base to top or (of a standing person) from head to foot.",
-        "example": "What is the height of the building?",
-        "hebrewTranslation": "גובה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "heighten",
-        "definition": "Make or become more intense.",
-        "example": "The tension in the room began to heighten.",
-        "hebrewTranslation": "להגביר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "heir",
-        "definition": "A person legally entitled to the property or rank of another on that person's death.",
-        "example": "He is the heir to a large fortune.",
-        "hebrewTranslation": "יורש",
-        "category": "Legal",
-        "level": 4
-    },
-    {
-        "word": "heiress",
-        "definition": "A female heir, especially a woman who has inherited or is likely to inherit a large fortune.",
-        "example": "She is a wealthy heiress.",
-        "hebrewTranslation": "יורשת",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "hell",
-        "definition": "A place regarded in various religions as a spiritual realm of evil and suffering, often traditionally depicted as a place of perpetual fire beneath the earth where the wicked are punished after death.",
-        "example": "Some religions teach about heaven and hell.",
-        "hebrewTranslation": "גיהנום",
-        "category": "Religion",
-        "level": 3
-    },
-    {
-        "word": "help",
-        "definition": "Make it easier for (someone) to do something by offering one's services or resources.",
-        "example": "Can you help me with this problem?",
-        "hebrewTranslation": "לעזור",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "helpful",
-        "definition": "Giving or ready to give help.",
-        "example": "The staff at the hotel were very helpful.",
-        "hebrewTranslation": "מועיל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "helpless",
-        "definition": "Unable to defend oneself or to act without help.",
-        "example": "The baby was small and helpless.",
-        "hebrewTranslation": "חסר אונים",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "her",
-        "definition": "Used as the object of a verb or preposition to refer to a female person or animal previously mentioned or easily identified.",
-        "example": "I saw her yesterday.",
-        "hebrewTranslation": "אותה",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "herald",
-        "definition": "An official messenger bringing news.",
-        "example": "The robin is a herald of spring.",
-        "hebrewTranslation": "מבשר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "herb",
-        "definition": "Any plant with leaves, seeds, or flowers used for flavoring, food, medicine, or perfume.",
-        "example": "She grows herbs in her garden.",
-        "hebrewTranslation": "עשב תיבול",
-        "category": "Food",
-        "level": 3
-    },
-    {
-        "word": "herd",
-        "definition": "A large group of animals, especially hoofed mammals such as cattle, elephants, goats, or sheep, that live, feed, or travel together or are kept together as livestock.",
-        "example": "A herd of elephants crossed the river.",
-        "hebrewTranslation": "עדר",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "here",
-        "definition": "In, at, or to this place or position.",
-        "example": "Please come here.",
-        "hebrewTranslation": "כאן",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "heritage",
-        "definition": "Property that is or may be inherited; an inheritance.",
-        "example": "The country has a rich cultural heritage.",
-        "hebrewTranslation": "מורשת",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hero",
-        "definition": "A person who is admired or idealized for courage, outstanding achievements, or noble qualities.",
-        "example": "He was hailed as a hero for saving the child.",
-        "hebrewTranslation": "גיבור",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "heroic",
-        "definition": "Having the characteristics of a hero or heroine; very brave.",
-        "example": "He made a heroic effort to rescue the drowning man.",
-        "hebrewTranslation": "הרואי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "heroine",
-        "definition": "A woman admired or idealized for her courage, outstanding achievements, or noble qualities.",
-        "example": "She is the heroine of the story.",
-        "hebrewTranslation": "גיבורה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hers",
-        "definition": "Used to refer to a thing or things belonging to or associated with a female person or animal previously mentioned.",
-        "example": "The book is hers.",
-        "hebrewTranslation": "שלה",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "herself",
-        "definition": "Used as the object of a verb or preposition to refer to a female person or animal that is the subject of the clause.",
-        "example": "She cooked the meal herself.",
-        "hebrewTranslation": "עצמה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hesitant",
-        "definition": "Tending to hesitate; slow to act or speak.",
-        "example": "She was hesitant to accept the offer.",
-        "hebrewTranslation": "מהסס",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hesitate",
-        "definition": "Pause before saying or doing something, especially through uncertainty.",
-        "example": "Don't hesitate to ask for help.",
-        "hebrewTranslation": "להסס",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hesitation",
-        "definition": "The action of pausing or hesitating before saying or doing something.",
-        "example": "After a moment's hesitation, she agreed.",
-        "hebrewTranslation": "היסוס",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hide",
-        "definition": "Put or keep out of sight.",
-        "example": "Let's hide behind the tree.",
-        "hebrewTranslation": "להתחבא",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "high",
-        "definition": "Of great vertical extent.",
-        "example": "The mountain is very high.",
-        "hebrewTranslation": "גבוה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "highly",
-        "definition": "To a high degree or level.",
-        "example": "He is a highly respected scientist.",
-        "hebrewTranslation": "מאוד",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "highway",
-        "definition": "A main road, especially one connecting major towns or cities.",
-        "example": "The highway was busy with traffic.",
-        "hebrewTranslation": "כביש מהיר",
-        "category": "Travel",
-        "level": 3
-    },
-    {
-        "word": "hijack",
-        "definition": "Illegally seize (an aircraft, vehicle, or ship) while in transit.",
-        "example": "The plane was hijacked by terrorists.",
-        "hebrewTranslation": "לחטוף",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hill",
-        "definition": "A naturally raised area of land, not as high or craggy as a mountain.",
-        "example": "We walked up the hill to see the view.",
-        "hebrewTranslation": "גבעה",
-        "category": "Nature",
-        "level": 2
-    },
-    {
-        "word": "him",
-        "definition": "Used as the object of a verb or preposition to refer to a male person or animal previously mentioned or easily identified.",
-        "example": "I gave the book to him.",
-        "hebrewTranslation": "אתו",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "himself",
-        "definition": "Used as the object of a verb or preposition to refer to a male person or animal that is the subject of the clause.",
-        "example": "He cooked the meal himself.",
-        "hebrewTranslation": "עצמו",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hinder",
-        "definition": "Create difficulties for (someone or something), resulting in delay or obstruction.",
-        "example": "The bad weather will hinder our progress.",
-        "hebrewTranslation": "לעכב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hindrance",
-        "definition": "A thing that provides resistance, delay, or obstruction to something or someone.",
-        "example": "The lack of funding was a major hindrance.",
-        "hebrewTranslation": "מכשול",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "hinge",
-        "definition": "A movable joint or mechanism on which a door, gate, or lid swings as it opens and closes, or which connects linked objects.",
-        "example": "The door came off its hinges.",
-        "hebrewTranslation": "ציר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hint",
-        "definition": "A slight or indirect indication or suggestion.",
-        "example": "He gave me a hint about the answer.",
-        "hebrewTranslation": "רמז",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "hip",
-        "definition": "A projection of the pelvis and upper thigh bone on each side of the body in human beings and quadrupeds.",
-        "example": "She broke her hip in the fall.",
-        "hebrewTranslation": "ירך",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "hire",
-        "definition": "Employ (someone) for wages.",
-        "example": "The company is planning to hire new staff.",
-        "hebrewTranslation": "לשכור",
-        "category": "Business",
-        "level": 2
-    },
-    {
-        "word": "his",
-        "definition": "Belonging to or associated with a male person or animal previously mentioned or easily identified.",
-        "example": "This is his car.",
-        "hebrewTranslation": "שלו",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "historian",
-        "definition": "An expert in or student of history, especially that of a particular period, geographical region, or social phenomenon.",
-        "example": "He is a famous historian.",
-        "hebrewTranslation": "היסטוריון",
-        "category": "Academics",
-        "level": 6
-    },
-    {
-        "word": "historic",
-        "definition": "Famous or important in history, or potentially so.",
-        "example": "It was a historic moment.",
-        "hebrewTranslation": "היסטורי",
-        "category": "History",
-        "level": 5
-    },
-    {
-        "word": "historical",
-        "definition": "Of or concerning history or past events.",
-        "example": "She is writing a historical novel.",
-        "hebrewTranslation": "היסטורי",
-        "category": "History",
-        "level": 5
-    },
-    {
-        "word": "history",
-        "definition": "The study of past events, particularly in human affairs.",
-        "example": "He is a professor of modern history.",
-        "hebrewTranslation": "היסטוריה",
-        "category": "Academics",
-        "level": 3
-    },
-    {
-        "word": "hit",
-        "definition": "Bring one's hand or a tool or weapon into contact with (someone or something) quickly and forcefully.",
-        "example": "He hit the ball with the bat.",
-        "hebrewTranslation": "להכות",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hitherto",
-        "definition": "Until now or until the point in time under discussion.",
-        "example": "Hitherto, he had been a successful businessman.",
-        "hebrewTranslation": "עד כה",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "hobby",
-        "definition": "An activity done regularly in one's leisure time for pleasure.",
-        "example": "My hobby is painting.",
-        "hebrewTranslation": "תחביב",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hold",
-        "definition": "Grasp, carry, or support with one's hands.",
-        "example": "Please hold my hand.",
-        "hebrewTranslation": "להחזיק",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "hole",
-        "definition": "A hollow place in a solid body or surface.",
-        "example": "There is a hole in my sock.",
-        "hebrewTranslation": "חור",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "holiday",
-        "definition": "An extended period of leisure and recreation, especially one spent away from home or in traveling.",
-        "example": "We are going on holiday to Italy.",
-        "hebrewTranslation": "חופשה",
-        "category": "Travel",
-        "level": 2
-    },
-    {
-        "word": "hollow",
-        "definition": "Having a hole or empty space inside.",
-        "example": "The tree trunk was hollow.",
-        "hebrewTranslation": "חלול",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "holy",
-        "definition": "Dedicated or consecrated to God or a religious purpose; sacred.",
-        "example": "Jerusalem is a holy city for three religions.",
-        "hebrewTranslation": "קדוש",
-        "category": "Religion",
-        "level": 5
-    },
-    {
-        "word": "home",
-        "definition": "The place where one lives permanently, especially as a member of a family or household.",
-        "example": "There's no place like home.",
-        "hebrewTranslation": "בית",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "honest",
-        "definition": "Free of deceit and untruthfulness; sincere.",
-        "example": "He is an honest man.",
-        "hebrewTranslation": "ישר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "honestly",
-        "definition": "In a truthful, fair, or honorable way.",
-        "example": "Honestly, I don't know the answer.",
-        "hebrewTranslation": "בכנות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "honesty",
-        "definition": "The quality of being honest.",
-        "example": "Honesty is the best policy.",
-        "hebrewTranslation": "יושר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "honey",
-        "definition": "A sweet, sticky yellowish-brown fluid made by bees and other insects from nectar collected from flowers.",
-        "example": "I like to put honey in my tea.",
-        "hebrewTranslation": "דבש",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "honor",
-        "definition": "High respect; great esteem.",
-        "example": "It was an honor to meet the president.",
-        "hebrewTranslation": "כבוד",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "honorable",
-        "definition": "Bringing or worthy of honor.",
-        "example": "He is an honorable man.",
-        "hebrewTranslation": "מכובד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hook",
-        "definition": "A piece of metal or other material, curved or bent back at an angle, for catching hold of or hanging things on.",
-        "example": "Hang your coat on the hook.",
-        "hebrewTranslation": "וו",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hope",
-        "definition": "A feeling of expectation and desire for a certain thing to happen.",
-        "example": "I hope you have a great time.",
-        "hebrewTranslation": "לקוות",
-        "category": "Emotion",
-        "level": 1
-    },
-    {
-        "word": "hopeful",
-        "definition": "Feeling or inspiring optimism about a future event.",
-        "example": "I'm hopeful that we will succeed.",
-        "hebrewTranslation": "מלא תקווה",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "hopefully",
-        "definition": "In a hopeful manner.",
-        "example": "Hopefully, the weather will be good tomorrow.",
-        "hebrewTranslation": "בתקווה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hopeless",
-        "definition": "Feeling or causing despair about something.",
-        "example": "The situation seemed hopeless.",
-        "hebrewTranslation": "חסר תקווה",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "horizon",
-        "definition": "The line at which the earth's surface and the sky appear to meet.",
-        "example": "The sun set below the horizon.",
-        "hebrewTranslation": "אופק",
-        "category": "Nature",
-        "level": 5
-    },
-    {
-        "word": "horizontal",
-        "definition": "Parallel to the plane of the horizon; at right angles to the vertical.",
-        "example": "Draw a horizontal line across the page.",
-        "hebrewTranslation": "אופקי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "horn",
-        "definition": "A hard permanent outgrowth, often curved and pointed, found in pairs on the heads of various animals, including cattle, sheep, goats, and antelopes.",
-        "example": "The bull has sharp horns.",
-        "hebrewTranslation": "קרן",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "horrible",
-        "definition": "Causing or likely to cause horror; shocking.",
-        "example": "It was a horrible accident.",
-        "hebrewTranslation": "נורא",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "horrid",
-        "definition": "Causing horror.",
-        "example": "What a horrid smell!",
-        "hebrewTranslation": "נורא",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "horrific",
-        "definition": "Causing horror.",
-        "example": "The details of the crime were horrific.",
-        "hebrewTranslation": "מזעזע",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "horrify",
-        "definition": "Fill with horror; shock greatly.",
-        "example": "The news of the disaster horrified the nation.",
-        "hebrewTranslation": "לזעזע",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "horse",
-        "definition": "A large plant-eating domesticated mammal with solid hoofs and a flowing mane and tail, used for riding, racing, and to carry and pull loads.",
-        "example": "She loves to ride her horse.",
-        "hebrewTranslation": "סוס",
-        "category": "Animal",
-        "level": 2
-    },
-    {
-        "word": "hospitable",
-        "definition": "Friendly and welcoming to strangers or guests.",
-        "example": "The local people are very hospitable.",
-        "hebrewTranslation": "מכניס אורחים",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hospitality",
-        "definition": "The friendly and generous reception and entertainment of guests, visitors, or strangers.",
-        "example": "Thank you for your warm hospitality.",
-        "hebrewTranslation": "הכנסת אורחים",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hospital",
-        "definition": "An institution providing medical and surgical treatment and nursing care for sick or injured people.",
-        "example": "He was taken to the hospital after the accident.",
-        "hebrewTranslation": "בית חולים",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "host",
-        "definition": "A person who receives or entertains other people as guests.",
-        "example": "He was a wonderful host.",
-        "hebrewTranslation": "מארח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hostage",
-        "definition": "A person seized or held as security for the fulfillment of a condition.",
-        "example": "The terrorists took several people hostage.",
-        "hebrewTranslation": "בן ערובה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "hostile",
-        "definition": "Unfriendly; antagonistic.",
-        "example": "He received a hostile reception.",
-        "hebrewTranslation": "עוין",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hostility",
-        "definition": "Hostile behavior; unfriendliness or opposition.",
-        "example": "There was open hostility between the two groups.",
-        "hebrewTranslation": "עוינות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hot",
-        "definition": "Having a high degree of heat or a high temperature.",
-        "example": "The coffee is too hot to drink.",
-        "hebrewTranslation": "חם",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "hotel",
-        "definition": "An establishment providing accommodation, meals, and other services for travelers and tourists.",
-        "example": "We stayed in a nice hotel by the beach.",
-        "hebrewTranslation": "מלון",
-        "category": "Travel",
-        "level": 2
-    },
-    {
-        "word": "hour",
-        "definition": "A period of time equal to a twenty-fourth part of a day and night and divided into 60 minutes.",
-        "example": "The meeting will last for one hour.",
-        "hebrewTranslation": "שעה",
-        "category": "Time",
-        "level": 1
-    },
-    {
-        "word": "house",
-        "definition": "A building for human habitation, especially one that is lived in by a family or a small group of people.",
-        "example": "They live in a big house in the suburbs.",
-        "hebrewTranslation": "בית",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "household",
-        "definition": "A house and its occupants regarded as a unit.",
-        "example": "The average household income has increased.",
-        "hebrewTranslation": "משק בית",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "housewife",
-        "definition": "A woman whose main occupation is caring for her family, managing household affairs, and doing housework.",
-        "example": "She is a housewife and a mother of three.",
-        "hebrewTranslation": "עקרת בית",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "housing",
-        "definition": "Houses and apartments considered collectively, especially when regarded as a social or economic issue.",
-        "example": "There is a shortage of affordable housing in the city.",
-        "hebrewTranslation": "דיור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "how",
-        "definition": "In what way or manner; by what means.",
-        "example": "How do you solve this puzzle?",
-        "hebrewTranslation": "איך",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "however",
-        "definition": "Used to introduce a statement that contrasts with or seems to contradict something that has been said previously.",
-        "example": "He is a good student; however, he can be lazy at times.",
-        "hebrewTranslation": "עם זאת",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "huge",
-        "definition": "Extremely large; enormous.",
-        "example": "They live in a huge mansion.",
-        "hebrewTranslation": "ענק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "human",
-        "definition": "Relating to or characteristic of people or human beings.",
-        "example": "To err is human.",
-        "hebrewTranslation": "אנושי",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "humane",
-        "definition": "Having or showing compassion or benevolence.",
-        "example": "The organization promotes the humane treatment of animals.",
-        "hebrewTranslation": "אנושי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "humanitarian",
-        "definition": "Concerned with or seeking to promote human welfare.",
-        "example": "They are on a humanitarian mission to help the refugees.",
-        "hebrewTranslation": "הומניטרי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "humanity",
-        "definition": "The human race; human beings collectively.",
-        "example": "We must work together for the future of humanity.",
-        "hebrewTranslation": "אנושות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "humble",
-        "definition": "Having or showing a modest or low estimate of one's own importance.",
-        "example": "Despite his success, he remained a humble man.",
-        "hebrewTranslation": "צנוע",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "humid",
-        "definition": "Marked by a relatively high level of water vapor in the atmosphere.",
-        "example": "The weather was hot and humid.",
-        "hebrewTranslation": "לח",
-        "category": "Nature",
-        "level": 4
-    },
-    {
-        "word": "humidity",
-        "definition": "The amount of water vapor in the air.",
-        "example": "The humidity is very high today.",
-        "hebrewTranslation": "לחות",
-        "category": "Nature",
-        "level": 5
-    },
-    {
-        "word": "humiliate",
-        "definition": "Make (someone) feel ashamed and foolish by injuring their dignity and self-respect, especially publicly.",
-        "example": "He was humiliated by his defeat.",
-        "hebrewTranslation": "להשפיל",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "humiliating",
-        "definition": "Making someone feel ashamed and foolish by injuring their dignity and self-respect.",
-        "example": "It was a humiliating experience.",
-        "hebrewTranslation": "משפיל",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "humiliation",
-        "definition": "The action of humiliating someone or the state of being humiliated.",
-        "example": "He suffered the humiliation of being fired.",
-        "hebrewTranslation": "השפלה",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "humor",
-        "definition": "The quality of being amusing or comic, especially as expressed in literature or speech.",
-        "example": "He has a great sense of humor.",
-        "hebrewTranslation": "הומור",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "humorous",
-        "definition": "Causing lighthearted laughter and amusement; comic.",
-        "example": "It was a humorous story.",
-        "hebrewTranslation": "הומוריסטי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hundred",
-        "definition": "The number equivalent to the product of ten and ten; 100.",
-        "example": "There were a hundred people at the concert.",
-        "hebrewTranslation": "מאה",
-        "category": "Number",
-        "level": 2
-    },
-    {
-        "word": "hunger",
-        "definition": "A feeling of discomfort or weakness caused by lack of food, coupled with the desire to eat.",
-        "example": "Hunger is a major problem in many parts of the world.",
-        "hebrewTranslation": "רעב",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "hungry",
-        "definition": "Feeling or displaying the need for food.",
-        "example": "I'm hungry, let's get something to eat.",
-        "hebrewTranslation": "רעב",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hunt",
-        "definition": "Pursue and kill (a wild animal) for sport or food.",
-        "example": "He likes to hunt deer.",
-        "hebrewTranslation": "לצוד",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hurl",
-        "definition": "Throw (an object) with great force.",
-        "example": "He hurled the stone into the river.",
-        "hebrewTranslation": "להשליך",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "hurricane",
-        "definition": "A storm with a violent wind, in particular a tropical cyclone in the Caribbean.",
-        "example": "The hurricane caused widespread damage.",
-        "hebrewTranslation": "הוריקן",
-        "category": "Nature",
-        "level": 5
-    },
-    {
-        "word": "hurry",
-        "definition": "Move or act with great haste.",
-        "example": "We have to hurry or we'll be late.",
-        "hebrewTranslation": "למהר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "hurt",
-        "definition": "Cause physical pain or injury to.",
-        "example": "Be careful not to hurt yourself.",
-        "hebrewTranslation": "לפגוע",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "husband",
-        "definition": "A married man considered in relation to his spouse.",
-        "example": "Her husband is a doctor.",
-        "hebrewTranslation": "בעל",
-        "category": "Family",
-        "level": 2
-    },
-    {
-        "word": "hygiene",
-        "definition": "Conditions or practices conducive to maintaining health and preventing disease, especially through cleanliness.",
-        "example": "Good personal hygiene is important.",
-        "hebrewTranslation": "היגיינה",
-        "category": "Health",
-        "level": 5
-    },
-    {
-        "word": "hymn",
-        "definition": "A religious song or poem of praise to God or a god.",
-        "example": "The congregation sang a hymn.",
-        "hebrewTranslation": "מזמור",
-        "category": "Religion",
-        "level": 6
-    },
-    {
-        "word": "hypnosis",
-        "definition": "The induction of a state of consciousness in which a person loses the power of voluntary action and is highly responsive to suggestion or direction.",
-        "example": "He was put under hypnosis to help him quit smoking.",
-        "hebrewTranslation": "היפנוזה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "hypnotize",
-        "definition": "Produce a state of hypnosis in (someone).",
-        "example": "The magician tried to hypnotize a member of the audience.",
-        "hebrewTranslation": "להפנט",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hypocrisy",
-        "definition": "The practice of claiming to have moral standards or beliefs to which one's own behavior does not conform; pretense.",
-        "example": "His hypocrisy was obvious to everyone.",
-        "hebrewTranslation": "צביעות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "hypocrite",
-        "definition": "A person who indulges in hypocrisy.",
-        "example": "He is a hypocrite for telling others not to smoke while he does.",
-        "hebrewTranslation": "צבוע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hypothesis",
-        "definition": "A supposition or proposed explanation made on the basis of limited evidence as a starting point for further investigation.",
-        "example": "The scientist tested his hypothesis with an experiment.",
-        "hebrewTranslation": "השערה",
-        "category": "Science",
-        "level": 7
-    },
-    {
-        "word": "hypothetical",
-        "definition": "Of, based on, or serving as a hypothesis.",
-        "example": "Let's consider a hypothetical situation.",
-        "hebrewTranslation": "היפותטי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "hysterical",
-        "definition": "Deriving from or affected by uncontrolled extreme emotion.",
-        "example": "She became hysterical with fear.",
-        "hebrewTranslation": "היסטרי",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "ice",
-        "definition": "Frozen water, a brittle transparent crystalline solid.",
-        "example": "Would you like some ice in your drink?",
-        "hebrewTranslation": "קרח",
-        "category": "Nature",
-        "level": 1
-    },
-    {
-        "word": "icon",
-        "definition": "A person or thing regarded as a representative symbol of something.",
-        "example": "She is a fashion icon.",
-        "hebrewTranslation": "סמל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "idea",
-        "definition": "A thought or suggestion as to a possible course of action.",
-        "example": "That's a brilliant idea!",
-        "hebrewTranslation": "רעיון",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "ideal",
-        "definition": "Satisfying one's conception of what is perfect; most suitable.",
-        "example": "This is the ideal location for a new school.",
-        "hebrewTranslation": "אידיאלי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "identical",
-        "definition": "Similar in every detail; exactly alike.",
-        "example": "The twins are identical.",
-        "hebrewTranslation": "זהה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "identification",
-        "definition": "The action or process of identifying someone or something or the fact of being identified.",
-        "example": "Please show some form of identification.",
-        "hebrewTranslation": "זיהוי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "identify",
-        "definition": "Establish or indicate who or what (someone or something) is.",
-        "example": "Can you identify the person in the photograph?",
-        "hebrewTranslation": "לזהות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "identity",
-        "definition": "The fact of being who or what a person or thing is.",
-        "example": "He tried to hide his true identity.",
-        "hebrewTranslation": "זהות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "ideological",
-        "definition": "Based on or relating to a system of ideas and ideals, especially one that forms the basis of economic or political theory and policy.",
-        "example": "There are deep ideological differences between the two parties.",
-        "hebrewTranslation": "אידיאולוגי",
-        "category": "Politics",
-        "level": 7
-    },
-    {
-        "word": "ideology",
-        "definition": "A system of ideas and ideals, especially one that forms the basis of economic or political theory and policy.",
-        "example": "He is a firm believer in socialist ideology.",
-        "hebrewTranslation": "אידיאולוגיה",
-        "category": "Politics",
-        "level": 7
-    },
-    {
-        "word": "idiot",
-        "definition": "A stupid person.",
-        "example": "He felt like an idiot for making such a simple mistake.",
-        "hebrewTranslation": "אידיוט",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "idle",
-        "definition": "(of a person) avoiding work; lazy.",
-        "example": "He spent the day in idle conversation.",
-        "hebrewTranslation": "בטל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "if",
-        "definition": "Introducing a conditional clause.",
-        "example": "If it rains, we will stay inside.",
-        "hebrewTranslation": "אם",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "ignite",
-        "definition": "Catch fire or cause to catch fire.",
-        "example": "The spark ignited the dry grass.",
-        "hebrewTranslation": "להצית",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "ignorance",
-        "definition": "Lack of knowledge or information.",
-        "example": "His ignorance of the law is not an excuse.",
-        "hebrewTranslation": "בורות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "ignorant",
-        "definition": "Lacking knowledge or awareness in general; uneducated or unsophisticated.",
-        "example": "He is ignorant of the facts.",
-        "hebrewTranslation": "בור",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "ignore",
-        "definition": "Refuse to take notice of or acknowledge; disregard intentionally.",
-        "example": "He decided to ignore her rude comment.",
-        "hebrewTranslation": "להתעלם",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "ill",
-        "definition": "Not in full health; sick.",
-        "example": "He was too ill to go to work.",
-        "hebrewTranslation": "חולה",
-        "category": "Health",
-        "level": 2
-    },
-    {
-        "word": "illegal",
-        "definition": "Contrary to or forbidden by law, especially criminal law.",
-        "example": "It is illegal to drive without a license.",
-        "hebrewTranslation": "לא חוקי",
-        "category": "Legal",
-        "level": 4
-    },
-    {
-        "word": "illegible",
-        "definition": "Not clear enough to be read.",
-        "example": "His handwriting is illegible.",
-        "hebrewTranslation": "לא קריא",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "illiterate",
-        "definition": "Unable to read or write.",
-        "example": "Many people in the village are illiterate.",
-        "hebrewTranslation": "אנאלפבית",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "illness",
-        "definition": "A disease or period of sickness affecting the body or mind.",
-        "example": "She is recovering from a long illness.",
-        "hebrewTranslation": "מחלה",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "illuminate",
-        "definition": "Light up.",
-        "example": "The streetlights illuminated the path.",
-        "hebrewTranslation": "להאיר",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "illusion",
-        "definition": "A thing that is or is likely to be wrongly perceived or interpreted by the senses.",
-        "example": "The magician created the illusion that he had disappeared.",
-        "hebrewTranslation": "אשליה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "illustrate",
-        "definition": "Provide (a book, newspaper, etc.) with pictures.",
-        "example": "The book is beautifully illustrated.",
-        "hebrewTranslation": "לאייר",
-        "category": "Art",
-        "level": 5
-    },
-    {
-        "word": "illustration",
-        "definition": "A picture illustrating a book, newspaper, etc.",
-        "example": "The book has many colorful illustrations.",
-        "hebrewTranslation": "איור",
-        "category": "Art",
-        "level": 5
-    },
-    {
-        "word": "image",
-        "definition": "A representation of the external form of a person or thing in art.",
-        "example": "The book contains many images of the ancient city.",
-        "hebrewTranslation": "תמונה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "imaginary",
-        "definition": "Existing only in the imagination.",
-        "example": "The child had an imaginary friend.",
-        "hebrewTranslation": "דמיוני",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "imagination",
-        "definition": "The faculty or action of forming new ideas, or images or concepts of external objects not present to the senses.",
-        "example": "He has a vivid imagination.",
-        "hebrewTranslation": "דמיון",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "imagine",
-        "definition": "Form a mental image or concept of.",
-        "example": "Can you imagine what it would be like to fly?",
-        "hebrewTranslation": "לדמיין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "imitate",
-        "definition": "Take or follow as a model.",
-        "example": "He can imitate the calls of many different birds.",
-        "hebrewTranslation": "לחקות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "imitation",
-        "definition": "A thing intended to simulate or copy something else.",
-        "example": "The bag is an imitation of a famous brand.",
-        "hebrewTranslation": "חיקוי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "immediate",
-        "definition": "Occurring or done at once; instant.",
-        "example": "The problem requires immediate attention.",
-        "hebrewTranslation": "מיידי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "immediately",
-        "definition": "At once; instantly.",
-        "example": "Please come here immediately.",
-        "hebrewTranslation": "מייד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "immense",
-        "definition": "Extremely large or great, especially in scale or degree.",
-        "example": "The project was an immense success.",
-        "hebrewTranslation": "עצום",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "immerse",
-        "definition": "Dip or submerge in a liquid.",
-        "example": "She immersed herself in her work.",
-        "hebrewTranslation": "לטבול",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "immigrant",
-        "definition": "A person who comes to live permanently in a foreign country.",
-        "example": "Many immigrants came to this country in search of a better life.",
-        "hebrewTranslation": "מהגר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "immigrate",
-        "definition": "Come to live permanently in a foreign country.",
-        "example": "His family immigrated from Italy.",
-        "hebrewTranslation": "להגר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "imminent",
-        "definition": "About to happen.",
-        "example": "The storm is imminent.",
-        "hebrewTranslation": "קרוב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "immoral",
-        "definition": "Not conforming to accepted standards of morality.",
-        "example": "It is immoral to steal.",
-        "hebrewTranslation": "לא מוסרי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "immune",
-        "definition": "Resistant to a particular infection or toxin owing to the presence of specific antibodies or sensitized white blood cells.",
-        "example": "He is immune to the disease.",
-        "hebrewTranslation": "חסין",
-        "category": "Health",
-        "level": 4
-    },
-    {
-        "word": "impact",
-        "definition": "The action of one object coming forcibly into contact with another.",
-        "example": "The new law will have a significant impact on the economy.",
-        "hebrewTranslation": "השפעה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "impair",
-        "definition": "Weaken or damage something (especially a human faculty or function).",
-        "example": "Loud music can impair your hearing.",
-        "hebrewTranslation": "לפגום",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "impart",
-        "definition": "Make (information) known; communicate.",
-        "example": "The teacher's role is to impart knowledge to the students.",
-        "hebrewTranslation": "להקנות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "impartial",
-        "definition": "Treating all rivals or disputants equally; fair and just.",
-        "example": "A judge must be impartial.",
-        "hebrewTranslation": "חסר פניות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "impatient",
-        "definition": "Having or showing a tendency to be quickly irritated or provoked.",
-        "example": "He is very impatient with slow drivers.",
-        "hebrewTranslation": "חסר סבלנות",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "impatience",
-        "definition": "The tendency to be impatient; irritability or restlessness.",
-        "example": "She tapped her foot with impatience.",
-        "hebrewTranslation": "חוסר סבלנות",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "impede",
-        "definition": "Delay or prevent (someone or something) by obstructing them; hinder.",
-        "example": "The bad weather will impede our progress.",
-        "hebrewTranslation": "לעכב",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "impediment",
-        "definition": "A hindrance or obstruction in doing something.",
-        "example": "The lack of funding is a major impediment to the project.",
-        "hebrewTranslation": "מכשול",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "impel",
-        "definition": "Drive, force, or urge (someone) to do something.",
-        "example": "His sense of duty impelled him to act.",
-        "hebrewTranslation": "לדחוף",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "imperative",
-        "definition": "Of vital importance; crucial.",
-        "example": "It is imperative that we act now.",
-        "hebrewTranslation": "הכרחי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "imperial",
-        "definition": "Relating to an empire.",
-        "example": "The British Empire had many imperial colonies.",
-        "hebrewTranslation": "אימפריאלי",
-        "category": "History",
-        "level": 6
-    },
-    {
-        "word": "impersonal",
-        "definition": "Not influenced by, showing, or involving personal feeling.",
-        "example": "The letter was cold and impersonal.",
-        "hebrewTranslation": "לא אישי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "impetus",
-        "definition": "The force or energy with which a body moves.",
-        "example": "The new discovery gave impetus to the research.",
-        "hebrewTranslation": "תנופה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "implement",
-        "definition": "Put (a decision, plan, agreement, etc.) into effect.",
-        "example": "The company will implement the new policy next month.",
-        "hebrewTranslation": "ליישם",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "implementation",
-        "definition": "The process of putting a decision or plan into effect; execution.",
-        "example": "The implementation of the new system was successful.",
-        "hebrewTranslation": "יישום",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "implicate",
-        "definition": "Show (someone) to be involved in a crime.",
-        "example": "The evidence implicated him in the robbery.",
-        "hebrewTranslation": "לסבך",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "implication",
-        "definition": "The conclusion that can be drawn from something, although it is not explicitly stated.",
-        "example": "The implication is that he is not telling the truth.",
-        "hebrewTranslation": "השלכה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "implicit",
-        "definition": "Suggested though not directly expressed.",
-        "example": "There was an implicit threat in his words.",
-        "hebrewTranslation": "מרומז",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "imply",
-        "definition": "Strongly suggest the truth or existence of (something not expressly stated).",
-        "example": "What are you trying to imply?",
-        "hebrewTranslation": "לרמוז",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "import",
-        "definition": "Bring (goods or services) into a country from abroad for sale.",
-        "example": "The country imports a lot of oil.",
-        "hebrewTranslation": "לייבא",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "importance",
-        "definition": "The state or fact of being of great significance or value.",
-        "example": "He stressed the importance of education.",
-        "hebrewTranslation": "חשיבות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "important",
-        "definition": "Of great significance or value.",
-        "example": "It's important to be on time.",
-        "hebrewTranslation": "חשוב",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "impose",
-        "definition": "Force (something unwelcome or unfamiliar) to be accepted or put in place.",
-        "example": "The government imposed a new tax.",
-        "hebrewTranslation": "להטיל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "imposition",
-        "definition": "The action or process of imposing something or of being imposed.",
-        "example": "The new tax was a heavy imposition on the poor.",
-        "hebrewTranslation": "הטלה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "impossible",
-        "definition": "Not able to occur, exist, or be done.",
-        "example": "It's impossible to be in two places at once.",
-        "hebrewTranslation": "בלתי אפשרי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "impress",
-        "definition": "Make (someone) feel admiration and respect.",
-        "example": "He tried to impress her with his knowledge.",
-        "hebrewTranslation": "להרשים",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "impression",
-        "definition": "An idea, feeling, or opinion about something or someone, especially one formed without conscious thought or on the basis of little evidence.",
-        "example": "He made a good impression on his first day at work.",
-        "hebrewTranslation": "רושם",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "impressive",
-        "definition": "Evoking admiration through size, quality, or skill; grand, imposing, or awesome.",
-        "example": "It was an impressive performance.",
-        "hebrewTranslation": "מרשים",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "imprison",
-        "definition": "Put or keep in prison or a place like a prison.",
-        "example": "He was imprisoned for his crimes.",
-        "hebrewTranslation": "לכלוא",
-        "category": "Legal",
-        "level": 5
-    },
-    {
-        "word": "imprisonment",
-        "definition": "The state of being imprisoned; captivity.",
-        "example": "He was sentenced to life imprisonment.",
-        "hebrewTranslation": "מאסר",
-        "category": "Legal",
-        "level": 6
-    },
-    {
-        "word": "improve",
-        "definition": "Make or become better.",
-        "example": "I need to improve my English.",
-        "hebrewTranslation": "לשפר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "improvement",
-        "definition": "A thing that makes something better or is better than something else.",
-        "example": "There has been a significant improvement in his health.",
-        "hebrewTranslation": "שיפור",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "impulsive",
-        "definition": "Acting or done without forethought.",
-        "example": "He has an impulsive nature.",
-        "hebrewTranslation": "אימפולסיבי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in",
-        "definition": "Expressing the situation of something that is or appears to be enclosed or surrounded by something else.",
-        "example": "The cat is in the box.",
-        "hebrewTranslation": "ב",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "in case",
-        "definition": "As a provision against something happening or being true.",
-        "example": "Take an umbrella in case it rains.",
-        "hebrewTranslation": "למקרה ש",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "in charge of",
-        "definition": "Having control or command of.",
-        "example": "Who is in charge of this project?",
-        "hebrewTranslation": "אחראי על",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in common",
-        "definition": "Shared by or belonging to two or more people or things.",
-        "example": "We have a lot in common.",
-        "hebrewTranslation": "במשותף",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in comparison with",
-        "definition": "When compared with.",
-        "example": "In comparison with other cities, this one is very safe.",
-        "hebrewTranslation": "בהשוואה ל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in conclusion",
-        "definition": "Finally; to sum up.",
-        "example": "In conclusion, I would like to thank you all for coming.",
-        "hebrewTranslation": "לסיכום",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in connection with",
-        "definition": "Concerning; about.",
-        "example": "He was arrested in connection with the robbery.",
-        "hebrewTranslation": "בקשר ל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in danger",
-        "definition": "In a situation in which harm, loss, or failure is possible.",
-        "example": "The species is in danger of extinction.",
-        "hebrewTranslation": "בסכנה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in exchange for",
-        "definition": "As a thing given in return for.",
-        "example": "He gave her a painting in exchange for her help.",
-        "hebrewTranslation": "בתמורה ל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "in fact",
-        "definition": "Used to emphasize the truth of a statement, especially one that is surprising or contrary to what might be expected.",
-        "example": "He looks young, but in fact he is over fifty.",
-        "hebrewTranslation": "למעשה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in favor of",
-        "definition": "In support or on the side of.",
-        "example": "Are you in favor of the new law?",
-        "hebrewTranslation": "בעד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in front of",
-        "definition": "In a position forward of (someone or something).",
-        "example": "The car is parked in front of the house.",
-        "hebrewTranslation": "מול",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "in general",
-        "definition": "Usually; in most situations.",
-        "example": "In general, I prefer to wake up early.",
-        "hebrewTranslation": "באופן כללי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in order to",
-        "definition": "With the aim or purpose of doing something.",
-        "example": "He studied hard in order to pass the exam.",
-        "hebrewTranslation": "כדי ל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in other words",
-        "definition": "To express something in a different, usually simpler, way.",
-        "example": "He was too busy; in other words, he didn't want to come.",
-        "hebrewTranslation": "במילים אחרות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in place of",
-        "definition": "As a substitute for.",
-        "example": "We had soup in place of a main course.",
-        "hebrewTranslation": "במקום",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in practice",
-        "definition": "In reality, as opposed to in theory.",
-        "example": "The idea sounds good, but it's hard to implement in practice.",
-        "hebrewTranslation": "בפועל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in private",
-        "definition": "Not in public; secretly.",
-        "example": "I need to speak with you in private.",
-        "hebrewTranslation": "באופן פרטי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in public",
-        "definition": "In a place where other people can see or hear.",
-        "example": "They argued in public.",
-        "hebrewTranslation": "בפומבי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in retrospect",
-        "definition": "When looking back on a past event or situation.",
-        "example": "In retrospect, I should have taken the other job.",
-        "hebrewTranslation": "בדיעבד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "in short",
-        "definition": "To sum up; briefly.",
-        "example": "In short, the plan failed.",
-        "hebrewTranslation": "בקיצור",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "in spite of",
-        "definition": "Without being affected by the particular factor mentioned.",
-        "example": "In spite of the rain, we enjoyed the walk.",
-        "hebrewTranslation": "למרות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in terms of",
-        "definition": "With regard to the particular aspect or subject specified.",
-        "example": "In terms of cost, this is the best option.",
-        "hebrewTranslation": "במונחים של",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in the course of",
-        "definition": "During.",
-        "example": "In the course of the investigation, new evidence was found.",
-        "hebrewTranslation": "במהלך",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in the long run",
-        "definition": "Over a long period of time; eventually.",
-        "example": "This decision will be beneficial in the long run.",
-        "hebrewTranslation": "בטווח הארוך",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "in the meantime",
-        "definition": "During the time before something happens or before a specified period ends.",
-        "example": "The new system will be ready next week; in the meantime, we'll use the old one.",
-        "hebrewTranslation": "בינתיים",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in time",
-        "definition": "Not late; with enough time to spare.",
-        "example": "We arrived just in time for the movie.",
-        "hebrewTranslation": "בזמן",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "in vain",
-        "definition": "Without success or a result.",
-        "example": "All our efforts were in vain.",
-        "hebrewTranslation": "לשווא",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "in view of",
-        "definition": "Because or as a result of.",
-        "example": "In view of the circumstances, we decided to cancel the event.",
-        "hebrewTranslation": "לאור",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "inability",
-        "definition": "The state of being unable to do something.",
-        "example": "His inability to swim was a problem at the beach.",
-        "hebrewTranslation": "אי יכולת",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inaccessible",
-        "definition": "Unable to be reached.",
-        "example": "The village is inaccessible by road.",
-        "hebrewTranslation": "לא נגיש",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inaccurate",
-        "definition": "Not accurate; incorrect or untrue.",
-        "example": "The report contained inaccurate information.",
-        "hebrewTranslation": "לא מדויק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inadequate",
-        "definition": "Lacking the quality or quantity required; insufficient for a purpose.",
-        "example": "The food supply was inadequate for the number of people.",
-        "hebrewTranslation": "לא מספיק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inappropriate",
-        "definition": "Not suitable or proper in the circumstances.",
-        "example": "His comments were completely inappropriate.",
-        "hebrewTranslation": "לא הולם",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inattentive",
-        "definition": "Not paying attention to something.",
-        "example": "He was inattentive in class and missed the instructions.",
-        "hebrewTranslation": "לא קשוב",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "incalculable",
-        "definition": "Too great to be calculated or estimated.",
-        "example": "The damage to the environment is incalculable.",
-        "hebrewTranslation": "לא ניתן לחישוב",
-        "category": "General",
-        "level": 9
-    },
-    {
-        "word": "incapable",
-        "definition": "Unable to do or achieve (something).",
-        "example": "He is incapable of telling a lie.",
-        "hebrewTranslation": "לא מסוגל",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incentive",
-        "definition": "A thing that motivates or encourages one to do something.",
-        "example": "The company offered a financial incentive for employees to work harder.",
-        "hebrewTranslation": "תמריץ",
-        "category": "Business",
-        "level": 6
-    },
-    {
-        "word": "incessant",
-        "definition": "(of something regarded as unpleasant) continuing without pause or interruption.",
-        "example": "The incessant noise from the construction site was unbearable.",
-        "hebrewTranslation": "בלתי פוסק",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "incident",
-        "definition": "An event or occurrence.",
-        "example": "The police are investigating the incident.",
-        "hebrewTranslation": "תקרית",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "incidentally",
-        "definition": "Used when you are about to say something that is not as important as the main subject of conversation.",
-        "example": "Incidentally, I saw your brother yesterday.",
-        "hebrewTranslation": "אגב",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inclination",
-        "definition": "A person's natural tendency or urge to act or feel in a particular way; a disposition or propensity.",
-        "example": "She has a natural inclination towards music.",
-        "hebrewTranslation": "נטייה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "incline",
-        "definition": "Feel willing or favorably disposed toward (an action, belief, or attitude).",
-        "example": "I incline to agree with you.",
-        "hebrewTranslation": "לנטות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "include",
-        "definition": "Comprise or contain as part of a whole.",
-        "example": "The price includes breakfast.",
-        "hebrewTranslation": "לכלול",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "inclusion",
-        "definition": "The action or state of including or of being included within a group or structure.",
-        "example": "The school promotes the inclusion of all students.",
-        "hebrewTranslation": "הכללה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inclusive",
-        "definition": "Including all the services or items normally expected or required.",
-        "example": "The price is inclusive of all taxes.",
-        "hebrewTranslation": "כולל",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "income",
-        "definition": "Money received, especially on a regular basis, for work or through investments.",
-        "example": "His monthly income is not enough to support his family.",
-        "hebrewTranslation": "הכנסה",
-        "category": "Finance",
-        "level": 2
-    },
-    {
-        "word": "incomparable",
-        "definition": "Without an equal in quality or extent; matchless.",
-        "example": "The beauty of the sunset was incomparable.",
-        "hebrewTranslation": "אין שני לו",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "incompatible",
-        "definition": "(of two things) so different in nature as to be incapable of coexisting.",
-        "example": "Their personalities were completely incompatible.",
-        "hebrewTranslation": "לא תואם",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incompetent",
-        "definition": "Not having or showing the necessary skills to do something successfully.",
-        "example": "He was fired for being incompetent.",
-        "hebrewTranslation": "חסר יכולת",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incomplete",
-        "definition": "Not having all the necessary or appropriate parts.",
-        "example": "The report is incomplete.",
-        "hebrewTranslation": "לא שלם",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "incomprehensible",
-        "definition": "Not able to be understood; not intelligible.",
-        "example": "His lecture was incomprehensible to most of the students.",
-        "hebrewTranslation": "לא מובן",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "inconclusive",
-        "definition": "Not leading to a firm conclusion; not ending doubt or dispute.",
-        "example": "The results of the experiment were inconclusive.",
-        "hebrewTranslation": "לא חד משמעי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inconsistent",
-        "definition": "Not staying the same throughout.",
-        "example": "His statements were inconsistent with the evidence.",
-        "hebrewTranslation": "לא עקבי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inconvenience",
-        "definition": "Trouble or difficulty caused to one's personal requirements or comfort.",
-        "example": "We apologize for any inconvenience caused.",
-        "hebrewTranslation": "אי נוחות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inconvenient",
-        "definition": "Causing trouble, difficulties, or discomfort.",
-        "example": "It's an inconvenient time to call.",
-        "hebrewTranslation": "לא נוח",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "incorporate",
-        "definition": "Take in or contain (something) as part of a whole; include.",
-        "example": "We will incorporate your suggestions into the final plan.",
-        "hebrewTranslation": "לשלב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incorrect",
-        "definition": "Not in accordance with fact; wrong.",
-        "example": "Your answer is incorrect.",
-        "hebrewTranslation": "לא נכון",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "increase",
-        "definition": "Become or make greater in size, amount, intensity, or degree.",
-        "example": "The population of the city continues to increase.",
-        "hebrewTranslation": "להגדיל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "increasingly",
-        "definition": "To an increasing extent; more and more.",
-        "example": "It is becoming increasingly difficult to find a job.",
-        "hebrewTranslation": "יותר ויותר",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "incredible",
-        "definition": "Difficult to believe; extraordinary.",
-        "example": "The view from the top of the mountain was incredible.",
-        "hebrewTranslation": "לא ייאמן",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "incredibly",
-        "definition": "To a great degree; extremely or unusually.",
-        "example": "She is incredibly talented.",
-        "hebrewTranslation": "באופן לא ייאמן",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incur",
-        "definition": "Become subject to (something unwelcome or unpleasant) as a result of one's own behavior or actions.",
-        "example": "The company will incur additional costs.",
-        "hebrewTranslation": "לשאת ב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "incurable",
-        "definition": "(of a sick person or a disease) not able to be cured.",
-        "example": "He was diagnosed with an incurable disease.",
-        "hebrewTranslation": "חסר מרפא",
-        "category": "Health",
-        "level": 7
-    },
-    {
-        "word": "indebted",
-        "definition": "Owing money.",
-        "example": "I am deeply indebted to you for your help.",
-        "hebrewTranslation": "חייב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indecent",
-        "definition": "Not conforming with generally accepted standards of behavior or propriety; obscene.",
-        "example": "He was arrested for indecent exposure.",
-        "hebrewTranslation": "לא צנוע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indeed",
-        "definition": "Used to emphasize a statement or response confirming something already suggested.",
-        "example": "It was, indeed, a very cold day.",
-        "hebrewTranslation": "אכן",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "indefinite",
-        "definition": "Lasting for an unknown or unstated length of time.",
-        "example": "The strike could last for an indefinite period.",
-        "hebrewTranslation": "בלתי מוגדר",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indefinitely",
-        "definition": "For an unlimited or unspecified period of time.",
-        "example": "The meeting was postponed indefinitely.",
-        "hebrewTranslation": "ללא הגבלת זמן",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "indent",
-        "definition": "Start (a line of text) or position (a block of text) further from the margin than the main part of the text.",
-        "example": "You should indent the first line of each paragraph.",
-        "hebrewTranslation": "להזיח",
-        "category": "Writing",
-        "level": 5
-    },
-    {
-        "word": "independence",
-        "definition": "The fact or state of being independent.",
-        "example": "The country gained its independence in 1948.",
-        "hebrewTranslation": "עצמאות",
-        "category": "Politics",
-        "level": 7
-    },
-    {
-        "word": "independent",
-        "definition": "Free from outside control; not depending on another for livelihood or subsistence.",
-        "example": "She is a very independent woman.",
-        "hebrewTranslation": "עצמאי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "independently",
-        "definition": "In a way that is free from the control, influence, support, aid, or the like, of others.",
-        "example": "He works independently from home.",
-        "hebrewTranslation": "באופן עצמאי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "indescribable",
-        "definition": "Too unusual, extreme, or vague to be adequately described.",
-        "example": "The beauty of the scene was indescribable.",
-        "hebrewTranslation": "לא ניתן לתיאור",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "index",
-        "definition": "An alphabetical list of names, subjects, etc., with references to the places where they occur, typically found at the end of a book.",
-        "example": "Look up the topic in the index.",
-        "hebrewTranslation": "אינדקס",
-        "category": "Writing",
-        "level": 4
-    },
-    {
-        "word": "indicate",
-        "definition": "Point out; show.",
-        "example": "The survey results indicate a change in public opinion.",
-        "hebrewTranslation": "להצביע על",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "indication",
-        "definition": "A sign or piece of information that indicates something.",
-        "example": "There is no indication that the problem will be solved soon.",
-        "hebrewTranslation": "סימן",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indicative",
-        "definition": "Serving as a sign or indication of something.",
-        "example": "His smile was indicative of his happiness.",
-        "hebrewTranslation": "מעיד על",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "indifference",
-        "definition": "Lack of interest, concern, or sympathy.",
-        "example": "She showed complete indifference to his suffering.",
-        "hebrewTranslation": "אדישות",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "indifferent",
-        "definition": "Having no particular interest or sympathy; unconcerned.",
-        "example": "He was indifferent to the outcome of the game.",
-        "hebrewTranslation": "אדיש",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "indigenous",
-        "definition": "Originating or occurring naturally in a particular place; native.",
-        "example": "The indigenous people of the region have a rich culture.",
-        "hebrewTranslation": "ילידי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indignant",
-        "definition": "Feeling or showing anger or annoyance at what is perceived as unfair treatment.",
-        "example": "She was indignant at the accusation.",
-        "hebrewTranslation": "ממורמר",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "indignation",
-        "definition": "Anger or annoyance provoked by what is perceived as unfair treatment.",
-        "example": "He was filled with indignation at the injustice.",
-        "hebrewTranslation": "תרעומת",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "indirect",
-        "definition": "Not directly caused by or resulting from something.",
-        "example": "The new law had an indirect effect on the economy.",
-        "hebrewTranslation": "עקיף",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "indiscriminate",
-        "definition": "Done at random or without careful judgment.",
-        "example": "The terrorist attack was an act of indiscriminate violence.",
-        "hebrewTranslation": "חסר הבחנה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "indispensable",
-        "definition": "Absolutely necessary.",
-        "example": "A good dictionary is indispensable for learning a language.",
-        "hebrewTranslation": "הכרחי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "individual",
-        "definition": "A single human being as distinct from a group, class, or family.",
-        "example": "Each individual has the right to freedom of speech.",
-        "hebrewTranslation": "פרט",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "induce",
-        "definition": "Succeed in persuading or influencing (someone) to do something.",
-        "example": "They induced him to sign the contract.",
-        "hebrewTranslation": "לשכנע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indulge",
-        "definition": "Allow oneself to enjoy the pleasure of.",
-        "example": "I decided to indulge in a piece of chocolate cake.",
-        "hebrewTranslation": "להתפנק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "indulgence",
-        "definition": "The action or fact of indulging.",
-        "example": "Chocolate is my only indulgence.",
-        "hebrewTranslation": "פינוק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "industrial",
-        "definition": "Relating to or characterized by industry.",
-        "example": "The city is a major industrial center.",
-        "hebrewTranslation": "תעשייתי",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "industrious",
-        "definition": "Diligent and hard-working.",
-        "example": "He is an industrious student.",
-        "hebrewTranslation": "חרוץ",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "industry",
-        "definition": "Economic activity concerned with the processing of raw materials and manufacture of goods in factories.",
-        "example": "The tourism industry is very important to the economy.",
-        "hebrewTranslation": "תעשייה",
-        "category": "Business",
-        "level": 3
-    },
-    {
-        "word": "inevitable",
-        "definition": "Certain to happen; unavoidable.",
-        "example": "Change is an inevitable part of life.",
-        "hebrewTranslation": "בלתי נמנע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inevitably",
-        "definition": "As is certain to happen; unavoidably.",
-        "example": "Inevitably, the project was delayed.",
-        "hebrewTranslation": "באופן בלתי נמנע",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inexcusable",
-        "definition": "Too bad to be justified or tolerated.",
-        "example": "His behavior was inexcusable.",
-        "hebrewTranslation": "בלתי נסלח",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inexpensive",
-        "definition": "Not costing a great deal; cheap.",
-        "example": "It was an inexpensive but delicious meal.",
-        "hebrewTranslation": "זול",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "inexperienced",
-        "definition": "Having little knowledge or experience of a particular thing.",
-        "example": "He is an inexperienced driver.",
-        "hebrewTranslation": "חסר ניסיון",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "inexplicable",
-        "definition": "Hard to explain or account for.",
-        "example": "For some inexplicable reason, he decided to quit his job.",
-        "hebrewTranslation": "בלתי מוסבר",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "infamous",
-        "definition": "Well known for some bad quality or deed.",
-        "example": "He is an infamous criminal.",
-        "hebrewTranslation": "ידוע לשמצה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "infamy",
-        "definition": "The state of being well known for some bad quality or deed.",
-        "example": "He will live in infamy.",
-        "hebrewTranslation": "שמצה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "infant",
-        "definition": "A very young child or baby.",
-        "example": "The infant was sleeping peacefully.",
-        "hebrewTranslation": "תינוק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "infancy",
-        "definition": "The state or period of early childhood or babyhood.",
-        "example": "The project is still in its infancy.",
-        "hebrewTranslation": "ינקות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "infect",
-        "definition": "Affect (a person, organ, etc.) with a disease-causing organism.",
-        "example": "The wound became infected.",
-        "hebrewTranslation": "להדביק",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "infection",
-        "definition": "The process of infecting or the state of being infected.",
-        "example": "He has a serious infection.",
-        "hebrewTranslation": "זיהום",
-        "category": "Health",
-        "level": 4
-    },
-    {
-        "word": "infectious",
-        "definition": "(of a disease) likely to be transmitted to people, organisms, etc., through the environment.",
-        "example": "The flu is an infectious disease.",
-        "hebrewTranslation": "מדבק",
-        "category": "Health",
-        "level": 5
-    },
-    {
-        "word": "infer",
-        "definition": "Deduce or conclude (information) from evidence and reasoning rather than from explicit statements.",
-        "example": "What can you infer from the evidence?",
-        "hebrewTranslation": "להסיק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inference",
-        "definition": "A conclusion reached on the basis of evidence and reasoning.",
-        "example": "The police drew an inference from the available facts.",
-        "hebrewTranslation": "הסקה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inferior",
-        "definition": "Lower in rank, status, or quality.",
-        "example": "This product is inferior to the one we bought last year.",
-        "hebrewTranslation": "נחות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "infinite",
-        "definition": "Limitless or endless in space, extent, or size; impossible to measure or calculate.",
-        "example": "The universe is infinite.",
-        "hebrewTranslation": "אינסופי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "influential",
-        "definition": "Having great influence on someone or something.",
-        "example": "He is an influential figure in the art world.",
-        "hebrewTranslation": "משפיע",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inform",
-        "definition": "Give (someone) facts or information; tell.",
-        "example": "Please inform me of any changes.",
-        "hebrewTranslation": "ליידע",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "informal",
-        "definition": "Having a relaxed, friendly, or unofficial style, manner, or nature.",
-        "example": "It was an informal meeting.",
-        "hebrewTranslation": "לא רשמי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "information",
-        "definition": "Facts provided or learned about something or someone.",
-        "example": "I need more information about the project.",
-        "hebrewTranslation": "מידע",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "informative",
-        "definition": "Providing useful or interesting information.",
-        "example": "The lecture was very informative.",
-        "hebrewTranslation": "אינפורמטיבי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "infrequent",
-        "definition": "Not occurring often; rare.",
-        "example": "His visits became infrequent.",
-        "hebrewTranslation": "לא תדיר",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "infuriate",
-        "definition": "Make (someone) extremely angry and impatient.",
-        "example": "His rude behavior infuriated me.",
-        "hebrewTranslation": "להרגיז",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "ingenious",
-        "definition": "(of a person) clever, original, and inventive.",
-        "example": "He came up with an ingenious solution to the problem.",
-        "hebrewTranslation": "גאוני",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "ingenuity",
-        "definition": "The quality of being clever, original, and inventive.",
-        "example": "She showed great ingenuity in solving the puzzle.",
-        "hebrewTranslation": "תחכום",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "ingest",
-        "definition": "Take (food, drink, or another substance) into the body by swallowing or absorbing it.",
-        "example": "It is dangerous to ingest this chemical.",
-        "hebrewTranslation": "לבלוע",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "ingredient",
-        "definition": "Any of the foods or substances that are combined to make a particular dish.",
-        "example": "What are the ingredients for this recipe?",
-        "hebrewTranslation": "מרכיב",
-        "category": "Food",
-        "level": 4
-    },
-    {
-        "word": "inhabit",
-        "definition": "(of a person, animal, or group) live in or occupy (a place or environment).",
-        "example": "Many different species inhabit this forest.",
-        "hebrewTranslation": "לאכלס",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inhabitant",
-        "definition": "A person or animal that lives in or occupies a place.",
-        "example": "The inhabitants of the village were very friendly.",
-        "hebrewTranslation": "תושב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inherent",
-        "definition": "Existing in something as a permanent, essential, or characteristic attribute.",
-        "example": "There is an inherent risk in this type of investment.",
-        "hebrewTranslation": "מובנה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inherit",
-        "definition": "Receive (money, property, or a title) as an heir at the death of the previous holder.",
-        "example": "He will inherit the family business.",
-        "hebrewTranslation": "לרשת",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inheritance",
-        "definition": "A thing that is inherited.",
-        "example": "She received a large inheritance from her grandmother.",
-        "hebrewTranslation": "ירושה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inhibit",
-        "definition": "Hinder, restrain, or prevent (an action or process).",
-        "example": "Fear can inhibit your ability to perform.",
-        "hebrewTranslation": "לעכב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inhibition",
-        "definition": "A feeling that makes one self-conscious and unable to act in a relaxed and natural way.",
-        "example": "He had no inhibitions about dancing in public.",
-        "hebrewTranslation": "עכבה",
-        "category": "Emotion",
-        "level": 7
-    },
-    {
-        "word": "initial",
-        "definition": "Existing or occurring at the beginning.",
-        "example": "My initial impression was that he was a very serious person.",
-        "hebrewTranslation": "ראשוני",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "initially",
-        "definition": "At first.",
-        "example": "Initially, I was not sure if I would like the movie.",
-        "hebrewTranslation": "בתחילה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "initiate",
-        "definition": "Cause (a process or action) to begin.",
-        "example": "The company will initiate a new marketing campaign.",
-        "hebrewTranslation": "ליזום",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "initiative",
-        "definition": "The ability to assess and initiate things independently.",
-        "example": "She showed great initiative in her work.",
-        "hebrewTranslation": "יוזמה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inject",
-        "definition": "Introduce (a liquid, especially a drug or vaccine) into the body with a syringe.",
-        "example": "The doctor will inject the vaccine into your arm.",
-        "hebrewTranslation": "להזריק",
-        "category": "Health",
-        "level": 4
-    },
-    {
-        "word": "injection",
-        "definition": "An instance of injecting or being injected.",
-        "example": "He received an injection to relieve the pain.",
-        "hebrewTranslation": "זריקה",
-        "category": "Health",
-        "level": 5
-    },
-    {
-        "word": "injure",
-        "definition": "Do physical harm or damage to (someone).",
-        "example": "He injured his leg while playing football.",
-        "hebrewTranslation": "לפצוע",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "injurious",
-        "definition": "Causing or likely to cause damage or harm.",
-        "example": "Smoking is injurious to health.",
-        "hebrewTranslation": "מזיק",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "injury",
-        "definition": "An instance of being injured.",
-        "example": "He suffered a serious injury in the accident.",
-        "hebrewTranslation": "פציעה",
-        "category": "Health",
-        "level": 3
-    },
-    {
-        "word": "injustice",
-        "definition": "Lack of fairness or justice.",
-        "example": "They fought against the injustice of the system.",
-        "hebrewTranslation": "אי צדק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "ink",
-        "definition": "A colored fluid or paste used for writing, drawing, printing, or duplicating.",
-        "example": "The pen is out of ink.",
-        "hebrewTranslation": "דיו",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "innate",
-        "definition": "Inborn; natural.",
-        "example": "He has an innate talent for music.",
-        "hebrewTranslation": "מולד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inner",
-        "definition": "Situated inside or further in; internal.",
-        "example": "He felt a sense of inner peace.",
-        "hebrewTranslation": "פנימי",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "innocent",
-        "definition": "Not guilty of a crime or offense.",
-        "example": "The jury found him innocent.",
-        "hebrewTranslation": "חף מפשע",
-        "category": "Legal",
-        "level": 3
-    },
-    {
-        "word": "innovate",
-        "definition": "Make changes in something established, especially by introducing new methods, ideas, or products.",
-        "example": "The company needs to innovate to stay competitive.",
-        "hebrewTranslation": "לחדש",
-        "category": "Business",
-        "level": 5
-    },
-    {
-        "word": "innovation",
-        "definition": "The action or process of innovating.",
-        "example": "The company is known for its technological innovation.",
-        "hebrewTranslation": "חדשנות",
-        "category": "Business",
-        "level": 6
-    },
-    {
-        "word": "innovative",
-        "definition": "(of a product, idea, etc.) featuring new methods; advanced and original.",
-        "example": "It was an innovative design.",
-        "hebrewTranslation": "חדשני",
-        "category": "Business",
-        "level": 6
-    },
-    {
-        "word": "innumerable",
-        "definition": "Too many to be counted (often used hyperbolically).",
-        "example": "There are innumerable stars in the sky.",
-        "hebrewTranslation": "אינספור",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inquire",
-        "definition": "Ask for information from someone.",
-        "example": "I will inquire about the price.",
-        "hebrewTranslation": "לשאול",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "inquiry",
-        "definition": "An act of asking for information.",
-        "example": "The police have launched an inquiry into the matter.",
-        "hebrewTranslation": "חקירה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insane",
-        "definition": "In a state of mind that prevents normal perception, behavior, or social interaction; seriously mentally ill.",
-        "example": "The idea is completely insane.",
-        "hebrewTranslation": "מטורף",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "insert",
-        "definition": "Place, fit, or push (something) into something else.",
-        "example": "Please insert your card into the machine.",
-        "hebrewTranslation": "להכניס",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "inside",
-        "definition": "The inner side or surface of something.",
-        "example": "Let's go inside, it's cold out here.",
-        "hebrewTranslation": "בפנים",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "insight",
-        "definition": "The capacity to gain an accurate and deep intuitive understanding of a person or thing.",
-        "example": "The book provides a fascinating insight into the world of politics.",
-        "hebrewTranslation": "תובנה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insightful",
-        "definition": "Having or showing an accurate and deep understanding; perceptive.",
-        "example": "She made some very insightful comments.",
-        "hebrewTranslation": "בעל תובנה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "insignificant",
-        "definition": "Too small or unimportant to be worth consideration.",
-        "example": "The difference in price is insignificant.",
-        "hebrewTranslation": "חסר משמעות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "insist",
-        "definition": "Demand something forcefully, not accepting refusal.",
-        "example": "He insisted on paying for the meal.",
-        "hebrewTranslation": "להתעקש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "insistence",
-        "definition": "The fact or quality of insisting that something is the case or should be done.",
-        "example": "Her insistence on quality is well known.",
-        "hebrewTranslation": "התעקשות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "insistent",
-        "definition": "Insisting or demanding something; not allowing refusal.",
-        "example": "He was insistent that she come with him.",
-        "hebrewTranslation": "מתעקש",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "insolent",
-        "definition": "Showing a rude and arrogant lack of respect.",
-        "example": "He was fired for his insolent behavior.",
-        "hebrewTranslation": "חצוף",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "inspect",
-        "definition": "Look at (someone or something) closely, typically to assess their condition or to discover any shortcomings.",
-        "example": "The mechanic will inspect the car.",
-        "hebrewTranslation": "לבדוק",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "inspection",
-        "definition": "Careful examination or scrutiny.",
-        "example": "The car passed its annual inspection.",
-        "hebrewTranslation": "בדיקה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inspiration",
-        "definition": "The process of being mentally stimulated to do or feel something, especially to do something creative.",
-        "example": "She is an inspiration to us all.",
-        "hebrewTranslation": "השראה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "inspire",
-        "definition": "Fill (someone) with the urge or ability to do or feel something, especially to do something creative.",
-        "example": "His speech inspired the crowd.",
-        "hebrewTranslation": "לעורר השראה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "install",
-        "definition": "Place or fix (equipment or machinery) in position ready for use.",
-        "example": "We need to install a new air conditioner.",
-        "hebrewTranslation": "להתקין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "installation",
-        "definition": "The action or process of installing someone or something, or of being installed.",
-        "example": "The installation of the new software was easy.",
-        "hebrewTranslation": "התקנה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "instance",
-        "definition": "An example or single occurrence of something.",
-        "example": "For instance, you could try a different approach.",
-        "hebrewTranslation": "דוגמה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "instant",
-        "definition": "Happening or coming immediately.",
-        "example": "The new coffee machine provides instant coffee.",
-        "hebrewTranslation": "מיידי",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "instantly",
-        "definition": "At once; immediately.",
-        "example": "He instantly regretted his decision.",
-        "hebrewTranslation": "מייד",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "instead",
-        "definition": "As an alternative to.",
-        "example": "I'll have tea instead of coffee.",
-        "hebrewTranslation": "במקום",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "instead of",
-        "definition": "As an alternative to; in place of.",
-        "example": "Let's have fish instead of chicken.",
-        "hebrewTranslation": "במקום",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "instill",
-        "definition": "Gradually but firmly establish (an idea or attitude, especially a desirable one) in a person's mind.",
-        "example": "It is important to instill a sense of responsibility in children.",
-        "hebrewTranslation": "להחדיר",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "instinct",
-        "definition": "An innate, typically fixed pattern of behavior in animals in response to certain stimuli.",
-        "example": "Birds have a natural instinct to build nests.",
-        "hebrewTranslation": "אינסטינקט",
-        "category": "Biology",
-        "level": 5
-    },
-    {
-        "word": "institute",
-        "definition": "A society or organization having a particular object or common factor, especially a scientific, educational, or social one.",
-        "example": "He works at a research institute.",
-        "hebrewTranslation": "מכון",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "institution",
-        "definition": "An organization founded for a religious, educational, professional, or social purpose.",
-        "example": "The university is a well-respected institution.",
-        "hebrewTranslation": "מוסד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "instruct",
-        "definition": "Direct or command someone to do something, especially as an official order.",
-        "example": "The teacher will instruct the students on what to do.",
-        "hebrewTranslation": "להורות",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "instruction",
-        "definition": "A direction or order.",
-        "example": "Please follow the instructions carefully.",
-        "hebrewTranslation": "הוראה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "instrument",
-        "definition": "A tool or implement, especially one for precision work.",
-        "example": "A thermometer is a scientific instrument.",
-        "hebrewTranslation": "כלי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "insubordinate",
-        "definition": "Defiant of authority; disobedient to orders.",
-        "example": "The insubordinate soldier was punished.",
-        "hebrewTranslation": "מרדן",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "insufficient",
-        "definition": "Not enough; inadequate.",
-        "example": "There was insufficient evidence to convict him.",
-        "hebrewTranslation": "לא מספיק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insulate",
-        "definition": "Protect (something) by interposing material that prevents the loss of heat or the intrusion of sound.",
-        "example": "We need to insulate the house to save energy.",
-        "hebrewTranslation": "לבודד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insulation",
-        "definition": "The action of insulating something or the state of being insulated.",
-        "example": "Good insulation can reduce your heating bills.",
-        "hebrewTranslation": "בידוד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insult",
-        "definition": "Speak to or treat with disrespect or scornful abuse.",
-        "example": "He was offended by the insult.",
-        "hebrewTranslation": "עלבון",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "insulting",
-        "definition": "Disrespectful or scornfully abusive.",
-        "example": "His comments were very insulting.",
-        "hebrewTranslation": "מעליב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "insurance",
-        "definition": "A practice or arrangement by which a company or government agency provides a guarantee of compensation for specified loss, damage, illness, or death in return for payment of a premium.",
-        "example": "Do you have car insurance?",
-        "hebrewTranslation": "ביטוח",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "insure",
-        "definition": "Secure or protect someone or something against (a possible contingency).",
-        "example": "It is wise to insure your house against fire.",
-        "hebrewTranslation": "לבטח",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "intact",
-        "definition": "Not damaged or impaired in any way; complete.",
-        "example": "The vase remained intact after the earthquake.",
-        "hebrewTranslation": "שלם",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intake",
-        "definition": "An amount of food, air, or another substance taken into the body.",
-        "example": "You should reduce your daily intake of sugar.",
-        "hebrewTranslation": "צריכה",
-        "category": "Health",
-        "level": 4
-    },
-    {
-        "word": "integral",
-        "definition": "Necessary to make a whole complete; essential or fundamental.",
-        "example": "He is an integral part of the team.",
-        "hebrewTranslation": "חיוני",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "integrate",
-        "definition": "Combine (one thing) with another so that they become a whole.",
-        "example": "We need to integrate the new software with our existing system.",
-        "hebrewTranslation": "לשלב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "integration",
-        "definition": "The action or process of integrating.",
-        "example": "The integration of the two companies was a complex process.",
-        "hebrewTranslation": "שילוב",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "integrity",
-        "definition": "The quality of being honest and having strong moral principles; moral uprightness.",
-        "example": "He is a man of great integrity.",
-        "hebrewTranslation": "יושרה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "intellectual",
-        "definition": "Relating to the intellect.",
-        "example": "She enjoys intellectual conversations.",
-        "hebrewTranslation": "אינטלקטואלי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "intelligence",
-        "definition": "The ability to acquire and apply knowledge and skills.",
-        "example": "He is a man of great intelligence.",
-        "hebrewTranslation": "אינטליגנציה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intelligent",
-        "definition": "Having or showing intelligence, especially of a high level.",
-        "example": "She is a very intelligent student.",
-        "hebrewTranslation": "אינטליגנטי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intend",
-        "definition": "Have (a course of action) as one's purpose or objective; plan.",
-        "example": "I intend to visit my grandmother this weekend.",
-        "hebrewTranslation": "להתכוון",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "intense",
-        "definition": "Of extreme force, degree, or strength.",
-        "example": "The heat was intense.",
-        "hebrewTranslation": "עז",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intensify",
-        "definition": "Become or make more intense.",
-        "example": "The storm is expected to intensify.",
-        "hebrewTranslation": "להגביר",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intensity",
-        "definition": "The quality of being intense.",
-        "example": "The intensity of the light was blinding.",
-        "hebrewTranslation": "עוצמה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intensive",
-        "definition": "Concentrated on a single area or subject or into a short time; very thorough or vigorous.",
-        "example": "He is taking an intensive language course.",
-        "hebrewTranslation": "אינטנסיבי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intent",
-        "definition": "Intention or purpose.",
-        "example": "He acted with malicious intent.",
-        "hebrewTranslation": "כוונה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intention",
-        "definition": "A thing intended; an aim or plan.",
-        "example": "I have no intention of leaving.",
-        "hebrewTranslation": "כוונה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interact",
-        "definition": "Act in such a way as to have an effect on another; act reciprocally.",
-        "example": "The children interact well with each other.",
-        "hebrewTranslation": "לתקשר",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "interaction",
-        "definition": "Reciprocal action or influence.",
-        "example": "There is a lot of interaction between the students and teachers.",
-        "hebrewTranslation": "אינטראקציה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "interactive",
-        "definition": "(of two people or things) influencing each other.",
-        "example": "The museum has many interactive exhibits.",
-        "hebrewTranslation": "אינטראקטיבי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "interchange",
-        "definition": "(of two or more people) exchange (things) with each other.",
-        "example": "There was a lively interchange of ideas.",
-        "hebrewTranslation": "החלפה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interchangeable",
-        "definition": "(of two things) able to be interchanged.",
-        "example": "The two parts are interchangeable.",
-        "hebrewTranslation": "ניתן להחלפה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "intercourse",
-        "definition": "Communication or dealings between individuals or groups.",
-        "example": "The two countries have a long history of commercial intercourse.",
-        "hebrewTranslation": "יחסי מין",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "interest",
-        "definition": "The state of wanting to know or learn about something or someone.",
-        "example": "She has a great interest in history.",
-        "hebrewTranslation": "עניין",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "interested",
-        "definition": "Showing curiosity or concern about something or someone; having a feeling of interest.",
-        "example": "I'm interested in learning more about this topic.",
-        "hebrewTranslation": "מעוניין",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "interesting",
-        "definition": "Arousing curiosity or interest; holding or catching the attention.",
-        "example": "It was an interesting book.",
-        "hebrewTranslation": "מעניין",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "interfere",
-        "definition": "Prevent (a process or activity) from continuing or being carried out properly.",
-        "example": "Don't interfere in matters that don't concern you.",
-        "hebrewTranslation": "להתערב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "interference",
-        "definition": "The action of interfering or the process of being interfered with.",
-        "example": "I don't want any interference from you.",
-        "hebrewTranslation": "התערבות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interior",
-        "definition": "The inner or indoor part of something, especially a building; the inside.",
-        "example": "The interior of the house was beautifully decorated.",
-        "hebrewTranslation": "פנימי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "internal",
-        "definition": "Of or situated on the inside.",
-        "example": "The patient suffered internal injuries.",
-        "hebrewTranslation": "פנימי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "international",
-        "definition": "Existing, occurring, or carried on between two or more nations.",
-        "example": "The company has many international clients.",
-        "hebrewTranslation": "בינלאומי",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "internet",
-        "definition": "A global computer network providing a variety of information and communication facilities, consisting of interconnected networks using standardized communication protocols.",
-        "example": "I use the internet to find information.",
-        "hebrewTranslation": "אינטרנט",
-        "category": "Technology",
-        "level": 2
-    },
-    {
-        "word": "interpret",
-        "definition": "Explain the meaning of (information, words, or actions).",
-        "example": "How do you interpret this poem?",
-        "hebrewTranslation": "לפרש",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interpretation",
-        "definition": "The action of explaining the meaning of something.",
-        "example": "There are different interpretations of the law.",
-        "hebrewTranslation": "פרשנות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "interrupt",
-        "definition": "Stop the continuous progress of (an activity or process).",
-        "example": "Please don't interrupt me while I'm speaking.",
-        "hebrewTranslation": "להפריע",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "interruption",
-        "definition": "The action of interrupting or the state of being interrupted.",
-        "example": "I'm sorry for the interruption.",
-        "hebrewTranslation": "הפרעה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intersect",
-        "definition": "(of two or more things) pass or lie across each other.",
-        "example": "The two lines intersect at this point.",
-        "hebrewTranslation": "להצטלב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interval",
-        "definition": "An intervening time or space.",
-        "example": "There was a short interval between the two acts of the play.",
-        "hebrewTranslation": "מרווח",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "intervene",
-        "definition": "Take part in something so as to prevent or alter a result or course of events.",
-        "example": "The police had to intervene in the fight.",
-        "hebrewTranslation": "להתערב",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intervention",
-        "definition": "The action or process of intervening.",
-        "example": "Military intervention was necessary to restore order.",
-        "hebrewTranslation": "התערבות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "interview",
-        "definition": "A meeting of people face to face, especially for consultation.",
-        "example": "I have a job interview tomorrow.",
-        "hebrewTranslation": "ראיון",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "intimate",
-        "definition": "Closely acquainted; familiar, close.",
-        "example": "They are intimate friends.",
-        "hebrewTranslation": "אינטימי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intimidate",
-        "definition": "Frighten or overawe (someone), especially in order to make them do what one wants.",
-        "example": "He tried to intimidate the witness.",
-        "hebrewTranslation": "להפחיד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "into",
-        "definition": "Expressing movement or action with the result that someone or something becomes enclosed or surrounded by something else.",
-        "example": "He jumped into the pool.",
-        "hebrewTranslation": "לתוך",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "intolerant",
-        "definition": "Not tolerant of views, beliefs, or behavior that differ from one's own.",
-        "example": "He is intolerant of other people's opinions.",
-        "hebrewTranslation": "חסר סובלנות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intonation",
-        "definition": "The rise and fall of the voice in speaking.",
-        "example": "Her intonation showed that she was angry.",
-        "hebrewTranslation": "אינטונציה",
-        "category": "Language",
-        "level": 7
-    },
-    {
-        "word": "intricate",
-        "definition": "Very complicated or detailed.",
-        "example": "It was an intricate design.",
-        "hebrewTranslation": "מסובך",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "intrigue",
-        "definition": "Arouse the curiosity or interest of; fascinate.",
-        "example": "The story intrigued me.",
-        "hebrewTranslation": "לסקרן",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intriguing",
-        "definition": "Arousing one's curiosity or interest; fascinating.",
-        "example": "It was an intriguing idea.",
-        "hebrewTranslation": "מסקרן",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intrinsic",
-        "definition": "Belonging naturally; essential.",
-        "example": "The intrinsic value of the painting is very high.",
-        "hebrewTranslation": "מהותי",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "introduce",
-        "definition": "Bring (something, especially a product, measure, or concept) into use or operation for the first time.",
-        "example": "Let me introduce you to my friend.",
-        "hebrewTranslation": "להציג",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "introduction",
-        "definition": "The action of introducing something.",
-        "example": "The book has a long introduction.",
-        "hebrewTranslation": "הקדמה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "intrude",
-        "definition": "Put oneself deliberately into a place or situation where one is unwelcome or uninvited.",
-        "example": "I'm sorry to intrude, but I have an urgent message.",
-        "hebrewTranslation": "להתפרץ",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intruder",
-        "definition": "A person who intrudes, especially into a building with criminal intent.",
-        "example": "The police caught the intruder.",
-        "hebrewTranslation": "פולש",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intrusion",
-        "definition": "The action of intruding.",
-        "example": "I apologize for the intrusion.",
-        "hebrewTranslation": "התפרצות",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "intuition",
-        "definition": "The ability to understand something instinctively, without the need for conscious reasoning.",
-        "example": "She had an intuition that something was wrong.",
-        "hebrewTranslation": "אינטואיציה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "intuitive",
-        "definition": "Using or based on what one feels to be true even without conscious reasoning; instinctive.",
-        "example": "The software has an intuitive interface.",
-        "hebrewTranslation": "אינטואיטיבי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "invade",
-        "definition": "(of an armed force or its commander) enter (a country or region) so as to subjugate or occupy it.",
-        "example": "The army invaded the neighboring country.",
-        "hebrewTranslation": "לפלוש",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "invalid",
-        "definition": "Not valid.",
-        "example": "The ticket is invalid.",
-        "hebrewTranslation": "לא תקף",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "invaluable",
-        "definition": "Extremely useful; indispensable.",
-        "example": "Your help has been invaluable.",
-        "hebrewTranslation": "לא יסולא בפז",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "invariably",
-        "definition": "In every case or on every occasion; always.",
-        "example": "He is invariably late.",
-        "hebrewTranslation": "תמיד",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "invent",
-        "definition": "Create or design (something that has not existed before); be the originator of.",
-        "example": "Alexander Graham Bell invented the telephone.",
-        "hebrewTranslation": "להמציא",
-        "category": "Science",
-        "level": 3
-    },
-    {
-        "word": "invention",
-        "definition": "The action of inventing something, typically a process or device.",
-        "example": "The invention of the internet changed the world.",
-        "hebrewTranslation": "המצאה",
-        "category": "Science",
-        "level": 3
-    },
-    {
-        "word": "inventive",
-        "definition": "Having the ability to create or design new things or to think originally.",
-        "example": "She is a very inventive artist.",
-        "hebrewTranslation": "יצירתי",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inventory",
-        "definition": "A complete list of items such as property, goods in stock, or the contents of a building.",
-        "example": "We need to do an inventory of our stock.",
-        "hebrewTranslation": "מלאי",
-        "category": "Business",
-        "level": 4
-    },
-    {
-        "word": "inverse",
-        "definition": "Opposite or contrary in position, direction, order, or effect.",
-        "example": "Addition is the inverse of subtraction.",
-        "hebrewTranslation": "הפוך",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "invest",
-        "definition": "Expend money with the expectation of achieving a profit or material result by putting it into financial schemes, shares, or property, or by using it to develop a commercial venture.",
-        "example": "He decided to invest in the stock market.",
-        "hebrewTranslation": "להשקיע",
-        "category": "Finance",
-        "level": 3
-    },
-    {
-        "word": "investigate",
-        "definition": "Carry out a systematic or formal inquiry to discover and examine the facts of (an incident, allegation, etc.) so as to establish the truth.",
-        "example": "The police will investigate the crime.",
-        "hebrewTranslation": "לחקור",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "investigation",
-        "definition": "The action of investigating something or someone; formal or systematic examination or research.",
-        "example": "The investigation is still ongoing.",
-        "hebrewTranslation": "חקירה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "investment",
-        "definition": "The action or process of investing money for profit or material result.",
-        "example": "Real estate is a good investment.",
-        "hebrewTranslation": "השקעה",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "investor",
-        "definition": "A person or organization that puts money into financial schemes, property, etc. with the expectation of achieving a profit.",
-        "example": "The company is looking for investors.",
-        "hebrewTranslation": "משקיע",
-        "category": "Finance",
-        "level": 4
-    },
-    {
-        "word": "invisible",
-        "definition": "Unable to be seen.",
-        "example": "The air is invisible.",
-        "hebrewTranslation": "בלתי נראה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "invitation",
-        "definition": "A written or verbal request inviting someone to go somewhere or to do something.",
-        "example": "I received an invitation to the wedding.",
-        "hebrewTranslation": "הזמנה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "involve",
-        "definition": "Have or include (something) as a necessary or integral part or result.",
-        "example": "The job involves a lot of travel.",
-        "hebrewTranslation": "לערב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "involved",
-        "definition": "Difficult to comprehend; complicated.",
-        "example": "He was involved in a car accident.",
-        "hebrewTranslation": "מעורב",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "involvement",
-        "definition": "The fact or condition of being involved with or participating in something.",
-        "example": "His involvement in the project was crucial.",
-        "hebrewTranslation": "מעורבות",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "inward",
-        "definition": "Directed or proceeding toward the inside; coming in from outside.",
-        "example": "He took an inward breath.",
-        "hebrewTranslation": "פנימה",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "iq",
-        "definition": "Intelligence quotient.",
-        "example": "He has a very high IQ.",
-        "hebrewTranslation": "מנת משכל",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "irate",
-        "definition": "Feeling or characterized by great anger.",
-        "example": "The customer was irate about the poor service.",
-        "hebrewTranslation": "זועם",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "ironic",
-        "definition": "Happening in the opposite way to what is expected, and typically causing wry amusement because of this.",
-        "example": "It's ironic that the fire station burned down.",
-        "hebrewTranslation": "אירוני",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "irony",
-        "definition": "The expression of one's meaning by using language that normally signifies the opposite, typically for humorous or emphatic effect.",
-        "example": "The irony of the situation was not lost on him.",
-        "hebrewTranslation": "אירוניה",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "irrational",
-        "definition": "Not logical or reasonable.",
-        "example": "He has an irrational fear of spiders.",
-        "hebrewTranslation": "לא רציונלי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "irregular",
-        "definition": "Not even or balanced in shape or arrangement.",
-        "example": "The verb 'to be' is irregular.",
-        "hebrewTranslation": "לא סדיר",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "irrelevant",
-        "definition": "Not connected with or relevant to something.",
-        "example": "His comment was completely irrelevant to the discussion.",
-        "hebrewTranslation": "לא רלוונטי",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "irresistible",
-        "definition": "Too attractive and tempting to be resisted.",
-        "example": "The chocolate cake was irresistible.",
-        "hebrewTranslation": "לא ניתן לעמוד בפניו",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "irresponsible",
-        "definition": "(of a person, attitude, or action) not showing a proper sense of responsibility.",
-        "example": "It was irresponsible of him to leave the children alone.",
-        "hebrewTranslation": "חסר אחריות",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "irreversible",
-        "definition": "Not able to be undone or altered.",
-        "example": "The damage to the environment is irreversible.",
-        "hebrewTranslation": "בלתי הפיך",
-        "category": "General",
-        "level": 8
-    },
-    {
-        "word": "irrigate",
-        "definition": "Supply water to (land or crops) to help growth, typically by means of channels.",
-        "example": "The farmer will irrigate the fields.",
-        "hebrewTranslation": "להשקות",
-        "category": "Agriculture",
-        "level": 5
-    },
-    {
-        "word": "irrigation",
-        "definition": "The supply of water to land or crops to help growth, typically by means of channels.",
-        "example": "The farm uses a modern irrigation system.",
-        "hebrewTranslation": "השקיה",
-        "category": "Agriculture",
-        "level": 6
-    },
-    {
-        "word": "irritable",
-        "definition": "Having or showing a tendency to be easily annoyed or made angry.",
-        "example": "He was tired and irritable.",
-        "hebrewTranslation": "רגזן",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "irritate",
-        "definition": "Make (someone) annoyed, impatient, or angry.",
-        "example": "His constant complaining began to irritate me.",
-        "hebrewTranslation": "להרגיז",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "irritation",
-        "definition": "The state of feeling annoyed, impatient, or angry.",
-        "example": "She couldn't hide her irritation.",
-        "hebrewTranslation": "רוגז",
-        "category": "Emotion",
-        "level": 6
-    },
-    {
-        "word": "islam",
-        "definition": "The religion of the Muslims, a monotheistic faith regarded as revealed through Muhammad as the Prophet of Allah.",
-        "example": "Islam is one of the world's major religions.",
-        "hebrewTranslation": "אסלאם",
-        "category": "Religion",
-        "level": 3
-    },
-    {
-        "word": "islamic",
-        "definition": "Relating to Islam.",
-        "example": "The museum has a collection of Islamic art.",
-        "hebrewTranslation": "אסלאמי",
-        "category": "Religion",
-        "level": 4
-    },
-    {
-        "word": "island",
-        "definition": "A piece of land surrounded by water.",
-        "example": "They spent their vacation on a tropical island.",
-        "hebrewTranslation": "אי",
-        "category": "Geography",
-        "level": 2
-    },
-    {
-        "word": "isolate",
-        "definition": "Cause (a person or place) to be or remain alone or apart from others.",
-        "example": "They decided to isolate the patient to prevent the spread of the disease.",
-        "hebrewTranslation": "לבודד",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "isolation",
-        "definition": "The process or fact of isolating or being isolated.",
-        "example": "He lived in isolation in the mountains.",
-        "hebrewTranslation": "בידוד",
-        "category": "General",
-        "level": 6
-    },
-    {
-        "word": "issue",
-        "definition": "An important topic or problem for debate or discussion.",
-        "example": "Climate change is a major global issue.",
-        "hebrewTranslation": "סוגיה",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "it",
-        "definition": "Used to refer to a thing previously mentioned or easily identified.",
-        "example": "It is a beautiful day.",
-        "hebrewTranslation": "זה",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "item",
-        "definition": "An individual article or unit, especially one that is part of a list, collection, or set.",
-        "example": "There are several items on the shopping list.",
-        "hebrewTranslation": "פריט",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "its",
-        "definition": "Belonging to or associated with a thing previously mentioned or easily identified.",
-        "example": "The dog wagged its tail.",
-        "hebrewTranslation": "שלו/שלה (לחפץ)",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "itself",
-        "definition": "Used as the object of a verb or preposition to refer to a thing or animal previously mentioned as the subject of the clause.",
-        "example": "The cat washed itself.",
-        "hebrewTranslation": "עצמו/עצמה (לחפץ)",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "jacket",
-        "definition": "An outer garment extending either to the waist or the hips, typically having sleeves and a fastening down the front.",
-        "example": "He wore a warm jacket.",
-        "hebrewTranslation": "ז'קט",
-        "category": "Fashion",
-        "level": 2
-    },
-    {
-        "word": "jail",
-        "definition": "A place for the confinement of people accused or convicted of a crime.",
-        "example": "He was sent to jail for robbery.",
-        "hebrewTranslation": "כלא",
-        "category": "Legal",
-        "level": 3
-    },
-    {
-        "word": "jam",
-        "definition": "A sweet spread or preserve made from fruit and sugar boiled to a thick consistency.",
-        "example": "I like to have jam on my toast.",
-        "hebrewTranslation": "ריבה",
-        "category": "Food",
-        "level": 2
-    },
-    {
-        "word": "jar",
-        "definition": "A wide-mouthed cylindrical container made of glass or pottery, especially one used for storing food.",
-        "example": "The cookies are in the jar.",
-        "hebrewTranslation": "צנצנת",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "jaw",
-        "definition": "Each of the upper and lower bony structures in vertebrates forming the framework of the mouth and containing the teeth.",
-        "example": "He has a strong jaw.",
-        "hebrewTranslation": "לסת",
-        "category": "Biology",
-        "level": 3
-    },
-    {
-        "word": "jealous",
-        "definition": "Feeling or showing envy of someone or their achievements and advantages.",
-        "example": "She was jealous of her sister's success.",
-        "hebrewTranslation": "קנאי",
-        "category": "Emotion",
-        "level": 4
-    },
-    {
-        "word": "jealousy",
-        "definition": "The state or feeling of being jealous.",
-        "example": "He was consumed by jealousy.",
-        "hebrewTranslation": "קנאה",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "jeans",
-        "definition": "Hard-wearing trousers made of denim or other cotton fabric, for informal wear.",
-        "example": "He was wearing a pair of blue jeans.",
-        "hebrewTranslation": "ג'ינס",
-        "category": "Fashion",
-        "level": 2
-    },
-    {
-        "word": "jeep",
-        "definition": "A small, sturdy motor vehicle with four-wheel drive, especially one used by the military.",
-        "example": "They drove a jeep through the desert.",
-        "hebrewTranslation": "ג'יפ",
-        "category": "Vehicle",
-        "level": 2
-    },
-    {
-        "word": "jest",
-        "definition": "A thing said or done for amusement; a joke.",
-        "example": "He spoke in jest.",
-        "hebrewTranslation": "בדיחה",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "jet",
-        "definition": "A jet engine.",
-        "example": "The jet flew overhead.",
-        "hebrewTranslation": "סילון",
-        "category": "Vehicle",
-        "level": 2
-    },
-    {
-        "word": "Jew",
-        "definition": "A member of the people and cultural community whose traditional religion is Judaism and who trace their origins through the ancient Hebrew people of Israel to Abraham.",
-        "example": "He is a practicing Jew.",
-        "hebrewTranslation": "יהודי",
-        "category": "Religion",
-        "level": 4
-    },
-    {
-        "word": "Jewish",
-        "definition": "Relating to, associated with, or denoting Jews or Judaism.",
-        "example": "They celebrate Jewish holidays.",
-        "hebrewTranslation": "יהודי",
-        "category": "Religion",
-        "level": 5
-    },
-    {
-        "word": "job",
-        "definition": "A paid position of regular employment.",
-        "example": "He is looking for a new job.",
-        "hebrewTranslation": "עבודה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "join",
-        "definition": "Link; connect.",
-        "example": "Would you like to join us for dinner?",
-        "hebrewTranslation": "להצטרף",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "joke",
-        "definition": "A thing that someone says to cause amusement or laughter, especially a story with a funny punchline.",
-        "example": "He told a funny joke.",
-        "hebrewTranslation": "בדיחה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "journal",
-        "definition": "A newspaper or magazine that deals with a particular subject or professional activity.",
-        "example": "He published his research in a scientific journal.",
-        "hebrewTranslation": "כתב עת",
-        "category": "Writing",
-        "level": 4
-    },
-    {
-        "word": "journalism",
-        "definition": "The activity or profession of writing for newspapers, magazines, or news websites or preparing news to be broadcast.",
-        "example": "She studied journalism at university.",
-        "hebrewTranslation": "עיתונאות",
-        "category": "Writing",
-        "level": 6
-    },
-    {
-        "word": "journalist",
-        "definition": "A person who writes for newspapers, magazines, or news websites or prepares news to be broadcast.",
-        "example": "He is a well-known journalist.",
-        "hebrewTranslation": "עיתונאי",
-        "category": "Writing",
-        "level": 5
-    },
-    {
-        "word": "joy",
-        "definition": "A feeling of great pleasure and happiness.",
-        "example": "Her heart was filled with joy.",
-        "hebrewTranslation": "שמחה",
-        "category": "Emotion",
-        "level": 2
-    },
-    {
-        "word": "joyful",
-        "definition": "Feeling, expressing, or causing great pleasure and happiness.",
-        "example": "It was a joyful occasion.",
-        "hebrewTranslation": "שמח",
-        "category": "Emotion",
-        "level": 3
-    },
-    {
-        "word": "joyous",
-        "definition": "Full of happiness and joy.",
-        "example": "The wedding was a joyous celebration.",
-        "hebrewTranslation": "שמח",
-        "category": "Emotion",
-        "level": 5
-    },
-    {
-        "word": "judge",
-        "definition": "A public official appointed to decide cases in a court of law.",
-        "example": "The judge sentenced him to five years in prison.",
-        "hebrewTranslation": "שופט",
-        "category": "Legal",
-        "level": 3
-    },
-    {
-        "word": "judgment",
-        "definition": "The ability to make considered decisions or come to sensible conclusions.",
-        "example": "He showed poor judgment in his decision.",
-        "hebrewTranslation": "שיפוט",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "judicial",
-        "definition": "Of, by, or appropriate to a court or judge.",
-        "example": "The case is under judicial review.",
-        "hebrewTranslation": "שיפוטי",
-        "category": "Legal",
-        "level": 7
-    },
-    {
-        "word": "judiciary",
-        "definition": "The judicial authorities of a country; judges collectively.",
-        "example": "The judiciary is an important branch of government.",
-        "hebrewTranslation": "מערכת המשפט",
-        "category": "Legal",
-        "level": 8
-    },
-    {
-        "word": "jug",
-        "definition": "A large container for liquids, with a narrow mouth and typically a handle.",
-        "example": "She filled the jug with water.",
-        "hebrewTranslation": "כד",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "juice",
-        "definition": "The liquid obtained from or present in fruit or vegetables.",
-        "example": "I would like a glass of orange juice.",
-        "hebrewTranslation": "מיץ",
-        "category": "Food",
-        "level": 1
-    },
-    {
-        "word": "jump",
-        "definition": "Push oneself off a surface and into the air by using the muscles in one's legs and feet.",
-        "example": "The cat can jump very high.",
-        "hebrewTranslation": "לקפוץ",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "junction",
-        "definition": "A point where two or more things are joined.",
-        "example": "The two rivers meet at this junction.",
-        "hebrewTranslation": "צומת",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "jungle",
-        "definition": "An area of land overgrown with dense forest and tangled vegetation, typically in the tropics.",
-        "example": "They went on an expedition to the Amazon jungle.",
-        "hebrewTranslation": "ג'ונגל",
-        "category": "Nature",
-        "level": 3
-    },
-    {
-        "word": "junior",
-        "definition": "Of or for younger or more recent members of a group.",
-        "example": "He is a junior employee at the company.",
-        "hebrewTranslation": "זוטר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "jury",
-        "definition": "A body of people (typically twelve in number) sworn to give a verdict in a legal case on the basis of evidence submitted to them in court.",
-        "example": "The jury found him guilty.",
-        "hebrewTranslation": "חבר מושבעים",
-        "category": "Legal",
-        "level": 4
-    },
-    {
-        "word": "just",
-        "definition": "Based on or behaving according to what is morally right and fair.",
-        "example": "He is a just and fair ruler.",
-        "hebrewTranslation": "צודק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "justice",
-        "definition": "Just behavior or treatment.",
-        "example": "They are fighting for justice and equality.",
-        "hebrewTranslation": "צדק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "justification",
-        "definition": "The action of showing something to be right or reasonable.",
-        "example": "There is no justification for his behavior.",
-        "hebrewTranslation": "הצדקה",
-        "category": "General",
-        "level": 7
-    },
-    {
-        "word": "justify",
-        "definition": "Show or prove to be right or reasonable.",
-        "example": "Can you justify your actions?",
-        "hebrewTranslation": "להצדיק",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "keen",
-        "definition": "Having or showing eagerness or enthusiasm.",
-        "example": "He is a keen sportsman.",
-        "hebrewTranslation": "נלהב",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "keep",
-        "definition": "Have or retain possession of.",
-        "example": "You can keep the change.",
-        "hebrewTranslation": "לשמור",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "key",
-        "definition": "A small piece of shaped metal with incisions cut to fit the wards of a particular lock, which is inserted into a lock and turned to open or close it.",
-        "example": "I lost my house key.",
-        "hebrewTranslation": "מפתח",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "keyboard",
-        "definition": "A panel of keys that operate a computer or typewriter.",
-        "example": "I need to buy a new keyboard for my computer.",
-        "hebrewTranslation": "מקלדת",
-        "category": "Technology",
-        "level": 2
-    },
-    {
-        "word": "kick",
-        "definition": "Strike or propel forcefully with the foot.",
-        "example": "He can kick the ball a long way.",
-        "hebrewTranslation": "לבעוט",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "kid",
-        "definition": "A child or young person.",
-        "example": "The kids are playing in the park.",
-        "hebrewTranslation": "ילד",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "kidnap",
-        "definition": "Abduct (someone) and hold them captive, typically to obtain a ransom.",
-        "example": "The millionaire's son was kidnapped.",
-        "hebrewTranslation": "לחטוף",
-        "category": "General",
-        "level": 4
-    },
-    {
-        "word": "kidney",
-        "definition": "Each of a pair of organs in the abdominal cavity of mammals, birds, and reptiles, excreting urine.",
-        "example": "He donated a kidney to his brother.",
-        "hebrewTranslation": "כליה",
-        "category": "Biology",
-        "level": 5
-    },
-    {
-        "word": "kill",
-        "definition": "Cause the death of (a person, animal, or other living thing).",
-        "example": "It is wrong to kill animals for sport.",
-        "hebrewTranslation": "להרוג",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "kind",
-        "definition": "Having or showing a friendly, generous, and considerate nature.",
-        "example": "She is a very kind and caring person.",
-        "hebrewTranslation": "אדיב",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "kindergarten",
-        "definition": "An establishment where children below the age of compulsory education play and learn; a nursery school.",
-        "example": "My daughter goes to kindergarten.",
-        "hebrewTranslation": "גן ילדים",
-        "category": "Education",
-        "level": 4
-    },
-    {
-        "word": "kindness",
-        "definition": "The quality of being friendly, generous, and considerate.",
-        "example": "Thank you for your kindness.",
-        "hebrewTranslation": "אדיבות",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "king",
-        "definition": "The male ruler of an independent state, especially one who inherits the position by right of birth.",
-        "example": "The king ruled the country for many years.",
-        "hebrewTranslation": "מלך",
-        "category": "History",
-        "level": 2
-    },
-    {
-        "word": "kingdom",
-        "definition": "A country, state, or territory ruled by a king or queen.",
-        "example": "The United Kingdom is a constitutional monarchy.",
-        "hebrewTranslation": "ממלכה",
-        "category": "History",
-        "level": 4
-    },
-    {
-        "word": "kiss",
-        "definition": "Touch or caress with the lips as a sign of love, sexual desire, or greeting.",
-        "example": "She gave him a kiss on the cheek.",
-        "hebrewTranslation": "נשיקה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "kit",
-        "definition": "A set of articles or equipment needed for a specific purpose.",
-        "example": "He bought a first-aid kit.",
-        "hebrewTranslation": "ערכה",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "kitchen",
-        "definition": "A room or area equipped for preparing and cooking food.",
-        "example": "My mother is cooking in the kitchen.",
-        "hebrewTranslation": "מטבח",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "knee",
-        "definition": "The joint between the thigh and the lower leg in humans.",
-        "example": "He fell and hurt his knee.",
-        "hebrewTranslation": "ברך",
-        "category": "Biology",
-        "level": 2
-    },
-    {
-        "word": "kneel",
-        "definition": "Be in or assume a position in which the body is supported by a knee or the knees, as when praying or showing submission.",
-        "example": "He knelt down to pray.",
-        "hebrewTranslation": "לכרוע ברך",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "knife",
-        "definition": "An instrument composed of a blade fixed into a handle, used for cutting.",
-        "example": "Be careful with that sharp knife.",
-        "hebrewTranslation": "סכין",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "knight",
-        "definition": "(in the Middle Ages) a man who served his sovereign or lord as a mounted soldier in armor.",
-        "example": "The knight rode a white horse.",
-        "hebrewTranslation": "אביר",
-        "category": "History",
-        "level": 3
-    },
-    {
-        "word": "knit",
-        "definition": "Make (a garment, blanket, etc.) by interlocking loops of wool or other yarn with knitting needles or on a machine.",
-        "example": "My grandmother taught me how to knit.",
-        "hebrewTranslation": "לסרוג",
-        "category": "General",
-        "level": 3
-    },
-    {
-        "word": "knob",
-        "definition": "A rounded protuberance on a door, drawer, or other object, for grasping or turning.",
-        "example": "Turn the knob to open the door.",
-        "hebrewTranslation": "ידית",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "knock",
-        "definition": "Strike a surface noisily to attract attention, especially when waiting to be let in through a door.",
-        "example": "Someone is knocking on the door.",
-        "hebrewTranslation": "לדפוק",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "knot",
-        "definition": "A fastening made by looping a piece of string, rope, or something similar on itself and tightening it.",
-        "example": "He tied a knot in the rope.",
-        "hebrewTranslation": "קשר",
-        "category": "General",
-        "level": 2
-    },
-    {
-        "word": "know",
-        "definition": "Have knowledge or information about something.",
-        "example": "Do you know the answer?",
-        "hebrewTranslation": "לדעת",
-        "category": "General",
-        "level": 1
-    },
-    {
-        "word": "knowledge",
-        "definition": "Facts, information, and skills acquired by a person through experience or education; the theoretical or practical understanding of a subject.",
-        "example": "Knowledge is power.",
-        "hebrewTranslation": "ידע",
-        "category": "General",
-        "level": 5
-    },
-    {
-        "word": "knowledgeable",
-        "definition": "Intelligent and well informed.",
-        "example": "He is very knowledgeable about history.",
-        "hebrewTranslation": "בעל ידע",
-        "category": "General",
-        "level": 6
-    },
-    {
         "word": "sack",
         "definition": "A large bag made of a strong material such as burlap, thick paper, or plastic, used for storing and carrying goods.",
         "example": "He carried a sack of potatoes on his back.",
@@ -40225,3 +40241,5 @@ export const list = [
         "level": 7
     }
 ]
+
+
