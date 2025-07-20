@@ -1,5 +1,6 @@
 import { useRouter } from "next/navigation";
 import { useLanguage } from "../contexts/LanguageContext";
+import ActionButton from './shared/ActionButton';
 
 interface Topic {
   key: string;
@@ -49,7 +50,7 @@ export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
         ))}
       </div>
 
-      <button
+      <ActionButton
         className="btn btn-primary btn-sm shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 mt-8 text center text-lg"
         onClick={(e) => {
           e.stopPropagation();
@@ -57,7 +58,7 @@ export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
         }}
       >
         {t('pages.home.questionsPractice')}
-      </button>
+      </ActionButton>
     </section>
   );
 }

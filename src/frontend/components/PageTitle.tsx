@@ -23,7 +23,7 @@ export default function PageTitle({ title, subtitle, color = 'green', useImage =
             teal: 'from-teal-600 to-teal-700',
             cyan: 'from-cyan-600 to-cyan-700',
         };
-        return colorMap[color] || colorMap.red;
+        return   colorMap[color] || colorMap.red;
     };
 
     const getInnerColorClasses = (color: string) => {
@@ -43,28 +43,56 @@ export default function PageTitle({ title, subtitle, color = 'green', useImage =
     };
 
     return (
-        <div className="text-start space-y-2 space-x-4 mr-4 ml-4 mb-8 items-start">
+        <div
+            className="
+                mb-8
+                mr-4 ml-4
+                space-y-2 space-x-4
+                items-start
+                text-start
+                sm:mr-4 sm:ml-4
+                md:mr-0 md:ml-0
+                md:items-center
+                md:text-center
+                md:flex md:flex-col
+            "
+        >
             {useImage && (
-                <div className="flex flex-row items-end text-start mt-4">
-                    <div className="relative group mb-4 flex-shrink-0 w-32 h-32">
+                <div
+                    className="
+                        flex flex-row items-end text-start mt-4
+                        md:justify-center md:items-center md:text-center
+                    "
+                >
+                    <div className="relative group mb-4 flex-shrink-0 w-32 h-32 md:w-48 md:h-48 mx-auto md:mx-0">
                         <div className={`absolute -inset-2 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-2xl group-hover:blur-3xl transition-all duration-500`} />
-                        <div className="relative w-32 h-32">
+                        <div className="relative w-32 h-32 md:w-48 md:h-48">
                             <div className={`absolute inset-0 bg-gradient-to-r ${getInnerColorClasses(color)} rounded-full blur-xl`} />
                             <Image
                                 src="/professor.png"
                                 alt="AI Professor"
-                                width={128}
-                                height={128}
-                                className="rounded-full relative border-4 border-white/10 shadow-2xl transform transition-all duration-500 w-32 h-32"
+                                width={192}
+                                height={192}
+                                className="rounded-full relative border-4 border-white/10 shadow-2xl transform transition-all duration-500 w-32 h-32 md:w-48 md:h-48"
                             />
                         </div>
                     </div>
-                    <div className="flex flex-col items-start text-start mr-10 justify-center h-32">
-                        <h1 className={`text-start text-3xl font-bold text-${getColorClasses(color)} leading-tight`}>
+                    <div
+                        className="
+                            flex flex-col
+                            items-start text-start mr-6 justify-center h-32 md:h-48
+                        "
+                    >
+                        <h1
+                            className={`
+                                text-start text-3xl md:text-7xl font-bold leading-tight
+                                bg-clip-text text-transparent bg-gradient-to-r ${getColorClasses(color)}
+                            `}
+                        >
                             {title}
                         </h1>
                         {subtitle && (
-                            <p className="text-lg text-[rgb(var(--color-text-light))]">
+                            <p className="text-lg md:text-3xl text-[rgb(var(--color-text-light))]">
                                 {subtitle}
                             </p>
                         )}

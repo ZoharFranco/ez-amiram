@@ -18,11 +18,8 @@ function AuthGate({ children }: { children: React.ReactNode }) {
   const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
-    if (!loading && !user) {
-      setShowDialog(true);
-    } else {
-      setShowDialog(false);
-    }
+    // Stronger: Only show dialog if user is definitely not authenticated and not loading
+    setShowDialog(!loading && !user);
   }, [user, loading]);
 
   return (
@@ -33,16 +30,21 @@ function AuthGate({ children }: { children: React.ReactNode }) {
   );
 }
 
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-  }) {
+}) {
   return (
-    <html>
-      <title>
-      לימודי אנגלית למבחן אמירם
-      </title>
+    <html lang="he">
+      <head>
+        <title>
+          לימודי אנגלית למבחן פסיכומטרי\אמירם
+        </title>
+        <meta name="description" content="התחזק באנגלית לפסיכומטרי או אמירם עם תרגול חכם, מעקב התקדמות, וממשק עוצמתי." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className={rubik.className}>
         <AuthProvider>
           <LanguageProvider>

@@ -1,82 +1,119 @@
 'use client';
 
+import { VocabularyWord, vocabularyWords, WordStatus } from '@/config/content/vocabulary/vocabulary';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
 import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { useState } from 'react';
+import { LevelView } from '@/frontend/components/ui/vocabulary';
 
-type SubItem = {
-  text: string;
-  category: string;
-  level: string;
-  completed: boolean;
+// --- Main Page ---
+type ViewBy = 'category' | 'level';
+
+type GroupListProps = {
+  groupedVocabularyWord: Record<string, VocabularyWord[]>;
+  onSelectGroup: (group: string) => void;
+  getProgress: (items: VocabularyWord[]) => number;
+  viewBy: ViewBy;
+  t: (key: string) => string;
 };
 
-const allSubItems: SubItem[] = [
-  { text: 'אבל', category: 'קישור', level: 'Level A', completed: true },
-  { text: 'וגם', category: 'קישור', level: 'Level A', completed: false },
-  { text: 'כי', category: 'קישור', level: 'Level A', completed: true },
-  { text: 'שם1', category: 'שם', level: 'Level A', completed: true },
-  { text: 'שם2', category: 'שם', level: 'Level A', completed: true },
-  { text: 'תואר1', category: 'תואר', level: 'Level B', completed: false },
-  { text: 'פועל1', category: 'פועל', level: 'Level B', completed: true },
-  { text: 'צורה1', category: 'צורה', level: 'Level C', completed: false },
-  { text: 'תחילית א', category: 'תחילית', level: 'Level C', completed: true },
-];
+function GroupList({ groupedVocabularyWord, onSelectGroup, getProgress, viewBy, t }: GroupListProps) {
+  return (
+    <div className="space-y-4 m-6">
+      {Object.entries(groupedVocabularyWord).map(([groupName, items]) => {
+        const progress = getProgress(items);
+        const groupLabel =
+          viewBy === 'category'
+            ? t('pages.vocabulary.category') || 'Category'
+            : t('pages.vocabulary.level') || 'Level';
+        return (
+          <div
+            key={groupName}
+            className="cursor-pointer p-3 rounded-xl border-2 border-gray-200 hover:border-emerald-300 hover:bg-emerald-50 transition-all duration-300 hover:shadow-lg"
+            onClick={() => onSelectGroup(groupName)}
+          >
+            <div className="flex justify-between items-center mb-1">
+              <div className="flex items-center gap-2 w-full">
+                <div className="flex items-center gap-1">
+                  <span className="text-gray-500 text-lg font-medium">{groupLabel}:</span>
+                  <h2 className="text-2xl font-bold text-emerald-700">{groupName}</h2>
+                </div>
+                <div className="flex-1 flex justify-center">
+                </div>
+                <div className="text-right">
+                  <div className="flex flex-row md:flex-row md:items-center gap-1 md:gap-2">
+                    <div className="text-lg font-bold text-emerald-600 md:text-2xl">{Math.ceil(progress)}%</div>
 
-type ViewBy = 'category' | 'level';
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-3 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transition-all duration-500"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+            <div className="text-xs text-gray-600 md:text-lg text-center mt-2">
+              {items.length} {t('pages.vocabulary.words') || 'words'}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function VocabularyPage() {
   const { t } = useLanguage();
-  const [viewBy, setViewBy] = useState<ViewBy>('category');
+  const [viewBy, setViewBy] = useState<ViewBy>('level');
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
+  const [words, setWords] = useState<VocabularyWord[]>(vocabularyWords);
+  const [quizOpen, setQuizOpen] = useState(false);
 
   // Group sub-items by category or level
-  const groupedSubItems = allSubItems.reduce<Record<string, SubItem[]>>((groups, item) => {
-    const key = viewBy === 'category' ? item.category : item.level;
+  const groupedVocabularyWords: Record<string, VocabularyWord[]> = words.reduce((groups, item) => {
+    const key = viewBy === 'category' ? item.category : item.level.toString();
     if (!groups[key]) groups[key] = [];
     groups[key].push(item);
     return groups;
-  }, {});
+  }, {} as Record<string, VocabularyWord[]>);
 
-  // Calculate progress for a group (completed / total)
-  function getProgress(items: SubItem[]) {
+  // Calculate progress for a group (learned / total)
+  function getProgress(items: VocabularyWord[]) {
     const total = items.length;
-    const completed = items.filter((i) => i.completed).length;
-    return total > 0 ? (completed / total) * 100 : 0;
+    const learned = items.filter((i) => i.status === 'learned').length;
+    return total > 0 ? (learned / total) * 100 : 0;
   }
 
+  // Handler for changing word status
+  function handleStatusChange(word: VocabularyWord, status: WordStatus) {
+    setWords((prev) =>
+      prev.map((w) =>
+        w.word === word.word && w.category === word.category && w.level === word.level
+          ? { ...w, status }
+          : w
+      )
+    );
+  }
+
+  // Detail view for selected group
   if (selectedGroup) {
-    // Detail view for selected group
-    const items = groupedSubItems[selectedGroup] ?? [];
+    const items = groupedVocabularyWords[selectedGroup] ?? [];
+    const level = viewBy === 'level' ? parseInt(selectedGroup) : 1;
 
     return (
-      <ClientLayout>
-        <div className="min-h-screen  px-4 py-6 max-w-md mx-auto">
-          <button
-            onClick={() => setSelectedGroup(null)}
-            className="text-blue-600 hover:underline"
-          >
-            חזרה
-          </button>
-          <h1 className="text-4xl mb-10 font-bold text-center mb-4">{selectedGroup}</h1>
-          <div className="space-y-2">
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className={`p-3 rounded-lg border flex justify-between items-center ${item.completed ? 'bg-green-100 border-green-400' : 'bg-white border-gray-300'
-                  }`}
-              >
-                <span className="font-medium text-gray-800">{item.text}</span>
-                <span className="text-sm font-semibold text-gray-700">
-                  {item.completed ? '✓' : '✗'}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </ClientLayout>
+      <LevelView
+        level={level}
+        words={items}
+        onBack={() => setSelectedGroup(null)}
+        onStatusChange={handleStatusChange}
+        onStartQuiz={() => setQuizOpen(true)}
+        quizOpen={quizOpen}
+        onCloseQuiz={() => setQuizOpen(false)}
+      />
     );
   }
 
@@ -84,54 +121,38 @@ export default function VocabularyPage() {
   return (
     <ClientLayout>
       <div className="container mx-auto px-4 py-10">
-        <PageTitle title={t('pages.vocabulary.title')} subtitle={t('pages.vocabulary.subtitle')} color='indigo' />
+        <PageTitle
+          title={t('pages.vocabulary.title')}
+          subtitle={t('pages.vocabulary.subtitle')}
+          color="blue"
+        />
         <div className="mb-30">
           <div className="flex justify-center gap-4 m-4">
             <SelectionButton
-            onClick={() => {
-              setViewBy('category');
-              setSelectedGroup(null);
-            }}
-              text={t("pages.vocabulary.selection.category")}
+              onClick={() => {
+                setViewBy('category');
+                setSelectedGroup(null);
+              }}
+              text={t('pages.vocabulary.selection.category')}
               selected={viewBy === 'category'}
             />
-
             <SelectionButton
-            onClick={() => {
-              setViewBy('level');
-              setSelectedGroup(null);
-            }}
-              text={t("pages.vocabulary.selection.level")}
+              onClick={() => {
+                setViewBy('level');
+                setSelectedGroup(null);
+              }}
+              text={t('pages.vocabulary.selection.level')}
               selected={viewBy === 'level'}
             />
+          </div>
+          <GroupList
+            groupedVocabularyWord={groupedVocabularyWords}
+            onSelectGroup={setSelectedGroup}
+            getProgress={getProgress}
+            viewBy={viewBy}
+            t={t}
+          />
         </div>
-
-          <div className="space-y-4 m-6">
-          {Object.entries(groupedSubItems).map(([groupName, items]) => {
-            const progress = getProgress(items);
-            return (
-              <div
-                key={groupName}
-                className="cursor-pointer p-4 rounded-lg border hover:bg-blue-50 transition"
-                onClick={() => setSelectedGroup(groupName)}
-              >
-                <div className="flex justify-between items-center mb-2">
-                  <h2 className="text-xl font-semibold">{groupName}</h2>
-                  <span className="text-sm text-gray-600">
-                    {items.filter((i) => i.completed).length} / {items.length}
-                  </span>
-                </div>
-                <div className="w-full h-2 bg-gray-200 rounded-full">
-                  <div
-                    className="h-2 bg-green-500 rounded-full"
-                    style={{ width: `${progress}%` }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
       </div>
     </ClientLayout>
   );

@@ -80,7 +80,7 @@ export default function TipsPage() {
   return (
     <ClientLayout>
       <div className="container mx-auto px-4 py-10">
-        <PageTitle title={t('pages.tips.title')} subtitle={t('pages.tips.subtitle')} color="orange" />
+        <PageTitle title={t('pages.tips.title')} subtitle={t('pages.tips.subtitle')} color="yellow" />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
           {categories.map((category, idx) => (

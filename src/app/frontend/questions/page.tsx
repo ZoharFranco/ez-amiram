@@ -66,14 +66,16 @@ export default function QuestionsPage() {
                             >
                                 <div className="flex items-start justify-start gap-4 w-full mb-5">
                                     {/* Icon */}
-                                    <div className="text-4xl">{subject.icon}</div>
+                                    <div className="text-5xl sm:text-6xl lg:text-7xl">{subject.icon}</div>
                                     <div className="flex flex-col items-start text-start">
                                         {/* Title */}
-                                        <h3 className="text-xl font-semibold text-gray-800">
+                                        <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800">
                                             {subject.title}
                                         </h3>
                                         {/* Description */}
-                                        <p className="text-sm text-gray-500">{subject.description}</p>
+                                        <p className="text-base sm:text-lg lg:text-xl text-gray-500 mt-1">
+                                            {subject.description}
+                                        </p>
                                     </div>
                                 </div>
                                 {/* Progress Bar */}
@@ -84,21 +86,21 @@ export default function QuestionsPage() {
                                     inwork={0}
                                     trackClassName="bg-gray-100 h-2 rounded-full"
                                     progressBarClassName="bg-teal-500 h-2 rounded-full"
-                                    textColorClass="text-gray-600 text-sm mt-2"
+                                    textColorClass="text-gray-700 text-base sm:text-lg mt-2"
                                 />
-                                <div className="w-full flex justify-end items-start mt-3 bg-">
+                                <div className="w-full flex justify-end items-start mt-5">
                                     <button
-                                        className="flex items-center gap-1 px-1 py-1 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 text-white text-xs font-medium shadow transition-all duration-200"
+                                        className="flex items-center gap-2 px-2 py-2 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 text-white text-base sm:text-lg lg:text-xl font-semibold shadow transition-all duration-200"
                                         style={{ minWidth: 'unset', minHeight: 'unset' }}
                                         onClick={() => {
                                             window.location.href = `/frontend/questions/study?subject=${encodeURIComponent(subject.title)}`;
                                         }}
                                     >
-                                        <span className="font-semibold tracking-wide px-2 text-lg">
+                                        <span className="font-semibold tracking-wide px-3 text-lg sm:text-xl lg:text-2xl">
                                             המשך
                                         </span>
-                                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 transition-colors duration-200">
-                                            <ArrowLeftIcon className="w-4 h-4 text-white" />
+                                        <span className="inline-flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 rounded-full bg-[rgb(var(--color-primary))] hover:bg-teal-600 transition-colors duration-200">
+                                            <ArrowLeftIcon className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-white" />
                                         </span>
                                     </button>
                                 </div>
