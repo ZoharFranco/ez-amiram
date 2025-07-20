@@ -26,10 +26,10 @@ function getResponsiveSize() {
   }
   if (window.innerWidth < 1024) {
     // Tablet
-    return { size: 180, strokeWidth: 12 };
+    return { size: 160, strokeWidth: 12 };
   }
   // Desktop
-  return { size: 210, strokeWidth: 16 };
+  return { size: 180, strokeWidth: 16 };
 }
 
 export default function ProgressBar({

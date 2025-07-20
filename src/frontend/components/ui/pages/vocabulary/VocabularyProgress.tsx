@@ -28,8 +28,7 @@ export default function VocabularyProgress() {
     };
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-lg sm:max-w-xl md:max-w-2xl mx-auto py-8 sm:py-12 space-y-10">
-    
+    <div className="flex flex-col items-center justify-center w-full max-w-lg sm:max-w-xl md:max-w-2xl mx-auto py-2 sm:py-4 space-y-2">
         <ProgressBar percent={percent} completed={completed} total={total} className="h-26 sm:h-34" />
       <ActionButton
         className="mt-8 text-2xl px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
