@@ -1,7 +1,7 @@
 'use client';
 
 
-import ActionButtons from '@/frontend/components/ActionButtons';
+
 import ClientLayout from '@/frontend/components/ClientLayout';
 import CurrentGradeCard from '@/frontend/components/CurrentGradeCard';
 import BasicsSection from '@/frontend/components/ui/pages/home/BasicsSection';
@@ -12,15 +12,14 @@ import TestUnitsSection from '@/frontend/components/TestUnitsSection';
 import TimeSelectionDialog from '@/frontend/components/TimeSelectionDialog';
 import AuthButton from '@/frontend/components/common/signOutButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { useAuth } from '@/frontend/contexts/auth-context';
+
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Home() {
   const router = useRouter();
   const { t } = useLanguage();
-  const { user } = useAuth();
-
+  
   const [isTimeDialogOpen, setIsTimeDialogOpen] = useState(false);
   const [animateProgress, setAnimateProgress] = useState(false);
 
@@ -57,9 +56,6 @@ export default function Home() {
     router.push(`/frontend/questions/start?duration=${minutes}`);
   };
 
-  const handleSimulationClick = () => {
-    router.push('/frontend/simulations/start');
-  };
 
   return (
     <ClientLayout>
@@ -91,6 +87,8 @@ export default function Home() {
           onClose={() => setIsTimeDialogOpen(false)}
           onSelectTime={handleTimeSelection}
         />
+        {/* Fix: Add missing closing for <AuthButton /> */}
+        <AuthButton />
     </ClientLayout>
   );
 }

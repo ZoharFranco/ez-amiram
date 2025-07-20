@@ -2,12 +2,11 @@ import { useLanguage } from '@/frontend/contexts/LanguageContext';
 
 type QuizButtonProps = {
   onClick: () => void;
-  onAdvancedSettings?: () => void;
   wordCount: number;
   disabled?: boolean;
 };
 
-export default function QuizButton({ onClick, onAdvancedSettings, wordCount, disabled = false }: QuizButtonProps) {
+export default function QuizButton({ onClick, wordCount, disabled = false }: QuizButtonProps) {
   const { t } = useLanguage();
 
   return (

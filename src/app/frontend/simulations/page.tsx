@@ -4,10 +4,7 @@ import '@/frontend/components/ChartSetup';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
 import ActionButton from '@/frontend/components/shared/ActionButton';
-import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { Button } from '@headlessui/react';
-import { TestTube2Icon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
@@ -75,7 +72,7 @@ const scoreTypes: { key: ScoreKey; label: string }[] = [
 export default function Simulation() {
     const router = useRouter();
     const { t } = useLanguage();
-    const [selectedScore, setSelectedScore] = useState<ScoreKey>('total');
+    const [selectedScore] = useState<ScoreKey>('total');
 
     const chartData = {
         labels: mockHistory.map((sim) => sim.date),
@@ -124,7 +121,7 @@ export default function Simulation() {
                                     <span className="font-semibold text-lg sm:text-xl md:text-2xl text-gray-700">{sim.date}</span>
                                     <span className="text-orange-600 font-bold text-2xl sm:text-3xl md:text-4xl flex items-baseline gap-1">
                                         {Math.round(sim.total)}
-                                        <span className="text-sm sm:text-base md:text-lg font-normal text-gray-500">נק'</span>
+                                        <span className="text-sm sm:text-base md:text-lg font-normal text-gray-500">נק</span>
                                     </span>
                                 </div>
                                 {/* Scores breakdown */}

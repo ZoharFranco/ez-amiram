@@ -4,7 +4,7 @@ import AuthDialog from '@/frontend/components/AuthDialog';
 import { LanguageProvider } from '@/frontend/contexts/LanguageContext';
 import { AuthProvider, useAuth } from '@/frontend/contexts/auth-context';
 import { Rubik } from 'next/font/google';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import './globals.css';
 
 const rubik = Rubik({

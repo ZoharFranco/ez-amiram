@@ -5,7 +5,6 @@
 import QuestionsProgressBar from '@/frontend/components/shared/questionsProgressBar';
 import { useState, useEffect, useRef } from 'react';
 import QuestionDisplay from './questionDisplay';
-import QuestionsNavigationButtons from './questionsNavigation';
 import ResultsDisplay from './resultsDispla';
 import SimulationHeader from './simulationHeader';
 import { ArrowLeftIcon, ArrowRightIcon, CheckCircleIcon, ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
@@ -18,28 +17,8 @@ type Question = {
   correctAnswer: number;
 };
 
-const mockQuestions: Question[] = [
-  {
-    id: 1,
-    text: 'The culinary term chiffonade refers to vegetables that have been shredded or __________ into strips.',
-    options: ['sliced', 'sipped', 'stored', 'switched'],
-    correctAnswer: 0, // 'sliced'
-  },
-  {
-    id: 2,
-    text: 'What is the capital of France?',
-    options: ['Paris', 'London', 'Berlin', 'Madrid'],
-    correctAnswer: 0,
-  },
-  {
-    id: 3,
-    text: 'What is 2 + 2?',
-    options: ['3', '4', '5', '6'],
-    correctAnswer: 1,
-  },
-];
 
-const SECTION_TIME_SECONDS = 5 * 60; // 5 minutes per section
+
 
 // Define simulation stages
 const SIMULATION_STAGES = [
@@ -109,7 +88,6 @@ export default function SimulationRunPage() {
   useEffect(() => {
     if (isSubmitted) return;
     if (timeLeft <= 0) {
-      handleNextStage();
       return;
     }
     timerRef.current = setTimeout(() => setTimeLeft(timeLeft - 1), 1000);
@@ -122,7 +100,7 @@ export default function SimulationRunPage() {
   useEffect(() => {
     setTimeLeft(currentStageData.timeLimit);
     setCurrentQuestion(0);
-  }, [currentStage]);
+  }, [currentStage, currentStageData.timeLimit]);
 
   const handleAnswerSelect = (answerIndex: number): void => {
     if (isSubmitted) return;
@@ -179,12 +157,12 @@ export default function SimulationRunPage() {
   const calculateScore = (): number => {
     let totalCorrect = 0;
     let totalQuestions = 0;
-    
+
     Object.keys(selectedAnswers).forEach(stageKey => {
       const stage = parseInt(stageKey);
       const questions = mockQuestionsByStage[stage] || [];
       const answers = selectedAnswers[stage] || [];
-      
+
       questions.forEach((question, index) => {
         totalQuestions++;
         if (question.correctAnswer === answers[index]) {
@@ -192,12 +170,12 @@ export default function SimulationRunPage() {
         }
       });
     });
-    
+
     return Math.round((totalCorrect / totalQuestions) * 100);
   };
 
   const currentStageAnswers = selectedAnswers[currentStage] || [];
-  const allQuestionsAnswered = currentQuestions.length > 0 && 
+  const allQuestionsAnswered = currentQuestions.length > 0 &&
     currentStageAnswers.length === currentQuestions.length &&
     currentStageAnswers.every(answer => answer !== undefined);
 
@@ -229,7 +207,6 @@ export default function SimulationRunPage() {
       <div className="w-full max-w-4xl mx-auto space-y-4 md:space-y-8">
         <SimulationHeader
           currentStep={currentStage}
-          totalSteps={SIMULATION_STAGES.length}
           timeRemaining={formatTime(timeLeft)}
           onNextSection={handleNextStage}
         />

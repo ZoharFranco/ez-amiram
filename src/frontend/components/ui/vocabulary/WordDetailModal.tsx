@@ -53,7 +53,7 @@ export default function WordDetailModal({ item, onClose, onStatusChange }: WordD
                 <span className="font-semibold text-gray-700 block mb-1">
                   {t('pages.vocabulary.example') || 'Example'}
                 </span>
-                <span className="text-gray-600 italic leading-relaxed">"{item.example}"</span>
+                <span className="text-gray-600 italic leading-relaxed">`{item.example}`</span>
               </div>
             </div>
           </div>

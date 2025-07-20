@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { VocabularyWord } from '@/config/content/vocabulary/vocabulary';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 
@@ -181,9 +181,6 @@ export default function QuizGame({ items, onClose, selectedQuestionTypes }: Quiz
   const currentIdx = state.order[state.current];
   const currentItem = quizItems[currentIdx];
   const { prompt, main, sub, emoji } = getQuestionPrompt(t, state.questionType, currentItem);
-
-  // For animated progress bar
-  const progressRef = useRef<HTMLDivElement>(null);
 
   // Confetti effect for correct answer streaks
   useEffect(() => {

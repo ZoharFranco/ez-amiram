@@ -12,17 +12,6 @@ type ModernWordCardProps = {
 const ICON_SIZE_CLASSES =
   'w-5 h-5 sm:w-7 sm:h-7 mr-2 sm:mr-3';
 
-function getStatusDotColor(status: WordStatus | undefined) {
-  switch (status) {
-    case 'learned':
-      return 'bg-emerald-400';
-    case 'learning':
-      return 'bg-blue-400';
-    case 'toLearn':
-    default:
-      return 'bg-gray-300';
-  }
-}
 
 function getStatusIcon(status: WordStatus | undefined) {
   switch (status) {
@@ -83,7 +72,9 @@ export default function ModernWordCard({ word, onClick, onStatusIconClick }: Mod
           aria-label="Change word status"
           onClick={e => {
             e.stopPropagation();
-            onStatusIconClick && onStatusIconClick();
+            if (onStatusIconClick) {
+              onStatusIconClick();
+            }
           }}
         >
           {getStatusIcon(status)}

@@ -3,12 +3,11 @@ import React from 'react';
 
 type SimulationHeaderProps = {
   currentStep: number;
-  totalSteps: number;
   timeRemaining: string; // e.g., "03:22"
   onNextSection: () => void;
 };
 
-const SimulationHeader: React.FC<SimulationHeaderProps> = ({ currentStep, totalSteps, timeRemaining, onNextSection }) => {
+const SimulationHeader: React.FC<SimulationHeaderProps> = ({ currentStep, timeRemaining, onNextSection }) => {
   return (
     <div className="bg-white shadow-md py-3 px-3 md:py-4 md:px-6 flex flex-col md:flex-row items-center justify-between rounded-t-xl gap-3 md:gap-0" dir="ltr">
       <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 w-full md:w-auto">

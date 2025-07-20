@@ -53,14 +53,6 @@ export default function QuizTypeSelector({ onStart, onClose }: QuizTypeSelectorP
     );
   };
 
-  const selectAll = () => {
-    setSelectedTypes(['hebrew-to-english', 'english-to-hebrew', 'definition-to-hebrew', 'example-to-hebrew']);
-  };
-
-  const selectNone = () => {
-    setSelectedTypes([]);
-  };
-
   const handleStart = () => {
     // Always use selected types, if none selected it will use all types by default
     onStart(selectedTypes);

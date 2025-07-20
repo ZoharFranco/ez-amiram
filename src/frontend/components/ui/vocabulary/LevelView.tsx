@@ -61,9 +61,6 @@ export default function LevelView({
     onStartQuiz();
   };
 
-  const handleAdvancedSettings = () => {
-    setShowTypeSelector(true);
-  };
 
   const handleTypeSelectorClose = () => {
     setShowTypeSelector(false);
@@ -107,7 +104,6 @@ export default function LevelView({
       <div className="sticky bottom-0 bg-white pt-2 pb-2 sm:pt-4 sm:pb-4 border-t border-gray-100">
         <QuizButton
           onClick={handleStartQuiz}
-          onAdvancedSettings={handleAdvancedSettings}
           wordCount={words.length}
           // QuizButton should use responsive text and padding internally
         />
