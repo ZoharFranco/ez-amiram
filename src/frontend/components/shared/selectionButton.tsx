@@ -16,7 +16,7 @@ const SelectionButton: React.FC<SelectionButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className={`px-4 py-2 rounded-full font-medium transition ${
+      className={`px-6 py-3 rounded-full font-medium transition ${
         selected
           ? 'bg-blue-600 text-white'
           : 'bg-white border text-blue-600'

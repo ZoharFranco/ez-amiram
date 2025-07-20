@@ -3,6 +3,7 @@
 import '@/frontend/components/ChartSetup';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
+import ActionButton from '@/frontend/components/shared/ActionButton';
 import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { Button } from '@headlessui/react';
@@ -10,8 +11,7 @@ import { TestTube2Icon } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-
-
+import { theme } from '@/frontend/theme';
 
 type Question = {
     id: number;
@@ -77,7 +77,6 @@ export default function Simulation() {
     const { t } = useLanguage();
     const [selectedScore, setSelectedScore] = useState<ScoreKey>('total');
 
-
     const chartData = {
         labels: mockHistory.map((sim) => sim.date),
         datasets: [
@@ -98,57 +97,68 @@ export default function Simulation() {
                 <main className="px-8 max-w-5xl mx-auto">
                     <div className="flex flex-col items-center mb-10">
                         <div className="relative group flex items-center justify-center">
-                            <Button
-                                onClick={() => router.push('/frontend/simulations/start')}
-                                className="relative w-60 h-24 flex items-center justify-center rounded-full text-2xl font-extrabold bg-blue-600 hover:bg-blue-700 text-white shadow-2xl hover:shadow-blue-400/60 transition-all duration-200 mb-2 p-0"
-                                style={{ minWidth: '15rem', minHeight: '6rem', letterSpacing: '0.03em' }}
-                            >
-                                <span className="mr-2 drop-shadow-lg tracking-wide animate-fade-in-scale">
-                                    {t('pages.simulations.startNew')}
-                                </span>
-                                <TestTube2Icon className="h-10 w-10 ml-2 text-yellow-200 drop-shadow-md animate-fade-in-scale" />
-                            </Button>
+                            {/* Modern button design */}
+                        <ActionButton 
+                            color="orange"
+                            className="text-base px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                            onClick={() => router.push('/frontend/simulations/start')}
+                        >
+                            {t('pages.simulations.startNew') || 'התחל'}
+                        </ActionButton>
                         </div>
                     </div>
 
-
                     {/* כרטיסי סימולציות */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8" dir="rtl">
-                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">סימולציות עבר</h2>
+                    <div className="flex flex-col gap-4 mb-8" dir="rtl">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 text-orange-700 flex items-center gap-2">
+                            <span className="inline-block w-2 h-2 rounded-full bg-orange-400"></span>
+                            סימולציות עבר
+                        </h2>
                         {mockHistory.map(sim => (
-                            <div key={sim.id} className="bg-white rounded-lg shadow-sm p-4 flex flex-col gap-2">
-                                <div className="flex justify-between items-center">
-                                    <span className="font-semibold">{sim.date}</span>
-                                    <span className="text-blue-600 font-bold">{Math.round(sim.total)} נק'</span>
+                            <div
+                                key={sim.id}
+                                className="bg-white rounded-xl shadow-sm p-5 flex flex-col gap-4 border border-gray-100 hover:shadow-md transition-all duration-200 w-full"
+                            >
+                                {/* Header: Date and Total Score */}
+                                <div className="flex justify-between items-center mb-1">
+                                    <span className="font-semibold text-lg sm:text-xl md:text-2xl text-gray-700">{sim.date}</span>
+                                    <span className="text-orange-600 font-bold text-2xl sm:text-3xl md:text-4xl flex items-baseline gap-1">
+                                        {Math.round(sim.total)}
+                                        <span className="text-sm sm:text-base md:text-lg font-normal text-gray-500">נק'</span>
+                                    </span>
                                 </div>
-                                <div className="flex gap-2 text-xs text-gray-500">
-                                    <span>קריאה: {Math.round(sim.reading)} נק'</span>
-                                    <span>הבנה שמיעתית: {Math.round(sim.listening)} נק'</span>
-                                    <span>כתיבה: {Math.round(sim.writing)} נק'</span>
+                                {/* Scores breakdown */}
+                                <div className="flex justify-between text-base sm:text-lg md:text-xl text-gray-600">
+                                    <div className="flex flex-col items-center flex-1">
+                                        <span className="font-bold text-xl sm:text-2xl md:text-3xl text-gray-800">{Math.round(sim.reading)}</span>
+                                        <span className="text-xs sm:text-sm md:text-base text-orange-600 mt-0.5">קריאה</span>
+                                    </div>
+                                    <div className="flex flex-col items-center flex-1">
+                                        <span className="font-bold text-xl sm:text-2xl md:text-3xl text-gray-800">{Math.round(sim.listening)}</span>
+                                        <span className="text-xs sm:text-sm md:text-base text-orange-600 mt-0.5">הבנה שמיעתית</span>
+                                    </div>
+                                    <div className="flex flex-col items-center flex-1">
+                                        <span className="font-bold text-xl sm:text-2xl md:text-3xl text-gray-800">{Math.round(sim.writing)}</span>
+                                        <span className="text-xs sm:text-sm md:text-base text-orange-600 mt-0.5">כתיבה</span>
+                                    </div>
                                 </div>
-                                <button
-                                    className="mt-2 bg-gray-100 hover:bg-blue-50 text-blue-700 rounded px-3 py-1 text-xs font-medium"
-                                >
-                                    לצפייה בפרטים
-                                </button>
                             </div>
                         ))}
                     </div>
                     <div className="mb-8">
-                        <h2 className="text-2xl text-gray-900 mb-4 font-bold">{t('pages.simulations.simulationGraph')}</h2>
-                        <div className="flex gap-2 mb-4">
-                            {scoreTypes.map(type => (
-                                <SelectionButton
-                                    key={type.key}
-                                    onClick={() => setSelectedScore(type.key)}
-                                    text={t(`pages.simulations.graph.${type.label}`)}
-                                    selected={selectedScore === type.key}
-                                />
-                            ))}
-                        </div>
-                        <div className="h-64 flex items-center justify-center text-gray-400 border border-dashed border-gray-200 rounded-lg bg-white">
+                        <h2 className="text-2xl text-[${theme.orange.dark}] mb-4 font-bold">{t('pages.simulations.simulationGraph')}</h2>
+                        <div className="h-54 flex items-center justify-center text-gray-400 border border-dashed border-gray-200 rounded-lg bg-white">
                             <Line
-                                data={chartData}
+                                data={{
+                                    ...chartData,
+                                    datasets: [
+                                        {
+                                            ...chartData.datasets[0],
+                                            borderColor: theme.orange.base,
+                                            backgroundColor: theme.orange.light,
+                                        },
+                                    ],
+                                }}
                                 options={{
                                     responsive: true,
                                     plugins: {
@@ -167,7 +177,7 @@ export default function Simulation() {
                         </div>
                     </div>
                 </main>
-                </div>
+            </div>
         </ClientLayout>
     );
 } 

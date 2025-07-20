@@ -63,42 +63,34 @@ export default function Home() {
 
   return (
     <ClientLayout>
-
       <div className="container mx-auto px-4 py-10">
         <PageTitle title={t('pages.home.title')} subtitle={t('pages.home.subtitle')} />
-
-        <div className="px-8 mb-10 max-w-6xl mx-auto">
-          {user && (
-            <><CurrentGradeCard
-              predictedGrade={predictedGrade}
-              learningStreak={learningStreak}
-              animateProgress={animateProgress}
-            />
-              <ActionButtons
-                onQuickLearn={() => setIsTimeDialogOpen(true)}
-                onSimulation={handleSimulationClick}
-                t={t}
+          <div className="flex flex-col lg:flex-row items-stretch gap-8">
+            {/* Left: Grade Card + AuthButton */}
+            <div className="lg:w-1/3 w-full flex flex-col justify-center items-center">
+              <CurrentGradeCard
+                predictedGrade={predictedGrade}
+                learningStreak={learningStreak}
+                animateProgress={animateProgress}
               />
-            </>
+            </div>
 
-          )}
+            {/* Divider for desktop */}
+            <div className="hidden lg:block w-px bg-gray-200 mx-4" />
 
-
-          {user && (
-            <>
+            {/* Right: Main Content */}
+            <div className="lg:w-2/3 w-full flex flex-col gap-8 justify-center">
               <TestUnitsSection topics={topics} />
               <BasicsSection />
-            </>
-          )}
-          <AuthButton />
-          <TimeSelectionDialog
-            isOpen={isTimeDialogOpen}
-            onClose={() => setIsTimeDialogOpen(false)}
-            onSelectTime={handleTimeSelection}
-          />
+            </div>
+          </div>
         </div>
-      </div>
 
+        <TimeSelectionDialog
+          isOpen={isTimeDialogOpen}
+          onClose={() => setIsTimeDialogOpen(false)}
+          onSelectTime={handleTimeSelection}
+        />
     </ClientLayout>
   );
 }

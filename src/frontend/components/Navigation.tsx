@@ -24,9 +24,9 @@ export default function Navigation() {
     const isActive = (path: string) => pathname === path;
 
     const navItems: NavItem[] = [
-        { href: '/', label: t('nav.home'), icon: HomeIcon },
-        { href: '/frontend/questions', label: t('nav.questions'), icon: PiGraduationCapDuotone },
         { href: '/frontend/simulations', label: t('nav.simulations'), icon: PiGameControllerLight },
+        { href: '/frontend/questions', label: t('nav.questions'), icon: PiGraduationCapDuotone },
+        { href: '/', label: t('nav.home'), icon: HomeIcon },
         { href: '/frontend/vocabulary', label: t('nav.vocabulary'), icon: BookAIcon },
         { href: '/frontend/tips', label: t('nav.tips'), icon: PiLightbulbLight }
     ];

@@ -5,7 +5,7 @@ import en from '@/frontend/translations/en.json';
 import he from '@/frontend/translations/he.json';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-type Language = 'en' | 'he' | 'ar';
+type Language = 'he' | 'en' | 'ar';
 
 type TranslationValue = string | { [key: string]: TranslationValue };
 
@@ -21,8 +21,8 @@ type LanguageContextType = {
 };
 
 const translations: { [key in Language]: Translations } = {
-    en,
     he,
+    en,
     ar,
 };
 
@@ -34,11 +34,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     useEffect(() => {
         // Set initial language based on browser preference or stored preference
         const storedLang = localStorage.getItem('language') as Language;
-        if (storedLang && ['en', 'he', 'ar'].includes(storedLang)) {
+        if (storedLang && ['he', 'en', 'ar'].includes(storedLang)) {
             setLanguage(storedLang);
         } else {
-            const browserLang = navigator.language.split('-')[0] as Language;
-            setLanguage(['en', 'he', 'ar'].includes(browserLang) ? browserLang : 'en');
+            setLanguage('he');
         }
     }, []);
 

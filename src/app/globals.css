@@ -30,6 +30,43 @@
   animation: fadeInScale 0.3s ease-out forwards; /* Shorter duration for snappier update */
 }
 
+/* Vocabulary specific animations */
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slideInFromBottom 0.4s ease-out forwards;
+}
+
+@keyframes cardHover {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-card-hover {
+  animation: cardHover 0.3s ease-out;
+}
+
+/* Stagger animation for word cards */
+.word-card-stagger {
+  animation-delay: calc(var(--stagger-index) * 50ms);
+}
+
 @layer base {
   :root {
     /* Clean Professional Theme with Balanced Colors */

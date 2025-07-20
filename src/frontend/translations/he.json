@@ -32,24 +32,25 @@
   },
 "pages": {
   "home": {
-    "questionsPractice": "תרגול נושאי הבחינה",
+    "questionsPractice": "תרגול שאלות",
     "vocabularyPractice": "תרגול אוצר מילים",
     "subtitle": "ללמוד בצורה פשוטה ואפקטיבית",
+    "goToSimulations": "תרגול סימולציות",
     "title": "אמירם",
     "currentGrade": "ציון צפוי",
     "outOf": "מתוך",
-    "quickLearn": "התחלו למידה מהירה",
+    "quickLearn":   "למידה מהירה",
     "quickLearnDescription": "שיעור לפי לזמן שלך",
     "fullSimulation": "פתרו סימולציה מלאה",
     "fullSimulationDescription": "סימולציה מלאה של מבחן",
-    "recentProgress": "התקדמות נושאי בחינה",
+    "recentProgress": "נושאי בחינה",
     "learningStreak": "ימים",
     "topics": {
       "restatement": "ניסוח מחדש",
       "sentenceCompletion": "השלמת מילים",
       "readingComprehension": "הבנת קריאה"
     },
-    "vocabularyProgress": "התקדמות אוצר מילים",
+    "vocabularyProgress": "אוצר מילים",
     "basicsSection": "יסודות"
   },
   "quickLearn": {
@@ -68,6 +69,7 @@
   },
   "vocabulary": { 
     "level":"רמה",
+    "words": "מילים",
     "definition": "משמעות",
     "example": "דוגמה",
     "category":"קטגוריה",
@@ -75,7 +77,38 @@
     "subtitle": "הבסיס וחלק מרכזי להצלחה באמירם",
     "back": "אחורה",
     "quiz": {
-      "start": "התחל מבחן"
+      "start": "התחל מבחן",
+      "progress": "שאלה",
+      "score": "ציון",
+      "finished": "המבחן הסתיים!",
+      "restart": "התחל מחדש",
+      "close": "סגור",
+      "next": "הבא",
+      "finish": "סיים",
+      "correct": "נכון!",
+      "incorrect": "לא נכון.",
+      "answer": "תשובה",
+      "streak": "רצף!",
+      "extraHint": "רמז",
+      "sevenWords": "המבחן תמיד 7 מילים לאתגר מהיר!",
+      "prompt": {
+        "hebrewToEnglish": "מה התרגום לאנגלית של:",
+        "englishToHebrew": "מה המילה בעברית עבור:",
+        "definitionToHebrew": "איזו מילה בעברית מתאימה להגדרה זו?",
+        "exampleToHebrew": "איזו מילה בעברית מתאימה לדוגמה זו?"
+      },
+      "selectTypes": "בחר סוגי שאלות",
+      "selectAll": "בחר הכל",
+      "selectNone": "בטל בחירה",
+      "startQuiz": "התחל מבחן",
+      "types": "סוגים",
+      "selectAtLeastOne": "אנא בחר לפחות סוג שאלה אחד",
+      "types": {
+        "hebrewToEnglishDesc": "תרגם מילים בעברית לאנגלית",
+        "englishToHebrewDesc": "תרגם מילים באנגלית לעברית",
+        "definitionToHebrewDesc": "התאם הגדרות למילים בעברית",
+        "exampleToHebrewDesc": "התאם דוגמאות למילים בעברית"
+      }
     },
     "status": {
       "learning": "כרגע בלמידה",

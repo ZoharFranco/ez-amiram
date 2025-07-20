@@ -154,5 +154,62 @@
       "title": "Writing",
       "description": "Develop your English writing skills"
     }
+  },
+  "pages": {
+    "vocabulary": {
+      "level": "Level",
+      "words": "Words",
+      "definition": "Definition",
+      "example": "Example",
+      "category": "Category",
+      "title": "Vocabulary",
+      "subtitle": "The foundation and core part of success in Amiram",
+      "back": "Back",
+      "close": "Close",
+      "noWords": "No words in this group.",
+      "quiz": {
+        "start": "Start Quiz",
+        "progress": "Question",
+        "score": "Score",
+        "finished": "Quiz Finished!",
+        "restart": "Restart",
+        "close": "Close",
+        "next": "Next",
+        "finish": "Finish",
+        "correct": "Correct!",
+        "incorrect": "Incorrect.",
+        "answer": "Answer",
+        "streak": "Streak!",
+        "extraHint": "Hint",
+        "sevenWords": "Quiz is always 7 words for a quick challenge!",
+        "selectTypes": "Select Question Types",
+        "selectAll": "Select All",
+        "selectNone": "Select None",
+        "startQuiz": "Start Quiz",
+        "types": "types",
+        "selectAtLeastOne": "Please select at least one question type",
+        "prompt": {
+          "hebrewToEnglish": "What is the English translation of:",
+          "englishToHebrew": "What is the Hebrew word for:",
+          "definitionToHebrew": "Which Hebrew word matches this definition?",
+          "exampleToHebrew": "Which Hebrew word fits this example?"
+        },
+        "types": {
+          "hebrewToEnglishDesc": "Translate Hebrew words to English",
+          "englishToHebrewDesc": "Translate English words to Hebrew",
+          "definitionToHebrewDesc": "Match definitions to Hebrew words",
+          "exampleToHebrewDesc": "Match examples to Hebrew words"
+        }
+      },
+      "status": {
+        "learning": "Currently Learning",
+        "toLearn": "To Learn",
+        "learned": "Learned"
+      },
+      "selection": {
+        "category": "Category",
+        "level": "Level"
+      }
+    }
   }
 } 
