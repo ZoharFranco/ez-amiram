@@ -1,75 +1,59 @@
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { FaCheckCircle } from 'react-icons/fa';
+import { FaBookOpen, FaCheckCircle } from 'react-icons/fa';
 import { TimerIcon } from 'lucide-react';
 
 type LevelHeaderProps = {
   level: number;
   wordCount: number;
   learnedCount: number;
-  learningCount?: number; // Optional for backward compatibility
+  learningCount?: number;
 };
 
-export default function LevelHeader({ level, wordCount, learnedCount, learningCount = 0 }: LevelHeaderProps) {
+export default function LevelHeader({
+  level,
+  wordCount,
+  learnedCount,
+  learningCount = 0
+}: LevelHeaderProps) {
   const { t } = useLanguage();
-  const progress = wordCount > 0 ? (learnedCount / wordCount) * 100 : 0;
-  const learningProgress = wordCount > 0 ? (learningCount / wordCount) * 100 : 0;
-
-
-  // Calculate the width for learned and learning so they are adjacent, both from the left
-  // The learned bar is first, then the learning bar, then the rest is gray
-  // If learned + learning > 100%, cap at 100%
-  const learnedWidth = Math.min(progress, 100);
-  const learningWidth = Math.min(Math.max(learningProgress, 0), 100 - learnedWidth);
 
   return (
-    <div className="text-center mb-8 animate-slide-in">
-      {/* Level Title */}
-      <h1 className="text-6xl font-bold mb-6 animate-fade-in-scale" style={{ animationDelay: '0.1s' }}>
-        {t('pages.vocabulary.level') || 'Level'} {level}
+    <div className="text-center mb-6" dir={t('dir') === 'rtl' ? 'rtl' : 'ltr'}>
+      <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-8">
+        {t('pages.vocabulary.level')} {level}
       </h1>
+      <div className="grid grid-cols-3 gap-4 max-w-lg mx-auto mb-10">
+        {/* Total Words */}
+        <div className="flex flex-col items-center justify-center p-4 bg-white/50 border border-gray-200/80 rounded-2xl shadow-lg backdrop-blur-sm transition-all hover:shadow-xl hover:-translate-y-1">
+          <FaBookOpen className="w-8 h-8 text-gray-600 mb-2" />
+          <span className="text-2xl font-bold text-gray-800 tracking-tight">
+            {wordCount}
+          </span>
+          <span className="text-sm font-semibold text-gray-500 uppercase">
+            {t('pages.vocabulary.status.total')}
+          </span>
+        </div>
 
-      {/* Progress Info */}
-      <div className="flex justify-center items-center gap-6 text-gray-700 mb-4 animate-fade-in-scale" style={{ animationDelay: '0.2s' }}>
-        {/* Learned */}
-        <span className="flex items-center gap-2 text-lg">
-          <FaCheckCircle className="text-emerald-400 w-5 h-5" aria-label="Learned" />
-          {learnedCount} / {wordCount} {t('pages.vocabulary.words') || 'words'}
-        </span>
-        {/* Progress Percentage */}
-        <span className="text-lg font-semibold text-emerald-600">
-          {Math.ceil(progress)}%
-        </span>
         {/* Learning */}
-        <span className="flex items-center gap-2 text-lg">
-          <TimerIcon className="text-blue-400 w-5 h-5" aria-label="Learning" />
-          <span className="font-bold">{learningCount}</span> {t('pages.vocabulary.status.learning') || 'learning'}
-        </span>
-      </div>
+        <div className="flex flex-col items-center justify-center p-4 bg-blue-50/50 border border-blue-200/80 rounded-2xl shadow-lg backdrop-blur-sm transition-all hover:shadow-xl hover:-translate-y-1">
+          <TimerIcon className="w-8 h-8 text-blue-500 mb-2" />
+          <span className="text-2xl font-bold text-blue-800 tracking-tight">
+            {learningCount}
+          </span>
+          <span className="text-sm font-semibold text-blue-600 uppercase">
+            {t('pages.vocabulary.status.learning')}
+          </span>
+        </div>
 
-      {/* Progress Bar */}
-      <div className="w-full max-w-md mx-auto animate-fade-in-scale" style={{ animationDelay: '0.3s' }}>
-        <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden flex relative">
-          {/* Learned Progress (emerald, from left) */}
-          <div
-            className="h-full bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-500"
-            style={{
-              width: `${learnedWidth}%`,
-              borderTopRightRadius: '0.75rem',
-              borderBottomRightRadius: '0.75rem'
-            }}
-          />
-          {/* Learning Progress (blue, immediately after learned, from left) */}
-          {learningCount > 0 && learningWidth > 0 && (
-            <div
-              className="h-full bg-blue-400/70 transition-all duration-500"
-              style={{
-                width: `${learningWidth}%`,
-                marginLeft: `${learnedWidth}%`,
-                borderTopRightRadius: learnedWidth + learningWidth === 100 ? '0.75rem' : 0,
-                borderBottomRightRadius: learnedWidth + learningWidth === 100 ? '0.75rem' : 0,
-              }}
-            />
-          )}
+        {/* Learned */}
+        <div className="flex flex-col items-center justify-center p-4 bg-emerald-50/50 border border-emerald-200/80 rounded-2xl shadow-lg backdrop-blur-sm transition-all hover:shadow-xl hover:-translate-y-1">
+          <FaCheckCircle className="w-8 h-8 text-emerald-500 mb-2" />
+          <span className="text-2xl font-bold text-emerald-800 tracking-tight">
+            {learnedCount}
+          </span>
+          <span className="text-sm font-semibold text-emerald-600 uppercase">
+            {t('pages.vocabulary.status.learned')}
+          </span>
         </div>
       </div>
     </div>

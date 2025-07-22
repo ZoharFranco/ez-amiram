@@ -44,11 +44,15 @@
     "fullSimulation": "פתרו סימולציה מלאה",
     "fullSimulationDescription": "סימולציה מלאה של מבחן",
     "recentProgress": "נושאי בחינה",
+    "questionsProgress": "שאלות {{answered}}/{{total}}",
     "learningStreak": "ימים",
     "topics": {
       "restatement": "ניסוח מחדש",
+      "restatementDescription": "תרגול ניסוח מחדש של משפטים",
       "sentenceCompletion": "השלמת מילים",
-      "readingComprehension": "הבנת קריאה"
+      "sentenceCompletionDescription": "השלמת משפטים עם המילים הנכונות",
+      "readingComprehension": "הבנת קריאה",
+      "readingComprehensionDescription": "הבנה וניתוח של טקסטים"
     },
     "vocabularyProgress": "אוצר מילים",
     "basicsSection": "יסודות"
@@ -112,8 +116,8 @@
     "status": {
       "learning": "כרגע בלמידה",
       "toLearn": "צריך ללמוד",
-      "learned": "נלמד"
-
+      "learned": "נלמד",
+      "total": "סך הכל מילים"
     },
     "selection": {
       "category": "קטגוריה",

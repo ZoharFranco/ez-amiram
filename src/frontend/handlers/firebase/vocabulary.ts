@@ -1,7 +1,7 @@
 import Simulation from "@/lib/types/simulation";
 import { Firestore, collection, addDoc, getDoc, doc } from "firebase/firestore";
 
-class SimulationsHandler {
+class VocabularyHandler {
     constructor(private db: Firestore) {}
 
     async createSimulation(simulation: Simulation) {
@@ -16,4 +16,4 @@ class SimulationsHandler {
     
 }
 
-export default SimulationsHandler;
+export default VocabularyHandler;

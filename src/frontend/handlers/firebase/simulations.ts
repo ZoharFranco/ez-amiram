@@ -1,6 +1,9 @@
 import Simulation from "@/lib/types/simulation";
 import { Firestore, collection, addDoc, getDoc, doc } from "firebase/firestore";
 
+// const simulationsCollection = (db: Firestore) => collection(db, "simulations");
+// const userSimulationsAnswersCollection = (db: Firestore) => collection(db, "userSimulationsAnswers");
+
 class SimulationsHandler {
     constructor(private db: Firestore) {}
 

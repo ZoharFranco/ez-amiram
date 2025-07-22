@@ -86,6 +86,7 @@
       "fullSimulation": "Full Simulation",
       "fullSimulationDescription": "Take a full practice test",
       "recentProgress": "Recent Progress",
+      "questionsProgress": "{{answered}} / {{total}} Questions",
       "topics": {
         "restatement": "Restatement",
         "restatementDescription": "Practice rephrasing sentences",
@@ -204,7 +205,8 @@
       "status": {
         "learning": "Currently Learning",
         "toLearn": "To Learn",
-        "learned": "Learned"
+        "learned": "Learned",
+        "total": "Total Words"
       },
       "selection": {
         "category": "Category",
