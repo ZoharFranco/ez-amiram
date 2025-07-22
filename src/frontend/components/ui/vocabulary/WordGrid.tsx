@@ -49,7 +49,7 @@ export default function WordGrid({ words, onWordClick }: WordGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
       {localWords.map((word, index) => (
         <div
           key={`${word.word}-${word.category}-${word.level}`}

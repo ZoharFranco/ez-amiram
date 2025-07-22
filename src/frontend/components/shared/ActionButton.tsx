@@ -44,7 +44,7 @@ const ActionButton: React.FC<ActionButtonPropsWithColor> = ({
   return (
     <button
       type="button"
-      className={`w-fill py-3 px-8 rounded-lg ${colorClasses.base} ${colorClasses.hover} ${colorClasses.text} font-semibold text-sm sm:text-base transition-colors duration-200 shadow ${className}`}
+      className={`inline-flex items-center justify-center py-4 px-10 rounded-xl ${colorClasses.base} ${colorClasses.hover} ${colorClasses.text} font-semibold text-2xl sm:text-3xl transition-colors duration-200 shadow-md ${className}`}
       {...props}
     >
       {children}

@@ -1,6 +1,7 @@
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
 import { FireIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import ActionButton from './shared/ActionButton';
 
 interface CurrentGradeCardProps {
@@ -10,18 +11,30 @@ interface CurrentGradeCardProps {
 }
 
 // Responsive sizes
-const sizeMobile = 220;
-const sizeDesktop = 320;
 const strokeWidthMobile = 12;
 const strokeWidthDesktop = 16;
+const sizeMobile = 240;
+const sizeDesktop = 320;
 
 export default function CurrentGradeCard({ predictedGrade, learningStreak, animateProgress }: CurrentGradeCardProps) {
   const { t } = useLanguage();
   const router = useRouter();
+  const [size, setSize] = useState(sizeDesktop);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      setSize(mobile ? sizeMobile : sizeDesktop);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Use window width to determine size (SSR safe fallback)
-  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 640 : false;
-  const size = isMobile ? sizeMobile : sizeDesktop;
   const strokeWidth = isMobile ? strokeWidthMobile : strokeWidthDesktop;
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -41,6 +54,7 @@ export default function CurrentGradeCard({ predictedGrade, learningStreak, anima
         <span>{learningStreak} {t('pages.home.learningStreak')}</span>
       </div>
       <div className="flex flex-col items-center w-full mb-8">
+      <span className=" text-3xl sm:text-4xl font-medium mb-8">{t('pages.home.currentGrade')}</span>
         <div className="relative mb-1 sm:mb-2">
           <svg width={size} height={size}>
             {/* Background arc */}
@@ -70,10 +84,9 @@ export default function CurrentGradeCard({ predictedGrade, learningStreak, anima
           </svg>
           {/* Grade number */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-7xl sm:text-8xl font-extrabold text-emerald-600">{predictedGrade}</span>
+            <span className="text-6xl sm:text-7xl font-extrabold text-emerald-600">{predictedGrade}</span>
           </div>
         </div>
-        <span className="text-gray-500 text-3xl sm:text-4xl font-medium mt-5">{t('pages.home.currentGrade')}</span>
       </div>
       {/* Go to Simulations button */}
         <ActionButton

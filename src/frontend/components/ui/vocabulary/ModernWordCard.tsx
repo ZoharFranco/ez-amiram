@@ -45,7 +45,7 @@ export default function ModernWordCard({ word, onClick, onStatusIconClick }: Mod
     <button
       type="button"
       className={`
-        w-full text-left flex items-center gap-2 sm:gap-5 px-3 py-2 sm:px-4 sm:py-5
+        w-full text-left flex items-center gap-4 sm:gap-5 px-3 py-4 sm:px-4 sm:py-5
         rounded-2xl border ${borderColor} bg-white
         hover:bg-gray-50 active:bg-gray-100
         transition-colors duration-200

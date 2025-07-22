@@ -32,18 +32,24 @@ export default function Home() {
       progress: 75,
       title: t('pages.home.topics.restatement'),
       description: t('pages.home.topics.restatementDescription'),
+      questionsAnswered: 15,
+      totalQuestions: 20,
     },
     {
       key: 'sentenceCompletion',
       progress: 85,
       title: t('pages.home.topics.sentenceCompletion'),
       description: t('pages.home.topics.sentenceCompletionDescription'),
+      questionsAnswered: 17,
+      totalQuestions: 20,
     },
     {
       key: 'readingComprehension',
       progress: 70,
       title: t('pages.home.topics.readingComprehension'),
       description: t('pages.home.topics.readingComprehensionDescription'),
+      questionsAnswered: 14,
+      totalQuestions: 20,
     },
   ];
 

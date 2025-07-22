@@ -14,7 +14,7 @@ interface Translations {
 }
 
 type LanguageContextType = {
-    t: (key: string) => string;
+    t: (key: string, variables?: { [key: string]: string | number }) => string;
     setLanguage: (lang: Language) => void;
     currentLanguage: Language;
     dir: 'rtl' | 'ltr';
@@ -47,7 +47,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem('language', language);
     }, [language]);
 
-    const t = (key: string): string => {
+    const t = (key: string, variables?: { [key: string]: string | number }): string => {
         const keys = key.split('.');
         let value: TranslationValue = translations[language];
 
@@ -59,7 +59,16 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
             }
         }
 
-        return typeof value === 'string' ? value : key;
+        if (typeof value === 'string') {
+            if (variables) {
+                return Object.entries(variables).reduce((acc, [k, v]) => {
+                    return acc.replace(new RegExp(`{{${k}}}`, 'g'), String(v));
+                }, value);
+            }
+            return value;
+        }
+
+        return key;
     };
 
     return (
