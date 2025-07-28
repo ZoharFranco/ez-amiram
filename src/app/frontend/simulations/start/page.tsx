@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useEffect, useState, Suspense } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSimulationStore } from '@/frontend/stores/simulation-store';
 import { db } from '@/backend/services/external/firebase/firebase';
 import SimulationRunPage from '@/frontend/components/ui/pages/simulations/simulationRunPage';
 
-export default function SimulationStartPage() {
+// Wrap the component that uses useSearchParams in a Suspense boundary
+function SimulationStartPageInner() {
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const simId = searchParams.get('id');
@@ -67,4 +69,12 @@ export default function SimulationStartPage() {
   }
 
   return null;
+}
+
+export default function SimulationStartPage() {
+  return (
+    <Suspense fallback={<div>Loading simulation...</div>}>
+      <SimulationStartPageInner />
+    </Suspense>
+  );
 }
