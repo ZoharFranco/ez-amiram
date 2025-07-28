@@ -1,9 +1,16 @@
-interface Question {
-  id: string;
-  question: string;
-  answer: string;
-  createdAt: Date;
-  updatedAt: Date;
+export enum QuestionType {
+  SentenceCompletion = 'Sentence Completion',
+  Restatement = 'Restatement',
+  TextAndQuestions = 'Text and Questions',
 }
 
-export default Question;
+export interface Question {
+  id: string;
+  text: string;
+  options: string[];
+  correctAnswer: number;
+  type: QuestionType;
+  createdAt: Date;
+  updatedAt: Date;
+  passageId?: string;
+}

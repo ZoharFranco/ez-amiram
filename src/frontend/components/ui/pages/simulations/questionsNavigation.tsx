@@ -20,12 +20,16 @@ const QuestionsNavigationButtons: React.FC<QuestionsNavigationButtonsProps> = ({
   isAnswerSelected,
   allQuestionsAnswered,
 }) => {
+  // Optionally use store for navigation if not provided
+  const handlePrev = onPrevious || (() => {});
+  const handleNext = onNext || (() => {});
+  const handleSubmit = onSubmit || (() => {});
   const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
 
   return (
     <div className="flex justify-between gap-4 mt-4">
       <button
-        onClick={onPrevious}
+        onClick={handlePrev}
         disabled={currentQuestionIndex === 0}
         className="flex-1 py-3 px-4 rounded-xl border border-gray-200 text-gray-600 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 transition-colors font-semibold"
       >
@@ -33,7 +37,7 @@ const QuestionsNavigationButtons: React.FC<QuestionsNavigationButtonsProps> = ({
       </button>
       {isLastQuestion ? (
         <button
-          onClick={onSubmit}
+          onClick={handleSubmit}
           disabled={!allQuestionsAnswered} // Disable if not all questions are answered
           className="flex-1 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-xl py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed hover:from-blue-700 hover:to-blue-600 transition-colors font-semibold shadow-lg"
         >
@@ -41,7 +45,7 @@ const QuestionsNavigationButtons: React.FC<QuestionsNavigationButtonsProps> = ({
         </button>
       ) : (
         <button
-          onClick={onNext}
+          onClick={handleNext}
           disabled={!isAnswerSelected} // Disable if current question is not answered
           className="flex-1 bg-blue-600 text-white rounded-xl py-3 px-4 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 transition-colors font-semibold shadow-lg"
         >

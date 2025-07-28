@@ -13,7 +13,7 @@ interface CurrentGradeCardProps {
 // Responsive sizes
 const strokeWidthMobile = 12;
 const strokeWidthDesktop = 16;
-const sizeMobile = 240;
+const sizeMobile = 180;
 const sizeDesktop = 320;
 
 export default function CurrentGradeCard({ predictedGrade, learningStreak, animateProgress }: CurrentGradeCardProps) {

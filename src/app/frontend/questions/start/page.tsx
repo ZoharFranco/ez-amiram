@@ -1,172 +1,111 @@
 'use client';
 
 import PageTitle from '@/frontend/components/PageTitle';
-import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { ArrowLeftIcon, BoltIcon, CheckCircleIcon, SparklesIcon } from '@heroicons/react/24/outline';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
+import { db } from '@/backend/services/external/firebase/firebase';
+import SimulationsHandler from '@/frontend/handlers/firebase/simulations';
+import { useAuth } from '@/frontend/hooks/use-auth';
+import { useEffect, useState } from 'react';
+import { Question } from '@/lib/types/question';
+import { useSimulationStore } from '@/frontend/stores/simulation-store';
+import { QuestionType } from '@/lib/types/question';
+import SimulationRunPage from '@/frontend/components/ui/pages/simulations/simulationRunPage';
 
+const QUESTION_TYPES = [
+  { key: QuestionType.SentenceCompletion, label: 'Sentence Completion' },
+  { key: QuestionType.Restatement, label: 'Restatement' },
+  { key: QuestionType.TextAndQuestions, label: 'Text and Questions' },
+];
 
+function QuestionsStartPage() {
+  const { user } = useAuth();
+  const [selectedType, setSelectedType] = useState<QuestionType>(QuestionType.SentenceCompletion);
+  const [questions, setQuestions] = useState<Question[]>([]);
+  const [progress, setProgress] = useState<Record<string, { completed: number; total: number }>>({});
+  const [loading, setLoading] = useState(false);
+  const fetchQuiz = useSimulationStore(state => state.fetchQuiz);
+  const simulationLoading = useSimulationStore(state => state.simulationLoading);
+  const currentSimulation = useSimulationStore(state => state.currentSimulation);
+  const [quizStarted, setQuizStarted] = useState(false);
 
-function QuickLearn() {
-    const router = useRouter();
-    const searchParams = useSearchParams();
-    const { t, currentLanguage } = useLanguage();
-    const isRTL = currentLanguage === 'he' || currentLanguage === 'ar';
+  useEffect(() => {
+    if (!db) return;
+    const handler = new SimulationsHandler(db);
+    (async () => {
+      const newProgress: Record<string, { completed: number; total: number }> = {};
+      for (const type of QUESTION_TYPES) {
+        const qs = await handler.fetchQuestionsByType(type.key);
+        newProgress[type.key] = { completed: 0, total: qs.length };
+      }
+      setProgress(newProgress);
+    })();
+  }, [user]);
 
-    const [timeLeft, setTimeLeft] = useState<number>(0);
-    const [isActive, setIsActive] = useState<boolean>(false);
-    const [completedTasks, setCompletedTasks] = useState<number>(0);
+  useEffect(() => {
+    if (!db || !selectedType) return;
+    const handler = new SimulationsHandler(db);
+    setLoading(true);
+    handler.fetchQuestionsByType(selectedType).then(qs => {
+      setQuestions(qs);
+      setLoading(false);
+    });
+  }, [selectedType]);
 
-    // Get the duration from URL params (in minutes)
-    const durationMinutes = parseInt(searchParams.get('duration') || '15');
+  const handleStartQuiz = () => {
+    if (db && selectedType) {
+      fetchQuiz(db, selectedType);
+      setQuizStarted(true);
+    }
+  };
 
-    useEffect(() => {
-        setTimeLeft(durationMinutes * 60); // Convert minutes to seconds
-    }, [durationMinutes]);
+  if (simulationLoading) return <div>Loading quiz...</div>;
+  if (quizStarted && currentSimulation) return <SimulationRunPage simulation={currentSimulation} />;
 
-    useEffect(() => {
-        let interval: NodeJS.Timeout;
-
-        if (isActive && timeLeft > 0) {
-            interval = setInterval(() => {
-                setTimeLeft((prevTime) => prevTime - 1);
-            }, 1000);
-        } else if (timeLeft === 0) {
-            setIsActive(false);
-        }
-
-        return () => clearInterval(interval);
-    }, [isActive, timeLeft]);
-
-    const formatTime = (seconds: number): string => {
-        const mins = Math.floor(seconds / 60);
-        const secs = seconds % 60;
-        return `${mins}:${secs.toString().padStart(2, '0')}`;
-    };
-
-    const startSession = () => {
-        setIsActive(true);
-    };
-
-    const completeTask = () => {
-        setCompletedTasks(prev => prev + 1);
-    };
-
-    return (
-        <div dir={isRTL ? 'rtl' : 'ltr'} className="min-h-screen bg-[rgb(var(--color-background))]">
-            <header className="sticky top-0 glass z-10 border-b border-gray-100/50">
-                <div className="px-6 py-4 flex items-center justify-between max-w-5xl mx-auto">
-                    <button
-                        onClick={() => router.back()}
-                        className="text-[rgb(var(--color-text-light))] hover:text-[rgb(var(--color-text))] transition-colors"
-                    >
-                        <ArrowLeftIcon className="w-6 h-6" />
-                    </button>
-                    <PageTitle title={t('pages.quickLearn.title')} />
-                    <div className="badge badge-primary">
-                        <BoltIcon className="w-5 h-5" />
-                    </div>
-                </div>
-            </header>
-
-            <main className="px-6 py-8 max-w-5xl mx-auto">
-                {/* Timer Display */}
-                <div className="card p-8 mb-8 gradient-animate">
-                    <div className="relative z-10">
-                        <div className="flex flex-col items-center text-center">
-                            <div className="relative mb-6">
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <SparklesIcon className="w-8 h-8 text-white" />
-                                </div>
-                                <svg className="w-32 h-32 transform -rotate-90">
-                                    <circle
-                                        className="text-white/20"
-                                        strokeWidth="6"
-                                        stroke="currentColor"
-                                        fill="transparent"
-                                        r="58"
-                                        cx="64"
-                                        cy="64"
-                                    />
-                                    <circle
-                                        className="text-white"
-                                        strokeWidth="6"
-                                        strokeDasharray={364}
-                                        strokeDashoffset={364 - (364 * timeLeft) / (durationMinutes * 60)}
-                                        strokeLinecap="round"
-                                        stroke="currentColor"
-                                        fill="transparent"
-                                        r="58"
-                                        cx="64"
-                                        cy="64"
-                                    />
-                                </svg>
-                            </div>
-                            <span className="text-display text-white mb-2">
-                                {formatTime(timeLeft)}
-                            </span>
-                            {!isActive && (
-                                <button
-                                    onClick={startSession}
-                                    className="btn btn-secondary mt-6 w-full max-w-sm"
-                                >
-                                    {t('pages.quickLearn.startSession')}
-                                </button>
-                            )}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Learning Content */}
-                {isActive && (
-                    <div className="space-y-8">
-                        <div className="card p-8">
-                            <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-title">
-                                    {t('pages.quickLearn.currentTask')}
-                                </h2>
-                                <div className="badge badge-accent">
-                                    <CheckCircleIcon className="w-4 h-4 inline-block mr-1" />
-                                    <span>{completedTasks} completed</span>
-                                </div>
-                            </div>
-                            <p className="text-body text-[rgb(var(--color-text-light))] mb-6">
-                                {t('pages.quickLearn.taskDescription')}
-                            </p>
-                            <button
-                                onClick={completeTask}
-                                className="btn btn-primary w-full"
-                            >
-                                Complete Task
-                            </button>
-                        </div>
-
-                        <div className="card p-8">
-                            <h2 className="text-title mb-6">
-                                {t('pages.quickLearn.progress')}
-                            </h2>
-                            <div className="progress-bar">
-                                <div
-                                    className="progress-bar-fill"
-                                    style={{
-                                        width: `${((durationMinutes * 60 - timeLeft) / (durationMinutes * 60)) * 100}%`
-                                    }}
-                                />
-                            </div>
-                        </div>
-                    </div>
-                )}
-            </main>
+  return (
+    <div className="min-h-screen bg-gray-50 py-10">
+      <div className="max-w-2xl mx-auto">
+        <PageTitle title="Questions Practice" subtitle="Choose a type and start practicing" color="blue" />
+        <div className="flex flex-col gap-6 mt-10">
+          {QUESTION_TYPES.map(type => (
+            <button
+              key={type.key}
+              className={`rounded-xl p-6 border shadow flex items-center justify-between transition-all duration-200 ${selectedType === type.key ? 'bg-blue-100 border-blue-400' : 'bg-white border-gray-200 hover:bg-blue-50'}`}
+              onClick={() => setSelectedType(type.key as QuestionType)}
+            >
+              <span className="font-semibold text-lg">{type.label}</span>
+              <span className="text-sm text-gray-600">
+                {progress[type.key]?.completed ?? 0} / {progress[type.key]?.total ?? 0} completed
+              </span>
+            </button>
+          ))}
         </div>
-    );
+        <div className="mt-10">
+          <h2 className="text-xl font-bold mb-4">{selectedType} Questions</h2>
+          {loading ? (
+            <div>Loading questions...</div>
+          ) : (
+            <ul className="space-y-4">
+              {questions.map(q => (
+                <li key={q.id} className="p-4 bg-white rounded-lg border shadow">
+                  <div className="font-medium mb-2">{q.text}</div>
+                  <ul className="list-disc ml-6">
+                    {q.options?.map((opt: string, i: number) => (
+                      <li key={i}>{opt}</li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+              {questions.length === 0 && <li>No questions found for this type.</li>}
+            </ul>
+          )}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <button className="btn btn-primary px-8 py-3 text-lg" onClick={handleStartQuiz}>
+            Start Quiz for {QUESTION_TYPES.find(t => t.key === selectedType)?.label}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default function QuickLearnPage() {
-    return (
-        // You could have a loading skeleton as the `fallback` too
-        <Suspense fallback={<div>Loading...</div>}>
-            <QuickLearn />
-        </Suspense>
-    )
-}
+export default QuestionsStartPage;

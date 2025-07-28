@@ -3,6 +3,8 @@ type WordStatus = 'learned' | 'learning' | 'toLearn';
 interface VocabularyWord {
   id: string;
   word: string;
+  definition: string;
+  example: string;
   hebrewTranslation: string;
   status: WordStatus;
   level: number;

@@ -36,6 +36,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'development') {
+      import('@/backend/services/external/firebase/uploadExampleQuestions').then(mod => {
+        mod.uploadExampleQuestionsIfNeeded();
+      });
+    }
+  }, []);
+
   return (
     <html lang="he">
       <head>

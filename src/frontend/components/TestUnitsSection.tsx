@@ -79,7 +79,7 @@ export default function TestUnitsSection({ topics }: TestUnitsSectionProps) {
             </div>
             <TopicProgressBar progress={topic.progress} />
             <div className="flex justify-between text-gray-500 text-sm sm:text-base mt-1">
-              <div className="text-left">
+              <div className="text-left hidden sm:block">
                 {topic.description}
               </div>
               <div className="text-right font-medium">
