@@ -1,4 +1,4 @@
-import { VocabularyWord, WordStatus } from '@/config/content/vocabulary/vocabulary';
+import { VocabularyWord, WordStatus } from '@/lib/types/vocabulary';
 import { TimerIcon } from 'lucide-react';
 import { FaRegCircle, FaCheckCircle } from 'react-icons/fa';
 

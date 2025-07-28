@@ -1,10 +1,16 @@
-import Question from "./question";
+import { Question, QuestionType } from "./question";
+
+interface SimulationStage {
+  type: QuestionType;
+  questions: Question[];
+  timeInSeconds: number;
+}
 
 interface Simulation {
-  id: string;
+  id?: string;
   name: string;
   description: string;
-  questions: Question[];
+  stages: SimulationStage[];
   createdAt: Date;
   updatedAt: Date;
 }

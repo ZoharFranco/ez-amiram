@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { VocabularyWord, WordStatus } from '@/config/content/vocabulary/vocabulary';
+import { useState, useRef, useCallback } from 'react';
+import { VocabularyWord, WordStatus } from '@/lib/types/vocabulary';
 import BackButton from './BackButton';
 import LevelHeader from './LevelHeader';
 import WordGrid from './WordGrid';
@@ -45,22 +45,33 @@ export default function LevelView({
   const learningCount = words.filter(word => word.status === 'learning').length;
   const [showTypeSelector, setShowTypeSelector] = useState(false);
   const [selectedQuestionTypes, setSelectedQuestionTypes] = useState<QuizState['questionType'][]>([]);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   const handleWordClick = (word: VocabularyWord) => {
     setSelectedWord(word);
   };
 
-  const handleStatusChange = (status: WordStatus) => {
+  const handleStatusChange = useCallback((status: WordStatus) => {
     if (selectedWord) {
+      // Preserve scroll position
+      const scrollPosition = scrollContainerRef.current?.scrollTop || 0;
+      
       onStatusChange(selectedWord, status);
       setSelectedWord({ ...selectedWord, status });
+      
+      // Restore scroll position after state update
+      requestAnimationFrame(() => {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTop = scrollPosition;
+        }
+      });
     }
-  };
+  }, [selectedWord, onStatusChange]);
 
   const handleStartQuiz = () => {
     // Start with random questions by default
     onStartQuiz();
   };
-
 
   const handleTypeSelectorClose = () => {
     setShowTypeSelector(false);
@@ -74,39 +85,70 @@ export default function LevelView({
 
   return (
     <div
-      className={`min-h-screen flex flex-col px-2 py-4 sm:px-4 sm:py-4 max-w-full sm:max-w-6xl mx-auto ${
+      className={`min-h-screen flex flex-col ${
         showTypeSelector ? 'backdrop-blur-sm' : ''
       }`}
     >
-      <div className="">
-        <BackButton onClick={onBack} />
-      </div>
-      <div className="mb-2 sm:mb-4">
-        <LevelHeader
-          level={level}
-          wordCount={words.length}
-          learnedCount={learnedCount}
-          learningCount={learningCount}
-          // LevelHeader should use responsive text and padding internally
-        />
+      {/* Sticky header section with back button and level header */}
+      <div className="sticky top-0 z-30 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+        <div className="px-2 py-3 sm:px-4 sm:py-3 max-w-full sm:max-w-6xl mx-auto">
+          <div className="mb-1 sm:mb-1">
+            <BackButton onClick={onBack} />
+          </div>
+          <LevelHeader
+            level={level}
+            wordCount={words.length}
+            learnedCount={learnedCount}
+            learningCount={learningCount}
+            // LevelHeader should use responsive text and padding internally
+          />
+        </div>
       </div>
 
-      {/* Scrollable word grid */}
-      <div className="flex-1 overflow-y-auto mb-2 max-h-[150vh]">
-        <WordGrid
-          words={words}
-          onWordClick={handleWordClick}
-          // WordGrid should use responsive grid, text, and padding internally
-        />
+      {/* Enhanced scrollable word grid */}
+      <div className="flex-1 relative">
+        <div 
+          ref={scrollContainerRef}
+          className="h-full overflow-y-auto overflow-x-hidden custom-scrollbar smooth-scroll"
+          style={{
+            scrollBehavior: 'smooth',
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#10b981 #f3f4f6',
+          }}
+        >
+          <div className="p-4 pb-24 max-w-full sm:max-w-6xl mx-auto">
+            <WordGrid
+              words={words}
+              onWordClick={handleWordClick}
+            />
+          </div>
+        </div>
+        
+        {/* Scroll to top button - only show when there are many words */}
+        {words.length > 12 && (
+          <button
+            onClick={() => {
+              scrollContainerRef.current?.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="absolute bottom-6 right-6 bg-emerald-500 hover:bg-emerald-600 text-white p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-20 opacity-80 hover:opacity-100"
+            aria-label="Scroll to top"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+          </button>
+        )}
       </div>
 
       {/* Fixed quiz button at bottom */}
-      <div className="sticky bottom-0 bg-white pt-2 pb-2 sm:pt-4 sm:pb-4 border-t border-gray-100">
-        <QuizButton
-          onClick={handleStartQuiz}
-          wordCount={words.length}
-          // QuizButton should use responsive text and padding internally
-        />
+      <div className="sticky bottom-0 bg-white/95 backdrop-blur-sm pt-2 pb-2 sm:pt-4 sm:pb-4 border-t border-gray-100 shadow-lg z-30">
+        <div className="max-w-full sm:max-w-6xl mx-auto px-2 sm:px-4">
+          <QuizButton
+            onClick={handleStartQuiz}
+            wordCount={words.length}
+            // QuizButton should use responsive text and padding internally
+          />
+        </div>
       </div>
 
       {/* Modals */}

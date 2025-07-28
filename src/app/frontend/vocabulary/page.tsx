@@ -1,12 +1,17 @@
 'use client';
 
-import { VocabularyWord, vocabularyWords, WordStatus } from '@/config/content/vocabulary/vocabulary';
+import { VocabularyWord, WordStatus } from '@/lib/types/vocabulary';
 import ClientLayout from '@/frontend/components/ClientLayout';
 import PageTitle from '@/frontend/components/PageTitle';
 import SelectionButton from '@/frontend/components/shared/selectionButton';
 import { useLanguage } from '@/frontend/contexts/LanguageContext';
-import { useState } from 'react';
+import { useAuth } from '@/frontend/hooks/use-auth';
+import { useVocabularyStore } from '@/frontend/stores/vocabulary-store';
+import VocabularyHandler from '@/frontend/handlers/firebase/vocabulary';
+import { db } from '@/backend/services/external/firebase/firebase';
+import { useState, useEffect } from 'react';
 import { LevelView } from '@/frontend/components/ui/vocabulary';
+import Spinner from '@/frontend/components/shared/spinner';
 
 // --- Main Page ---
 type ViewBy = 'category' | 'level';
@@ -34,8 +39,8 @@ function GroupList({ groupedVocabularyWord, onSelectGroup, getProgress, viewBy, 
             className="cursor-pointer p-3 rounded-xl border-2 border-gray-200 hover:border-emerald-300 hover:bg-emerald-50 transition-all duration-300 hover:shadow-lg"
             onClick={() => onSelectGroup(groupName)}
           >
-            <div className="flex justify-between items-center mb-1">
-              <div className="flex items-center gap-2 w-full">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center gap-1 w-full">
                 <div className="flex items-center gap-1">
                   <span className="text-gray-500 text-lg font-medium">{groupLabel}:</span>
                   <h2 className="text-2xl font-bold text-emerald-700">{groupName}</h2>
@@ -50,14 +55,24 @@ function GroupList({ groupedVocabularyWord, onSelectGroup, getProgress, viewBy, 
                 </div>
               </div>
             </div>
-            <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
-              <div
-                className="h-3 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full transition-all duration-500"
-                style={{ width: `${progress}%` }}
-              />
-            </div>
-            <div className="text-xs text-gray-600 md:text-lg text-center mt-2">
+            <div className="text-lg text-gray-600 md:text-2xl text-center mt-1 mb-4">
               {items.length} {t('pages.vocabulary.words') || 'words'}
+            </div>
+            {/* Progress bar as a border at the bottom of the card */}
+            <div className="relative -mx-3 -mb-3">
+              <div className="absolute left-0 bottom-0 w-full h-2 rounded-b-xl overflow-hidden">
+                {/* Progress bar background */}
+                <div className="absolute top-0 left-0 w-full h-2 bg-gray-200 rounded-b-xl" style={{ zIndex: 0 }} />
+                {/* Progress bar foreground */}
+                <div
+                  className="relative h-2 bg-gradient-to-r from-emerald-400 to-emerald-600 transition-all duration-500 rounded-b-xl"
+                  style={{ width: `${progress}%`, zIndex: 1 }}
+                />
+                <div
+                  className="absolute top-0 left-0 w-full h-2 border-b-2 border-gray-200 rounded-b-xl pointer-events-none"
+                  style={{ zIndex: 1 }}
+                />
+              </div>
             </div>
           </div>
         );
@@ -68,10 +83,30 @@ function GroupList({ groupedVocabularyWord, onSelectGroup, getProgress, viewBy, 
 
 export default function VocabularyPage() {
   const { t } = useLanguage();
+  const { user } = useAuth();
   const [viewBy, setViewBy] = useState<ViewBy>('level');
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
-  const [words, setWords] = useState<VocabularyWord[]>(vocabularyWords);
   const [quizOpen, setQuizOpen] = useState(false);
+  
+  // Use vocabulary store
+  const {
+    words,
+    loading,
+    categoryProgress,
+    levelProgress,
+    loadUserProgress,
+    saveUserProgress,
+    updateWordStatus
+  } = useVocabularyStore();
+
+  // Load user progress on component mount
+  useEffect(() => {
+    if (user?.uid) {
+      // Load user-specific progress and update store
+      loadUserProgress(db, user.uid);
+    }
+    // Words are now initialized immediately in the store, no need to call initializeWords
+  }, [user?.uid, loadUserProgress]);
 
   // Group sub-items by category or level
   const groupedVocabularyWords: Record<string, VocabularyWord[]> = words.reduce((groups, item) => {
@@ -81,21 +116,41 @@ export default function VocabularyPage() {
     return groups;
   }, {} as Record<string, VocabularyWord[]>);
 
-  // Calculate progress for a group (learned / total)
-  function getProgress(items: VocabularyWord[]) {
-    const total = items.length;
-    const learned = items.filter((i) => i.status === 'learned').length;
-    return total > 0 ? (learned / total) * 100 : 0;
+  // Get cached progress for a group
+  function getProgress(groupName: string, viewBy: ViewBy): number {
+    if (viewBy === 'category') {
+      return categoryProgress[groupName]?.percentage || 0;
+    } else {
+      return levelProgress[groupName]?.percentage || 0;
+    }
   }
 
   // Handler for changing word status
-  function handleStatusChange(word: VocabularyWord, status: WordStatus) {
-    setWords((prev) =>
-      prev.map((w) =>
-        w.word === word.word && w.category === word.category && w.level === word.level
-          ? { ...w, status }
-          : w
-      )
+  async function handleStatusChange(word: VocabularyWord, status: WordStatus) {
+    // Update local state immediately (this will recalculate cached progress)
+    updateWordStatus(word.id, status);
+    
+    // Save to Firebase if user is authenticated
+    if (user?.uid) {
+      try {
+        const vocabularyHandler = new VocabularyHandler(db);
+        await vocabularyHandler.updateWordStatus(user.uid, word.id, status);
+        await saveUserProgress(db, user.uid);
+      } catch (error) {
+        console.error('Error saving word status:', error);
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred';
+        alert(`Failed to save progress: ${errorMessage}. Your changes are saved locally but may not sync.`);
+      }
+    }
+  }
+
+  // Show loading state
+  if (loading) {
+    return (
+      <ClientLayout>
+        <Spinner
+        />
+      </ClientLayout>
     );
   }
 
@@ -126,6 +181,7 @@ export default function VocabularyPage() {
           subtitle={t('pages.vocabulary.subtitle')}
           color="blue"
         />
+        
         <div className="mb-30">
           <div className="flex justify-center gap-4 m-4">
             <SelectionButton
@@ -148,7 +204,11 @@ export default function VocabularyPage() {
           <GroupList
             groupedVocabularyWord={groupedVocabularyWords}
             onSelectGroup={setSelectedGroup}
-            getProgress={getProgress}
+            getProgress={(items) => {
+              // Get the group name from the first item
+              const groupName = viewBy === 'category' ? items[0]?.category : items[0]?.level.toString();
+              return groupName ? getProgress(groupName, viewBy) : 0;
+            }}
             viewBy={viewBy}
             t={t}
           />

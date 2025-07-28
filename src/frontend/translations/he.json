@@ -114,7 +114,7 @@
       }
     },
     "status": {
-      "learning": "כרגע בלמידה",
+      "learning": "בלמידה",
       "toLearn": "צריך ללמוד",
       "learned": "נלמד",
       "total": "סך הכל מילים"

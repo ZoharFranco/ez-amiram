@@ -1,12 +1,7 @@
 // components/QuestionDisplay.tsx
 import React from 'react';
-
-type Question = {
-  id: number;
-  text: string;
-  options: string[];
-  correctAnswer: number;
-};
+import { useSimulationStore } from '@/frontend/stores/simulation-store';
+import { Question } from '@/lib/types/question';
 
 type QuestionDisplayProps = {
   question: Question;
@@ -21,6 +16,9 @@ const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
   onAnswerSelect,
   isSubmitted,
 }) => {
+  const storeAnswerSelect = useSimulationStore(state => state.setUserAnswers);
+  // If onAnswerSelect is not provided, use store
+  const handleSelect = onAnswerSelect || ((idx: number) => storeAnswerSelect([idx]));
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 md:p-8 flex flex-col gap-4 md:gap-6 animate-fade-in-scale" dir="ltr">
       {/* Motivational message */}
@@ -43,7 +41,7 @@ const QuestionDisplay: React.FC<QuestionDisplayProps> = ({
                 ${isSubmitted ? 'cursor-default opacity-80' : 'cursor-pointer'}
               `}
               style={{ transition: 'box-shadow 0.2s, background 0.2s, transform 0.15s', textAlign: 'left' }}
-              onClick={() => onAnswerSelect(index)}
+              onClick={() => handleSelect(index)}
               tabIndex={0}
               disabled={isSubmitted}
             >

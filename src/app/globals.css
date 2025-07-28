@@ -6,6 +6,64 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Smooth scrolling for all elements */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styles for vocabulary lists */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Enhanced smooth scrolling with momentum on mobile */
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+}
+
+/* Grid animation stagger effect */
+.grid-stagger > * {
+  animation: slideInUp 0.6s ease-out both;
+}
+
+.grid-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.grid-stagger > *:nth-child(2) { animation-delay: 75ms; }
+.grid-stagger > *:nth-child(3) { animation-delay: 150ms; }
+.grid-stagger > *:nth-child(4) { animation-delay: 225ms; }
+.grid-stagger > *:nth-child(5) { animation-delay: 300ms; }
+.grid-stagger > *:nth-child(6) { animation-delay: 375ms; }
+.grid-stagger > *:nth-child(7) { animation-delay: 450ms; }
+.grid-stagger > *:nth-child(8) { animation-delay: 525ms; }
+.grid-stagger > *:nth-child(n+9) { animation-delay: 600ms; }
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Existing fade-in animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
